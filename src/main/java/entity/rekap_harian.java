@@ -3,8 +3,8 @@ package entity;
 
 public class rekap_harian implements Entity{
     public static String tableName = "rekap_harian";
-    private int id, no_rm;
-    private String nama, nama_dokter, jenis_poli, jenis_kelamin, jam;
+    private int id, id_dokter, id_master;
+    private String  jam;
     public rekap_harian(){
         
     }
@@ -17,6 +17,22 @@ public class rekap_harian implements Entity{
         return id;
     }
 
+    public void setId_dokter(int id_dokter) {
+        this.id_dokter = id_dokter;
+    }
+
+    public int getId_dokter() {
+        return id_dokter;
+    }
+
+    public void setId_master(int id_master) {
+        this.id_master = id_master;
+    }
+
+    public int getId_master() {
+        return id_master;
+    }
+
     public void setJam(String jam) {
         this.jam = jam;
     }
@@ -25,45 +41,7 @@ public class rekap_harian implements Entity{
         return jam;
     }
 
-    public void setJenis_kelamin(String jenis_kelamin) {
-        this.jenis_kelamin = jenis_kelamin;
-    }
-
-    public String getJenis_kelamin() {
-        return jenis_kelamin;
-    }
-
-    public void setJenis_poli(String jenis_poli) {
-        this.jenis_poli = jenis_poli;
-    }
-
-    public String getJenis_poli() {
-        return jenis_poli;
-    }
-
-    public void setNama(String nama) {
-        this.nama = nama;
-    }
-
-    public String getNama() {
-        return nama;
-    }
-
-    public void setNama_dokter(String nama_dokter) {
-        this.nama_dokter = nama_dokter;
-    }
-
-    public String getNama_dokter() {
-        return nama_dokter;
-    }
-
-    public void setNo_rm(int no_rm) {
-        this.no_rm = no_rm;
-    }
-
-    public int getNo_rm() {
-        return no_rm;
-    }
+    
     
     
 }

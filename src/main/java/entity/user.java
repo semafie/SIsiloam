@@ -15,6 +15,13 @@ public class user implements Entity{
         this.email = email;
         this.level = level;
     }
+    public user(int id, String username, String password, String email, int level){
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.level = level;
+    }
 
     public void setId(int id) {
         this.id = id;

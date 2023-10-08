@@ -1,1 +1,10 @@
+entity\data_dokter.class
+repository\userRepository.class
+entity\user.class
+entity\data_master.class
+entity\rekap_harian.class
+repository\Repository.class
+repository\data_dokterRepository.class
 util\Conn.class
+entity\Entity.class
+repository\cek.class

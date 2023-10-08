@@ -1,11 +1,28 @@
 
 package entity;
 
+import java.util.Date;
+
 public class data_dokter implements Entity{
     public static String tableName = "data_dokter";
     private int id, no_hp, no_antrian;
-    private String nama, jenis_poli, jadwal, tanggal;
-
+    private String nama, jenis_poli, jadwal;
+    Date tanggal;
+    
+    public data_dokter(String nama, int no_hp, String jenis_poli, String jadwal, int no_antrian, Date tanggal){
+        this.id = id;
+        this.nama = nama;
+        this.no_hp = no_hp;
+        this.jenis_poli = jenis_poli;
+        this.jadwal = jadwal;
+        this.no_antrian = no_antrian;
+        this.tanggal = tanggal;
+    }
+    
+    public data_dokter(){
+        
+    }
+    
     public void setId(int id) {
         this.id = id;
     }
@@ -54,12 +71,14 @@ public class data_dokter implements Entity{
         return no_hp;
     }
 
-    public void setTanggal(String tanggal) {
+    public void setTanggal(Date tanggal) {
         this.tanggal = tanggal;
     }
 
-    public String getTanggal() {
+    public Date getTanggal() {
         return tanggal;
     }
+
+    
     
 }
