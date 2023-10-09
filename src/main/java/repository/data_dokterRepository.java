@@ -53,9 +53,15 @@ public class data_dokterRepository implements Repository<data_dokter> {
 
     @Override
     public boolean add(data_dokter dokter) {
+<<<<<<< HEAD
         String sql = "inser into " + tableName + " values (?,?,?,?,?,?,?)";
         try {
             Connection koneksi = (Connection) Conn.configDB();
+=======
+    String sql = "insert into "+tableName+ " values(?,?,?,?,?,?,?)";
+        try {
+            Connection koneksi =(Connection)Conn.configDB();
+>>>>>>> cbed06f9ea64d21a87d8a1bb1e88316442dcb8ff
             PreparedStatement pst = koneksi.prepareStatement(sql);
             pst.setInt(1, dokter.getId());
             pst.setString(2, dokter.getNama());
@@ -69,12 +75,18 @@ public class data_dokterRepository implements Repository<data_dokter> {
         } catch (Exception e) {
             e.printStackTrace();
             return false;
+<<<<<<< HEAD
+=======
+        }
+    }
+>>>>>>> cbed06f9ea64d21a87d8a1bb1e88316442dcb8ff
 
         }
     }
 
     @Override
     public boolean update(data_dokter dokter) {
+<<<<<<< HEAD
         String sql = "update "+tableName+" set nama = ?, no_hp = ?, jenis_poli = ?, jadwal = ?, no_antrian = ?, tanggal = ? where id = ?";
         try {
             Connection koneksi= (Connection)Conn.configDB();
@@ -93,6 +105,40 @@ public class data_dokterRepository implements Repository<data_dokter> {
     public boolean delete(data_dokter dokter) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from
                                                                        // nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+=======
+    String sql = "upate from "+tableName+"set nama = ?, no_hp = ?, jenis_poli =?, jadwal = ?, no_antrian = ?, tanggal = ? where id = ?";    
+        try {
+            Connection koneksi = (Connection)Conn.configDB();
+            PreparedStatement pst = koneksi.prepareStatement(sql);
+            pst.setString(1, dokter.getNama());
+            pst.setInt(2, dokter.getNo_hp());
+            pst.setString(3, dokter.getJenis_poli());
+            pst.setString(4, dokter.getJadwal());
+            pst.setInt(5, dokter.getNo_antrian());
+            pst.setDate(6, new Date(dokter.getTanggal().getTime()));
+            pst.setInt(7, dokter.getId());
+            pst.execute();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+}
+
+    @Override
+    public boolean delete(data_dokter dokter) {
+        String sql = "delete from "+tableName+" where = ?";
+        try {
+            Connection koneksi = (Connection)Conn.configDB();
+            PreparedStatement pst = koneksi.prepareStatement(sql);
+            pst.setInt(1, dokter.getId());
+            pst.execute();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+>>>>>>> cbed06f9ea64d21a87d8a1bb1e88316442dcb8ff
     }
 
     private data_dokter mapToEntity(ResultSet res) throws SQLException {
