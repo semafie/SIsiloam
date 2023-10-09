@@ -13,8 +13,8 @@ public class data_masterRepository implements Repository<data_master> {
 
     @Override
     public List<data_master> get() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'get'");
+        String sql = "select * from "+tableName;
+        
     }
 
     @Override
