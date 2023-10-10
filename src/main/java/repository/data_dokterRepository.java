@@ -72,12 +72,11 @@ public class data_dokterRepository implements Repository<data_dokter> {
         }
     }
 
-        }
-    }
 
+        
     @Override
     public boolean update(data_dokter dokter) {
-    String sql = "upate from "+tableName+"set nama = ?, no_hp = ?, jenis_poli =?, jadwal = ?, no_antrian = ?, tanggal = ? where id = ?";    
+    String sql = "update "+tableName+" set nama = ?, no_hp = ?, jenis_poli =?, jadwal = ?, no_antrian = ?, tanggal = ? where id = ?";    
         try {
             Connection koneksi = (Connection)Conn.configDB();
             PreparedStatement pst = koneksi.prepareStatement(sql);
@@ -98,7 +97,7 @@ public class data_dokterRepository implements Repository<data_dokter> {
 
     @Override
     public boolean delete(data_dokter dokter) {
-        String sql = "delete from "+tableName+" where = ?";
+        String sql = "delete from "+tableName+" where id = ?";
         try {
             Connection koneksi = (Connection)Conn.configDB();
             PreparedStatement pst = koneksi.prepareStatement(sql);

@@ -73,7 +73,7 @@ public class userRepository implements Repository<user>{
 
     @Override
     public boolean update(user us) {
-        String sql = "update "+tableName+" set username = ?, password, = ?, email = ?, level = ? where id = ?";
+        String sql = "update "+tableName+" set username = ?, password = ?, email = ?, level = ? where id = ?";
         try {
             Connection koneksi =(Connection)Conn.configDB();
             PreparedStatement pst = koneksi.prepareStatement(sql);
@@ -86,6 +86,7 @@ public class userRepository implements Repository<user>{
             return true;
         } catch (Exception e) {
             e.printStackTrace();
+            System.out.println(e.getMessage());
             return false;
         }
     }
