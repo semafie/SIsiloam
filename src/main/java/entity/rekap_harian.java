@@ -1,14 +1,25 @@
 
 package entity;
 
+import java.util.Date;
+
 public class rekap_harian implements Entity{
     public static String tableName = "rekap_harian";
     private int id, id_dokter, id_master;
     private String  jam;
+    private Date tanggal;
     public rekap_harian(){
         
     }
 
+    public void setTanggal(Date tanggal) {
+        this.tanggal = tanggal;
+    }
+
+    public Date getTanggal() {
+        return tanggal;
+    }
+    
     public void setId(int id) {
         this.id = id;
     }

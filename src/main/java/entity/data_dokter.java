@@ -7,9 +7,18 @@ public class data_dokter implements Entity{
     public static String tableName = "data_dokter";
     private int id, no_hp, no_antrian;
     private String nama, jenis_poli, jadwal;
-    Date tanggal;
+    private Date tanggal;
     
     public data_dokter(String nama, int no_hp, String jenis_poli, String jadwal, int no_antrian, Date tanggal){
+        this.nama = nama;
+        this.no_hp = no_hp;
+        this.jenis_poli = jenis_poli;
+        this.jadwal = jadwal;
+        this.no_antrian = no_antrian;
+        this.tanggal = tanggal;
+    }
+    
+    public data_dokter(int id, String nama, int no_hp, String jenis_poli, String jadwal, int no_antrian, Date tanggal){
         this.id = id;
         this.nama = nama;
         this.no_hp = no_hp;
