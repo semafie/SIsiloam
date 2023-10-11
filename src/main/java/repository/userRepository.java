@@ -116,6 +116,7 @@ public class userRepository implements Repository<user>{
         res.getInt("level")
         );
         us.setId(res.getInt("id"));
+        
         return us;
     }
     
