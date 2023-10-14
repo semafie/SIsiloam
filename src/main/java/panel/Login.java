@@ -6,13 +6,12 @@ package panel;
 
 import javax.swing.SwingUtilities;
 import main.main;
+import repository.userRepository;
+import service.Auth;
 
-/**
- *
- * @author semafie
- */
+
 public class Login extends javax.swing.JPanel {
-
+    userRepository ret = new userRepository();
     /**
      * Creates new form Login
      */
@@ -32,6 +31,9 @@ public class Login extends javax.swing.JPanel {
         password = new javax.swing.JTextField();
         username = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        btnlogin = new javax.swing.JLabel();
+        inputpassword = new javax.swing.JTextField();
+        inputusername = new javax.swing.JTextField();
         bg = new javax.swing.JLabel();
 
         password.addActionListener(new java.awt.event.ActionListener() {
@@ -55,9 +57,23 @@ public class Login extends javax.swing.JPanel {
 
         setLayout(null);
 
-        bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/login1.png"))); // NOI18N
+        btnlogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnlogin2.png"))); // NOI18N
+        btnlogin.setText("jLabel2");
+        btnlogin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnloginMouseClicked(evt);
+            }
+        });
+        add(btnlogin);
+        btnlogin.setBounds(410, 520, 550, 70);
+        add(inputpassword);
+        inputpassword.setBounds(490, 390, 400, 40);
+        add(inputusername);
+        inputusername.setBounds(490, 310, 400, 40);
+
+        bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/login form.png"))); // NOI18N
         add(bg);
-        bg.setBounds(0, 0, 1366, 768);
+        bg.setBounds(0, 0, 1370, 770);
     }// </editor-fold>//GEN-END:initComponents
 
     private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
@@ -74,9 +90,25 @@ public class Login extends javax.swing.JPanel {
 //    this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void btnloginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnloginMouseClicked
+    String user = inputusername.getText();
+    String pass = inputpassword.getText();
+        Auth ap = new Auth();
+    if(ap.login(user, pass)){
+        main wow = (main)SwingUtilities.getWindowAncestor(this);
+        wow.showdasboard();
+        this.setVisible(false);
+    }else{
+        System.out.println("gagal login");
+    }
+    }//GEN-LAST:event_btnloginMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bg;
+    private javax.swing.JLabel btnlogin;
+    private javax.swing.JTextField inputpassword;
+    private javax.swing.JTextField inputusername;
     private javax.swing.JButton jButton1;
     private javax.swing.JTextField password;
     private javax.swing.JTextField username;

@@ -4,12 +4,13 @@
  */
 package main;
 
+import panel.Dasboard;
 import panel.Login;
 import panel.kirimkodever;
 
 /**
  *
- * @author semafie
+ * @author RESCOM-1
  */
 public class main extends javax.swing.JFrame {
 
@@ -18,27 +19,32 @@ public class main extends javax.swing.JFrame {
      */
     public main() {
         initComponents();
-        showlogin();
+         showlogin();
         
     }
     public void showlogin(){
         Login apa = new Login();
-        apa.setSize(1366, 768);
+        apa.setSize(1366,768);
         this.add(apa);
         this.revalidate();
         this.repaint();
     }
     
     
-    
-    public void showkoko(){
+    public void showdasboard(){
+        Dasboard apa = new Dasboard();
+        apa.setSize(1366,768);
+        this.add(apa);
+        this.revalidate();
+        this.repaint();
+    }
+    public void showkode(){
         kirimkodever apa = new kirimkodever();
-        apa.setSize(1366, 768);
+        apa.setSize(1366,768);
         this.add(apa);
         this.revalidate();
         this.repaint();
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

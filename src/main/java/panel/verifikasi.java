@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package panel;
-
+import java.awt.Color;
 /**
  *
  * @author RESCOM-1
@@ -26,24 +26,29 @@ public class verifikasi extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        btnverif = new javax.swing.JLabel();
+        inputverifikasi = new javax.swing.JTextField();
+        bg = new javax.swing.JLabel();
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/login3.png"))); // NOI18N
+        setLayout(null);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1266, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        btnverif.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnverifikasi1.png"))); // NOI18N
+        add(btnverif);
+        btnverif.setBounds(470, 510, 426, 80);
+
+        inputverifikasi.setBackground(new Color(0,0,0,0));
+        add(inputverifikasi);
+        inputverifikasi.setBounds(490, 360, 390, 50);
+
+        bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/verifikasi kode.png"))); // NOI18N
+        add(bg);
+        bg.setBounds(0, 0, 1366, 768);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel bg;
+    private javax.swing.JLabel btnverif;
+    private javax.swing.JTextField inputverifikasi;
     // End of variables declaration//GEN-END:variables
 }

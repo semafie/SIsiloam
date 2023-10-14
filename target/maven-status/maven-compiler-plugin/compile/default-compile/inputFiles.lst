@@ -1,16 +1,22 @@
-E:\SEMUA FOLDER\imam\kuliah\semester 3\joki\SIsiloam\src\main\java\panel\Login.java
-E:\SEMUA FOLDER\imam\kuliah\semester 3\joki\SIsiloam\src\main\java\repository\cek.java
-E:\SEMUA FOLDER\imam\kuliah\semester 3\joki\SIsiloam\src\main\java\main\main.java
-E:\SEMUA FOLDER\imam\kuliah\semester 3\joki\SIsiloam\src\main\java\entity\data_master.java
-E:\SEMUA FOLDER\imam\kuliah\semester 3\joki\SIsiloam\src\main\java\repository\data_dokterRepository.java
-E:\SEMUA FOLDER\imam\kuliah\semester 3\joki\SIsiloam\src\main\java\entity\data_dokter.java
-E:\SEMUA FOLDER\imam\kuliah\semester 3\joki\SIsiloam\src\main\java\util\Conn.java
-E:\SEMUA FOLDER\imam\kuliah\semester 3\joki\SIsiloam\src\main\java\panel\kirimkodever.java
-E:\SEMUA FOLDER\imam\kuliah\semester 3\joki\SIsiloam\src\main\java\entity\user.java
-E:\SEMUA FOLDER\imam\kuliah\semester 3\joki\SIsiloam\src\main\java\repository\rekap_harianRepository.java
-E:\SEMUA FOLDER\imam\kuliah\semester 3\joki\SIsiloam\src\main\java\repository\data_masterRepository.java
-E:\SEMUA FOLDER\imam\kuliah\semester 3\joki\SIsiloam\src\main\java\entity\Entity.java
-E:\SEMUA FOLDER\imam\kuliah\semester 3\joki\SIsiloam\src\main\java\repository\userRepository.java
-E:\SEMUA FOLDER\imam\kuliah\semester 3\joki\SIsiloam\src\main\java\entity\rekap_harian.java
-E:\SEMUA FOLDER\imam\kuliah\semester 3\joki\SIsiloam\src\main\java\repository\Repository.java
-E:\SEMUA FOLDER\imam\kuliah\semester 3\joki\SIsiloam\src\main\java\panel\verifikasi.java
+D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\entity\Entity.java
+D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\panel\kirimkodever.java
+D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\service\ComboItem.java
+D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\entity\user.java
+D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\service\TokenEmail.java
+D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\repository\Repository.java
+D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\entity\data_dokter.java
+D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\repository\data_masterRepository.java
+D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\repository\rekap_harianRepository.java
+D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\main\main.java
+D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\service\Auth.java
+D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\repository\userRepository.java
+D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\util\Conn.java
+D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\panel\Login.java
+D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\repository\data_dokterRepository.java
+D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\entity\data_master.java
+D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\entity\rekap_harian.java
+D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\panel\buatpasswordbaru.java
+D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\service\GenerateCode.java
+D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\repository\cek.java
+D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\panel\Dasboard.java
+D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\panel\verifikasi.java
