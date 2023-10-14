@@ -34,23 +34,17 @@ public class Login extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
         bg = new javax.swing.JLabel();
 
-        setLayout(null);
-
         password.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 passwordActionPerformed(evt);
             }
         });
-        add(password);
-        password.setBounds(500, 390, 390, 40);
 
         username.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 usernameActionPerformed(evt);
             }
         });
-        add(username);
-        username.setBounds(500, 310, 390, 40);
 
         jButton1.setText("jButton1");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -58,10 +52,10 @@ public class Login extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        add(jButton1);
-        jButton1.setBounds(220, 130, 75, 23);
 
-        bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/login form.png"))); // NOI18N
+        setLayout(null);
+
+        bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/login1.png"))); // NOI18N
         add(bg);
         bg.setBounds(0, 0, 1366, 768);
     }// </editor-fold>//GEN-END:initComponents

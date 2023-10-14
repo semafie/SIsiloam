@@ -1,33 +1,20 @@
-<<<<<<< HEAD
 entity\data_dokter.class
-=======
->>>>>>> b48a87f5e36afe97e20912058371145e9ab4ba2a
 entity\user.class
-repository\Repository.class
-panel\Login.class
-main\kok$2.class
-repository\data_dokterRepository.class
-main\main.class
-repository\cek.class
-entity\data_dokter.class
 entity\data_master.class
 entity\rekap_harian.class
-<<<<<<< HEAD
 repository\Repository.class
-=======
->>>>>>> b48a87f5e36afe97e20912058371145e9ab4ba2a
 util\Conn.class
 entity\Entity.class
+panel\Login$3.class
+panel\kirimkodever.class
+panel\Login$1.class
 repository\data_masterRepository.class
 repository\userRepository.class
-<<<<<<< HEAD
 panel\Login.class
+panel\Login$2.class
+panel\verifikasi.class
 repository\rekap_harianRepository.class
 repository\data_dokterRepository.class
 main\main$1.class
 main\main.class
 repository\cek.class
-=======
-repository\rekap_harianRepository.class
-main\main$1.class
->>>>>>> b48a87f5e36afe97e20912058371145e9ab4ba2a

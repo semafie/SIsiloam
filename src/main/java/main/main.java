@@ -9,7 +9,7 @@ import panel.kirimkodever;
 
 /**
  *
- * @author RESCOM-1
+ * @author semafie
  */
 public class main extends javax.swing.JFrame {
 
@@ -19,8 +19,9 @@ public class main extends javax.swing.JFrame {
     public main() {
         initComponents();
         showlogin();
+        
     }
-public void showlogin(){
+    public void showlogin(){
         Login apa = new Login();
         apa.setSize(1366, 768);
         this.add(apa);
@@ -37,6 +38,7 @@ public void showlogin(){
         this.revalidate();
         this.repaint();
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
