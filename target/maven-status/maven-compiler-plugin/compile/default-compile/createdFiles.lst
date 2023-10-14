@@ -5,6 +5,7 @@ entity\data_dokter.class
 entity\user.class
 repository\Repository.class
 panel\Login.class
+main\kok$2.class
 repository\data_dokterRepository.class
 main\main.class
 repository\cek.class
