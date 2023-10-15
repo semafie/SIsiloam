@@ -6,6 +6,7 @@ package panel;
 
 import javax.swing.SwingUtilities;
 import main.main;
+//import main.main;
 import repository.userRepository;
 import service.Auth;
 
@@ -57,7 +58,7 @@ public class Login extends javax.swing.JPanel {
 
         setLayout(null);
 
-        btnlogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnlogin2.png"))); // NOI18N
+        btnlogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnlogin1.png"))); // NOI18N
         btnlogin.setText("jLabel2");
         btnlogin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

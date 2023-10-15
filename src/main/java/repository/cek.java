@@ -20,17 +20,8 @@ public class cek {
         userRepository userRepository = new userRepository();
         data_master ass = new data_master(2, "debby",32020392,"jl apayaa","jember, 23/02/2004","Laki - laki");  
         user ass1 = new user(4 , "anakmu", "ibuku", "sayang", 1);
-        Date apa = new Date();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        String tanggalHariIni = dateFormat.format(apa);
-        System.out.println(apa);
-        data_dokter ass2 = new data_dokter(2, "restu", 8777766, "ppoli gigi", "apa hayoo", 1, apa);
-        
-        if (dokterRepository.delete(ass2)) {
-            System.out.println("berhasil");
-        } else{
-            System.out.println("gagal");
-        }
+            userRepository.get(1).getEmail();
+     
 
         
 //        String sql = "select * from user";

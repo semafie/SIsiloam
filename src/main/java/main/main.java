@@ -6,7 +6,9 @@ package main;
 
 import panel.Dasboard;
 import panel.Login;
-import panel.kirimkodever;
+import panel.buatpasswordbaru;
+import panel.kirimkode;
+
 
 /**
  *
@@ -15,22 +17,23 @@ import panel.kirimkodever;
 public class main extends javax.swing.JFrame {
 
     /**
-     * Creates new form main
+     * Creates new form NewJFrame
      */
     public main() {
         initComponents();
-         showlogin();
-        
+        kirimkode apa = new kirimkode();
+        apa.setSize(1366,768);
+        this.add(apa);
+        this.revalidate();
+        this.repaint();
     }
-    public void showlogin(){
+     public void showlogin(){
         Login apa = new Login();
         apa.setSize(1366,768);
         this.add(apa);
         this.revalidate();
         this.repaint();
     }
-    
-    
     public void showdasboard(){
         Dasboard apa = new Dasboard();
         apa.setSize(1366,768);
@@ -39,7 +42,7 @@ public class main extends javax.swing.JFrame {
         this.repaint();
     }
     public void showkode(){
-        kirimkodever apa = new kirimkodever();
+        kirimkode apa = new kirimkode();
         apa.setSize(1366,768);
         this.add(apa);
         this.revalidate();
@@ -55,19 +58,10 @@ public class main extends javax.swing.JFrame {
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
-
-        pack();
+        setSize(new java.awt.Dimension(1382, 776));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     /**
@@ -95,6 +89,7 @@ public class main extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
