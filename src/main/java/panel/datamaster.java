@@ -8,6 +8,7 @@ import entity.data_master;
 import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
 import main.main;
+import panel.datamaster_edit;
 import repository.data_masterRepository;
 
 /**
@@ -16,6 +17,8 @@ import repository.data_masterRepository;
  */
 public class datamaster extends javax.swing.JPanel {
     data_masterRepository datamaster = new data_masterRepository();
+    public static int id = 0;
+//    datamaster_edit edit = new datamaster_edit();
     /**
      * Creates new form datamaster
      */
@@ -60,6 +63,10 @@ public class datamaster extends javax.swing.JPanel {
         btnkembali = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         table = new view.swing.Table();
+        search = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        btnedit = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         bg = new javax.swing.JLabel();
 
         setLayout(null);
@@ -88,10 +95,39 @@ public class datamaster extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        table.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(table);
 
         add(jScrollPane2);
         jScrollPane2.setBounds(62, 262, 1240, 380);
+        add(search);
+        search.setBounds(51, 150, 300, 40);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/search.png"))); // NOI18N
+        add(jLabel1);
+        jLabel1.setBounds(40, 140, 330, 60);
+
+        btnedit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnedit1.png"))); // NOI18N
+        btnedit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btneditMouseClicked(evt);
+            }
+        });
+        add(btnedit);
+        btnedit.setBounds(390, 145, 200, 60);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnhapus1.png"))); // NOI18N
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
+        add(jLabel3);
+        jLabel3.setBounds(600, 145, 200, 60);
 
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/bg datamaster.png"))); // NOI18N
         add(bg);
@@ -104,11 +140,65 @@ public class datamaster extends javax.swing.JPanel {
     main.showdasboard();
     }//GEN-LAST:event_btnkembaliMouseClicked
 
+    private void btneditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btneditMouseClicked
+//    int baris = table.rowAtPoint(evt.getPoint());
+//        String idd = table.getValueAt(baris, 0).toString();
+//        id = Integer.valueOf(idd);
+//        String nama = table.getValueAt(baris, 1).toString();
+//        String nik = table.getValueAt(baris, 2).toString();
+//        String alamat = table.getValueAt(baris, 3).toString();
+//        String ttl = table.getValueAt(baris, 4).toString();
+//        String jenis_kelamin = table.getValueAt(baris, 4).toString();
+//        System.out.println(id);
+        
+        if(id != 0){
+//        edit.txt_no_rm.setText(idd);
+//        edit.txt_nama_pasien.setText(nama);
+//        edit.txt_nik.setText(nik);
+//        edit.txt_alamat.setText(alamat);
+//        edit.txt_ttl.setText(ttl);
+//        if (jenis_kelamin.equals("Laki-Laki")) {
+//            edit.cmb_jeniskelamin.setSelectedItem("Laki-Laki");
+//        } else {
+//            edit.cmb_jeniskelamin.setSelectedItem("Perempuan");
+//        }
+        main main =(main)SwingUtilities.getWindowAncestor(this);
+        this.setVisible(false);
+        main.showdatamaster_edit();
+    } else {
+            System.out.println("pilih data dari tabel bang");
+        }
+    }//GEN-LAST:event_btneditMouseClicked
+
+    private void tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableMouseClicked
+    int baris = table.rowAtPoint(evt.getPoint());
+        String idd = table.getValueAt(baris, 0).toString();
+        id = Integer.valueOf(idd);
+        System.out.println(id);
+    }//GEN-LAST:event_tableMouseClicked
+
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+//    int baris = table.rowAtPoint(evt.getPoint());
+//        String idd = table.getValueAt(baris, 0).toString();
+//        id = Integer.valueOf(idd);
+    if(id != 0){
+        boolean apa = datamaster.delete(id);
+        System.out.println("berhasil hapus");
+    } else {
+        System.out.println("gagal hapus");
+    }
+    load_tabel();
+    }//GEN-LAST:event_jLabel3MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bg;
+    private javax.swing.JLabel btnedit;
     private javax.swing.JLabel btnkembali;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextField search;
     private view.swing.Table table;
     // End of variables declaration//GEN-END:variables
 }

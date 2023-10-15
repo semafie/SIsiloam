@@ -8,6 +8,7 @@ import panel.Dasboard;
 import panel.Login;
 import panel.buatpasswordbaru;
 import panel.datamaster;
+import panel.datamaster_edit;
 import panel.kirimkode;
 import panel.verifikasi;
 
@@ -62,6 +63,13 @@ public class main extends javax.swing.JFrame {
     }
     public void showdatamaster(){
         datamaster apa = new datamaster();
+        apa.setSize(1366,768);
+        this.add(apa);
+        this.revalidate();
+        this.repaint();
+    }
+    public void showdatamaster_edit(){
+        datamaster_edit apa = new datamaster_edit();
         apa.setSize(1366,768);
         this.add(apa);
         this.revalidate();
