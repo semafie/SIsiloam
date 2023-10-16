@@ -1,3 +1,4 @@
+view\swing\itemdokter_tampilan$1.class
 view\swing\Table$1.class
 panel\datamaster$1.class
 panel\kirimkode$3.class
@@ -5,7 +6,9 @@ panel\Login$3.class
 panel\kirimkode$poo.class
 panel\datamaster$4.class
 repository\data_dokterRepository.class
+view\swing\itemdokter.class
 view\swing\Dialog$1.class
+view\swing\NewJFrame.class
 view\swing\dialog_mintakode.class
 util\Conn.class
 panel\datamaster_edit$1.class
@@ -13,6 +16,7 @@ repository\data_masterRepository.class
 service\GenerateCode.class
 panel\verifikasi$1.class
 service\TokenEmail.class
+view\swing\NewJFrame$1.class
 panel\verifikasi.class
 panel\pasienbaru.class
 service\ComboItem.class
@@ -23,9 +27,11 @@ panel\buatpasswordbaru.class
 repository\Repository.class
 panel\Login$2.class
 panel\kirimkode$1.class
+view\swing\itemdokter_tampilan$3.class
 main\main.class
 panel\datadokter_tambah.class
 repository\cek.class
+view\swing\itemdokter_tampilann.class
 panel\datamaster$2.class
 service\Auth.class
 panel\Dasboard.class
@@ -36,10 +42,12 @@ repository\rekap_harianRepository.class
 main\main$1.class
 view\swing\TableHeader.class
 service\TokenEmail$1.class
+view\swing\itemdokter$1.class
 view\swing\Dialog$2.class
 panel\datamaster.class
 panel\Login.class
 panel\Login$4.class
+view\swing\itemdokter_tampilan$2.class
 panel\Dasboard$1.class
 entity\data_master.class
 view\swing\ModernScrollBarUI$ScrollBarButton.class
@@ -54,6 +62,7 @@ panel\datadokter$1.class
 panel\datamaster$3.class
 view\swing\dialog_mintakode$1.class
 view\swing\ModernScrollBarUI.class
+view\swing\EventMenuSelected.class
 panel\datamaster_edit$2.class
 panel\datadokter_edit.class
 panel\buatpasswordbaru$1.class
@@ -64,3 +73,4 @@ entity\data_dokter.class
 view\swing\ScrollBarCustom.class
 panel\kirimkode.class
 view\swing\Glass.class
+view\swing\itemdokter_tampilan.class

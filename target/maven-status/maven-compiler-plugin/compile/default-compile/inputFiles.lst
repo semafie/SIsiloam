@@ -3,6 +3,7 @@ D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\panel\datadokter.java
 D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\panel\datadokter_edit.java
 D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\panel\datamaster.java
 D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\entity\data_dokter.java
+D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\view\swing\EventMenuSelected.java
 D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\repository\rekap_harianRepository.java
 D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\panel\tambahdaftar.java
 D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\panel\pilihdokter.java
@@ -12,6 +13,7 @@ D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\panel\kirimkode.java
 D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\service\Auth.java
 D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\repository\userRepository.java
 D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\util\Conn.java
+D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\view\swing\itemdokter_tampilann.java
 D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\view\swing\ScrollBarCustom.java
 D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\panel\datamaster_edit.java
 D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\view\swing\ModernScrollBarUI.java
@@ -20,6 +22,7 @@ D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\service\ComboItem.java
 D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\entity\user.java
 D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\service\TokenEmail.java
 D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\repository\Repository.java
+D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\view\swing\itemdokter_tampilan.java
 D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\panel\datadokter_tambah.java
 D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\view\swing\TableHeader.java
 D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\repository\data_masterRepository.java
@@ -28,6 +31,8 @@ D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\view\swing\dialog_mintakode.j
 D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\panel\pasienbaru_pilihpoli.java
 D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\panel\Login.java
 D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\repository\data_dokterRepository.java
+D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\view\swing\itemdokter.java
+D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\view\swing\NewJFrame.java
 D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\entity\data_master.java
 D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\entity\rekap_harian.java
 D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\panel\pasienbaru.java

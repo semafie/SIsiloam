@@ -48,11 +48,11 @@ public class pasienbaru extends javax.swing.JPanel {
             }
         });
         add(btn_kembali);
-        btn_kembali.setBounds(10, 710, 190, 51);
+        btn_kembali.setBounds(10, 701, 190, 60);
 
         btn_lanjut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnselanjutnya1.png"))); // NOI18N
         add(btn_lanjut);
-        btn_lanjut.setBounds(1110, 710, 250, 51);
+        btn_lanjut.setBounds(1110, 701, 250, 60);
         add(nik);
         nik.setBounds(550, 390, 490, 40);
         add(alamat);
@@ -64,7 +64,7 @@ public class pasienbaru extends javax.swing.JPanel {
         add(no_rm);
         no_rm.setBounds(550, 250, 490, 40);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Laki- Laki", "Perempuan" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Laki - Laki", "Perempuan" }));
         add(jComboBox1);
         jComboBox1.setBounds(570, 600, 280, 40);
 
