@@ -44,6 +44,8 @@ panel\Dasboard$1.class
 entity\data_master.class
 view\swing\ModernScrollBarUI$ScrollBarButton.class
 entity\rekap_harian.class
+panel\pilihdokter.class
+panel\tambahdaftar.class
 view\swing\Dialog.class
 entity\Entity.class
 panel\Login$1.class

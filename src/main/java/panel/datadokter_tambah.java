@@ -56,7 +56,7 @@ public class datadokter_tambah extends javax.swing.JPanel {
         add(txt_no_rm);
         txt_no_rm.setBounds(531, 250, 500, 40);
 
-        cmb_jeniskelamin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Poli umum", "Poli gigi", "Poli mata" }));
+        cmb_jeniskelamin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Laki - Laki", "Perempuan" }));
         add(cmb_jeniskelamin);
         cmb_jeniskelamin.setBounds(560, 530, 320, 40);
 
@@ -71,7 +71,7 @@ public class datadokter_tambah extends javax.swing.JPanel {
             }
         });
         add(btnkembali);
-        btnkembali.setBounds(10, 710, 190, 51);
+        btnkembali.setBounds(10, 701, 190, 60);
 
         btnselanjutnya.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnselanjutnya1.png"))); // NOI18N
         btnselanjutnya.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -80,7 +80,7 @@ public class datadokter_tambah extends javax.swing.JPanel {
             }
         });
         add(btnselanjutnya);
-        btnselanjutnya.setBounds(1110, 710, 250, 51);
+        btnselanjutnya.setBounds(1110, 701, 250, 60);
 
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/bg tambah dokter baru.png"))); // NOI18N
         add(bg);

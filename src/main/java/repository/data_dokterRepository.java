@@ -118,6 +118,7 @@ public class data_dokterRepository implements Repository<data_dokter> {
                 res.getInt("no_hp"),
                 res.getString("jenis_poli"),
                 res.getString("jadwal"),
+                res.getString("jenis_kelamin"),
                 res.getInt("no_antrian"),
                 res.getDate("tanggal"));
         us.setId(res.getInt("id"));

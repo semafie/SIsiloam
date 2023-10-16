@@ -54,7 +54,7 @@ System.out.println(no_hp);
         } else {
             cmb_poli.setSelectedIndex(2);
         }
-        if (jnk.equals("Laki-Laki")) {
+        if (jnk.equals("Laki - Laki")) {
             cmb_jeniskelamin.setSelectedIndex(0);
         } else {
             cmb_jeniskelamin.setSelectedIndex(1);
@@ -105,7 +105,7 @@ System.out.println(no_hp);
             }
         });
         add(btnbatal);
-        btnbatal.setBounds(10, 710, 150, 50);
+        btnbatal.setBounds(10, 700, 150, 60);
 
         btnselanjutnya.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnselanjutnya1.png"))); // NOI18N
         btnselanjutnya.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -114,7 +114,7 @@ System.out.println(no_hp);
             }
         });
         add(btnselanjutnya);
-        btnselanjutnya.setBounds(1110, 710, 250, 50);
+        btnselanjutnya.setBounds(1110, 700, 250, 60);
 
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/bg edit dokter baru.png"))); // NOI18N
         add(bg);
