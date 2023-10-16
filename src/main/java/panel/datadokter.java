@@ -116,7 +116,7 @@ public class datadokter extends javax.swing.JPanel {
     private void btnkembaliMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnkembaliMouseClicked
     main main =(main)SwingUtilities.getWindowAncestor(this);
     this.setVisible(false);
-    main.showdatadokter();
+    main.showdasboard();
     }//GEN-LAST:event_btnkembaliMouseClicked
 
     private void btntambahMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btntambahMouseClicked

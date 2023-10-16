@@ -4,6 +4,9 @@
  */
 package panel;
 
+import javax.swing.SwingUtilities;
+import main.main;
+
 /**
  *
  * @author semafie
@@ -26,24 +29,80 @@ public class datadokter_tambah extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        txt_nik = new javax.swing.JTextField();
+        txt_ttl = new javax.swing.JTextField();
+        txt_jnk = new javax.swing.JTextField();
+        txt_nama = new javax.swing.JTextField();
+        txt_no_rm = new javax.swing.JTextField();
+        cmb_poli = new javax.swing.JComboBox<>();
+        btnkembali = new javax.swing.JLabel();
+        btnselanjutnya = new javax.swing.JLabel();
         bg = new javax.swing.JLabel();
 
-        bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/bg tambah dokter.png"))); // NOI18N
+        setLayout(null);
+        add(txt_nik);
+        txt_nik.setBounds(530, 390, 500, 40);
+        add(txt_ttl);
+        txt_ttl.setBounds(530, 530, 500, 40);
+        add(txt_jnk);
+        txt_jnk.setBounds(530, 600, 500, 40);
+        add(txt_nama);
+        txt_nama.setBounds(530, 320, 500, 40);
+        add(txt_no_rm);
+        txt_no_rm.setBounds(531, 250, 500, 40);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        cmb_poli.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Poli umum", "Poli gigi", "Poli mata" }));
+        add(cmb_poli);
+        cmb_poli.setBounds(560, 460, 320, 40);
+
+        btnkembali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnkembali1.png"))); // NOI18N
+        btnkembali.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnkembaliMouseClicked(evt);
+            }
+        });
+        add(btnkembali);
+        btnkembali.setBounds(10, 710, 190, 51);
+
+        btnselanjutnya.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnselanjutnya1.png"))); // NOI18N
+        btnselanjutnya.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnselanjutnyaMouseClicked(evt);
+            }
+        });
+        add(btnselanjutnya);
+        btnselanjutnya.setBounds(1110, 710, 250, 51);
+
+        bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/bg tambah dokter.png"))); // NOI18N
+        add(bg);
+        bg.setBounds(0, 0, 1366, 768);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnkembaliMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnkembaliMouseClicked
+     main main =(main)SwingUtilities.getWindowAncestor(this);
+    this.setVisible(false);
+    main.showdatadokter();
+    }//GEN-LAST:event_btnkembaliMouseClicked
+
+    private void btnselanjutnyaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnselanjutnyaMouseClicked
+    String id = txt_no_rm.getText();
+    String nama = txt_nama.getText();
+    String no_hp = t.getText();
+    String jenis_poli = txt_no_rm.getText();
+    String jadwal = txt_no_rm.getText();
+    
+    }//GEN-LAST:event_btnselanjutnyaMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bg;
+    private javax.swing.JLabel btnkembali;
+    private javax.swing.JLabel btnselanjutnya;
+    private javax.swing.JComboBox<String> cmb_poli;
+    private javax.swing.JTextField txt_jnk;
+    private javax.swing.JTextField txt_nama;
+    private javax.swing.JTextField txt_nik;
+    private javax.swing.JTextField txt_no_rm;
+    private javax.swing.JTextField txt_ttl;
     // End of variables declaration//GEN-END:variables
 }

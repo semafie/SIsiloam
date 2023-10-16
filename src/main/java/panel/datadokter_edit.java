@@ -26,19 +26,43 @@ public class datadokter_edit extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        txt_nik = new javax.swing.JTextField();
+        txt_ttl = new javax.swing.JTextField();
+        txt_jnk = new javax.swing.JTextField();
+        txt_nama = new javax.swing.JTextField();
+        txt_id = new javax.swing.JTextField();
+        cmb_poli = new javax.swing.JComboBox<>();
+        bg = new javax.swing.JLabel();
+
+        setLayout(null);
+        add(txt_nik);
+        txt_nik.setBounds(530, 390, 530, 50);
+        add(txt_ttl);
+        txt_ttl.setBounds(530, 530, 530, 50);
+        add(txt_jnk);
+        txt_jnk.setBounds(530, 600, 530, 50);
+        add(txt_nama);
+        txt_nama.setBounds(530, 320, 530, 50);
+        add(txt_id);
+        txt_id.setBounds(530, 250, 530, 50);
+
+        cmb_poli.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Poli umum", "Poli gigi", "Poli mata" }));
+        add(cmb_poli);
+        cmb_poli.setBounds(560, 460, 320, 40);
+
+        bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/bg edit dokter.png"))); // NOI18N
+        add(bg);
+        bg.setBounds(0, 0, 1366, 768);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel bg;
+    private javax.swing.JComboBox<String> cmb_poli;
+    private javax.swing.JTextField txt_id;
+    private javax.swing.JTextField txt_jnk;
+    private javax.swing.JTextField txt_nama;
+    private javax.swing.JTextField txt_nik;
+    private javax.swing.JTextField txt_ttl;
     // End of variables declaration//GEN-END:variables
 }
