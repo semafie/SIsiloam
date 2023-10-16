@@ -8,6 +8,7 @@ import panel.Dasboard;
 import panel.Login;
 import panel.buatpasswordbaru;
 import panel.datadokter;
+import panel.datadokter_edit;
 import panel.datadokter_tambah;
 import panel.datamaster;
 import panel.datamaster_edit;
@@ -85,6 +86,13 @@ public void showlogin(){
     }
     public void showdatadokter_tambah(){
         datadokter_tambah apa = new datadokter_tambah();
+        apa.setSize(1366,768);
+        this.add(apa);
+        this.revalidate();
+        this.repaint();
+    }
+    public void showdatadokter_edit(){
+        datadokter_edit apa = new datadokter_edit();
         apa.setSize(1366,768);
         this.add(apa);
         this.revalidate();

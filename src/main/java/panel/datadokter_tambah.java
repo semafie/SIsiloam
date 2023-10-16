@@ -4,15 +4,22 @@
  */
 package panel;
 
+import entity.data_dokter;
+import java.util.Date;
+import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import main.main;
+import repository.data_dokterRepository;
 
 /**
  *
  * @author semafie
  */
 public class datadokter_tambah extends javax.swing.JPanel {
-
+    private String jenispoli;
+    private String jeniskelamin;
+    private int id;
+    private int nohp;
     /**
      * Creates new form datadokter_tambah
      */
@@ -29,27 +36,29 @@ public class datadokter_tambah extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txt_nik = new javax.swing.JTextField();
-        txt_ttl = new javax.swing.JTextField();
-        txt_jnk = new javax.swing.JTextField();
+        txt_nohp = new javax.swing.JTextField();
+        txt_jadwal = new javax.swing.JTextField();
         txt_nama = new javax.swing.JTextField();
         txt_no_rm = new javax.swing.JTextField();
+        cmb_jeniskelamin = new javax.swing.JComboBox<>();
         cmb_poli = new javax.swing.JComboBox<>();
         btnkembali = new javax.swing.JLabel();
         btnselanjutnya = new javax.swing.JLabel();
         bg = new javax.swing.JLabel();
 
         setLayout(null);
-        add(txt_nik);
-        txt_nik.setBounds(530, 390, 500, 40);
-        add(txt_ttl);
-        txt_ttl.setBounds(530, 530, 500, 40);
-        add(txt_jnk);
-        txt_jnk.setBounds(530, 600, 500, 40);
+        add(txt_nohp);
+        txt_nohp.setBounds(530, 390, 500, 40);
+        add(txt_jadwal);
+        txt_jadwal.setBounds(530, 600, 500, 40);
         add(txt_nama);
         txt_nama.setBounds(530, 320, 500, 40);
         add(txt_no_rm);
         txt_no_rm.setBounds(531, 250, 500, 40);
+
+        cmb_jeniskelamin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Poli umum", "Poli gigi", "Poli mata" }));
+        add(cmb_jeniskelamin);
+        cmb_jeniskelamin.setBounds(560, 530, 320, 40);
 
         cmb_poli.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Poli umum", "Poli gigi", "Poli mata" }));
         add(cmb_poli);
@@ -73,7 +82,7 @@ public class datadokter_tambah extends javax.swing.JPanel {
         add(btnselanjutnya);
         btnselanjutnya.setBounds(1110, 710, 250, 51);
 
-        bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/bg tambah dokter.png"))); // NOI18N
+        bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/bg tambah dokter baru.png"))); // NOI18N
         add(bg);
         bg.setBounds(0, 0, 1366, 768);
     }// </editor-fold>//GEN-END:initComponents
@@ -85,12 +94,32 @@ public class datadokter_tambah extends javax.swing.JPanel {
     }//GEN-LAST:event_btnkembaliMouseClicked
 
     private void btnselanjutnyaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnselanjutnyaMouseClicked
-    String id = txt_no_rm.getText();
+//    int id = Integer.valueOf(txt_no_rm.getText());
+    String input = txt_no_rm.getText();
+    if (input.matches("\\d+")) {
+    id = Integer.parseInt(input);
+    } else {
+    JOptionPane.showMessageDialog(null, "Nomor RM harus berupa angka integer.");
+    }
+    String nohp2 = txt_nohp.getText();
+    if (nohp2.matches("\\d+")) {
+    nohp = Integer.parseInt(nohp2);
+    } else {
+    JOptionPane.showMessageDialog(null, "Nomor hp harus berupa angka integer.");
+    }
     String nama = txt_nama.getText();
-    String no_hp = t.getText();
-    String jenis_poli = txt_no_rm.getText();
-    String jadwal = txt_no_rm.getText();
-    
+    Object selectedItem = cmb_poli.getSelectedItem();
+    Object selectedItem1 = cmb_jeniskelamin.getSelectedItem();
+    jenispoli = selectedItem.toString();
+    jeniskelamin = selectedItem1.toString();
+    String jadwal = txt_jadwal.getText();
+        Date hariini =new Date();
+    data_dokter apa = new data_dokter(id, nama, nohp, jenispoli, jadwal,jeniskelamin, 0, hariini);
+    data_dokterRepository datadokter = new data_dokterRepository();
+    datadokter.add(apa);
+    main main =(main)SwingUtilities.getWindowAncestor(this);
+    this.setVisible(false);
+    main.showdatadokter();
     }//GEN-LAST:event_btnselanjutnyaMouseClicked
 
 
@@ -98,11 +127,11 @@ public class datadokter_tambah extends javax.swing.JPanel {
     private javax.swing.JLabel bg;
     private javax.swing.JLabel btnkembali;
     private javax.swing.JLabel btnselanjutnya;
+    private javax.swing.JComboBox<String> cmb_jeniskelamin;
     private javax.swing.JComboBox<String> cmb_poli;
-    private javax.swing.JTextField txt_jnk;
+    private javax.swing.JTextField txt_jadwal;
     private javax.swing.JTextField txt_nama;
-    private javax.swing.JTextField txt_nik;
     private javax.swing.JTextField txt_no_rm;
-    private javax.swing.JTextField txt_ttl;
+    private javax.swing.JTextField txt_nohp;
     // End of variables declaration//GEN-END:variables
 }

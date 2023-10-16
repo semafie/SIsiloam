@@ -4,17 +4,61 @@
  */
 package panel;
 
+import entity.data_dokter;
+import java.util.Date;
+import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
+import main.main;
+import repository.data_dokterRepository;
+
 /**
  *
  * @author semafie
  */
 public class datadokter_edit extends javax.swing.JPanel {
-
+    data_dokterRepository dokter = new data_dokterRepository();
+    datadokter apa = new datadokter();
+    private String jenispoli;
+    private String jeniskelamin;
+    private int ids = apa.id;
+    
+    private int nohp;
     /**
      * Creates new form datadokter_edit
      */
     public datadokter_edit() {
         initComponents();
+        tampil();
+    }
+    public void tampil(){
+//        int id = master.get(ids).getId();
+        String nama = dokter.get(ids).getNama();
+        int no_hp = dokter.get(ids).getNo_hp();
+        String jenispoli = dokter.get(ids).getJenis_poli();
+        String jadwal = dokter.get(ids).getJadwal();
+        String jnk = dokter.get(ids).getJenis_kelamin();
+System.out.println(ids);
+System.out.println(nama);
+System.out.println(jenispoli);
+System.out.println(jadwal);
+System.out.println(jnk);
+System.out.println(no_hp);
+        txt_id.setText(Integer.toString(ids));
+        txt_nama.setText(nama);
+        txt_nohp.setText(Integer.toString(no_hp));
+        txt_jadwal.setText(jadwal);
+        if (jenispoli.equals("Poli umum")) {
+            cmb_poli.setSelectedIndex(0);
+        } else if(jenispoli.equals("Poli gigi")) {
+            cmb_poli.setSelectedIndex(1);
+        } else {
+            cmb_poli.setSelectedIndex(2);
+        }
+        if (jnk.equals("Laki-Laki")) {
+            cmb_jeniskelamin.setSelectedIndex(0);
+        } else {
+            cmb_jeniskelamin.setSelectedIndex(1);
+        }
     }
 
     /**
@@ -26,43 +70,101 @@ public class datadokter_edit extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txt_nik = new javax.swing.JTextField();
-        txt_ttl = new javax.swing.JTextField();
-        txt_jnk = new javax.swing.JTextField();
+        txt_nohp = new javax.swing.JTextField();
+        txt_jadwal = new javax.swing.JTextField();
         txt_nama = new javax.swing.JTextField();
         txt_id = new javax.swing.JTextField();
+        cmb_jeniskelamin = new javax.swing.JComboBox<>();
         cmb_poli = new javax.swing.JComboBox<>();
+        btnbatal = new javax.swing.JLabel();
+        btnselanjutnya = new javax.swing.JLabel();
         bg = new javax.swing.JLabel();
 
         setLayout(null);
-        add(txt_nik);
-        txt_nik.setBounds(530, 390, 530, 50);
-        add(txt_ttl);
-        txt_ttl.setBounds(530, 530, 530, 50);
-        add(txt_jnk);
-        txt_jnk.setBounds(530, 600, 530, 50);
+        add(txt_nohp);
+        txt_nohp.setBounds(530, 390, 530, 50);
+        add(txt_jadwal);
+        txt_jadwal.setBounds(530, 600, 530, 50);
         add(txt_nama);
         txt_nama.setBounds(530, 320, 530, 50);
         add(txt_id);
         txt_id.setBounds(530, 250, 530, 50);
 
+        cmb_jeniskelamin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Laki- Laki", "Perempuan" }));
+        add(cmb_jeniskelamin);
+        cmb_jeniskelamin.setBounds(560, 530, 320, 40);
+
         cmb_poli.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Poli umum", "Poli gigi", "Poli mata" }));
         add(cmb_poli);
         cmb_poli.setBounds(560, 460, 320, 40);
 
-        bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/bg edit dokter.png"))); // NOI18N
+        btnbatal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnbatalpojok1.png"))); // NOI18N
+        btnbatal.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnbatalMouseClicked(evt);
+            }
+        });
+        add(btnbatal);
+        btnbatal.setBounds(10, 710, 150, 50);
+
+        btnselanjutnya.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnselanjutnya1.png"))); // NOI18N
+        btnselanjutnya.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnselanjutnyaMouseClicked(evt);
+            }
+        });
+        add(btnselanjutnya);
+        btnselanjutnya.setBounds(1110, 710, 250, 50);
+
+        bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/bg edit dokter baru.png"))); // NOI18N
         add(bg);
         bg.setBounds(0, 0, 1366, 768);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnbatalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbatalMouseClicked
+    main main =(main)SwingUtilities.getWindowAncestor(this);
+    this.setVisible(false);
+    main.showdatadokter();
+    }//GEN-LAST:event_btnbatalMouseClicked
+
+    private void btnselanjutnyaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnselanjutnyaMouseClicked
+    String input = txt_id.getText();
+    if (input.matches("\\d+")) {
+    ids = Integer.parseInt(input);
+    } else {
+    JOptionPane.showMessageDialog(null, "Nomor RM harus berupa angka integer.");
+    }
+    String nohp2 = txt_nohp.getText();
+    if (nohp2.matches("\\d+")) {
+    nohp = Integer.parseInt(nohp2);
+    } else {
+    JOptionPane.showMessageDialog(null, "Nomor hp harus berupa angka integer.");
+    }
+    String nama = txt_nama.getText();
+    Object selectedItem = cmb_poli.getSelectedItem();
+    Object selectedItem1 = cmb_jeniskelamin.getSelectedItem();
+    jenispoli = selectedItem.toString();
+    jeniskelamin = selectedItem1.toString();
+    String jadwal = txt_jadwal.getText();
+        Date hariini =new Date();
+        data_dokter apa = new data_dokter(ids, nama, nohp, jenispoli, jadwal,jeniskelamin, 0, hariini);
+        data_dokterRepository datadokter = new data_dokterRepository();
+        datadokter.update(apa);
+        main main =(main)SwingUtilities.getWindowAncestor(this);
+    this.setVisible(false);
+    main.showdatadokter();
+    }//GEN-LAST:event_btnselanjutnyaMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bg;
+    private javax.swing.JLabel btnbatal;
+    private javax.swing.JLabel btnselanjutnya;
+    private javax.swing.JComboBox<String> cmb_jeniskelamin;
     private javax.swing.JComboBox<String> cmb_poli;
     private javax.swing.JTextField txt_id;
-    private javax.swing.JTextField txt_jnk;
+    private javax.swing.JTextField txt_jadwal;
     private javax.swing.JTextField txt_nama;
-    private javax.swing.JTextField txt_nik;
-    private javax.swing.JTextField txt_ttl;
+    private javax.swing.JTextField txt_nohp;
     // End of variables declaration//GEN-END:variables
 }

@@ -39,7 +39,7 @@ public class data_dokterRepository implements Repository<data_dokter> {
         try {
             Connection koneksi = (Connection) Conn.configDB();
             PreparedStatement pst = koneksi.prepareStatement(sql);
-            pst.setInt(0, id);
+            pst.setInt(1, id);
             ResultSet res = pst.executeQuery();
             while (res.next()) {
                 return mapToEntity(res);
@@ -53,7 +53,7 @@ public class data_dokterRepository implements Repository<data_dokter> {
 
     @Override
     public boolean add(data_dokter dokter) {
-    String sql = "insert into "+tableName+ " values(?,?,?,?,?,?,?)";
+    String sql = "insert into "+tableName+ " values(?,?,?,?,?,?,?,?)";
         try {
             Connection koneksi =(Connection)Conn.configDB();
             PreparedStatement pst = koneksi.prepareStatement(sql);
@@ -62,8 +62,9 @@ public class data_dokterRepository implements Repository<data_dokter> {
             pst.setInt(3, dokter.getNo_hp());
             pst.setString(4, dokter.getJenis_poli());
             pst.setString(5, dokter.getJadwal());
-            pst.setInt(6, dokter.getNo_antrian());
-            pst.setDate(7, new Date(dokter.getTanggal().getTime()));
+            pst.setString(6, dokter.getJenis_kelamin());
+            pst.setInt(7, dokter.getNo_antrian());
+            pst.setDate(8, new Date(dokter.getTanggal().getTime()));
             pst.execute();
             return true;
         } catch (Exception e) {
@@ -76,7 +77,7 @@ public class data_dokterRepository implements Repository<data_dokter> {
         
     @Override
     public boolean update(data_dokter dokter) {
-    String sql = "update "+tableName+" set nama = ?, no_hp = ?, jenis_poli =?, jadwal = ?, no_antrian = ?, tanggal = ? where id = ?";    
+    String sql = "update "+tableName+" set nama = ?, no_hp = ?, jenis_poli =?, jadwal = ?, jenis_kelamin = ?, no_antrian = ?, tanggal = ? where id = ?";    
         try {
             Connection koneksi = (Connection)Conn.configDB();
             PreparedStatement pst = koneksi.prepareStatement(sql);
@@ -84,9 +85,10 @@ public class data_dokterRepository implements Repository<data_dokter> {
             pst.setInt(2, dokter.getNo_hp());
             pst.setString(3, dokter.getJenis_poli());
             pst.setString(4, dokter.getJadwal());
-            pst.setInt(5, dokter.getNo_antrian());
-            pst.setDate(6, new Date(dokter.getTanggal().getTime()));
-            pst.setInt(7, dokter.getId());
+            pst.setString(5, dokter.getJenis_kelamin());
+            pst.setInt(6, dokter.getNo_antrian());
+            pst.setDate(7, new Date(dokter.getTanggal().getTime()));
+            pst.setInt(8, dokter.getId());
             pst.execute();
             return true;
         } catch (Exception e) {

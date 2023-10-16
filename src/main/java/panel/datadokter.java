@@ -9,6 +9,7 @@ import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
 import main.main;
 import repository.data_dokterRepository;
+import repository.data_masterRepository;
 
 /**
  *
@@ -16,6 +17,7 @@ import repository.data_dokterRepository;
  */
 public class datadokter extends javax.swing.JPanel {
     data_dokterRepository datadokter = new data_dokterRepository();
+    public static int id;
     /**
      * Creates new form datadokter
      */
@@ -61,7 +63,7 @@ public class datadokter extends javax.swing.JPanel {
         btnkembali = new javax.swing.JLabel();
         btntambah = new javax.swing.JLabel();
         btnedit = new javax.swing.JLabel();
-        btnedit1 = new javax.swing.JLabel();
+        btnhapus = new javax.swing.JLabel();
         bg = new javax.swing.JLabel();
 
         setLayout(null);
@@ -77,6 +79,11 @@ public class datadokter extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        table.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(table);
 
         add(jScrollPane1);
@@ -101,12 +108,22 @@ public class datadokter extends javax.swing.JPanel {
         btntambah.setBounds(40, 129, 200, 70);
 
         btnedit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnedit1.png"))); // NOI18N
+        btnedit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btneditMouseClicked(evt);
+            }
+        });
         add(btnedit);
         btnedit.setBounds(260, 130, 200, 70);
 
-        btnedit1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnhapus1.png"))); // NOI18N
-        add(btnedit1);
-        btnedit1.setBounds(480, 130, 200, 70);
+        btnhapus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnhapus1.png"))); // NOI18N
+        btnhapus.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnhapusMouseClicked(evt);
+            }
+        });
+        add(btnhapus);
+        btnhapus.setBounds(480, 130, 200, 70);
 
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/bg datamaster.png"))); // NOI18N
         add(bg);
@@ -125,11 +142,39 @@ public class datadokter extends javax.swing.JPanel {
     main.showdatadokter_tambah();
     }//GEN-LAST:event_btntambahMouseClicked
 
+    private void btneditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btneditMouseClicked
+    if(id != 0){
+        main main =(main)SwingUtilities.getWindowAncestor(this);
+    this.setVisible(false);
+    main.showdatadokter_edit();
+    } else {
+        System.out.println("pilih dulu bang tabelnya");
+    }
+    }//GEN-LAST:event_btneditMouseClicked
+
+    private void btnhapusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnhapusMouseClicked
+    data_dokterRepository dokter = new data_dokterRepository();
+    if(id != 0){
+        dokter.delete(id);
+        System.out.println("berhasil hapus");
+    } else {
+        System.out.println("gagal hapus");
+    }
+    load_tabel();
+    }//GEN-LAST:event_btnhapusMouseClicked
+
+    private void tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableMouseClicked
+    int baris = table.rowAtPoint(evt.getPoint());
+        String idd = table.getValueAt(baris, 0).toString();
+        id = Integer.valueOf(idd);
+        System.out.println(id);
+    }//GEN-LAST:event_tableMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bg;
     private javax.swing.JLabel btnedit;
-    private javax.swing.JLabel btnedit1;
+    private javax.swing.JLabel btnhapus;
     private javax.swing.JLabel btnkembali;
     private javax.swing.JLabel btntambah;
     private javax.swing.JScrollPane jScrollPane1;

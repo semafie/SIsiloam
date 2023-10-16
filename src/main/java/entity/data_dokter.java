@@ -6,7 +6,7 @@ import java.util.Date;
 public class data_dokter implements Entity{
     public static String tableName = "data_dokter";
     private int id, no_hp, no_antrian;
-    private String nama, jenis_poli, jadwal;
+    private String nama, jenis_poli, jadwal,jenis_kelamin;
     private Date tanggal;
     
     public data_dokter(String nama, int no_hp, String jenis_poli, String jadwal, int no_antrian, Date tanggal){
@@ -18,12 +18,13 @@ public class data_dokter implements Entity{
         this.tanggal = tanggal;
     }
     
-    public data_dokter(int id, String nama, int no_hp, String jenis_poli, String jadwal, int no_antrian, Date tanggal){
+    public data_dokter(int id, String nama, int no_hp, String jenis_poli, String jadwal,String jenis_kelamin, int no_antrian, Date tanggal){
         this.id = id;
         this.nama = nama;
         this.no_hp = no_hp;
         this.jenis_poli = jenis_poli;
         this.jadwal = jadwal;
+        this.jenis_kelamin = jenis_kelamin;
         this.no_antrian = no_antrian;
         this.tanggal = tanggal;
     }
@@ -88,6 +89,14 @@ public class data_dokter implements Entity{
         return tanggal;
     }
 
+    public void setJenis_kelamin(String jenis_kelamin) {
+        this.jenis_kelamin = jenis_kelamin;
+    }
+
+    public String getJenis_kelamin() {
+        return jenis_kelamin;
+    }
+    
     
     
 }

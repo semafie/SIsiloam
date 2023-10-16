@@ -19,7 +19,6 @@ service\ComboItem.class
 view\swing\Table.class
 panel\Dasboard$2.class
 entity\user.class
-panel\datadokter_hapus.class
 panel\buatpasswordbaru.class
 repository\Repository.class
 panel\Login$2.class
