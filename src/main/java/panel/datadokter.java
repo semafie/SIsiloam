@@ -92,6 +92,11 @@ public class datadokter extends javax.swing.JPanel {
         btnkembali.setBounds(10, 710, 190, 51);
 
         btntambah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btntambah1.png"))); // NOI18N
+        btntambah.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btntambahMouseClicked(evt);
+            }
+        });
         add(btntambah);
         btntambah.setBounds(40, 129, 200, 70);
 
@@ -113,6 +118,12 @@ public class datadokter extends javax.swing.JPanel {
     this.setVisible(false);
     main.showdatadokter();
     }//GEN-LAST:event_btnkembaliMouseClicked
+
+    private void btntambahMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btntambahMouseClicked
+    main main =(main)SwingUtilities.getWindowAncestor(this);
+    this.setVisible(false);
+    main.showdatadokter_tambah();
+    }//GEN-LAST:event_btntambahMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

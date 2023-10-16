@@ -8,6 +8,7 @@ import panel.Dasboard;
 import panel.Login;
 import panel.buatpasswordbaru;
 import panel.datadokter;
+import panel.datadokter_tambah;
 import panel.datamaster;
 import panel.datamaster_edit;
 import panel.kirimkode;
@@ -82,6 +83,13 @@ public void showlogin(){
         this.revalidate();
         this.repaint();
     }
+    public void showdatadokter_tambah(){
+        datadokter_tambah apa = new datadokter_tambah();
+        apa.setSize(1366,768);
+        this.add(apa);
+        this.revalidate();
+        this.repaint();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -92,19 +100,11 @@ public void showlogin(){
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        getContentPane().setLayout(null);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
-
-        pack();
+        setSize(new java.awt.Dimension(1366, 768));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     /**
