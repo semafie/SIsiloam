@@ -28,7 +28,7 @@ public class main extends javax.swing.JFrame {
      */
     public main() {
         initComponents();
-        showpasienbaru_pilihpoli();
+        showdasboard();
     }
 public void showlogin(){
         Login apa = new Login();
