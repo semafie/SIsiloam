@@ -20,8 +20,8 @@ public class cek {
         userRepository userRepository = new userRepository();
         data_master ass = new data_master(4, "restuuu",32020392,"jl apayaa","jember, 23/02/2004","Laki - laki");  
         user ass1 = new user(4 , "anakmu", "ibuku", "sayang", 1);
-            masterRepository.update(ass);
-        System.out.println(dokterRepository.get(1).getJenis_kelamin());
+//            masterRepository.update(ass);
+        System.out.println(masterRepository.get(1).getNama());
 //        masterRepository.add(ass);
 
         
