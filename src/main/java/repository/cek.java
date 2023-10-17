@@ -19,8 +19,10 @@ public class cek {
         data_dokterRepository dokterRepository = new data_dokterRepository();
         userRepository userRepository = new userRepository();
         data_master ass = new data_master(4, "restuuu",32020392,"jl apayaa","jember, 23/02/2004","Laki - laki");  
-        user ass1 = new user(4 , "anakmu", "ibuku", "sayang", 1);
-//            masterRepository.update(ass);
+        Date pp = new Date();
+        data_dokter ass1 = new data_dokter(2, "Dr gagah", 432423432, "Poli gigi", "dsadasddsada", "Laki - Laki", 0, pp);
+//        user ass1 = new user(4 , "anakmu", "ibuku", "sayang", 1);
+            dokterRepository.add(ass1);
         System.out.println(masterRepository.get(1).getNama());
 //        masterRepository.add(ass);
 

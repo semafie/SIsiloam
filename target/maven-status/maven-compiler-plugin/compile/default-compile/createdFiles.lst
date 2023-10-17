@@ -1,4 +1,4 @@
-view\swing\itemdokter_tampilan$1.class
+view\swing\itemdokter_tampilann$2.class
 view\swing\Table$1.class
 panel\datamaster$1.class
 panel\kirimkode$3.class
@@ -27,7 +27,6 @@ panel\buatpasswordbaru.class
 repository\Repository.class
 panel\Login$2.class
 panel\kirimkode$1.class
-view\swing\itemdokter_tampilan$3.class
 main\main.class
 panel\datadokter_tambah.class
 repository\cek.class
@@ -47,7 +46,6 @@ view\swing\Dialog$2.class
 panel\datamaster.class
 panel\Login.class
 panel\Login$4.class
-view\swing\itemdokter_tampilan$2.class
 panel\Dasboard$1.class
 entity\data_master.class
 view\swing\ModernScrollBarUI$ScrollBarButton.class
@@ -73,4 +71,4 @@ entity\data_dokter.class
 view\swing\ScrollBarCustom.class
 panel\kirimkode.class
 view\swing\Glass.class
-view\swing\itemdokter_tampilan.class
+view\swing\itemdokter_tampilann$1.class

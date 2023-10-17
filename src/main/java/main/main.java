@@ -13,6 +13,8 @@ import panel.datadokter_tambah;
 import panel.datamaster;
 import panel.datamaster_edit;
 import panel.kirimkode;
+import panel.pasienbaru;
+import panel.pasienbaru_pilihpoli;
 import panel.verifikasi;
 
 /**
@@ -26,7 +28,7 @@ public class main extends javax.swing.JFrame {
      */
     public main() {
         initComponents();
-        showdasboard();
+        showpasienbaru_pilihpoli();
     }
 public void showlogin(){
         Login apa = new Login();
@@ -93,6 +95,20 @@ public void showlogin(){
     }
     public void showdatadokter_edit(){
         datadokter_edit apa = new datadokter_edit();
+        apa.setSize(1366,768);
+        this.add(apa);
+        this.revalidate();
+        this.repaint();
+    }
+    public void showpasienbaru(){
+        pasienbaru apa = new pasienbaru();
+        apa.setSize(1366,768);
+        this.add(apa);
+        this.revalidate();
+        this.repaint();
+    }
+    public void showpasienbaru_pilihpoli(){
+        pasienbaru_pilihpoli apa = new pasienbaru_pilihpoli();
         apa.setSize(1366,768);
         this.add(apa);
         this.revalidate();

@@ -39,7 +39,7 @@ public class pasienbaru_pilihpoli extends javax.swing.JPanel {
             }
         });
         add(btnlanjut);
-        btnlanjut.setBounds(1110, 710, 250, 51);
+        btnlanjut.setBounds(1110, 701, 250, 60);
 
         btnbatal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnbatalpojok1.png"))); // NOI18N
         btnbatal.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -48,7 +48,7 @@ public class pasienbaru_pilihpoli extends javax.swing.JPanel {
             }
         });
         add(btnbatal);
-        btnbatal.setBounds(10, 710, 150, 51);
+        btnbatal.setBounds(10, 701, 150, 60);
 
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/bg pilih poli.png"))); // NOI18N
         add(bg);

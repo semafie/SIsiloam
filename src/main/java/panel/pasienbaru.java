@@ -51,6 +51,11 @@ public class pasienbaru extends javax.swing.JPanel {
         btn_kembali.setBounds(10, 701, 190, 60);
 
         btn_lanjut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnselanjutnya1.png"))); // NOI18N
+        btn_lanjut.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_lanjutMouseClicked(evt);
+            }
+        });
         add(btn_lanjut);
         btn_lanjut.setBounds(1110, 701, 250, 60);
         add(nik);
@@ -78,6 +83,12 @@ public class pasienbaru extends javax.swing.JPanel {
     this.setVisible(false);
     main.showdasboard();
     }//GEN-LAST:event_btn_kembaliMouseClicked
+
+    private void btn_lanjutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_lanjutMouseClicked
+    main main =(main)SwingUtilities.getWindowAncestor(this);
+    this.setVisible(false);
+    main.showpasienbaru_pilihpoli();
+    }//GEN-LAST:event_btn_lanjutMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

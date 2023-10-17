@@ -8,12 +8,12 @@ package panel;
  *
  * @author Be Mine
  */
-public class pilihdokter extends javax.swing.JPanel {
+public class pasienbaru_pilihdokter extends javax.swing.JPanel {
 
     /**
      * Creates new form pilihdokter
      */
-    public pilihdokter() {
+    public pasienbaru_pilihdokter() {
         initComponents();
     }
 

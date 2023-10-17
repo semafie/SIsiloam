@@ -8,12 +8,12 @@ package panel;
  *
  * @author Be Mine
  */
-public class tambahdaftar extends javax.swing.JPanel {
+public class pasienbaru_tambahdaftar extends javax.swing.JPanel {
 
     /**
      * Creates new form tambahdaftar
      */
-    public tambahdaftar() {
+    public pasienbaru_tambahdaftar() {
         initComponents();
     }
 
@@ -32,7 +32,12 @@ public class tambahdaftar extends javax.swing.JPanel {
         btnsimpandancetaknoantrian = new javax.swing.JLabel();
         btnbatal = new javax.swing.JLabel();
         btnkembali = new javax.swing.JLabel();
-        bgtambahdaftar = new javax.swing.JLabel();
+        bg = new javax.swing.JLabel();
+        nik = new javax.swing.JTextField();
+        alamat = new javax.swing.JTextField();
+        ttl = new javax.swing.JTextField();
+        nama_pasien = new javax.swing.JTextField();
+        no_rm = new javax.swing.JTextField();
 
         setLayout(null);
 
@@ -60,17 +65,32 @@ public class tambahdaftar extends javax.swing.JPanel {
         add(btnkembali);
         btnkembali.setBounds(45, 698, 200, 50);
 
-        bgtambahdaftar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/bg tambah daftar.png"))); // NOI18N
-        add(bgtambahdaftar);
-        bgtambahdaftar.setBounds(0, 0, 1366, 768);
+        bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/bg tambah daftar.png"))); // NOI18N
+        add(bg);
+        bg.setBounds(0, 0, 1366, 768);
+        add(nik);
+        nik.setBounds(550, 390, 490, 40);
+        add(alamat);
+        alamat.setBounds(550, 460, 490, 40);
+        add(ttl);
+        ttl.setBounds(550, 530, 490, 40);
+        add(nama_pasien);
+        nama_pasien.setBounds(550, 320, 490, 40);
+        add(no_rm);
+        no_rm.setBounds(550, 250, 490, 40);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel bgtambahdaftar;
+    private javax.swing.JTextField alamat;
+    private javax.swing.JLabel bg;
     private javax.swing.JLabel btnbatal;
     private javax.swing.JLabel btnkembali;
     private javax.swing.JLabel btnsimpandancetaknoantrian;
+    private javax.swing.JTextField nama_pasien;
+    private javax.swing.JTextField nik;
+    private javax.swing.JTextField no_rm;
+    private javax.swing.JTextField ttl;
     private javax.swing.JTextField txt_dokter;
     private javax.swing.JTextField txt_nama;
     private javax.swing.JTextField txt_no;
