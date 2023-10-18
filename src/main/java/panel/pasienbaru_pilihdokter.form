@@ -24,6 +24,9 @@
           <Image iconType="3" name="/view/imagebtn/btnselanjutnya1.png"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnselanjutnyaMouseClicked"/>
+      </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="1080" y="695" width="250" height="60"/>
@@ -42,6 +45,13 @@
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="10" y="690" width="210" height="60"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="view.swing.itemdokter_tampilann" name="itemdokter_tampilann1">
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="198" y="220" width="970" height="450"/>
         </Constraint>
       </Constraints>
     </Component>

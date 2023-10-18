@@ -10,9 +10,11 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import util.Conn;
+import view.swing.itempoli_tampilan;
 
 public class data_dokterRepository implements Repository<data_dokter> {
     private static String tableName = data_dokter.tableName;
+    
 
     @Override
     public List<data_dokter> get() {
@@ -22,6 +24,24 @@ public class data_dokterRepository implements Repository<data_dokter> {
             Connection koneksi = (Connection) Conn.configDB();
             Statement stm = koneksi.createStatement();
             ResultSet res = stm.executeQuery(sql);
+            while (res.next()) {
+                data_dokter.add(mapToEntity(res));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return data_dokter;
+    }
+    
+    
+    public List<data_dokter> get(String jenispoli) {
+        String sql = "select * from " + tableName + " where jenis_poli = ?";
+        List<data_dokter> data_dokter = new ArrayList<>();
+        try {
+            Connection koneksi = (Connection) Conn.configDB();
+            PreparedStatement pst = koneksi.prepareStatement(sql);
+            pst.setString(1, jenispoli);
+            ResultSet res = pst.executeQuery();
             while (res.next()) {
                 data_dokter.add(mapToEntity(res));
             }

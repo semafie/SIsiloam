@@ -14,7 +14,8 @@ import main.main;
  * @author Be Mine
  */
 public class pasienbaru_tambahdaftar extends javax.swing.JPanel {
-
+    
+    private int id;
     /**
      * Creates new form tambahdaftar
      */
@@ -42,6 +43,8 @@ public class pasienbaru_tambahdaftar extends javax.swing.JPanel {
         btnbatal = new javax.swing.JLabel();
         btnkembali = new javax.swing.JLabel();
         tanggal = new javax.swing.JLabel();
+        cmb_poli = new javax.swing.JComboBox<>();
+        cmb_jeniskelamin = new javax.swing.JComboBox<>();
         bg = new javax.swing.JLabel();
         nik = new javax.swing.JTextField();
         alamat = new javax.swing.JTextField();
@@ -68,6 +71,11 @@ public class pasienbaru_tambahdaftar extends javax.swing.JPanel {
         btnsimpandancetaknoantrian.setBounds(780, 700, 544, 50);
 
         btnbatal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnbatal3.png"))); // NOI18N
+        btnbatal.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnbatalMouseClicked(evt);
+            }
+        });
         add(btnbatal);
         btnbatal.setBounds(520, 700, 260, 50);
 
@@ -81,6 +89,14 @@ public class pasienbaru_tambahdaftar extends javax.swing.JPanel {
         btnkembali.setBounds(10, 700, 200, 60);
         add(tanggal);
         tanggal.setBounds(1080, 50, 170, 30);
+
+        cmb_poli.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Poli umum", "Poli gigi", "Poli mata" }));
+        add(cmb_poli);
+        cmb_poli.setBounds(570, 490, 290, 50);
+
+        cmb_jeniskelamin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Laki - Laki", "Perempuan" }));
+        add(cmb_jeniskelamin);
+        cmb_jeniskelamin.setBounds(570, 570, 290, 50);
 
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/bg tambah daftar.png"))); // NOI18N
         add(bg);
@@ -103,6 +119,10 @@ public class pasienbaru_tambahdaftar extends javax.swing.JPanel {
     main.showpasienbaru_pilihdokter();
     }//GEN-LAST:event_btnkembaliMouseClicked
 
+    private void btnbatalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbatalMouseClicked
+    
+    }//GEN-LAST:event_btnbatalMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField alamat;
@@ -110,6 +130,8 @@ public class pasienbaru_tambahdaftar extends javax.swing.JPanel {
     private javax.swing.JLabel btnbatal;
     private javax.swing.JLabel btnkembali;
     private javax.swing.JLabel btnsimpandancetaknoantrian;
+    private javax.swing.JComboBox<String> cmb_jeniskelamin;
+    private javax.swing.JComboBox<String> cmb_poli;
     private javax.swing.JTextField nama_pasien;
     private javax.swing.JTextField nik;
     private javax.swing.JTextField no_rm;

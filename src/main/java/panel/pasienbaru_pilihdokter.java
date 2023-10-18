@@ -31,11 +31,17 @@ public class pasienbaru_pilihdokter extends javax.swing.JPanel {
 
         btnselanjutnya = new javax.swing.JLabel();
         btnkembali = new javax.swing.JLabel();
+        itemdokter_tampilann1 = new view.swing.itemdokter_tampilann();
         bgpilihdokter = new javax.swing.JLabel();
 
         setLayout(null);
 
         btnselanjutnya.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnselanjutnya1.png"))); // NOI18N
+        btnselanjutnya.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnselanjutnyaMouseClicked(evt);
+            }
+        });
         add(btnselanjutnya);
         btnselanjutnya.setBounds(1080, 695, 250, 60);
 
@@ -47,6 +53,8 @@ public class pasienbaru_pilihdokter extends javax.swing.JPanel {
         });
         add(btnkembali);
         btnkembali.setBounds(10, 690, 210, 60);
+        add(itemdokter_tampilann1);
+        itemdokter_tampilann1.setBounds(198, 220, 970, 450);
 
         bgpilihdokter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/bg pilih dokter.png"))); // NOI18N
         add(bgpilihdokter);
@@ -59,10 +67,17 @@ public class pasienbaru_pilihdokter extends javax.swing.JPanel {
     main.showpasienbaru_pilihpoli();
     }//GEN-LAST:event_btnkembaliMouseClicked
 
+    private void btnselanjutnyaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnselanjutnyaMouseClicked
+    main main =(main)SwingUtilities.getWindowAncestor(this);
+    this.setVisible(false);
+    main.showpasienbaru_tambahdaftar();
+    }//GEN-LAST:event_btnselanjutnyaMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bgpilihdokter;
     private javax.swing.JLabel btnkembali;
     private javax.swing.JLabel btnselanjutnya;
+    private view.swing.itemdokter_tampilann itemdokter_tampilann1;
     // End of variables declaration//GEN-END:variables
 }

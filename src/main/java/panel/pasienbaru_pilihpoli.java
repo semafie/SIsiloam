@@ -62,7 +62,9 @@ public class pasienbaru_pilihpoli extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnlanjutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnlanjutMouseClicked
-    
+    main main =(main)SwingUtilities.getWindowAncestor(this);
+    this.setVisible(false);
+    main.showpasienbaru_pilihdokter();
     }//GEN-LAST:event_btnlanjutMouseClicked
 
     private void btnbatalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbatalMouseClicked

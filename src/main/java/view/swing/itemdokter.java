@@ -89,10 +89,16 @@ public class itemdokter extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        txtjadwal = new javax.swing.JLabel();
+        txtnamadokter = new javax.swing.JLabel();
         itemdokter = new javax.swing.JLabel();
         itemdokter1 = new javax.swing.JLabel();
 
         setLayout(null);
+        add(txtjadwal);
+        txtjadwal.setBounds(40, 110, 360, 40);
+        add(txtnamadokter);
+        txtnamadokter.setBounds(70, 30, 300, 40);
 
         itemdokter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/bgitemdokter1.png"))); // NOI18N
         add(itemdokter);
@@ -107,5 +113,7 @@ public class itemdokter extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel itemdokter;
     private javax.swing.JLabel itemdokter1;
+    public static javax.swing.JLabel txtjadwal;
+    public static javax.swing.JLabel txtnamadokter;
     // End of variables declaration//GEN-END:variables
 }

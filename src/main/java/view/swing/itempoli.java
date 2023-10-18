@@ -4,6 +4,7 @@
  */
 package view.swing;
 
+import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
@@ -43,6 +44,8 @@ private final List<EventMenuSelected> events = new ArrayList<>();
     }
     public itempoli() {
         initComponents();
+//        Font font = new Font("Quicksand", Font.BOLD, 17);
+//        txtpoli.setFont(font);
         itempoliselected.setVisible(false);
         setOpaque(false);
         this.index = index;

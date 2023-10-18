@@ -25,6 +25,9 @@ import repository.data_dokterRepository;
 public class itemdokter_tampilann extends javax.swing.JPanel {
     private String nomorpanel;
     public String nomorpanel1;
+    itempoli_tampilan a = new itempoli_tampilan();
+    private String jenispoli = a.jeje;
+    public static int id;
     private JPanel container;
     private List<JPanel> panellist;
     data_dokterRepository dokter = new data_dokterRepository();
@@ -36,9 +39,11 @@ public class itemdokter_tampilann extends javax.swing.JPanel {
     }
     public void getpanel(){
         try{
-            String sql = "Select * from data_dokter";
+            String sql = "Select * from data_dokter where jenis_poli = ?";
+//            System.out.println(jenispoli);
             Connection con =(Connection)util.Conn.configDB();
             PreparedStatement psw = con.prepareStatement(sql);
+            psw.setString(1, "Poli gigi");
             ResultSet res = psw.executeQuery();
             int marginKiri = 10;
             int baris = 0;
@@ -47,15 +52,18 @@ public class itemdokter_tampilann extends javax.swing.JPanel {
             container = new JPanel();
             
                 
-            for(data_dokter p:dokter.get()){
-                    String id_barang = String.valueOf(p.getId());
+            for(data_dokter p:dokter.get(jenispoli)){
+                    String jadwal = p.getJadwal();
                    namapaket11 = p.getNama();
+                   
 //                   String lamapaket = String.valueOf(p.getNama());
 //                   String hargaa = String.valueOf("Rp. "+p.getHarga());
                    System.out.println(namapaket11);
 //                   System.out.println(lamapaket);
                    
                 itemdokter pnn = new itemdokter();
+                pnn.txtnamadokter.setText(namapaket11);
+                pnn.txtjadwal.setText(jadwal);
 //                pnn.namapaket123.setText(namapaket11);
 //                   pnn.infopaket.setText(lamapaket);
 //                   pnn.harga.setText(lamapaket);
@@ -64,19 +72,19 @@ public class itemdokter_tampilann extends javax.swing.JPanel {
                 container.setLayout(null);
                 pnn.setSize(451, 188);
                 container.add(pnn);
-                container.setPreferredSize(new Dimension(1000, 250 + (212 * baris)));
-                container.setBackground(Color.WHITE);
+                container.setPreferredSize(new Dimension(910, 250 + (212 * baris)));
+                container.setBackground(new Color(227,252,246));
 //                container.setBorder(null);
                 jScrollPane1.setPreferredSize(new Dimension(910, 220 * dimensi));
                 
                 jScrollPane1.setViewportView(container);
                 jScrollPane1.setVerticalScrollBar(scrollBarCustom1);
                 if (kolom <= 1) {
-                pnn.setLocation(kolom * 500, baris * 200);
+                pnn.setLocation(kolom * 500, baris * 185);
                     } else {
                 baris++;
                 kolom = 0;
-                pnn.setLocation(kolom * 500, baris * 200);
+                pnn.setLocation(kolom * 500, baris * 185);
                 
                     }
                 kolom ++;
@@ -95,7 +103,7 @@ public class itemdokter_tampilann extends javax.swing.JPanel {
                     @Override
                     public void selected(int index) {
                         clearMenu(index);
-//                        PaketForm.id = p.getId();   
+                        id = p.getId();   
 //                        DialogEditPaket.idPak = p.getId();
                         System.out.println(p.getId());
                     }
@@ -172,6 +180,10 @@ public class itemdokter_tampilann extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         scrollBarCustom1 = new view.swing.ScrollBarCustom();
 
+        setBackground(new java.awt.Color(227, 252, 246));
+
+        jScrollPane1.setBorder(null);
+
         scrollBarCustom1.setForeground(new java.awt.Color(95, 193, 193));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -179,11 +191,9 @@ public class itemdokter_tampilann extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 904, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 927, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(scrollBarCustom1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(scrollBarCustom1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -26,8 +26,9 @@ public class itempoli_tampilan extends javax.swing.JPanel {
 //    public String nomorpanel1;
     private JPanel container;
     private List<JPanel> panellist;
-    private String[] holla = {"Poli umum", "Jenis gigi", "Poli mata"};
+    private String[] holla = {"Poli umum", "Poli gigi", "Poli mata"};
     private int index;
+    public static String jeje;
     private int opo = 0;
     public itempoli_tampilan() {
         initComponents();
@@ -50,7 +51,7 @@ public class itempoli_tampilan extends javax.swing.JPanel {
             
         
             for(int index = 0; index < holla.length; index++){
-                String hayo = holla[index]; 
+                String hayo = holla[index];
                 
 //                String hh = holla[index];
                 
@@ -102,6 +103,7 @@ public class itempoli_tampilan extends javax.swing.JPanel {
                     @Override
                     public void selected(int index) {
                         clearMenu(index);
+                        jeje = hayo;
 //                        PaketForm.id = p.getId();   
 //                        DialogEditPaket.idPak = p.getId();
                         System.out.println(hayo);
