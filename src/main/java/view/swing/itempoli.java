@@ -4,19 +4,84 @@
  */
 package view.swing;
 
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
+
 /**
  *
  * @author semafie
  */
 public class itempoli extends javax.swing.JPanel {
+    private final List<EventMenuSelected> events = new ArrayList<>();
+    private int index;
+    private boolean selected;
+    private boolean mouseOver;
+    private JPanel containerPanel;
+    
+    public int getIndex() {
+        return index;
+    }
 
+    public void setIndex(int index) {
+        this.index = index;
+    }
+
+    public boolean isSelected() {
+        return selected;
+    }
+
+    public void setSelected(boolean selected) {
+        this.selected = selected;
+        itempoli.setVisible(!selected);
+        itempoliselected.setVisible(selected);
+        repaint();
+    }
     /**
      * Creates new form itempoli
      */
     public itempoli() {
         initComponents();
+        itempoliselected.setVisible(false);
+        setOpaque(false);
+        this.index = index;
+        addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                mouseOver = true;
+                repaint();
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                mouseOver = false;
+                repaint();
+            }
+            @Override
+            public void mouseReleased(MouseEvent me) {
+                if (SwingUtilities.isLeftMouseButton(me)) {
+                    if (mouseOver) {
+                        setSelected(true);
+                        repaint();
+                        runEvent();
+                    }
+                }
+            }
+        });
+    }
+    
+    private void runEvent() {
+        for (EventMenuSelected event : events) {
+            event.selected(index);
+        }
     }
 
+    public void addEvent(EventMenuSelected event) {
+        events.add(event);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -26,19 +91,23 @@ public class itempoli extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        itempoli = new javax.swing.JLabel();
+        itempoliselected = new javax.swing.JLabel();
+
+        setLayout(null);
+
+        itempoli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/bgitempoli1.png"))); // NOI18N
+        add(itempoli);
+        itempoli.setBounds(10, 10, 411, 82);
+
+        itempoliselected.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/bgitempoli2.png"))); // NOI18N
+        add(itempoliselected);
+        itempoliselected.setBounds(10, 10, 411, 82);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel itempoli;
+    private javax.swing.JLabel itempoliselected;
     // End of variables declaration//GEN-END:variables
 }
