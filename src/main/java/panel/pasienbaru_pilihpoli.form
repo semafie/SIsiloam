@@ -36,7 +36,7 @@
     <Component class="javax.swing.JLabel" name="btnbatal">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/view/imagebtn/btnbatalpojok1.png"/>
+          <Image iconType="3" name="/view/imagebtn/btnkembali1.png"/>
         </Property>
       </Properties>
       <Events>
@@ -44,7 +44,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="10" y="701" width="150" height="60"/>
+          <AbsoluteConstraints x="10" y="701" width="190" height="60"/>
         </Constraint>
       </Constraints>
     </Component>

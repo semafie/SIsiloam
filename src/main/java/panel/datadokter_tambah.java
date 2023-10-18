@@ -19,7 +19,7 @@ public class datadokter_tambah extends javax.swing.JPanel {
     private String jenispoli;
     private String jeniskelamin;
     private int id;
-    private int nohp;
+    private String nohp;
     /**
      * Creates new form datadokter_tambah
      */
@@ -47,6 +47,8 @@ public class datadokter_tambah extends javax.swing.JPanel {
         bg = new javax.swing.JLabel();
 
         setLayout(null);
+
+        txt_nohp.setText("0");
         add(txt_nohp);
         txt_nohp.setBounds(530, 390, 500, 40);
         add(txt_jadwal);
@@ -96,17 +98,25 @@ public class datadokter_tambah extends javax.swing.JPanel {
     private void btnselanjutnyaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnselanjutnyaMouseClicked
 //    int id = Integer.valueOf(txt_no_rm.getText());
     String input = txt_no_rm.getText();
-    if (input.matches("\\d+")) {
-    id = Integer.parseInt(input);
-    } else {
-    JOptionPane.showMessageDialog(null, "Nomor RM harus berupa angka integer.");
-    }
+//    if (input.matches("\\d+")) {
+//    id = Integer.parseInt(input);
+//    } else {
+//    JOptionPane.showMessageDialog(null, "Nomor RM harus berupa angka integer.");
+//    }
     String nohp2 = txt_nohp.getText();
-    if (nohp2.matches("\\d+")) {
-    nohp = Integer.parseInt(nohp2);
+    String originalText = nohp2;
+if (originalText.length() > 1) {
+    String textWithoutFirstCharacter = originalText.substring(1);
+    System.out.println(textWithoutFirstCharacter);
+
+    if (textWithoutFirstCharacter.matches("\\d+")) {
+    nohp = "0"+nohp2;
     } else {
     JOptionPane.showMessageDialog(null, "Nomor hp harus berupa angka integer.");
     }
+    } else {
+    System.out.println("Teks terlalu pendek untuk dihapus karakter pertama.");
+}
     String nama = txt_nama.getText();
     Object selectedItem = cmb_poli.getSelectedItem();
     Object selectedItem1 = cmb_jeniskelamin.getSelectedItem();
@@ -114,7 +124,7 @@ public class datadokter_tambah extends javax.swing.JPanel {
     jeniskelamin = selectedItem1.toString();
     String jadwal = txt_jadwal.getText();
         Date hariini =new Date();
-    data_dokter apa = new data_dokter(id, nama, nohp, jenispoli, jadwal,jeniskelamin, 0, hariini);
+    data_dokter apa = new data_dokter( nama, nohp, jenispoli, jadwal,jeniskelamin, 0, hariini);
     data_dokterRepository datadokter = new data_dokterRepository();
     datadokter.add(apa);
     main main =(main)SwingUtilities.getWindowAncestor(this);

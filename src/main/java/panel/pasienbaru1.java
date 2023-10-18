@@ -7,6 +7,7 @@ package panel;
 import entity.pasienbaru_sementara;
 import javax.swing.SwingUtilities;
 import main.main;
+
 import repository.datapasienbarusementara;
 import repository.pasienbaru_sementaraRepository;
 
@@ -14,50 +15,11 @@ import repository.pasienbaru_sementaraRepository;
  *
  * @author semafie
  */
-public class pasienbaru extends javax.swing.JPanel {
+public class pasienbaru1 extends javax.swing.JPanel {
     
-    datapasienbarusementara a =new datapasienbarusementara();
-//    pasienbaru_pilihpoli c = new pasienbaru_pilihpoli();
-//        pasienbaru_pilihdokter c = new pasienbaru_pilihdokter();
-    class AutoIDGenerator {
-    int left = 0;
-    int middle = 0;
-    int right = 0;
-
-    public String generateAutoID() {
-        if (right < 99) {
-            right++;
-        } else {
-            right = 0;
-            if (middle < 99) {
-                middle++;
-            } else {
-                middle = 0;
-                if (left < 99) {
-                    left++;
-                } else {
-                    // Reset ke 0 jika semua sudah mencapai 99
-                    left = 0;
-                }
-            }
-        }
-
-        String leftStr = String.format("%02d", left);
-        String middleStr = String.format("%02d", middle);
-        String rightStr = String.format("%02d", right);
-
-        return rightStr+ "-" + middleStr + "-" + leftStr ;
-    }
-    }
-        pasienbaru_sementaraRepository bb = new pasienbaru_sementaraRepository();
-    
-    public pasienbaru() {
+    pasienbaru_sementaraRepository bb = new pasienbaru_sementaraRepository();
+    public pasienbaru1() {
         initComponents();
-        
-        
-    }
-    
-    public void apek(){
         txt_no_rm.setText(String.valueOf(bb.get(1).getId()));
         txt_nama_pasien.setText(bb.get(1).getNama());
         txt_alamat.setText(bb.get(1).getAlamat());
@@ -68,6 +30,14 @@ public class pasienbaru extends javax.swing.JPanel {
         } else {
             cmd_jnk.setSelectedIndex(1);
         }
+//        Object selectedItem = cmd_jnk.getSelectedItem();   
+//        String jnk = selectedItem.toString();
+//        System.out.println(jnk);
+        
+    }
+    
+    public void apek(){
+
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -139,7 +109,7 @@ public class pasienbaru extends javax.swing.JPanel {
     }//GEN-LAST:event_btn_kembaliMouseClicked
 
     private void btn_lanjutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_lanjutMouseClicked
-//        int no = Integer.valueOf(txt_no_rm.getText());
+//int no = Integer.valueOf(txt_no_rm.getText());
         String nama = txt_nama_pasien.getText();
         int nik = Integer.valueOf(txt_nik.getText());
         String ttl = txt_ttl.getText();
@@ -165,7 +135,7 @@ public class pasienbaru extends javax.swing.JPanel {
     private javax.swing.JLabel btn_kembali;
     private javax.swing.JLabel btn_lanjut;
     private javax.swing.JTextField cacacac;
-    public static javax.swing.JComboBox<String> cmd_jnk;
+    private javax.swing.JComboBox<String> cmd_jnk;
     public static javax.swing.JTextField txt_alamat;
     public static javax.swing.JTextField txt_nama_pasien;
     public static javax.swing.JTextField txt_nik;

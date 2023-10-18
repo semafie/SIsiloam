@@ -6,18 +6,32 @@ package panel;
 
 import javax.swing.SwingUtilities;
 import main.main;
+import repository.datapasienbarusementara;
+//import static panel.pasienbaru.jnk;
+//import static panel.pasienbaru.txt_alamat;
+//import static panel.pasienbaru.txt_nama_pasien;
+//import static panel.pasienbaru.txt_nik;
+//import static panel.pasienbaru.txt_no_rm;
+//import static panel.pasienbaru.txt_ttl;
+
 
 /**
  *
  * @author RESCOM-1
  */
 public class pasienbaru_pilihpoli extends javax.swing.JPanel {
-
+    
+    
     /**
      * Creates new form pasienbaru_pilihpoli
      */
+    
+    
     public pasienbaru_pilihpoli() {
         initComponents();
+        datapasienbarusementara a = new datapasienbarusementara();
+        System.out.println(a.getNama());
+        
     }
 
     /**
@@ -45,14 +59,14 @@ public class pasienbaru_pilihpoli extends javax.swing.JPanel {
         add(btnlanjut);
         btnlanjut.setBounds(1110, 701, 250, 60);
 
-        btnbatal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnbatalpojok1.png"))); // NOI18N
+        btnbatal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnkembali1.png"))); // NOI18N
         btnbatal.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnbatalMouseClicked(evt);
             }
         });
         add(btnbatal);
-        btnbatal.setBounds(10, 701, 150, 60);
+        btnbatal.setBounds(10, 701, 190, 60);
         add(itempoli_tampilan1);
         itempoli_tampilan1.setBounds(230, 230, 490, 390);
 
@@ -68,9 +82,22 @@ public class pasienbaru_pilihpoli extends javax.swing.JPanel {
     }//GEN-LAST:event_btnlanjutMouseClicked
 
     private void btnbatalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbatalMouseClicked
-    main main =(main)SwingUtilities.getWindowAncestor(this);
+    
+        
+//    o.apek();
+//        o.txt_no_rm.setText("gghfhf");
+//        o.txt_nama_pasien.setText("vgvggvghvv");
+//        o.txt_alamat.setText(nik1);
+//        o.txt_nik.setText(ttl1);
+//        o.txt_ttl.setText(alamat1);
+//        if (jnk1.equals("Laki - Laki")) {
+//            o.cmd_jnk.setSelectedIndex(0);
+//        } else {
+//            o.cmd_jnk.setSelectedIndex(1);
+//        }
+        main main =(main)SwingUtilities.getWindowAncestor(this);
     this.setVisible(false);
-    main.showpasienbaru();
+    main.showpasienbaru1();
     }//GEN-LAST:event_btnbatalMouseClicked
 
 

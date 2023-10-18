@@ -16,7 +16,7 @@ public class rekap_harian implements Entity{
         
     }
     
-    public rekap_harian(int id, Timestamp jam, Date tanggal, data_dokter id_dokter,data_master data_master ){
+    public rekap_harian(int id, Timestamp jam, Date tanggal, data_dokter id_dokter,data_master id_master ){
         this.id = id;
         this.jam = jam;
         this.tanggal = tanggal;
@@ -25,7 +25,7 @@ public class rekap_harian implements Entity{
     }
     
     public rekap_harian( Timestamp jam, Date tanggal, data_dokter data_dokter,data_master data_master ){
-        this.id = id;
+        
         this.jam = jam;
         this.tanggal = tanggal;
         this.id_dokter = data_dokter;

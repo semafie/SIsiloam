@@ -14,6 +14,8 @@ import panel.datamaster;
 import panel.datamaster_edit;
 import panel.kirimkode;
 import panel.pasienbaru;
+import panel.pasienbaru1;
+
 import panel.pasienbaru_pilihdokter;
 import panel.pasienbaru_pilihpoli;
 import panel.pasienbaru_tambahdaftar;
@@ -109,6 +111,14 @@ public void showlogin(){
         this.revalidate();
         this.repaint();
     }
+    public void showpasienbaru1(){
+        pasienbaru1 apa = new pasienbaru1();
+        apa.setSize(1366,768);
+        this.add(apa);
+        this.revalidate();
+        this.repaint();
+    }
+    
     public void showpasienbaru_pilihpoli(){
         pasienbaru_pilihpoli apa = new pasienbaru_pilihpoli();
         apa.setSize(1366,768);

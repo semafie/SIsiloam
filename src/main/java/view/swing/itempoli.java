@@ -44,8 +44,8 @@ private final List<EventMenuSelected> events = new ArrayList<>();
     }
     public itempoli() {
         initComponents();
-//        Font font = new Font("Quicksand", Font.BOLD, 17);
-//        txtpoli.setFont(font);
+        Font font = new Font("Quicksand", Font.BOLD, 22);
+        txtpoli.setFont(font);
         itempoliselected.setVisible(false);
         setOpaque(false);
         this.index = index;
@@ -97,7 +97,7 @@ private final List<EventMenuSelected> events = new ArrayList<>();
 
         setLayout(null);
         add(txtpoli);
-        txtpoli.setBounds(50, 20, 320, 30);
+        txtpoli.setBounds(50, 10, 320, 50);
 
         itempoli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/bgitempoli2.png"))); // NOI18N
         add(itempoli);

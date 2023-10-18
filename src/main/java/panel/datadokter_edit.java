@@ -22,7 +22,7 @@ public class datadokter_edit extends javax.swing.JPanel {
     private String jeniskelamin;
     private int ids = apa.id;
     
-    private int nohp;
+    private String nohp;
     /**
      * Creates new form datadokter_edit
      */
@@ -33,7 +33,7 @@ public class datadokter_edit extends javax.swing.JPanel {
     public void tampil(){
 //        int id = master.get(ids).getId();
         String nama = dokter.get(ids).getNama();
-        int no_hp = dokter.get(ids).getNo_hp();
+        String no_hp = dokter.get(ids).getNo_hp();
         String jenispoli = dokter.get(ids).getJenis_poli();
         String jadwal = dokter.get(ids).getJadwal();
         String jnk = dokter.get(ids).getJenis_kelamin();
@@ -45,7 +45,7 @@ System.out.println(jnk);
 System.out.println(no_hp);
         txt_id.setText(Integer.toString(ids));
         txt_nama.setText(nama);
-        txt_nohp.setText(Integer.toString(no_hp));
+        txt_nohp.setText(no_hp);
         txt_jadwal.setText(jadwal);
         if (jenispoli.equals("Poli umum")) {
             cmb_poli.setSelectedIndex(0);
@@ -136,7 +136,7 @@ System.out.println(no_hp);
     }
     String nohp2 = txt_nohp.getText();
     if (nohp2.matches("\\d+")) {
-    nohp = Integer.parseInt(nohp2);
+    nohp = nohp2;
     } else {
     JOptionPane.showMessageDialog(null, "Nomor hp harus berupa angka integer.");
     }

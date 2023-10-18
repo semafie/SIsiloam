@@ -73,18 +73,18 @@ public class data_dokterRepository implements Repository<data_dokter> {
 
     @Override
     public boolean add(data_dokter dokter) {
-    String sql = "insert into "+tableName+ " values(?,?,?,?,?,?,?,?)";
+    String sql = "insert into "+tableName+ " ('nama','no_hp','jenis_poli','jadwal','jenis_kelamin','no_antrian','tanggal') values(?,?,?,?,?,?,?)";
         try {
             Connection koneksi =(Connection)Conn.configDB();
             PreparedStatement pst = koneksi.prepareStatement(sql);
-            pst.setInt(1, dokter.getId());
-            pst.setString(2, dokter.getNama());
-            pst.setInt(3, dokter.getNo_hp());
-            pst.setString(4, dokter.getJenis_poli());
-            pst.setString(5, dokter.getJadwal());
-            pst.setString(6, dokter.getJenis_kelamin());
-            pst.setInt(7, dokter.getNo_antrian());
-            pst.setDate(8, new Date(dokter.getTanggal().getTime()));
+            
+            pst.setString(1, dokter.getNama());
+            pst.setString(2, dokter.getNo_hp());
+            pst.setString(3, dokter.getJenis_poli());
+            pst.setString(4, dokter.getJadwal());
+            pst.setString(5, dokter.getJenis_kelamin());
+            pst.setInt(6, dokter.getNo_antrian());
+            pst.setDate(7, new Date(dokter.getTanggal().getTime()));
             pst.execute();
             return true;
         } catch (Exception e) {
@@ -102,7 +102,7 @@ public class data_dokterRepository implements Repository<data_dokter> {
             Connection koneksi = (Connection)Conn.configDB();
             PreparedStatement pst = koneksi.prepareStatement(sql);
             pst.setString(1, dokter.getNama());
-            pst.setInt(2, dokter.getNo_hp());
+            pst.setString(2, dokter.getNo_hp());
             pst.setString(3, dokter.getJenis_poli());
             pst.setString(4, dokter.getJadwal());
             pst.setString(5, dokter.getJenis_kelamin());
@@ -135,7 +135,7 @@ public class data_dokterRepository implements Repository<data_dokter> {
     private data_dokter mapToEntity(ResultSet res) throws SQLException {
         data_dokter us = new data_dokter(
                 res.getString("nama"),
-                res.getInt("no_hp"),
+                res.getString("no_hp"),
                 res.getString("jenis_poli"),
                 res.getString("jadwal"),
                 res.getString("jenis_kelamin"),

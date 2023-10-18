@@ -4,12 +4,14 @@
  */
 package view.swing;
 
+import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
+import static view.swing.itempoli.txtpoli;
 
 /**
  *
@@ -43,6 +45,9 @@ public class itemdokter extends javax.swing.JPanel {
     }
     public itemdokter() {
         initComponents();
+        Font font = new Font("Quicksand", Font.BOLD, 22);
+        txtjadwal.setFont(font);
+        txtnamadokter.setFont(font);
         itemdokter1.setVisible(false);
         setOpaque(false);
         this.index = index;

@@ -24,7 +24,7 @@ import repository.data_dokterRepository;
  */
 public class itemdokter_tampilann extends javax.swing.JPanel {
     private String nomorpanel;
-    public String nomorpanel1;
+    public String nomorpanel1 = "";
     itempoli_tampilan a = new itempoli_tampilan();
     private String jenispoli = a.jeje;
     public static int id;
@@ -55,6 +55,7 @@ public class itemdokter_tampilann extends javax.swing.JPanel {
             for(data_dokter p:dokter.get(jenispoli)){
                     String jadwal = p.getJadwal();
                    namapaket11 = p.getNama();
+//                   id = p.getId();
                    
 //                   String lamapaket = String.valueOf(p.getNama());
 //                   String hargaa = String.valueOf("Rp. "+p.getHarga());
@@ -80,11 +81,11 @@ public class itemdokter_tampilann extends javax.swing.JPanel {
                 jScrollPane1.setViewportView(container);
                 jScrollPane1.setVerticalScrollBar(scrollBarCustom1);
                 if (kolom <= 1) {
-                pnn.setLocation(kolom * 500, baris * 185);
+                pnn.setLocation(kolom * 485, baris * 185);
                     } else {
                 baris++;
                 kolom = 0;
-                pnn.setLocation(kolom * 500, baris * 185);
+                pnn.setLocation(kolom * 485, baris * 185);
                 
                     }
                 kolom ++;

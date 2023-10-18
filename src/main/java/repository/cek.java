@@ -4,6 +4,7 @@ package repository;
 import com.mysql.cj.xdevapi.Result;
 import entity.data_dokter;
 import entity.data_master;
+import entity.pasienbaru_sementara;
 import entity.user;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -16,24 +17,31 @@ import util.Conn;
 public class cek {
     public static void main(String[] args) {
         data_masterRepository masterRepository = new data_masterRepository();
+        pasienbaru_sementaraRepository master11Repository = new pasienbaru_sementaraRepository();
         data_dokterRepository dokterRepository = new data_dokterRepository();
         userRepository userRepository = new userRepository();
         data_master ass = new data_master(4, "restuuu",32020392,"jl apayaa","jember, 23/02/2004","Laki - laki");  
+        pasienbaru_sementara apo = new pasienbaru_sementara(1, "restuuu",32020392,"jl apayaa","jember, 23/02/2004","Laki - laki");
         Date pp = new Date();
-        data_dokter ass1 = new data_dokter(2, "Dr gagah", 432423432, "Poli gigi", "dsadasddsada", "Laki - Laki", 0, pp);
+        
+//        data_dokter ass1 = new data_dokter(2, "Dr gagah", 432423432, "Poli gigi", "dsadasddsada", "Laki - Laki", 0, pp);
+        
+        
+//        master11Repository.update(apo);
+
 //        user ass1 = new user(4 , "anakmu", "ibuku", "sayang", 1);
 //            dokterRepository.add(ass1);
 //        System.out.println(masterRepository.get(1).getNama());
-         String[] holla = {"doni", "haji slamet", "bagus"};
-
-        // Menggunakan perulangan for untuk menampilkan setiap nama dalam array
-        for (String nama : holla) {
-            System.out.println(nama);
-        }
-        for(int index = 0; index < holla.length; index++){
-    String hayo = holla[index]; 
-            System.out.println(hayo);
-        }
+//         String[] holla = {"doni", "haji slamet", "bagus"};
+//
+//        // Menggunakan perulangan for untuk menampilkan setiap nama dalam array
+//        for (String nama : holla) {
+//            System.out.println(nama);
+//        }
+//        for(int index = 0; index < holla.length; index++){
+//    String hayo = holla[index]; 
+//            System.out.println(hayo);
+//        }
 //        masterRepository.add(ass);
 
         
@@ -52,6 +60,53 @@ public class cek {
 //            e.printStackTrace();
 //        }
         
+        AutoIDGenerator generator = new AutoIDGenerator();
+
         
+//            String autoID = generator.generateAutoID();
+//            System.out.println(autoID);
+            String lastID = "99-02-03"; // Ganti dengan ID terakhir dari database
+        String[] parts = lastID.split("-");
+        generator.left = Integer.parseInt(parts[2]);
+        generator.middle = Integer.parseInt(parts[1]);
+        generator.right = Integer.parseInt(parts[0]);
+
+        String autoID = generator.generateAutoID();
+        System.out.println("Auto-generated ID: " + autoID);
+                
     }
+    
+
 }
+class AutoIDGenerator {
+    int left = 0;
+    int middle = 0;
+    int right = 0;
+
+    public String generateAutoID() {
+        if (right < 99) {
+            right++;
+        } else {
+            right = 0;
+            if (middle < 99) {
+                middle++;
+            } else {
+                middle = 0;
+                if (left < 99) {
+                    left++;
+                } else {
+                    // Reset ke 0 jika semua sudah mencapai 99
+                    left = 0;
+                }
+            }
+        }
+
+        String leftStr = String.format("%02d", left);
+        String middleStr = String.format("%02d", middle);
+        String rightStr = String.format("%02d", right);
+
+        return rightStr+ "-" + middleStr + "-" + leftStr ;
+    }
+
+    
+    }

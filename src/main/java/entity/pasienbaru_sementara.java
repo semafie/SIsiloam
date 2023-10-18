@@ -1,16 +1,16 @@
 
 package entity;
 
-public class data_master implements Entity{
-    public static String tableName = "data_master";
-    private int id,no_rm,nik;
+public class pasienbaru_sementara implements Entity{
+    public static String tableName = "pasienbaru_sementara";
+    private int id,nik;
     private String nama, alamat, ttl, jenis_kelamin;
 
-    public data_master(){
+    public pasienbaru_sementara(){
         
     }
     
-    public data_master(String nama, int nik, String alamat, String ttl, String jenis_kelamin){
+    public pasienbaru_sementara(String nama, int nik, String alamat, String ttl, String jenis_kelamin){
         this.nama = nama;
         this.nik = nik;
         this.alamat = alamat;
@@ -18,7 +18,7 @@ public class data_master implements Entity{
         this.jenis_kelamin = jenis_kelamin;
     }
     
-    public data_master(int no_rm, String nama, int nik, String alamat, String ttl, String jenis_kelamin){
+    public pasienbaru_sementara(int id,String nama, int nik, String alamat, String ttl, String jenis_kelamin){
         this.id = id;
         this.nama = nama;
         this.nik = nik;
@@ -37,14 +37,6 @@ public class data_master implements Entity{
         
     }
 
-    public void setNo_rm(int no_rm) {
-        this.no_rm = no_rm;
-    }
-
-    public int getNo_rm() {
-        return no_rm;
-    }
-    
     public void setId(int id) {
         this.id = id;
     }

@@ -51,15 +51,15 @@ public class rekap_harianRepository implements Repository<rekap_harian>{
 
     @Override
     public boolean add(rekap_harian rekap) {
-        String sql = "insert into "+tableName+ " values (?,?,?,?,?)";
+        String sql = "insert into "+tableName+ " ('jam','tanggal','id_dokter','id_master') values (?,?,?,?)";
         try {
             Connection koneksi = (Connection)Conn.configDB();
             PreparedStatement pst = koneksi.prepareStatement(sql);
-            pst.setInt(1, rekap.getId());
-            pst.setTime(2, new Time(rekap.getJam().getTime()));
-            pst.setDate(3, new Date(rekap.getTanggal().getTime()));
-            pst.setInt(4, rekap.getData_dokter().getId());
-            pst.setInt(5, rekap.getData_master().getId());
+            
+            pst.setTime(1, new Time(rekap.getJam().getTime()));
+            pst.setDate(2, new Date(rekap.getTanggal().getTime()));
+            pst.setInt(3, rekap.getData_dokter().getId());
+            pst.setInt(4, rekap.getData_master().getId());
             pst.execute();
             return true;
         } catch (Exception e) {

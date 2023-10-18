@@ -8,19 +8,41 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.SwingUtilities;
 import main.main;
+import repository.data_dokterRepository;
+import repository.datapasienbarusementara;
+import repository.pasienbaru_sementaraRepository;
+import view.swing.itemdokter_tampilann;
 
 /**
  *
  * @author Be Mine
  */
 public class pasienbaru_tambahdaftar extends javax.swing.JPanel {
-    
-    private int id;
+    pasienbaru a = new pasienbaru();
+    data_dokterRepository b = new data_dokterRepository();
+    itemdokter_tampilann c = new itemdokter_tampilann();
+    private int idd;
     /**
      * Creates new form tambahdaftar
      */
+    
     public pasienbaru_tambahdaftar() {
         initComponents();
+        Date date = new Date();
+        idd = c.id;
+        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+
+        String waktusekarang = dateFormat.format(date);
+        pasienbaru_sementaraRepository apa = new pasienbaru_sementaraRepository();
+        
+//        txt_id.setText(String.valueOf(apa.get(1).get));
+        txt_nama.setText(apa.get(1).getNama());
+        txt_alamat.setText(apa.get(1).getAlamat());
+        txt_nik.setText(String.valueOf(apa.get(1).getNik()));
+        txt_ttl.setText(apa.get(1).getTtl());
+        txt_jnk.setText(apa.get(1).getJenis_kelamin());
+        txt_jam.setText(waktusekarang);
+        txt_dokter1.setText(b.get(idd).getNama());
         Date tanggalHariIni = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
         String tanggalString = sdf.format(tanggalHariIni);
@@ -36,35 +58,23 @@ public class pasienbaru_tambahdaftar extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txt_dokter = new javax.swing.JTextField();
-        txt_nama = new javax.swing.JTextField();
-        txt_no = new javax.swing.JTextField();
         btnsimpandancetaknoantrian = new javax.swing.JLabel();
         btnbatal = new javax.swing.JLabel();
         btnkembali = new javax.swing.JLabel();
         tanggal = new javax.swing.JLabel();
         cmb_poli = new javax.swing.JComboBox<>();
-        cmb_jeniskelamin = new javax.swing.JComboBox<>();
+        txt_nama = new javax.swing.JLabel();
+        txt_jam = new javax.swing.JLabel();
+        txt_id = new javax.swing.JLabel();
+        txt_dokter1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         bg = new javax.swing.JLabel();
-        nik = new javax.swing.JTextField();
-        alamat = new javax.swing.JTextField();
-        ttl = new javax.swing.JTextField();
-        nama_pasien = new javax.swing.JTextField();
-        no_rm = new javax.swing.JTextField();
+        txt_nik = new javax.swing.JLabel();
+        txt_alamat = new javax.swing.JLabel();
+        txt_ttl = new javax.swing.JLabel();
+        txt_jnk = new javax.swing.JLabel();
 
         setLayout(null);
-
-        txt_dokter.setBorder(null);
-        add(txt_dokter);
-        txt_dokter.setBounds(530, 410, 530, 50);
-
-        txt_nama.setBorder(null);
-        add(txt_nama);
-        txt_nama.setBounds(530, 332, 530, 50);
-
-        txt_no.setBorder(null);
-        add(txt_no);
-        txt_no.setBounds(530, 252, 530, 50);
 
         btnsimpandancetaknoantrian.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnsimpandancetaknoantrian1.png"))); // NOI18N
         add(btnsimpandancetaknoantrian);
@@ -93,24 +103,28 @@ public class pasienbaru_tambahdaftar extends javax.swing.JPanel {
         cmb_poli.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Poli umum", "Poli gigi", "Poli mata" }));
         add(cmb_poli);
         cmb_poli.setBounds(570, 490, 290, 50);
-
-        cmb_jeniskelamin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Laki - Laki", "Perempuan" }));
-        add(cmb_jeniskelamin);
-        cmb_jeniskelamin.setBounds(570, 570, 290, 50);
+        add(txt_nama);
+        txt_nama.setBounds(540, 330, 520, 50);
+        add(txt_jam);
+        txt_jam.setBounds(570, 570, 490, 50);
+        add(txt_id);
+        txt_id.setBounds(540, 250, 520, 50);
+        add(txt_dokter1);
+        txt_dokter1.setBounds(540, 410, 520, 50);
+        add(jLabel4);
+        jLabel4.setBounds(540, 250, 520, 50);
 
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/bg tambah daftar.png"))); // NOI18N
         add(bg);
         bg.setBounds(0, 0, 1366, 768);
-        add(nik);
-        nik.setBounds(550, 390, 490, 40);
-        add(alamat);
-        alamat.setBounds(550, 460, 490, 40);
-        add(ttl);
-        ttl.setBounds(550, 530, 490, 40);
-        add(nama_pasien);
-        nama_pasien.setBounds(550, 320, 490, 40);
-        add(no_rm);
-        no_rm.setBounds(550, 250, 490, 40);
+        add(txt_nik);
+        txt_nik.setBounds(150, 360, 0, 0);
+        add(txt_alamat);
+        txt_alamat.setBounds(150, 360, 0, 0);
+        add(txt_ttl);
+        txt_ttl.setBounds(150, 360, 0, 0);
+        add(txt_jnk);
+        txt_jnk.setBounds(150, 360, 0, 0);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnkembaliMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnkembaliMouseClicked
@@ -120,25 +134,27 @@ public class pasienbaru_tambahdaftar extends javax.swing.JPanel {
     }//GEN-LAST:event_btnkembaliMouseClicked
 
     private void btnbatalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbatalMouseClicked
-    
+    main main =(main)SwingUtilities.getWindowAncestor(this);
+    this.setVisible(false);
+    main.showdasboard();
     }//GEN-LAST:event_btnbatalMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField alamat;
     private javax.swing.JLabel bg;
     private javax.swing.JLabel btnbatal;
     private javax.swing.JLabel btnkembali;
     private javax.swing.JLabel btnsimpandancetaknoantrian;
-    private javax.swing.JComboBox<String> cmb_jeniskelamin;
     private javax.swing.JComboBox<String> cmb_poli;
-    private javax.swing.JTextField nama_pasien;
-    private javax.swing.JTextField nik;
-    private javax.swing.JTextField no_rm;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel tanggal;
-    private javax.swing.JTextField ttl;
-    private javax.swing.JTextField txt_dokter;
-    private javax.swing.JTextField txt_nama;
-    private javax.swing.JTextField txt_no;
+    private javax.swing.JLabel txt_alamat;
+    private javax.swing.JLabel txt_dokter1;
+    private javax.swing.JLabel txt_id;
+    private javax.swing.JLabel txt_jam;
+    private javax.swing.JLabel txt_jnk;
+    private javax.swing.JLabel txt_nama;
+    private javax.swing.JLabel txt_nik;
+    private javax.swing.JLabel txt_ttl;
     // End of variables declaration//GEN-END:variables
 }

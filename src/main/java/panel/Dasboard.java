@@ -82,6 +82,12 @@ public class Dasboard extends javax.swing.JPanel {
     }//GEN-LAST:event_btndatadokterMouseClicked
 
     private void btnpasienbaruMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnpasienbaruMouseClicked
+    pasienbaru a = new pasienbaru();
+//    a.txt_alamat.setText("");
+//    a.txt_nama_pasien.setText("");
+//    a.txt_nik.setText("");
+//    a.txt_no_rm.setText("");
+//    a.txt_ttl.setText("");
     main main =(main)SwingUtilities.getWindowAncestor(this);
     this.setVisible(false);
     main.showpasienbaru();

@@ -12,12 +12,15 @@ import main.main;
  * @author Be Mine
  */
 public class pasienbaru_pilihdokter extends javax.swing.JPanel {
-
+    
     /**
      * Creates new form pilihdokter
      */
+   
     public pasienbaru_pilihdokter() {
         initComponents();
+        
+       
     }
 
     /**
@@ -54,7 +57,7 @@ public class pasienbaru_pilihdokter extends javax.swing.JPanel {
         add(btnkembali);
         btnkembali.setBounds(10, 690, 210, 60);
         add(itemdokter_tampilann1);
-        itemdokter_tampilann1.setBounds(198, 220, 970, 450);
+        itemdokter_tampilann1.setBounds(218, 220, 950, 450);
 
         bgpilihdokter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/bg pilih dokter.png"))); // NOI18N
         add(bgpilihdokter);
