@@ -4,6 +4,9 @@
  */
 package panel;
 
+import javax.swing.SwingUtilities;
+import main.main;
+
 /**
  *
  * @author Be Mine
@@ -37,13 +40,24 @@ public class pasienbaru_pilihdokter extends javax.swing.JPanel {
         btnselanjutnya.setBounds(1080, 695, 250, 60);
 
         btnkembali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnkembali1.png"))); // NOI18N
+        btnkembali.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnkembaliMouseClicked(evt);
+            }
+        });
         add(btnkembali);
-        btnkembali.setBounds(40, 695, 210, 60);
+        btnkembali.setBounds(10, 690, 210, 60);
 
         bgpilihdokter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/bg pilih dokter.png"))); // NOI18N
         add(bgpilihdokter);
         bgpilihdokter.setBounds(0, 0, 1366, 768);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnkembaliMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnkembaliMouseClicked
+    main main =(main)SwingUtilities.getWindowAncestor(this);
+    this.setVisible(false);
+    main.showpasienbaru_pilihpoli();
+    }//GEN-LAST:event_btnkembaliMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

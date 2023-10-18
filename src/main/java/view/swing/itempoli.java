@@ -88,10 +88,13 @@ private final List<EventMenuSelected> events = new ArrayList<>();
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        txtpoli = new javax.swing.JLabel();
         itempoli = new javax.swing.JLabel();
         itempoliselected = new javax.swing.JLabel();
 
         setLayout(null);
+        add(txtpoli);
+        txtpoli.setBounds(50, 20, 320, 30);
 
         itempoli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/bgitempoli2.png"))); // NOI18N
         add(itempoli);
@@ -106,5 +109,6 @@ private final List<EventMenuSelected> events = new ArrayList<>();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel itempoli;
     private javax.swing.JLabel itempoliselected;
+    public static javax.swing.JLabel txtpoli;
     // End of variables declaration//GEN-END:variables
 }

@@ -51,7 +51,7 @@
     <Component class="view.swing.itempoli_tampilan" name="itempoli_tampilan1">
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="230" y="230" width="490" height="450"/>
+          <AbsoluteConstraints x="230" y="230" width="490" height="390"/>
         </Constraint>
       </Constraints>
     </Component>

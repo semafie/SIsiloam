@@ -5,11 +5,15 @@
 package panel;
 
 import entity.data_master;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
 import main.main;
 import panel.datamaster_edit;
 import repository.data_masterRepository;
+import util.Conn;
 
 /**
  *
@@ -50,6 +54,41 @@ public class datamaster extends javax.swing.JPanel {
             System.out.println(e.getMessage());
         }
     }
+    public void load_search(String search) {
+    DefaultTableModel model = new DefaultTableModel();
+    model.addColumn("NO_RM");
+    model.addColumn("NAMA");
+    model.addColumn("NIK");
+    model.addColumn("ALAMAT");
+    model.addColumn("TTL");
+    model.addColumn("JENIS_KELAMIN");
+    
+    try {
+        String sql = "SELECT * FROM data_master WHERE id = ? OR nama LIKE ? OR nik LIKE ?";
+        Connection koneksi = (Connection)Conn.configDB();
+        PreparedStatement pst = koneksi.prepareStatement(sql);
+        pst.setString(1, search);
+        pst.setString(2, "%" + search + "%");
+        pst.setString(3, "%" + search + "%");
+
+        ResultSet res = pst.executeQuery();
+
+        while (res.next()) {
+            model.addRow(new Object[]{
+                res.getString("id"),
+                res.getString("nama"),
+                res.getString("nik"),
+                res.getString("alamat"),
+                res.getString("ttl"),
+                res.getString("jenis_kelamin")
+            });
+        }
+
+        table.setModel(model);
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -104,6 +143,12 @@ public class datamaster extends javax.swing.JPanel {
 
         add(jScrollPane2);
         jScrollPane2.setBounds(62, 262, 1240, 380);
+
+        search.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                searchKeyReleased(evt);
+            }
+        });
         add(search);
         search.setBounds(51, 150, 300, 40);
 
@@ -189,6 +234,10 @@ public class datamaster extends javax.swing.JPanel {
     }
     load_tabel();
     }//GEN-LAST:event_jLabel3MouseClicked
+
+    private void searchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchKeyReleased
+        load_search(search.getText());
+    }//GEN-LAST:event_searchKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

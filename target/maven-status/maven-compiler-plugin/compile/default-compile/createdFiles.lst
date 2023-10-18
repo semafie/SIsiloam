@@ -51,6 +51,7 @@ view\swing\itemdokter$1.class
 view\swing\Dialog$2.class
 panel\datamaster.class
 panel\Login.class
+repository\NewClass.class
 panel\pasienbaru_pilihdokter.class
 panel\Login$4.class
 panel\Dasboard$1.class
@@ -64,6 +65,7 @@ panel\Login$1.class
 panel\pasienbaru$1.class
 panel\datadokter$1.class
 panel\datamaster$3.class
+repository\NewClass$1.class
 view\swing\dialog_mintakode$1.class
 view\swing\itempoli_tampilan.class
 view\swing\ModernScrollBarUI.class
@@ -78,4 +80,5 @@ entity\data_dokter.class
 view\swing\ScrollBarCustom.class
 panel\kirimkode.class
 view\swing\Glass.class
+panel\datamaster$5.class
 view\swing\itemdokter_tampilann$1.class

@@ -51,7 +51,7 @@ public class itempoli_tampilan extends javax.swing.JPanel {
         
             for(int index = 0; index < holla.length; index++){
                 String hayo = holla[index]; 
-                System.out.println(hayo);
+                
 //                String hh = holla[index];
                 
 //                    String id_barang = String.valueOf(p.getId());
@@ -62,6 +62,7 @@ public class itempoli_tampilan extends javax.swing.JPanel {
 //                   System.out.println(lamapaket);
                    
                 itempoli pnn = new itempoli();
+                pnn.txtpoli.setText(hayo);
 //                pnn.namapaket123.setText(namapaket11);
 //                   pnn.infopaket.setText(lamapaket);
 //                   pnn.harga.setText(lamapaket);
@@ -70,10 +71,10 @@ public class itempoli_tampilan extends javax.swing.JPanel {
                 container.setLayout(null);
                 pnn.setSize(451, 85);
                 container.add(pnn);
-                container.setPreferredSize(new Dimension(450, 250 + (212 * baris)));
+                container.setPreferredSize(new Dimension(450, 170 + (212 * baris)));
                 container.setBackground(new Color(227,252,246));
 //                container.setBorder(null);
-                jScrollPane1.setPreferredSize(new Dimension(450, 220 * dimensi));
+                jScrollPane1.setPreferredSize(new Dimension(450, 180 * dimensi));
                 
                 jScrollPane1.setViewportView(container);
                 jScrollPane1.setVerticalScrollBar(scrollBarCustom1);
