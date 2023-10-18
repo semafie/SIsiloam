@@ -4,6 +4,9 @@
  */
 package panel;
 
+import javax.swing.SwingUtilities;
+import main.main;
+
 /**
  *
  * @author RESCOM-1
@@ -28,6 +31,7 @@ public class pasienbaru_pilihpoli extends javax.swing.JPanel {
 
         btnlanjut = new javax.swing.JLabel();
         btnbatal = new javax.swing.JLabel();
+        itempoli_tampilan1 = new view.swing.itempoli_tampilan();
         bg = new javax.swing.JLabel();
 
         setLayout(null);
@@ -49,6 +53,8 @@ public class pasienbaru_pilihpoli extends javax.swing.JPanel {
         });
         add(btnbatal);
         btnbatal.setBounds(10, 701, 150, 60);
+        add(itempoli_tampilan1);
+        itempoli_tampilan1.setBounds(230, 230, 490, 390);
 
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/bg pilih poli.png"))); // NOI18N
         add(bg);
@@ -60,7 +66,9 @@ public class pasienbaru_pilihpoli extends javax.swing.JPanel {
     }//GEN-LAST:event_btnlanjutMouseClicked
 
     private void btnbatalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbatalMouseClicked
-        // TODO add your handling code here:
+    main main =(main)SwingUtilities.getWindowAncestor(this);
+    this.setVisible(false);
+    main.showpasienbaru();
     }//GEN-LAST:event_btnbatalMouseClicked
 
 
@@ -68,5 +76,6 @@ public class pasienbaru_pilihpoli extends javax.swing.JPanel {
     private javax.swing.JLabel bg;
     private javax.swing.JLabel btnbatal;
     private javax.swing.JLabel btnlanjut;
+    private view.swing.itempoli_tampilan itempoli_tampilan1;
     // End of variables declaration//GEN-END:variables
 }

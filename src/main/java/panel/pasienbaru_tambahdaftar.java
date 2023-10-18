@@ -4,6 +4,11 @@
  */
 package panel;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.swing.SwingUtilities;
+import main.main;
+
 /**
  *
  * @author Be Mine
@@ -15,6 +20,10 @@ public class pasienbaru_tambahdaftar extends javax.swing.JPanel {
      */
     public pasienbaru_tambahdaftar() {
         initComponents();
+        Date tanggalHariIni = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        String tanggalString = sdf.format(tanggalHariIni);
+        tanggal.setText(tanggalString);
     }
 
     /**
@@ -32,6 +41,7 @@ public class pasienbaru_tambahdaftar extends javax.swing.JPanel {
         btnsimpandancetaknoantrian = new javax.swing.JLabel();
         btnbatal = new javax.swing.JLabel();
         btnkembali = new javax.swing.JLabel();
+        tanggal = new javax.swing.JLabel();
         bg = new javax.swing.JLabel();
         nik = new javax.swing.JTextField();
         alamat = new javax.swing.JTextField();
@@ -62,8 +72,15 @@ public class pasienbaru_tambahdaftar extends javax.swing.JPanel {
         btnbatal.setBounds(520, 700, 260, 50);
 
         btnkembali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnkembali1.png"))); // NOI18N
+        btnkembali.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnkembaliMouseClicked(evt);
+            }
+        });
         add(btnkembali);
-        btnkembali.setBounds(45, 698, 200, 50);
+        btnkembali.setBounds(10, 700, 200, 60);
+        add(tanggal);
+        tanggal.setBounds(1080, 50, 170, 30);
 
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/bg tambah daftar.png"))); // NOI18N
         add(bg);
@@ -80,6 +97,12 @@ public class pasienbaru_tambahdaftar extends javax.swing.JPanel {
         no_rm.setBounds(550, 250, 490, 40);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnkembaliMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnkembaliMouseClicked
+    main main =(main)SwingUtilities.getWindowAncestor(this);
+    this.setVisible(false);
+    main.showpasienbaru_pilihdokter();
+    }//GEN-LAST:event_btnkembaliMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField alamat;
@@ -90,6 +113,7 @@ public class pasienbaru_tambahdaftar extends javax.swing.JPanel {
     private javax.swing.JTextField nama_pasien;
     private javax.swing.JTextField nik;
     private javax.swing.JTextField no_rm;
+    private javax.swing.JLabel tanggal;
     private javax.swing.JTextField ttl;
     private javax.swing.JTextField txt_dokter;
     private javax.swing.JTextField txt_nama;

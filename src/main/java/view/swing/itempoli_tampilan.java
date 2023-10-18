@@ -4,17 +4,125 @@
  */
 package view.swing;
 
+import entity.data_dokter;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JPanel;
+
 /**
  *
  * @author semafie
  */
 public class itempoli_tampilan extends javax.swing.JPanel {
-
-    /**
-     * Creates new form itempoli_tampilan
-     */
+    private String nomorpanel;
+//    public String nomorpanel1;
+    private JPanel container;
+    private List<JPanel> panellist;
+    private String[] holla = {"Poli umum", "Jenis gigi", "Poli mata"};
+    private int index;
+    private int opo = 0;
     public itempoli_tampilan() {
         initComponents();
+        panellist = new ArrayList<>();
+        getpanel();
+        for(String hayo : holla){
+            System.out.println(hayo);
+        }
+    }
+    public void getpanel(){
+//try {
+            int marginKiri = 10;
+            int baris = 0;
+            int kolom = 0;
+            int dimensi = baris + 1;
+            container = new JPanel();
+            
+            
+                
+            
+        
+            for(int index = 0; index < holla.length; index++){
+                String hayo = holla[index]; 
+                
+//                String hh = holla[index];
+                
+//                    String id_barang = String.valueOf(p.getId());
+//                   namapaket11 = p.getNama();
+//                   String lamapaket = String.valueOf(p.getNama());
+//                   String hargaa = String.valueOf("Rp. "+p.getHarga());
+//                   System.out.println(namapaket11);
+//                   System.out.println(lamapaket);
+                   
+                itempoli pnn = new itempoli();
+                pnn.txtpoli.setText(hayo);
+//                pnn.namapaket123.setText(namapaket11);
+//                   pnn.infopaket.setText(lamapaket);
+//                   pnn.harga.setText(lamapaket);
+//                int index = 1;
+                pnn.setIndex(index);
+                container.setLayout(null);
+                pnn.setSize(451, 85);
+                container.add(pnn);
+                container.setPreferredSize(new Dimension(450, 170 + (212 * baris)));
+                container.setBackground(new Color(227,252,246));
+//                container.setBorder(null);
+                jScrollPane1.setPreferredSize(new Dimension(450, 180 * dimensi));
+                
+                jScrollPane1.setViewportView(container);
+                jScrollPane1.setVerticalScrollBar(scrollBarCustom1);
+                if (kolom < 1) {
+                pnn.setLocation(kolom * 500, baris * 135);
+                    } else {
+                baris++;
+                kolom = 0;
+                pnn.setLocation(kolom * 500, baris * 135);
+                
+                    }
+                kolom ++;
+                container.revalidate();
+                container.repaint();
+                pnn.addMouseListener(new MouseAdapter(){
+                    @Override
+                    public void mouseEntered(MouseEvent e){
+                        super.mouseEntered(e);
+                        
+//                        PaketForm.id = p.getId();  
+                        
+                    }
+                });
+                pnn.addEvent(new EventMenuSelected() {
+                    @Override
+                    public void selected(int index) {
+                        clearMenu(index);
+//                        PaketForm.id = p.getId();   
+//                        DialogEditPaket.idPak = p.getId();
+                        System.out.println(hayo);
+//                        System.out.println(index);
+//                         System.out.println(hh);
+                    }
+                });
+//                panellist.add(pnn); 
+            }
+//            } catch (Exception e) {
+//                    System.out.println(e.getMessage());
+//        }
+   
+    }
+    private void clearMenu(int exceptIndex) {
+        for (Component com : container.getComponents()) {
+            itempoli item = (itempoli) com;
+            if (item.getIndex() != exceptIndex) {
+                item.setSelected(false);
+            }
+        }
     }
 
     /**
@@ -26,19 +134,34 @@ public class itempoli_tampilan extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        scrollBarCustom1 = new view.swing.ScrollBarCustom();
+
+        setBackground(new java.awt.Color(227, 252, 246));
+
+        jScrollPane1.setBorder(null);
+
+        scrollBarCustom1.setForeground(new java.awt.Color(95, 193, 193));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 419, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(scrollBarCustom1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jScrollPane1)
+            .addComponent(scrollBarCustom1, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane jScrollPane1;
+    private view.swing.ScrollBarCustom scrollBarCustom1;
     // End of variables declaration//GEN-END:variables
 }

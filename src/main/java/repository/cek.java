@@ -22,8 +22,18 @@ public class cek {
         Date pp = new Date();
         data_dokter ass1 = new data_dokter(2, "Dr gagah", 432423432, "Poli gigi", "dsadasddsada", "Laki - Laki", 0, pp);
 //        user ass1 = new user(4 , "anakmu", "ibuku", "sayang", 1);
-            dokterRepository.add(ass1);
-        System.out.println(masterRepository.get(1).getNama());
+//            dokterRepository.add(ass1);
+//        System.out.println(masterRepository.get(1).getNama());
+         String[] holla = {"doni", "haji slamet", "bagus"};
+
+        // Menggunakan perulangan for untuk menampilkan setiap nama dalam array
+        for (String nama : holla) {
+            System.out.println(nama);
+        }
+        for(int index = 0; index < holla.length; index++){
+    String hayo = holla[index]; 
+            System.out.println(hayo);
+        }
 //        masterRepository.add(ass);
 
         

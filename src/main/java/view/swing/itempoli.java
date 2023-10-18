@@ -16,11 +16,12 @@ import javax.swing.SwingUtilities;
  * @author semafie
  */
 public class itempoli extends javax.swing.JPanel {
-    private final List<EventMenuSelected> events = new ArrayList<>();
+private final List<EventMenuSelected> events = new ArrayList<>();
     private int index;
     private boolean selected;
     private boolean mouseOver;
     private JPanel containerPanel;
+    
     
     public int getIndex() {
         return index;
@@ -40,9 +41,6 @@ public class itempoli extends javax.swing.JPanel {
         itempoliselected.setVisible(selected);
         repaint();
     }
-    /**
-     * Creates new form itempoli
-     */
     public itempoli() {
         initComponents();
         itempoliselected.setVisible(false);
@@ -72,7 +70,6 @@ public class itempoli extends javax.swing.JPanel {
             }
         });
     }
-    
     private void runEvent() {
         for (EventMenuSelected event : events) {
             event.selected(index);
@@ -91,23 +88,27 @@ public class itempoli extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        txtpoli = new javax.swing.JLabel();
         itempoli = new javax.swing.JLabel();
         itempoliselected = new javax.swing.JLabel();
 
         setLayout(null);
+        add(txtpoli);
+        txtpoli.setBounds(50, 20, 320, 30);
 
-        itempoli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/bgitempoli1.png"))); // NOI18N
+        itempoli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/bgitempoli2.png"))); // NOI18N
         add(itempoli);
-        itempoli.setBounds(10, 10, 411, 82);
+        itempoli.setBounds(0, 0, 411, 82);
 
-        itempoliselected.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/bgitempoli2.png"))); // NOI18N
+        itempoliselected.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/bgitempoli1.png"))); // NOI18N
         add(itempoliselected);
-        itempoliselected.setBounds(10, 10, 411, 82);
+        itempoliselected.setBounds(0, 0, 410, 80);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel itempoli;
     private javax.swing.JLabel itempoliselected;
+    public static javax.swing.JLabel txtpoli;
     // End of variables declaration//GEN-END:variables
 }
