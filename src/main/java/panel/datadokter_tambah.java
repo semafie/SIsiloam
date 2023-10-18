@@ -20,11 +20,15 @@ public class datadokter_tambah extends javax.swing.JPanel {
     private String jeniskelamin;
     private int id;
     private String nohp;
+    data_dokterRepository master = new data_dokterRepository();
     /**
      * Creates new form datadokter_tambah
      */
     public datadokter_tambah() {
         initComponents();
+        int id = master.getlastid().getId() + 1 ;
+        String idterakhir = String.valueOf(id);
+        txt_no_rm.setText(idterakhir );
     }
 
     /**

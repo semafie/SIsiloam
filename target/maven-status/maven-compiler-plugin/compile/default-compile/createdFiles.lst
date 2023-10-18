@@ -37,10 +37,12 @@ view\swing\EventMenuSelected.class
 panel\datadokter_edit.class
 panel\buatpasswordbaru$1.class
 view\swing\Table$2.class
+panel\pasienbaru_tambahdaftar$AutoIDGenerator.class
 repository\pasienbaru_sementaraRepository.class
 panel\pasienbaru1.class
 view\swing\Glass.class
 panel\datamaster$1.class
+panel\pasienbaru1$AutoIDGenerator.class
 repository\data_dokterRepository.class
 view\swing\itemdokter.class
 panel\Dasboard$3.class
@@ -85,6 +87,7 @@ panel\datamaster$3.class
 view\swing\ModernScrollBarUI.class
 panel\datamaster_edit$2.class
 panel\datamaster_edit.class
+panel\pasienbaru_tambahdaftar$3.class
 panel\Login$5.class
 entity\data_dokter.class
 view\swing\ScrollBarCustom.class

@@ -4,14 +4,22 @@
  */
 package panel;
 
+import entity.data_dokter;
+import entity.data_master;
+import entity.rekap_harian;
+import java.sql.Time;
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.SwingUtilities;
 import main.main;
 import repository.data_dokterRepository;
+import repository.data_masterRepository;
 import repository.datapasienbarusementara;
 import repository.pasienbaru_sementaraRepository;
+import repository.rekap_harianRepository;
 import view.swing.itemdokter_tampilann;
+import view.swing.itempoli_tampilan;
 
 /**
  *
@@ -21,24 +29,74 @@ public class pasienbaru_tambahdaftar extends javax.swing.JPanel {
     pasienbaru a = new pasienbaru();
     data_dokterRepository b = new data_dokterRepository();
     itemdokter_tampilann c = new itemdokter_tampilann();
+    data_masterRepository master = new data_masterRepository();
+    itempoli_tampilan poli = new itempoli_tampilan();
+    pasienbaru_sementaraRepository apa = new pasienbaru_sementaraRepository();
+    Date date = new Date();
+    SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+    rekap_harianRepository gas = new rekap_harianRepository();
+    private int lastid;
+    private String ambilpoli = poli.jeje;
+    private String autoID;
+    private String nik;
     private int idd;
     /**
      * Creates new form tambahdaftar
      */
-    
+    class AutoIDGenerator {
+    int left = 0;
+    int middle = 0;
+    int right = 0;
+
+    public String generateAutoID() {
+        if (right < 99) {
+            right++;
+        } else {
+            right = 0;
+            if (middle < 99) {
+                middle++;
+            } else {
+                middle = 0;
+                if (left < 99) {
+                    left++;
+                } else {
+                    // Reset ke 0 jika semua sudah mencapai 99
+                    left = 0;
+                }
+            }
+        }
+
+        String leftStr = String.format("%02d", left);
+        String middleStr = String.format("%02d", middle);
+        String rightStr = String.format("%02d", right);
+
+        return rightStr+ "-" + middleStr + "-" + leftStr ;
+    }
+    }
     public pasienbaru_tambahdaftar() {
         initComponents();
-        Date date = new Date();
+        AutoIDGenerator generator = new AutoIDGenerator();
+        String idterakhir = String.valueOf(master.getlastid().getNo_rm());
+//        String apa11 = "99-20-30";
+        String[] parts = idterakhir.split("-");
+        generator.left = Integer.parseInt(parts[2]);
+        generator.middle = Integer.parseInt(parts[1]);
+        generator.right = Integer.parseInt(parts[0]);
+
+        autoID = generator.generateAutoID();
+        txt_id.setText(autoID);
+        
         idd = c.id;
-        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+        
 
         String waktusekarang = dateFormat.format(date);
-        pasienbaru_sementaraRepository apa = new pasienbaru_sementaraRepository();
+        
         
 //        txt_id.setText(String.valueOf(apa.get(1).get));
         txt_nama.setText(apa.get(1).getNama());
         txt_alamat.setText(apa.get(1).getAlamat());
         txt_nik.setText(String.valueOf(apa.get(1).getNik()));
+        nik = String.valueOf(apa.get(1).getNik());
         txt_ttl.setText(apa.get(1).getTtl());
         txt_jnk.setText(apa.get(1).getJenis_kelamin());
         txt_jam.setText(waktusekarang);
@@ -47,6 +105,14 @@ public class pasienbaru_tambahdaftar extends javax.swing.JPanel {
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
         String tanggalString = sdf.format(tanggalHariIni);
         tanggal.setText(tanggalString);
+        if (ambilpoli.equals("Poli umum")) {
+            cmb_poli.setSelectedIndex(0);
+        } else if(ambilpoli.equals("Poli gigi")) {
+            cmb_poli.setSelectedIndex(1);
+        } else {
+            cmb_poli.setSelectedIndex(2);
+        }
+        txt_jenispoli.setText(ambilpoli);
     }
 
     /**
@@ -62,13 +128,14 @@ public class pasienbaru_tambahdaftar extends javax.swing.JPanel {
         btnbatal = new javax.swing.JLabel();
         btnkembali = new javax.swing.JLabel();
         tanggal = new javax.swing.JLabel();
-        cmb_poli = new javax.swing.JComboBox<>();
         txt_nama = new javax.swing.JLabel();
         txt_jam = new javax.swing.JLabel();
         txt_id = new javax.swing.JLabel();
         txt_dokter1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        txt_jenispoli = new javax.swing.JLabel();
         bg = new javax.swing.JLabel();
+        cmb_poli = new javax.swing.JComboBox<>();
         txt_nik = new javax.swing.JLabel();
         txt_alamat = new javax.swing.JLabel();
         txt_ttl = new javax.swing.JLabel();
@@ -77,6 +144,11 @@ public class pasienbaru_tambahdaftar extends javax.swing.JPanel {
         setLayout(null);
 
         btnsimpandancetaknoantrian.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnsimpandancetaknoantrian1.png"))); // NOI18N
+        btnsimpandancetaknoantrian.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnsimpandancetaknoantrianMouseClicked(evt);
+            }
+        });
         add(btnsimpandancetaknoantrian);
         btnsimpandancetaknoantrian.setBounds(780, 700, 544, 50);
 
@@ -99,10 +171,6 @@ public class pasienbaru_tambahdaftar extends javax.swing.JPanel {
         btnkembali.setBounds(10, 700, 200, 60);
         add(tanggal);
         tanggal.setBounds(1080, 50, 170, 30);
-
-        cmb_poli.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Poli umum", "Poli gigi", "Poli mata" }));
-        add(cmb_poli);
-        cmb_poli.setBounds(570, 490, 290, 50);
         add(txt_nama);
         txt_nama.setBounds(540, 330, 520, 50);
         add(txt_jam);
@@ -113,10 +181,16 @@ public class pasienbaru_tambahdaftar extends javax.swing.JPanel {
         txt_dokter1.setBounds(540, 410, 520, 50);
         add(jLabel4);
         jLabel4.setBounds(540, 250, 520, 50);
+        add(txt_jenispoli);
+        txt_jenispoli.setBounds(570, 490, 210, 50);
 
-        bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/bg tambah daftar.png"))); // NOI18N
+        bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/bg tambah daftar_1.png"))); // NOI18N
         add(bg);
         bg.setBounds(0, 0, 1366, 768);
+
+        cmb_poli.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Poli umum", "Poli gigi", "Poli mata" }));
+        add(cmb_poli);
+        cmb_poli.setBounds(570, 490, 290, 50);
         add(txt_nik);
         txt_nik.setBounds(150, 360, 0, 0);
         add(txt_alamat);
@@ -139,6 +213,26 @@ public class pasienbaru_tambahdaftar extends javax.swing.JPanel {
     main.showdasboard();
     }//GEN-LAST:event_btnbatalMouseClicked
 
+    private void btnsimpandancetaknoantrianMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsimpandancetaknoantrianMouseClicked
+    data_master keren = new data_master(autoID,apa.get(1).getNama(),nik,apa.get(1).getAlamat(),apa.get(1).getTtl(),apa.get(1).getJenis_kelamin());
+    master.add(keren);
+    lastid = master.getlastid().getId();
+    data_master masuk2 = new data_master(lastid);
+    
+    
+        data_dokter masuk1 = new data_dokter(idd);
+    
+    Time waktu = new Time(System.currentTimeMillis());
+    Timestamp timestamp = new Timestamp(new Date().getTime());
+    int aceh = b.get(idd).getId();
+    int aceh1 = master.getlastid().getId();
+    rekap_harian keren23 = new rekap_harian(timestamp , date ,masuk1 ,masuk2);
+    gas.add(keren23);
+    main main =(main)SwingUtilities.getWindowAncestor(this);
+    this.setVisible(false);
+    main.showdasboard();
+    }//GEN-LAST:event_btnsimpandancetaknoantrianMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bg;
@@ -152,6 +246,7 @@ public class pasienbaru_tambahdaftar extends javax.swing.JPanel {
     private javax.swing.JLabel txt_dokter1;
     private javax.swing.JLabel txt_id;
     private javax.swing.JLabel txt_jam;
+    private javax.swing.JLabel txt_jenispoli;
     private javax.swing.JLabel txt_jnk;
     private javax.swing.JLabel txt_nama;
     private javax.swing.JLabel txt_nik;

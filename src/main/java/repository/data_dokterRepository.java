@@ -70,10 +70,25 @@ public class data_dokterRepository implements Repository<data_dokter> {
         return datadokter;
 
     }
-
+    public data_dokter getlastid() {
+        String sql = "SELECT * FROM "+tableName+" ORDER BY id DESC LIMIT 1;";
+        data_dokter master = new data_dokter();
+        try {
+            Connection koneksi = (Connection)Conn.configDB();
+            PreparedStatement pst = koneksi.prepareStatement(sql);
+            ResultSet res = pst.executeQuery();
+            while (res.next()) {                
+                return mapToEntity(res);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+        }
+        return master;
+    }
     @Override
     public boolean add(data_dokter dokter) {
-    String sql = "insert into "+tableName+ " ('nama','no_hp','jenis_poli','jadwal','jenis_kelamin','no_antrian','tanggal') values(?,?,?,?,?,?,?)";
+    String sql = "insert into "+tableName+ " (`nama`,`no_hp`,`jenis_poli`,`jadwal`,`jenis_kelamin`,`no_antrian`,`tanggal`) value (?,?,?,?,?,?,?)";
         try {
             Connection koneksi =(Connection)Conn.configDB();
             PreparedStatement pst = koneksi.prepareStatement(sql);

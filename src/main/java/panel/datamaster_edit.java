@@ -16,7 +16,7 @@ import repository.data_masterRepository;
 public class datamaster_edit extends javax.swing.JPanel {
     data_masterRepository master = new data_masterRepository();
     datamaster a = new datamaster();
-    private int ids = a.id;
+    private String ids = a.id;
     private String jnkk;
     /**
      * Creates new form datamaster_edit
@@ -29,20 +29,20 @@ public class datamaster_edit extends javax.swing.JPanel {
     }
     public void tampil(){
 //        int id = master.get(ids).getId();
-        String nama = master.get(ids).getNama();
-        String alamat = master.get(ids).getAlamat();
-        int nik = master.get(ids).getNik();
-        String ttl = master.get(ids).getTtl();
-        String jnk = master.get(ids).getJenis_kelamin();
+        String nama = master.getbyno_rm(ids).getNama();
+        String alamat = master.getbyno_rm(ids).getAlamat();
+        String nik = master.getbyno_rm(ids).getNik();
+        String ttl = master.getbyno_rm(ids).getTtl();
+        String jnk = master.getbyno_rm(ids).getJenis_kelamin();
 //System.out.println(ids);
 //System.out.println(nama);
 //System.out.println(alamat);
 //System.out.println(nik);
 //System.out.println(ttl);
 //System.out.println(jnk);
-        txt_no_rm.setText(Integer.toString(ids));
+        txt_no_rm.setText(ids);
         txt_nama_pasien.setText(nama);
-        txt_nik.setText(Integer.toString(nik));
+        txt_nik.setText(nik);
         txt_alamat.setText(alamat);
         txt_ttl.setText(ttl);
         if (jnk.equals("Laki-Laki")) {
@@ -114,7 +114,7 @@ public class datamaster_edit extends javax.swing.JPanel {
     private void btnselanjutnyaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnselanjutnyaMouseClicked
     String nama = txt_nama_pasien.getText();
         String alamat = txt_alamat.getText();
-        int nik = Integer.valueOf(txt_nik.getText());
+        String nik = txt_nik.getText();
         String ttl = txt_ttl.getText();
 //        jnkk = cmb_jeniskelamin.getItemAt(0).toString();
         Object selectedItem = cmb_jeniskelamin.getSelectedItem();
@@ -127,9 +127,9 @@ public class datamaster_edit extends javax.swing.JPanel {
         System.out.println(ttl);
         System.out.println(selectedItem);
 
-        if( ids != 0){
-        data_master apa = new data_master(ids, nama, nik, alamat, ttl, jnkk);
-        master.update(apa);
+        if( !ids.equals("")){
+        data_master apa = new data_master(ids,nama, nik, alamat, ttl, jnkk);
+        master.updatebynorm(apa);
         main main =(main)SwingUtilities.getWindowAncestor(this);
         this.setVisible(false);
         main.showdatamaster();

@@ -3,14 +3,18 @@ package entity;
 
 public class data_master implements Entity{
     public static String tableName = "data_master";
-    private int id,no_rm,nik;
-    private String nama, alamat, ttl, jenis_kelamin;
+    private int id;
+    private String no_rm,nik, nama, alamat, ttl, jenis_kelamin;
 
     public data_master(){
         
     }
     
-    public data_master(String nama, int nik, String alamat, String ttl, String jenis_kelamin){
+    public data_master(int id){
+        this.id = id;
+    }
+    
+    public data_master(String nama, String nik, String alamat, String ttl, String jenis_kelamin){
         this.nama = nama;
         this.nik = nik;
         this.alamat = alamat;
@@ -18,8 +22,8 @@ public class data_master implements Entity{
         this.jenis_kelamin = jenis_kelamin;
     }
     
-    public data_master(int no_rm, String nama, int nik, String alamat, String ttl, String jenis_kelamin){
-        this.id = id;
+    public data_master(String no_rm, String nama, String nik, String alamat, String ttl, String jenis_kelamin){
+        this.no_rm = no_rm;
         this.nama = nama;
         this.nik = nik;
         this.alamat = alamat;
@@ -37,11 +41,11 @@ public class data_master implements Entity{
         
     }
 
-    public void setNo_rm(int no_rm) {
+    public void setNo_rm(String no_rm) {
         this.no_rm = no_rm;
     }
 
-    public int getNo_rm() {
+    public String getNo_rm() {
         return no_rm;
     }
     
@@ -69,11 +73,11 @@ public class data_master implements Entity{
         return nama;
     }
 
-    public void setNik(int nik) {
+    public void setNik(String nik) {
         this.nik = nik;
     }
 
-    public int getNik() {
+    public String getNik() {
         return nik;
     }
 

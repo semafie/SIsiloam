@@ -7,6 +7,7 @@ package panel;
 import entity.pasienbaru_sementara;
 import javax.swing.SwingUtilities;
 import main.main;
+import repository.data_masterRepository;
 import repository.datapasienbarusementara;
 import repository.pasienbaru_sementaraRepository;
 
@@ -17,6 +18,7 @@ import repository.pasienbaru_sementaraRepository;
 public class pasienbaru extends javax.swing.JPanel {
     
     datapasienbarusementara a =new datapasienbarusementara();
+    data_masterRepository master = new data_masterRepository();
 //    pasienbaru_pilihpoli c = new pasienbaru_pilihpoli();
 //        pasienbaru_pilihdokter c = new pasienbaru_pilihdokter();
     class AutoIDGenerator {
@@ -50,11 +52,19 @@ public class pasienbaru extends javax.swing.JPanel {
     }
     }
         pasienbaru_sementaraRepository bb = new pasienbaru_sementaraRepository();
-    
+        
     public pasienbaru() {
         initComponents();
-        
-        
+        AutoIDGenerator generator = new AutoIDGenerator();
+        String idterakhir = String.valueOf(master.getlastid().getNo_rm());
+        String apa = "99-20-30";
+        String[] parts = idterakhir.split("-");
+        generator.left = Integer.parseInt(parts[2]);
+        generator.middle = Integer.parseInt(parts[1]);
+        generator.right = Integer.parseInt(parts[0]);
+
+        String autoID = generator.generateAutoID();
+        txt_no_rm.setText(autoID);
     }
     
     public void apek(){

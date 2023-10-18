@@ -21,7 +21,7 @@ import util.Conn;
  */
 public class datamaster extends javax.swing.JPanel {
     data_masterRepository datamaster = new data_masterRepository();
-    public static int id = 0;
+    public static String id;
 //    datamaster_edit edit = new datamaster_edit();
     /**
      * Creates new form datamaster
@@ -41,7 +41,7 @@ public class datamaster extends javax.swing.JPanel {
         try {
             for(data_master apa:datamaster.get()){
                 model.addRow(new Object[]{
-                    apa.getId(),
+                    apa.getNo_rm(),
                     apa.getNama(),
                     apa.getNik(),
                     apa.getAlamat(),
@@ -64,7 +64,7 @@ public class datamaster extends javax.swing.JPanel {
     model.addColumn("JENIS_KELAMIN");
     
     try {
-        String sql = "SELECT * FROM data_master WHERE id = ? OR nama LIKE ? OR nik LIKE ?";
+        String sql = "SELECT * FROM data_master WHERE no_rm = ? OR nama LIKE ? OR nik LIKE ?";
         Connection koneksi = (Connection)Conn.configDB();
         PreparedStatement pst = koneksi.prepareStatement(sql);
         pst.setString(1, search);
@@ -75,7 +75,7 @@ public class datamaster extends javax.swing.JPanel {
 
         while (res.next()) {
             model.addRow(new Object[]{
-                res.getString("id"),
+                res.getString("no_rm"),
                 res.getString("nama"),
                 res.getString("nik"),
                 res.getString("alamat"),
@@ -196,7 +196,7 @@ public class datamaster extends javax.swing.JPanel {
 //        String jenis_kelamin = table.getValueAt(baris, 4).toString();
 //        System.out.println(id);
         
-        if(id != 0){
+        if(!id.equals("")){
 //        edit.txt_no_rm.setText(idd);
 //        edit.txt_nama_pasien.setText(nama);
 //        edit.txt_nik.setText(nik);
@@ -218,7 +218,7 @@ public class datamaster extends javax.swing.JPanel {
     private void tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableMouseClicked
     int baris = table.rowAtPoint(evt.getPoint());
         String idd = table.getValueAt(baris, 0).toString();
-        id = Integer.valueOf(idd);
+        id = idd;
         System.out.println(id);
     }//GEN-LAST:event_tableMouseClicked
 
@@ -226,8 +226,8 @@ public class datamaster extends javax.swing.JPanel {
 //    int baris = table.rowAtPoint(evt.getPoint());
 //        String idd = table.getValueAt(baris, 0).toString();
 //        id = Integer.valueOf(idd);
-    if(id != 0){
-        boolean apa = datamaster.delete(id);
+    if(id.equals("")){
+        boolean apa = datamaster.deletebyno_rm(id);
         System.out.println("berhasil hapus");
     } else {
         System.out.println("gagal hapus");

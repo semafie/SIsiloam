@@ -7,6 +7,7 @@ package panel;
 import entity.pasienbaru_sementara;
 import javax.swing.SwingUtilities;
 import main.main;
+import repository.data_masterRepository;
 
 import repository.datapasienbarusementara;
 import repository.pasienbaru_sementaraRepository;
@@ -16,11 +17,52 @@ import repository.pasienbaru_sementaraRepository;
  * @author semafie
  */
 public class pasienbaru1 extends javax.swing.JPanel {
-    
+    data_masterRepository master = new data_masterRepository();
+    class AutoIDGenerator {
+    int left = 0;
+    int middle = 0;
+    int right = 0;
+
+    public String generateAutoID() {
+        if (right < 99) {
+            right++;
+        } else {
+            right = 0;
+            if (middle < 99) {
+                middle++;
+            } else {
+                middle = 0;
+                if (left < 99) {
+                    left++;
+                } else {
+                    // Reset ke 0 jika semua sudah mencapai 99
+                    left = 0;
+                }
+            }
+        }
+
+        String leftStr = String.format("%02d", left);
+        String middleStr = String.format("%02d", middle);
+        String rightStr = String.format("%02d", right);
+
+        return rightStr+ "-" + middleStr + "-" + leftStr ;
+    }
+    }
     pasienbaru_sementaraRepository bb = new pasienbaru_sementaraRepository();
     public pasienbaru1() {
         initComponents();
-        txt_no_rm.setText(String.valueOf(bb.get(1).getId()));
+        AutoIDGenerator generator = new AutoIDGenerator();
+        String idterakhir = String.valueOf(master.getlastid().getNo_rm());
+        String apa = "99-20-30";
+        String[] parts = idterakhir.split("-");
+        generator.left = Integer.parseInt(parts[2]);
+        generator.middle = Integer.parseInt(parts[1]);
+        generator.right = Integer.parseInt(parts[0]);
+
+        String autoID = generator.generateAutoID();
+        txt_no_rm.setText(autoID);
+        
+        
         txt_nama_pasien.setText(bb.get(1).getNama());
         txt_alamat.setText(bb.get(1).getAlamat());
         txt_nik.setText(String.valueOf(bb.get(1).getNik()));

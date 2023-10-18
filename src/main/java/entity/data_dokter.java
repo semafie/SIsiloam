@@ -33,6 +33,9 @@ public class data_dokter implements Entity{
     public data_dokter(){
         
     }
+    public data_dokter(int id){
+        this.id = id;
+    }
     
     public void setId(int id) {
         this.id = id;

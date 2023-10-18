@@ -51,7 +51,7 @@ public class rekap_harianRepository implements Repository<rekap_harian>{
 
     @Override
     public boolean add(rekap_harian rekap) {
-        String sql = "insert into "+tableName+ " ('jam','tanggal','id_dokter','id_master') values (?,?,?,?)";
+        String sql = "insert into "+tableName+ " (`jam`,`tanggal`,`id_dokter`,`id_master`) values (?,?,?,?)";
         try {
             Connection koneksi = (Connection)Conn.configDB();
             PreparedStatement pst = koneksi.prepareStatement(sql);

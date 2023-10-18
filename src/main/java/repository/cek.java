@@ -5,10 +5,12 @@ import com.mysql.cj.xdevapi.Result;
 import entity.data_dokter;
 import entity.data_master;
 import entity.pasienbaru_sementara;
+import entity.rekap_harian;
 import entity.user;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -20,12 +22,16 @@ public class cek {
         pasienbaru_sementaraRepository master11Repository = new pasienbaru_sementaraRepository();
         data_dokterRepository dokterRepository = new data_dokterRepository();
         userRepository userRepository = new userRepository();
-        data_master ass = new data_master(4, "restuuu",32020392,"jl apayaa","jember, 23/02/2004","Laki - laki");  
+        data_dokter aaaa = new data_dokter();
+        data_master ass = new data_master("4", "restuuu","32020392","jl apayaa","jember, 23/02/2004","Laki - laki");  
         pasienbaru_sementara apo = new pasienbaru_sementara(1, "restuuu",32020392,"jl apayaa","jember, 23/02/2004","Laki - laki");
         Date pp = new Date();
-        
-//        data_dokter ass1 = new data_dokter(2, "Dr gagah", 432423432, "Poli gigi", "dsadasddsada", "Laki - Laki", 0, pp);
-        
+        Timestamp timestamp = new Timestamp(new Date().getTime());
+        rekap_harianRepository apa = new rekap_harianRepository();
+        rekap_harian apa1 = new rekap_harian(timestamp,pp,aaaa,ass);
+        apa.add(apa1);
+        data_dokter ass1S = new data_dokter( "Dr gagah", "432423432", "Poli gigi", "dsadasddsada", "Laki - Laki", 1, pp);
+        dokterRepository.add(ass1S);
         
 //        master11Repository.update(apo);
 

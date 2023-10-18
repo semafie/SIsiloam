@@ -54,7 +54,7 @@ public class userRepository implements Repository<user>{
 
     @Override
     public boolean add(user us)  {
-        String sql = "Insert into "+tableName+" values (?,?,?,?)";
+        String sql = "Insert into "+tableName+" (`username`, `password`, `email`, `level`, `token`) values (?,?,?,?)";
         try {
             Connection koneksi = (Connection)Conn.configDB();
             PreparedStatement pst = koneksi.prepareStatement(sql);
