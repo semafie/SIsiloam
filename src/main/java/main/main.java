@@ -18,8 +18,11 @@ import panel.pasienbaru;
 import panel.pasienbaru1;
 
 import panel.pasienbaru_pilihdokter;
+import panel.pasienbaru_pilihdokter1;
 import panel.pasienbaru_pilihpoli;
+import panel.pasienbaru_pilihpoli1;
 import panel.pasienbaru_tambahdaftar;
+import panel.pasienbaru_tambahdaftar1;
 import panel.pasienlama;
 import panel.rekapharian1;
 import panel.verifikasi;
@@ -136,8 +139,29 @@ public void showlogin(){
         this.revalidate();
         this.repaint();
     }
+    public void showpasienbaru_pilihpoli1(){
+        pasienbaru_pilihpoli1 apa = new pasienbaru_pilihpoli1();
+        apa.setSize(1366,768);
+        this.add(apa);
+        this.revalidate();
+        this.repaint();
+    }
+    public void showpasienbaru_pilihdokter1(){
+        pasienbaru_pilihdokter1 apa = new pasienbaru_pilihdokter1();
+        apa.setSize(1366,768);
+        this.add(apa);
+        this.revalidate();
+        this.repaint();
+    }
     public void showpasienbaru_tambahdaftar(){
         pasienbaru_tambahdaftar apa = new pasienbaru_tambahdaftar();
+        apa.setSize(1366,768);
+        this.add(apa);
+        this.revalidate();
+        this.repaint();
+    }
+    public void showpasienbaru_tambahdaftar1(){
+        pasienbaru_tambahdaftar1 apa = new pasienbaru_tambahdaftar1();
         apa.setSize(1366,768);
         this.add(apa);
         this.revalidate();

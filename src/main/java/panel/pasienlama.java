@@ -12,6 +12,7 @@ import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
 import main.main;
 import repository.data_masterRepository;
+
 import util.Conn;
 
 /**
@@ -20,6 +21,8 @@ import util.Conn;
  */
 public class pasienlama extends javax.swing.JPanel {
     data_masterRepository datamaster = new data_masterRepository();
+    public static int id = 0;
+    private static String ddd;
     /**
      * Creates new form pasienlama
      */
@@ -53,7 +56,7 @@ public class pasienlama extends javax.swing.JPanel {
     model.addColumn("JENIS_KELAMIN");
     
     try {
-        String sql = "SELECT * FROM data_master WHERE no_rm LIKE ? OR nama LIKE ? OR jenis_kelamin LIKE ?";
+        String sql = "SELECT * FROM data_master WHERE no_rm LIKE ? OR nama1 LIKE ? OR jenis_kelamin1 LIKE ?";
         Connection koneksi = (Connection)Conn.configDB();
         PreparedStatement pst = koneksi.prepareStatement(sql);
         pst.setString(1, "%" + search + "%");
@@ -65,8 +68,8 @@ public class pasienlama extends javax.swing.JPanel {
         while (res.next()) {
             model.addRow(new Object[]{
                 res.getString("no_rm"),
-                res.getString("nama"),
-                res.getString("jenis_kelamin")
+                res.getString("nama1"),
+                res.getString("jenis_kelamin1")
             });
         }
 
@@ -88,6 +91,7 @@ public class pasienlama extends javax.swing.JPanel {
         table = new view.swing.Table();
         searchlo = new javax.swing.JTextField();
         btnkembali = new javax.swing.JLabel();
+        btnselanjutnya = new javax.swing.JLabel();
         bg = new javax.swing.JLabel();
 
         setLayout(null);
@@ -103,6 +107,11 @@ public class pasienlama extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        table.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(table);
 
         add(jScrollPane1);
@@ -125,6 +134,15 @@ public class pasienlama extends javax.swing.JPanel {
         add(btnkembali);
         btnkembali.setBounds(10, 710, 180, 51);
 
+        btnselanjutnya.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnselanjutnya1.png"))); // NOI18N
+        btnselanjutnya.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnselanjutnyaMouseClicked(evt);
+            }
+        });
+        add(btnselanjutnya);
+        btnselanjutnya.setBounds(1110, 710, 250, 51);
+
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/bg pasien lama.png"))); // NOI18N
         add(bg);
         bg.setBounds(0, 0, 1366, 774);
@@ -140,10 +158,31 @@ public class pasienlama extends javax.swing.JPanel {
     main.showdasboard();
     }//GEN-LAST:event_btnkembaliMouseClicked
 
+    private void btnselanjutnyaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnselanjutnyaMouseClicked
+    if(id != 0){
+        main main =(main)SwingUtilities.getWindowAncestor(this);
+    this.setVisible(false);
+    main.showpasienbaru_pilihpoli1();
+        
+    } else{
+        System.out.println("pilih dulu mass tabelnya");
+    }
+       
+    }//GEN-LAST:event_btnselanjutnyaMouseClicked
+
+    private void tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableMouseClicked
+    int baris = table.rowAtPoint(evt.getPoint());
+        String idd = table.getValueAt(baris, 0).toString();
+        ddd = idd;
+        id = datamaster.getbyno_rm(idd).getId();
+        System.out.println(id);
+    }//GEN-LAST:event_tableMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bg;
     private javax.swing.JLabel btnkembali;
+    private javax.swing.JLabel btnselanjutnya;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField searchlo;
     private view.swing.Table table;

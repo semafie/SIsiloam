@@ -8,12 +8,12 @@ package panel;
  *
  * @author semafie
  */
-public class dasboardowner extends javax.swing.JPanel {
+public class Dasboardowner extends javax.swing.JPanel {
 
     /**
      * Creates new form dasboardowner
      */
-    public dasboardowner() {
+    public Dasboardowner() {
         initComponents();
     }
 
