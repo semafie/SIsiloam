@@ -4,17 +4,47 @@
  */
 package panel;
 
+import entity.user;
+import javax.swing.SwingUtilities;
+import javax.swing.table.DefaultTableModel;
+import main.main;
+import repository.userRepository;
+
 /**
  *
  * @author semafie
  */
 public class daftarakun extends javax.swing.JPanel {
-
+    userRepository datamaster = new userRepository();
     /**
      * Creates new form daftarakun
      */
     public daftarakun() {
         initComponents();
+        load_tabel();
+        
+    }
+    public void load_tabel(){
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("ID");
+        model.addColumn("USERNAME");
+        model.addColumn("PASWWORD");
+        model.addColumn("EMAIL");
+    
+        try {
+            for(user apa:datamaster.get()){
+                model.addRow(new Object[]{
+                    apa.getId(),
+                    apa.getUsername(),
+                    apa.getPassword(),
+                    apa.getEmail()      
+
+                });
+            }
+            table.setModel(model);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     /**
@@ -27,12 +57,13 @@ public class daftarakun extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        table1 = new view.swing.Table();
+        table = new view.swing.Table();
+        btnkeluar = new javax.swing.JLabel();
         bg = new javax.swing.JLabel();
 
         setLayout(null);
 
-        table1.setModel(new javax.swing.table.DefaultTableModel(
+        table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -43,20 +74,36 @@ public class daftarakun extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(table1);
+        jScrollPane1.setViewportView(table);
 
         add(jScrollPane1);
         jScrollPane1.setBounds(70, 270, 1230, 370);
+
+        btnkeluar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnkembali1.png"))); // NOI18N
+        btnkeluar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnkeluarMouseClicked(evt);
+            }
+        });
+        add(btnkeluar);
+        btnkeluar.setBounds(20, 700, 190, 51);
 
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/bg datamaster.png"))); // NOI18N
         add(bg);
         bg.setBounds(1, 2, 1370, 770);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnkeluarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnkeluarMouseClicked
+    main wow = (main)SwingUtilities.getWindowAncestor(this);
+        this.setVisible(false);
+        wow.showdasboardowner();
+    }//GEN-LAST:event_btnkeluarMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bg;
+    private javax.swing.JLabel btnkeluar;
     private javax.swing.JScrollPane jScrollPane1;
-    private view.swing.Table table1;
+    private view.swing.Table table;
     // End of variables declaration//GEN-END:variables
 }

@@ -6,6 +6,7 @@ D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\panel\datadokter_edit.java
 D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\repository\datapasienbarusementara.java
 D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\panel\datamaster.java
 D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\view\swing\EventMenuSelected.java
+D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\panel\pasienbaru_tambahdaftar1.java
 D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\panel\kirimkode.java
 D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\repository\userRepository.java
 D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\view\swing\ScrollBarCustom.java
@@ -23,6 +24,7 @@ D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\service\GenerateCode.java
 D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\repository\cek.java
 D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\view\swing\Glass.java
 D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\panel\Dasboard.java
+D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\panel\pasienbaru_pilihpoli1.java
 D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\repository\NewClass.java
 D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\panel\Dasboardowner.java
 D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\panel\pasienbaru_tambahdaftar.java
@@ -50,4 +52,5 @@ D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\repository\data_dokterReposit
 D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\view\swing\itemdokter.java
 D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\view\swing\NewJFrame.java
 D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\panel\pasienbaru.java
+D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\panel\pasienbaru_pilihdokter1.java
 D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\panel\buatpasswordbaru.java

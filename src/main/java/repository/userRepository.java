@@ -17,7 +17,7 @@ public class userRepository implements Repository<user>{
     
     @Override
     public List<user> get() {
-        String sql = "Select * from "+ tableName;
+        String sql = "Select * from "+ tableName+" where level = 2";
         List<user> user = new ArrayList<>();
         try {
             Connection koneksi = (Connection)Conn.configDB();

@@ -6,8 +6,10 @@ package main;
 
 import entity.rekap_harian;
 import panel.Dasboard;
+import panel.Dasboardowner;
 import panel.Login;
 import panel.buatpasswordbaru;
+import panel.daftarakun;
 import panel.datadokter;
 import panel.datadokter_edit;
 import panel.datadokter_tambah;
@@ -38,7 +40,7 @@ public class main extends javax.swing.JFrame {
      */
     public main() {
         initComponents();
-        showdasboard();
+        showlogin();
     }
 public void showlogin(){
         Login apa = new Login();
@@ -49,6 +51,13 @@ public void showlogin(){
     }
     public void showdasboard(){
         Dasboard apa = new Dasboard();
+        apa.setSize(1366,768);
+        this.add(apa);
+        this.revalidate();
+        this.repaint();
+    }
+    public void showdasboardowner(){
+        Dasboardowner apa = new Dasboardowner();
         apa.setSize(1366,768);
         this.add(apa);
         this.revalidate();
@@ -176,6 +185,13 @@ public void showlogin(){
     }
     public void showrekapharian(){
         rekapharian1 apa = new rekapharian1();
+        apa.setSize(1366,768);
+        this.add(apa);
+        this.revalidate();
+        this.repaint();
+    }
+    public void showdaftar_akun(){
+        daftarakun apa = new daftarakun();
         apa.setSize(1366,768);
         this.add(apa);
         this.revalidate();

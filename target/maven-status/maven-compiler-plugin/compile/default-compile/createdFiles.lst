@@ -21,6 +21,7 @@ view\swing\itempoli_tampilan$2.class
 panel\daftarakun.class
 main\main.class
 panel\datadokter_tambah.class
+panel\Dasboardowner$2.class
 panel\pasienbaru$AutoIDGenerator.class
 repository\AutoIDGenerator.class
 panel\kirimkode$2.class
@@ -93,6 +94,7 @@ panel\datamaster.class
 panel\Dasboard$4.class
 panel\pasienbaru1$1.class
 panel\Login$4.class
+panel\daftarakun$1.class
 entity\data_master.class
 entity\rekap_harian.class
 view\swing\itempoli$1.class

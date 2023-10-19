@@ -106,9 +106,17 @@ public class Login extends javax.swing.JPanel {
     String pass = inputpassword.getText();
         Auth ap = new Auth();
     if(ap.login(user, pass)){
-        main wow = (main)SwingUtilities.getWindowAncestor(this);
-        wow.showdasboard();
+        if (ap.level == 1) {
+            main wow = (main)SwingUtilities.getWindowAncestor(this);
         this.setVisible(false);
+        wow.showdasboardowner();
+        } else {
+            main wow = (main)SwingUtilities.getWindowAncestor(this);
+         this.setVisible(false);
+            wow.showdasboard();
+       
+        }
+        
     }else{
         System.out.println("gagal login");
     }
