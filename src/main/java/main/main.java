@@ -10,6 +10,8 @@ import panel.Dasboardowner;
 import panel.Login;
 import panel.buatpasswordbaru;
 import panel.daftarakun;
+import panel.daftarakun_edit;
+import panel.daftarakun_tambah;
 import panel.datadokter;
 import panel.datadokter_edit;
 import panel.datadokter_tambah;
@@ -192,6 +194,20 @@ public void showlogin(){
     }
     public void showdaftar_akun(){
         daftarakun apa = new daftarakun();
+        apa.setSize(1366,768);
+        this.add(apa);
+        this.revalidate();
+        this.repaint();
+    }
+    public void showdaftar_akuntambah(){
+        daftarakun_tambah apa = new daftarakun_tambah();
+        apa.setSize(1366,768);
+        this.add(apa);
+        this.revalidate();
+        this.repaint();
+    }
+    public void showdaftar_akunedit(){
+        daftarakun_edit apa = new daftarakun_edit();
         apa.setSize(1366,768);
         this.add(apa);
         this.revalidate();

@@ -16,6 +16,7 @@ import repository.userRepository;
  */
 public class daftarakun extends javax.swing.JPanel {
     userRepository datamaster = new userRepository();
+    public static int id;
     /**
      * Creates new form daftarakun
      */
@@ -59,6 +60,9 @@ public class daftarakun extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         table = new view.swing.Table();
         btnkeluar = new javax.swing.JLabel();
+        btntambah = new javax.swing.JLabel();
+        btnedit = new javax.swing.JLabel();
+        btnhapus = new javax.swing.JLabel();
         bg = new javax.swing.JLabel();
 
         setLayout(null);
@@ -74,6 +78,11 @@ public class daftarakun extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        table.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(table);
 
         add(jScrollPane1);
@@ -88,6 +97,33 @@ public class daftarakun extends javax.swing.JPanel {
         add(btnkeluar);
         btnkeluar.setBounds(20, 700, 190, 51);
 
+        btntambah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btntambah1.png"))); // NOI18N
+        btntambah.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btntambahMouseClicked(evt);
+            }
+        });
+        add(btntambah);
+        btntambah.setBounds(40, 150, 200, 70);
+
+        btnedit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnedit1.png"))); // NOI18N
+        btnedit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btneditMouseClicked(evt);
+            }
+        });
+        add(btnedit);
+        btnedit.setBounds(260, 150, 200, 70);
+
+        btnhapus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnhapus1.png"))); // NOI18N
+        btnhapus.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnhapusMouseClicked(evt);
+            }
+        });
+        add(btnhapus);
+        btnhapus.setBounds(480, 150, 200, 70);
+
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/bg datamaster.png"))); // NOI18N
         add(bg);
         bg.setBounds(1, 2, 1370, 770);
@@ -99,10 +135,47 @@ public class daftarakun extends javax.swing.JPanel {
         wow.showdasboardowner();
     }//GEN-LAST:event_btnkeluarMouseClicked
 
+    private void btntambahMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btntambahMouseClicked
+    main main =(main)SwingUtilities.getWindowAncestor(this);
+    this.setVisible(false);
+    main.showdaftar_akuntambah();
+    }//GEN-LAST:event_btntambahMouseClicked
+
+    private void btneditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btneditMouseClicked
+    if(id != 0){
+        main main =(main)SwingUtilities.getWindowAncestor(this);
+    this.setVisible(false);
+    main.showdaftar_akunedit();
+    } else {
+        System.out.println("pilih dulu bang tabelnya");
+    }
+    }//GEN-LAST:event_btneditMouseClicked
+
+    private void btnhapusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnhapusMouseClicked
+        userRepository dokter = new userRepository();
+        if(id != 0){
+            dokter.delete(id);
+            System.out.println("berhasil hapus");
+        } else {
+            System.out.println("gagal hapus");
+        }
+        load_tabel();
+    }//GEN-LAST:event_btnhapusMouseClicked
+
+    private void tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableMouseClicked
+    int baris = table.rowAtPoint(evt.getPoint());
+        String idd = table.getValueAt(baris, 0).toString();
+        id = Integer.valueOf(idd);
+        System.out.println(id);
+    }//GEN-LAST:event_tableMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bg;
+    private javax.swing.JLabel btnedit;
+    private javax.swing.JLabel btnhapus;
     private javax.swing.JLabel btnkeluar;
+    private javax.swing.JLabel btntambah;
     private javax.swing.JScrollPane jScrollPane1;
     private view.swing.Table table;
     // End of variables declaration//GEN-END:variables

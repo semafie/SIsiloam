@@ -3,24 +3,34 @@ package entity;
 
 public class user implements Entity{
     public static String tableName = "user";
-    private int id, level;
+    private int id, level, token;
     private String username, password, email;
     
     public user(){
         
     }
-    public user( String username, String password, String email, int level){
+    
+    public user( String username, String password, String email, int level,int token){
+        this.token = token;
         this.username = username;
         this.password = password;
         this.email = email;
         this.level = level;
     }
-    public user(int id, String username, String password, String email, int level){
+    public user(int id, String username, String password, String email){
         this.id = id;
         this.username = username;
         this.password = password;
         this.email = email;
         this.level = level;
+    }
+
+    public int getToken() {
+        return token;
+    }
+
+    public void setToken(int token) {
+        this.token = token;
     }
 
     public void setId(int id) {
