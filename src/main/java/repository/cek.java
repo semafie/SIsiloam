@@ -31,8 +31,9 @@ public class cek {
         rekap_harian apa1 = new rekap_harian(timestamp,pp,aaaa,ass);
         apa.add(apa1);
         data_dokter ass1S = new data_dokter( "Dr gagah", "432423432", "Poli gigi", "dsadasddsada", "Laki - Laki", 1, pp);
-        dokterRepository.add(ass1S);
-        
+//        dokterRepository.add(ass1S);
+        rekap_harianRepository a = new rekap_harianRepository();
+        System.out.println(a.get(11));
 //        master11Repository.update(apo);
 
 //        user ass1 = new user(4 , "anakmu", "ibuku", "sayang", 1);

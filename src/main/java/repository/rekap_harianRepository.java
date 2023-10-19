@@ -18,7 +18,7 @@ public class rekap_harianRepository implements Repository<rekap_harian>{
     private static String tableName = rekap_harian.tableName;
     @Override
     public List<rekap_harian> get() {
-        String sql = "select * from";
+        String sql = "select * from "+tableName+ " Join data_dokter ON rekap_harian.id = data_dokter.id JOIN data_master ON rekap_harian.id = data_master.id";
         List<rekap_harian> rekap_harian = new ArrayList<>();
             try {
                 Connection koneksi =(Connection)Conn.configDB();
@@ -36,7 +36,7 @@ public class rekap_harianRepository implements Repository<rekap_harian>{
 
     @Override
     public rekap_harian get(Integer id) {
-    String sql = "Select * from "+tableName+ " where id = ?";
+    String sql = "Select * from "+tableName+ "id = ?";
     rekap_harian rekap = new rekap_harian();
     try {
             Connection koneksi = Conn.configDB();
@@ -48,6 +48,7 @@ public class rekap_harianRepository implements Repository<rekap_harian>{
         }
     return rekap;
     }
+    
 
     @Override
     public boolean add(rekap_harian rekap) {
@@ -105,8 +106,8 @@ public class rekap_harianRepository implements Repository<rekap_harian>{
         rekap_harian hari = new rekap_harian(
         res.getTimestamp("jam"),
         res.getDate("tanggal"),
-        new data_dokterRepository().get(res.getInt("id")),
-        new data_masterRepository().get(res.getInt("id"))
+        new data_dokterRepository().get(res.getInt("id_dokter")),
+        new data_masterRepository().get(res.getInt("id_master"))
         );
         hari.setId(res.getInt("id"));
         

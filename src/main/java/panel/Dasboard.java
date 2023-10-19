@@ -33,6 +33,7 @@ public class Dasboard extends javax.swing.JPanel {
         btndatadokter = new javax.swing.JLabel();
         btnpasienbaru = new javax.swing.JLabel();
         btnpasienlama = new javax.swing.JLabel();
+        btnrekapharian = new javax.swing.JLabel();
         bg = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1366, 768));
@@ -72,7 +73,16 @@ public class Dasboard extends javax.swing.JPanel {
             }
         });
         add(btnpasienlama);
-        btnpasienlama.setBounds(710, 440, 360, 130);
+        btnpasienlama.setBounds(720, 450, 360, 130);
+
+        btnrekapharian.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnrekapharian1.png"))); // NOI18N
+        btnrekapharian.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnrekapharianMouseClicked(evt);
+            }
+        });
+        add(btnrekapharian);
+        btnrekapharian.setBounds(930, 610, 380, 90);
 
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/bg dasboard.png"))); // NOI18N
         add(bg);
@@ -109,6 +119,12 @@ public class Dasboard extends javax.swing.JPanel {
     main.showpasienlama();
     }//GEN-LAST:event_btnpasienlamaMouseClicked
 
+    private void btnrekapharianMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnrekapharianMouseClicked
+    main main =(main)SwingUtilities.getWindowAncestor(this);
+    this.setVisible(false);
+    main.showrekapharian();
+    }//GEN-LAST:event_btnrekapharianMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bg;
@@ -116,5 +132,6 @@ public class Dasboard extends javax.swing.JPanel {
     private javax.swing.JLabel btndatamaster;
     private javax.swing.JLabel btnpasienbaru;
     private javax.swing.JLabel btnpasienlama;
+    private javax.swing.JLabel btnrekapharian;
     // End of variables declaration//GEN-END:variables
 }

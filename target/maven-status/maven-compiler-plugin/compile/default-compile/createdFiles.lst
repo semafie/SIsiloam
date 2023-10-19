@@ -15,6 +15,7 @@ panel\pasienbaru_tambahdaftar$2.class
 panel\pasienlama$2.class
 panel\Login$2.class
 view\swing\itempoli_tampilan$2.class
+panel\daftarakun.class
 main\main.class
 panel\datadokter_tambah.class
 panel\pasienbaru$AutoIDGenerator.class
@@ -32,6 +33,7 @@ panel\Dasboard$1.class
 view\swing\ModernScrollBarUI$ScrollBarButton.class
 panel\Login$1.class
 panel\pasienbaru$1.class
+panel\rekapharian1$1.class
 repository\NewClass$1.class
 view\swing\dialog_mintakode$1.class
 view\swing\itempoli_tampilan.class
@@ -43,6 +45,7 @@ panel\pasienbaru_tambahdaftar$AutoIDGenerator.class
 repository\pasienbaru_sementaraRepository.class
 panel\pasienbaru1.class
 view\swing\Glass.class
+panel\dasboardowner.class
 panel\datamaster$1.class
 panel\pasienbaru1$AutoIDGenerator.class
 repository\data_dokterRepository.class
@@ -67,6 +70,7 @@ panel\pasienbaru_pilihdokter$2.class
 panel\kirimkode$1.class
 repository\cek.class
 view\swing\itemdokter_tampilann.class
+panel\rekapharian1.class
 panel\datamaster$2.class
 service\Auth.class
 panel\Dasboard.class
@@ -98,4 +102,5 @@ view\swing\ScrollBarCustom.class
 panel\kirimkode.class
 panel\datamaster$5.class
 panel\pasienbaru1$2.class
+panel\Dasboard$5.class
 view\swing\itemdokter_tampilann$1.class

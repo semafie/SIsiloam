@@ -4,6 +4,7 @@
  */
 package main;
 
+import entity.rekap_harian;
 import panel.Dasboard;
 import panel.Login;
 import panel.buatpasswordbaru;
@@ -20,6 +21,7 @@ import panel.pasienbaru_pilihdokter;
 import panel.pasienbaru_pilihpoli;
 import panel.pasienbaru_tambahdaftar;
 import panel.pasienlama;
+import panel.rekapharian1;
 import panel.verifikasi;
 
 /**
@@ -143,6 +145,13 @@ public void showlogin(){
     }
     public void showpasienlama(){
         pasienlama apa = new pasienlama();
+        apa.setSize(1366,768);
+        this.add(apa);
+        this.revalidate();
+        this.repaint();
+    }
+    public void showrekapharian(){
+        rekapharian1 apa = new rekapharian1();
         apa.setSize(1366,768);
         this.add(apa);
         this.revalidate();

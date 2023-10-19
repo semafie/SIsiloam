@@ -184,11 +184,11 @@ public class data_masterRepository implements Repository<data_master> {
     private data_master mapToEntity(ResultSet res)throws SQLException {
         data_master master = new data_master(
                 res.getString("no_rm"),
-            res.getString("nama"),
+            res.getString("nama1"),
             res.getString("nik"),
             res.getString("alamat"),
             res.getString("ttl"),
-            res.getString("jenis_kelamin")
+            res.getString("jenis_kelamin1")
         );
         master.setId(res.getInt("id"));
         return master;
