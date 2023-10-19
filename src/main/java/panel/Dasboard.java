@@ -32,6 +32,7 @@ public class Dasboard extends javax.swing.JPanel {
         btndatamaster = new javax.swing.JLabel();
         btndatadokter = new javax.swing.JLabel();
         btnpasienbaru = new javax.swing.JLabel();
+        btnpasienlama = new javax.swing.JLabel();
         bg = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1366, 768));
@@ -64,6 +65,15 @@ public class Dasboard extends javax.swing.JPanel {
         add(btnpasienbaru);
         btnpasienbaru.setBounds(420, 290, 370, 140);
 
+        btnpasienlama.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnpasienlama1.png"))); // NOI18N
+        btnpasienlama.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnpasienlamaMouseClicked(evt);
+            }
+        });
+        add(btnpasienlama);
+        btnpasienlama.setBounds(710, 440, 360, 130);
+
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/bg dasboard.png"))); // NOI18N
         add(bg);
         bg.setBounds(0, -2, 1366, 770);
@@ -93,11 +103,18 @@ public class Dasboard extends javax.swing.JPanel {
     main.showpasienbaru();
     }//GEN-LAST:event_btnpasienbaruMouseClicked
 
+    private void btnpasienlamaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnpasienlamaMouseClicked
+    main main =(main)SwingUtilities.getWindowAncestor(this);
+    this.setVisible(false);
+    main.showpasienlama();
+    }//GEN-LAST:event_btnpasienlamaMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bg;
     private javax.swing.JLabel btndatadokter;
     private javax.swing.JLabel btndatamaster;
     private javax.swing.JLabel btnpasienbaru;
+    private javax.swing.JLabel btnpasienlama;
     // End of variables declaration//GEN-END:variables
 }

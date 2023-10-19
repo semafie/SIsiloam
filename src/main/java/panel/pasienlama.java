@@ -8,7 +8,9 @@ import entity.data_master;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
+import main.main;
 import repository.data_masterRepository;
 import util.Conn;
 
@@ -51,10 +53,10 @@ public class pasienlama extends javax.swing.JPanel {
     model.addColumn("JENIS_KELAMIN");
     
     try {
-        String sql = "SELECT * FROM data_master WHERE no_rm = ? OR nama LIKE ? OR jenis_kelamin LIKE ?";
+        String sql = "SELECT * FROM data_master WHERE no_rm LIKE ? OR nama LIKE ? OR jenis_kelamin LIKE ?";
         Connection koneksi = (Connection)Conn.configDB();
         PreparedStatement pst = koneksi.prepareStatement(sql);
-        pst.setString(1, search);
+        pst.setString(1, "%" + search + "%");
         pst.setString(2, "%" + search + "%");
         pst.setString(3, "%" + search + "%");
 
@@ -113,8 +115,15 @@ public class pasienlama extends javax.swing.JPanel {
         });
         add(searchlo);
         searchlo.setBounds(260, 210, 240, 50);
+
+        btnkembali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnbatal1 (1).png"))); // NOI18N
+        btnkembali.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnkembaliMouseClicked(evt);
+            }
+        });
         add(btnkembali);
-        btnkembali.setBounds(30, 740, 0, 0);
+        btnkembali.setBounds(10, 710, 180, 51);
 
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/bg pasien lama.png"))); // NOI18N
         add(bg);
@@ -124,6 +133,12 @@ public class pasienlama extends javax.swing.JPanel {
     private void searchloKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchloKeyReleased
         load_search(searchlo.getText());
     }//GEN-LAST:event_searchloKeyReleased
+
+    private void btnkembaliMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnkembaliMouseClicked
+    main main =(main)SwingUtilities.getWindowAncestor(this);
+    this.setVisible(false);
+    main.showdasboard();
+    }//GEN-LAST:event_btnkembaliMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

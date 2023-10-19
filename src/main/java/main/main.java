@@ -19,6 +19,7 @@ import panel.pasienbaru1;
 import panel.pasienbaru_pilihdokter;
 import panel.pasienbaru_pilihpoli;
 import panel.pasienbaru_tambahdaftar;
+import panel.pasienlama;
 import panel.verifikasi;
 
 /**
@@ -135,6 +136,13 @@ public void showlogin(){
     }
     public void showpasienbaru_tambahdaftar(){
         pasienbaru_tambahdaftar apa = new pasienbaru_tambahdaftar();
+        apa.setSize(1366,768);
+        this.add(apa);
+        this.revalidate();
+        this.repaint();
+    }
+    public void showpasienlama(){
+        pasienlama apa = new pasienlama();
         apa.setSize(1366,768);
         this.add(apa);
         this.revalidate();

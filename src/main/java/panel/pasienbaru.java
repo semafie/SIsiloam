@@ -101,7 +101,7 @@ public class pasienbaru extends javax.swing.JPanel {
 
         setLayout(null);
 
-        btn_kembali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnkembali1.png"))); // NOI18N
+        btn_kembali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnbatal1 (1).png"))); // NOI18N
         btn_kembali.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_kembaliMouseClicked(evt);

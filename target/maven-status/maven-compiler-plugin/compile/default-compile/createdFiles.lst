@@ -12,6 +12,7 @@ panel\datamaster_edit$1.class
 service\GenerateCode.class
 view\swing\itempoli_tampilan$1.class
 panel\pasienbaru_tambahdaftar$2.class
+panel\pasienlama$2.class
 panel\Login$2.class
 view\swing\itempoli_tampilan$2.class
 main\main.class
@@ -23,6 +24,7 @@ repository\rekap_harianRepository.class
 main\main$1.class
 service\TokenEmail$1.class
 view\swing\Dialog$2.class
+panel\pasienlama$1.class
 panel\Login.class
 repository\NewClass.class
 panel\pasienbaru_pilihdokter.class
@@ -68,12 +70,14 @@ view\swing\itemdokter_tampilann.class
 panel\datamaster$2.class
 service\Auth.class
 panel\Dasboard.class
+panel\pasienlama.class
 repository\userRepository.class
 panel\datadokter.class
 view\swing\TableHeader.class
 view\swing\itempoli.class
 view\swing\itemdokter$1.class
 panel\datamaster.class
+panel\Dasboard$4.class
 panel\pasienbaru1$1.class
 panel\Login$4.class
 entity\data_master.class
