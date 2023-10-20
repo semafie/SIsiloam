@@ -32,7 +32,7 @@ import view.swing.dialog_mintakode;
 
 public class kirimkode extends javax.swing.JPanel {
     Auth a = new Auth();
-    private String username = a.username;
+    public static String username;
     private String email;
         class poo{
     private String text;
@@ -202,6 +202,12 @@ public void kirim()throws AddressException, MessagingException {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnkirMouseEntered(evt);
             }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnkirMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnkirMousePressed(evt);
+            }
         });
         jPanel1.add(btnkir);
         btnkir.setBounds(460, 530, 426, 70);
@@ -286,7 +292,7 @@ public void kirim()throws AddressException, MessagingException {
     }//GEN-LAST:event_btnkirMouseClicked
 
     private void btnkirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnkirMouseEntered
-        // TODO add your handling code here:
+    btnkir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnkirimkode2.png")));
     }//GEN-LAST:event_btnkirMouseEntered
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
@@ -294,6 +300,14 @@ public void kirim()throws AddressException, MessagingException {
     this.setVisible(false);
     main.showlogin();
     }//GEN-LAST:event_jLabel1MouseClicked
+
+    private void btnkirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnkirMouseExited
+    btnkir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnkirimkode1.png")));
+    }//GEN-LAST:event_btnkirMouseExited
+
+    private void btnkirMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnkirMousePressed
+    btnkir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnkirimkode3.png")));
+    }//GEN-LAST:event_btnkirMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

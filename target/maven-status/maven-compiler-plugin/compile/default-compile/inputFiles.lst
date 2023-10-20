@@ -18,6 +18,7 @@ D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\panel\datadokter_tambah.java
 D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\view\swing\TableHeader.java
 D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\repository\data_masterRepository.java
 D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\panel\pasienbaru_pilihpoli.java
+D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\panel\daftarakun_edit.java
 D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\entity\data_master.java
 D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\entity\rekap_harian.java
 D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\service\GenerateCode.java
@@ -25,6 +26,8 @@ D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\repository\cek.java
 D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\view\swing\Glass.java
 D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\panel\Dasboard.java
 D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\panel\pasienbaru_pilihpoli1.java
+D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\view\swing\validasiberhasil.java
+D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\view\swing\PasswordApp.java
 D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\repository\NewClass.java
 D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\panel\Dasboardowner.java
 D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\panel\pasienbaru_tambahdaftar.java
@@ -36,6 +39,7 @@ D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\panel\rekapharian1.java
 D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\panel\pasienbaru_pilihdokter.java
 D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\service\Auth.java
 D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\repository\pasienbaru_sementaraRepository.java
+D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\panel\daftarakun_tambah.java
 D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\util\Conn.java
 D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\view\swing\itemdokter_tampilann.java
 D:\imam\Kerja Joki\siloam\SIRSsiloam\src\main\java\panel\datamaster_edit.java
