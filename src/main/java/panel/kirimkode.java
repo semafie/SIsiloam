@@ -4,6 +4,7 @@
  */
 package panel;
 import java.awt.Color;
+import java.awt.Font;
 import java.lang.System.Logger;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -72,6 +73,8 @@ private String apa1;
      */
     public kirimkode() {
         initComponents();
+        Font font = new Font("Quicksand", Font.PLAIN, 25);
+        inputusername.setFont(font);
     }
 public void kirim()throws AddressException, MessagingException {
            String host = "smtp.gmail.com";
@@ -211,6 +214,9 @@ public void kirim()throws AddressException, MessagingException {
         });
         jPanel1.add(btnkir);
         btnkir.setBounds(460, 530, 426, 70);
+
+        inputusername.setBackground(new Color(0,0,0,0));
+        inputusername.setBorder(null);
         jPanel1.add(inputusername);
         inputusername.setBounds(492, 354, 386, 61);
 

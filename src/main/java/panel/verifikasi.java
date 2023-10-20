@@ -85,6 +85,7 @@ private String apa1;
     public verifikasi() {
         initComponents();
         Font font = new Font("Quicksand", Font.PLAIN, 30);
+        inputverifikasi.setFont(font);
         txt.setVisible(false);
         resendcode1.setVisible(true);
         resendcode.setVisible(false);
