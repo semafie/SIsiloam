@@ -19,7 +19,8 @@ import view.swing.validasiberhasil;
 public class datamaster_edit extends javax.swing.JPanel {
     data_masterRepository master = new data_masterRepository();
     datamaster a = new datamaster();
-    private String ids = a.id;
+    private int ids = a.id;
+    private String se = a.ids;
     private String jnkk;
     /**
      * Creates new form datamaster_edit
@@ -38,18 +39,18 @@ public class datamaster_edit extends javax.swing.JPanel {
     }
     public void tampil(){
 //        int id = master.get(ids).getId();
-        String nama = master.getbyno_rm(ids).getNama();
-        String alamat = master.getbyno_rm(ids).getAlamat();
-        String nik = master.getbyno_rm(ids).getNik();
-        String ttl = master.getbyno_rm(ids).getTtl();
-        String jnk = master.getbyno_rm(ids).getJenis_kelamin();
+        String nama = master.get(ids).getNama();
+        String alamat = master.get(ids).getAlamat();
+        String nik = master.get(ids).getNik();
+        String ttl = master.get(ids).getTtl();
+        String jnk = master.get(ids).getJenis_kelamin();
 //System.out.println(ids);
 //System.out.println(nama);
 //System.out.println(alamat);
 //System.out.println(nik);
 //System.out.println(ttl);
 //System.out.println(jnk);
-        txt_no_rm.setText(ids);
+        txt_no_rm.setText(se);
         txt_nama_pasien.setText(nama);
         txt_nik.setText(nik);
         txt_alamat.setText(alamat);
@@ -172,8 +173,8 @@ public class datamaster_edit extends javax.swing.JPanel {
         System.out.println(ttl);
         System.out.println(selectedItem);
 
-        if( !ids.equals("")){
-        data_master apa = new data_master(ids,nama, nik, alamat, ttl, jnkk);
+        if( !se.equals("")){
+        data_master apa = new data_master(nama, nik, alamat, ttl, jnkk);
         master.updatebynorm(apa);
         main main =(main)SwingUtilities.getWindowAncestor(this);
         this.setVisible(false);

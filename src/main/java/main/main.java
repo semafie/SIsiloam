@@ -6,7 +6,7 @@ package main;
 
 import entity.rekap_harian;
 import panel.Dasboard;
-import panel.Dasboardowner;
+import panel.dasboardowner;
 import panel.Login;
 import panel.buatpasswordbaru;
 import panel.daftarakun;
@@ -59,7 +59,7 @@ public void showlogin(){
         this.repaint();
     }
     public void showdasboardowner(){
-        Dasboardowner apa = new Dasboardowner();
+        dasboardowner apa = new dasboardowner();
         apa.setSize(1366,768);
         this.add(apa);
         this.revalidate();
