@@ -51,6 +51,7 @@ panel\rekapharian1$1.class
 repository\NewClass$1.class
 view\swing\dialog_mintakode$1.class
 view\swing\itempoli_tampilan.class
+panel\daftarakun$7.class
 view\swing\EventMenuSelected.class
 panel\pasienbaru_pilihpoli1.class
 panel\datadokter_edit.class
@@ -62,6 +63,7 @@ repository\pasienbaru_sementaraRepository.class
 panel\pasienbaru1.class
 view\swing\Glass.class
 panel\buatpasswordbaru$2.class
+panel\daftarakun$6.class
 panel\verifikasi$poo.class
 panel\datamaster$1.class
 panel\pasienbaru1$AutoIDGenerator.class

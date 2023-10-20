@@ -5,6 +5,9 @@
 package panel;
 
 import entity.user;
+import java.util.EventObject;
+import javax.swing.DefaultCellEditor;
+import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
 import main.main;
@@ -23,7 +26,13 @@ public class daftarakun extends javax.swing.JPanel {
     public daftarakun() {
         initComponents();
         load_tabel();
-        
+        DefaultCellEditor cellEditor = new DefaultCellEditor(new JTextField()) {
+    @Override
+    public boolean isCellEditable(EventObject e) {
+        return false;
+    }
+};
+        table.setDefaultEditor(Object.class, cellEditor);
     }
     public void load_tabel(){
         DefaultTableModel model = new DefaultTableModel();
@@ -67,6 +76,10 @@ public class daftarakun extends javax.swing.JPanel {
 
         setLayout(null);
 
+        jScrollPane1.setBackground(new java.awt.Color(255, 0, 204));
+        jScrollPane1.setBorder(null);
+
+        table.setBackground(new java.awt.Color(255, 204, 51));
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -77,7 +90,15 @@ public class daftarakun extends javax.swing.JPanel {
             new String [] {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         table.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tableMouseClicked(evt);

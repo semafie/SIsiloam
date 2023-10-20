@@ -25,6 +25,7 @@ import main.main;
 import service.Auth;
 import util.Conn;
 import view.swing.dialog_mintakode;
+import view.swing.validasiberhasil;
 
 /**
  *
@@ -282,6 +283,8 @@ public void kirim()throws AddressException, MessagingException {
 //                                a.showPopUp();
                                 this.setVisible(false);
                                 main.showver();
+                                validasiberhasil aa = new validasiberhasil(main,"kode telah dikirim");
+                                aa.showPopUp();
                                     } catch (Exception e) {
                                         System.out.println(e.getMessage());
                                     }

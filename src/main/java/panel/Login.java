@@ -160,8 +160,7 @@ public class Login extends javax.swing.JPanel {
          this.setVisible(false);
             wow.showdasboard();
             validasiberhasil aa = new validasiberhasil(wow,"Anda Berhasil Login");
-            aa.showPopUp();
-            
+            aa.showPopUp();            
         }
         
     }else{

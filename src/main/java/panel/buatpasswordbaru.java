@@ -8,6 +8,7 @@ import java.awt.Font;
 import javax.swing.SwingUtilities;
 import main.main;
 import service.Auth;
+import view.swing.validasiberhasil;
 /**
  *
  * @author RESCOM-1
@@ -111,6 +112,8 @@ public class buatpasswordbaru extends javax.swing.JPanel {
             this.setVisible(false);
             main main1 =(main)SwingUtilities.getWindowAncestor(this);
             main1.showlogin();
+            validasiberhasil aa = new validasiberhasil(main1,"Anda Berhasil Merubah password");
+            aa.showPopUp();    
         }else{
             System.out.println("gagal");
         }
