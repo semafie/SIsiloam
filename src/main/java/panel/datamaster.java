@@ -3,8 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package panel;
-
+import java.awt.Color;
 import entity.data_master;
+import java.awt.Font;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -29,6 +30,8 @@ public class datamaster extends javax.swing.JPanel {
     public datamaster() {
         initComponents();
         load_tabel();
+        Font font = new Font("Quicksand", Font.PLAIN, 22);
+        search.setFont(font);
     }
     public void load_tabel(){
         DefaultTableModel model = new DefaultTableModel();
@@ -105,7 +108,7 @@ public class datamaster extends javax.swing.JPanel {
         search = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         btnedit = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        btnhapus = new javax.swing.JLabel();
         bg = new javax.swing.JLabel();
 
         setLayout(null);
@@ -114,6 +117,15 @@ public class datamaster extends javax.swing.JPanel {
         btnkembali.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnkembaliMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnkembaliMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnkembaliMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnkembaliMousePressed(evt);
             }
         });
         add(btnkembali);
@@ -144,6 +156,9 @@ public class datamaster extends javax.swing.JPanel {
         add(jScrollPane2);
         jScrollPane2.setBounds(62, 262, 1240, 380);
 
+        search.setBackground(new Color(0,0,0,0)
+        );
+        search.setBorder(null);
         search.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 searchKeyReleased(evt);
@@ -161,18 +176,36 @@ public class datamaster extends javax.swing.JPanel {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btneditMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btneditMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btneditMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btneditMousePressed(evt);
+            }
         });
         add(btnedit);
         btnedit.setBounds(390, 145, 200, 60);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnhapus1.png"))); // NOI18N
-        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnhapus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnhapus1.png"))); // NOI18N
+        btnhapus.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel3MouseClicked(evt);
+                btnhapusMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnhapusMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnhapusMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnhapusMousePressed(evt);
             }
         });
-        add(jLabel3);
-        jLabel3.setBounds(600, 145, 200, 60);
+        add(btnhapus);
+        btnhapus.setBounds(600, 145, 200, 60);
 
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/bg datamaster.png"))); // NOI18N
         add(bg);
@@ -222,7 +255,7 @@ public class datamaster extends javax.swing.JPanel {
         System.out.println(id);
     }//GEN-LAST:event_tableMouseClicked
 
-    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+    private void btnhapusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnhapusMouseClicked
 //    int baris = table.rowAtPoint(evt.getPoint());
 //        String idd = table.getValueAt(baris, 0).toString();
 //        id = Integer.valueOf(idd);
@@ -233,19 +266,55 @@ public class datamaster extends javax.swing.JPanel {
         System.out.println("gagal hapus");
     }
     load_tabel();
-    }//GEN-LAST:event_jLabel3MouseClicked
+    }//GEN-LAST:event_btnhapusMouseClicked
 
     private void searchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchKeyReleased
         load_search(search.getText());
     }//GEN-LAST:event_searchKeyReleased
 
+    private void btnkembaliMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnkembaliMouseEntered
+    btnkembali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnkembali2.png")));
+    }//GEN-LAST:event_btnkembaliMouseEntered
+
+    private void btnkembaliMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnkembaliMouseExited
+    btnkembali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnkembali1.png")));
+    }//GEN-LAST:event_btnkembaliMouseExited
+
+    private void btnkembaliMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnkembaliMousePressed
+    btnkembali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnkembali3.png")));
+    }//GEN-LAST:event_btnkembaliMousePressed
+
+    private void btneditMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btneditMouseEntered
+    btnedit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnedit2.png")));
+    }//GEN-LAST:event_btneditMouseEntered
+
+    private void btneditMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btneditMouseExited
+    btnedit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnedit1.png")));
+    }//GEN-LAST:event_btneditMouseExited
+
+    private void btneditMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btneditMousePressed
+    btnedit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnedit3.png")));
+    }//GEN-LAST:event_btneditMousePressed
+
+    private void btnhapusMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnhapusMouseEntered
+    btnhapus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnhapus2.png")));
+    }//GEN-LAST:event_btnhapusMouseEntered
+
+    private void btnhapusMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnhapusMouseExited
+    btnhapus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnhapus1.png")));
+    }//GEN-LAST:event_btnhapusMouseExited
+
+    private void btnhapusMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnhapusMousePressed
+    btnhapus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnhapus3.png")));
+    }//GEN-LAST:event_btnhapusMousePressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bg;
     private javax.swing.JLabel btnedit;
+    private javax.swing.JLabel btnhapus;
     private javax.swing.JLabel btnkembali;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField search;
     private view.swing.Table table;

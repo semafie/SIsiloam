@@ -4,6 +4,7 @@
  */
 package panel;
 
+import java.awt.Color;
 import entity.data_dokter;
 import entity.data_master;
 import entity.rekap_harian;
@@ -171,12 +172,18 @@ public class pasienbaru_tambahdaftar extends javax.swing.JPanel {
         btnkembali.setBounds(10, 700, 200, 60);
         add(tanggal);
         tanggal.setBounds(1080, 50, 170, 30);
+
+        txt_nama.setBackground(new Color(0,0,0,0));
         add(txt_nama);
         txt_nama.setBounds(540, 330, 520, 50);
         add(txt_jam);
-        txt_jam.setBounds(570, 570, 490, 50);
+        txt_jam.setBounds(570, 570, 290, 50);
+
+        txt_id.setBackground(new Color(0,0,0,0));
         add(txt_id);
         txt_id.setBounds(540, 250, 520, 50);
+
+        txt_dokter1.setBackground(new Color(0,0,0,0));
         add(txt_dokter1);
         txt_dokter1.setBounds(540, 410, 520, 50);
         add(jLabel4);

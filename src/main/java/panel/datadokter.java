@@ -5,6 +5,9 @@
 package panel;
 
 import entity.data_dokter;
+import java.util.EventObject;
+import javax.swing.DefaultCellEditor;
+import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
 import main.main;
@@ -24,6 +27,13 @@ public class datadokter extends javax.swing.JPanel {
     public datadokter() {
         initComponents();
         load_tabel();
+        DefaultCellEditor cellEditor = new DefaultCellEditor(new JTextField()) {
+    @Override
+    public boolean isCellEditable(EventObject e) {
+        return false;
+    }
+};
+        table.setDefaultEditor(Object.class, cellEditor);
     }
     public void load_tabel(){
         DefaultTableModel model = new DefaultTableModel();
@@ -68,6 +78,8 @@ public class datadokter extends javax.swing.JPanel {
 
         setLayout(null);
 
+        jScrollPane1.setBorder(null);
+
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -94,6 +106,15 @@ public class datadokter extends javax.swing.JPanel {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnkembaliMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnkembaliMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnkembaliMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnkembaliMousePressed(evt);
+            }
         });
         add(btnkembali);
         btnkembali.setBounds(10, 710, 190, 51);
@@ -102,6 +123,15 @@ public class datadokter extends javax.swing.JPanel {
         btntambah.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btntambahMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btntambahMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btntambahMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btntambahMousePressed(evt);
             }
         });
         add(btntambah);
@@ -112,6 +142,15 @@ public class datadokter extends javax.swing.JPanel {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btneditMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btneditMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btneditMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btneditMousePressed(evt);
+            }
         });
         add(btnedit);
         btnedit.setBounds(260, 130, 200, 70);
@@ -120,6 +159,15 @@ public class datadokter extends javax.swing.JPanel {
         btnhapus.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnhapusMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnhapusMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnhapusMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnhapusMousePressed(evt);
             }
         });
         add(btnhapus);
@@ -169,6 +217,54 @@ public class datadokter extends javax.swing.JPanel {
         id = Integer.valueOf(idd);
         System.out.println(id);
     }//GEN-LAST:event_tableMouseClicked
+
+    private void btnkembaliMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnkembaliMouseEntered
+    btnkembali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnkembali2.png")));
+    }//GEN-LAST:event_btnkembaliMouseEntered
+
+    private void btnkembaliMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnkembaliMouseExited
+    btnkembali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnkembali1.png")));
+    }//GEN-LAST:event_btnkembaliMouseExited
+
+    private void btnkembaliMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnkembaliMousePressed
+    btnkembali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnkembali3.png")));
+    }//GEN-LAST:event_btnkembaliMousePressed
+
+    private void btntambahMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btntambahMouseEntered
+    btntambah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btntambah2.png")));
+    }//GEN-LAST:event_btntambahMouseEntered
+
+    private void btntambahMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btntambahMouseExited
+    btntambah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btntambah1.png")));
+    }//GEN-LAST:event_btntambahMouseExited
+
+    private void btntambahMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btntambahMousePressed
+    btntambah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btntambah3.png")));
+    }//GEN-LAST:event_btntambahMousePressed
+
+    private void btneditMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btneditMouseEntered
+    btnedit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnedit2.png")));
+    }//GEN-LAST:event_btneditMouseEntered
+
+    private void btneditMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btneditMouseExited
+    btnedit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnedit1.png")));
+    }//GEN-LAST:event_btneditMouseExited
+
+    private void btneditMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btneditMousePressed
+    btnedit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnedit3.png")));
+    }//GEN-LAST:event_btneditMousePressed
+
+    private void btnhapusMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnhapusMouseEntered
+    btnhapus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnhapus2.png")));
+    }//GEN-LAST:event_btnhapusMouseEntered
+
+    private void btnhapusMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnhapusMouseExited
+    btnhapus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnhapus1.png")));
+    }//GEN-LAST:event_btnhapusMouseExited
+
+    private void btnhapusMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnhapusMousePressed
+    btnhapus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnhapus3.png")));
+    }//GEN-LAST:event_btnhapusMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

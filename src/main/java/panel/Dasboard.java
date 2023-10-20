@@ -45,6 +45,15 @@ public class Dasboard extends javax.swing.JPanel {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btndatamasterMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btndatamasterMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btndatamasterMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btndatamasterMousePressed(evt);
+            }
         });
         add(btndatamaster);
         btndatamaster.setBounds(200, 150, 380, 100);
@@ -53,6 +62,15 @@ public class Dasboard extends javax.swing.JPanel {
         btndatadokter.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btndatadokterMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btndatadokterMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btndatadokterMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btndatadokterMousePressed(evt);
             }
         });
         add(btndatadokter);
@@ -63,6 +81,15 @@ public class Dasboard extends javax.swing.JPanel {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnpasienbaruMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnpasienbaruMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnpasienbaruMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnpasienbaruMousePressed(evt);
+            }
         });
         add(btnpasienbaru);
         btnpasienbaru.setBounds(420, 290, 370, 140);
@@ -71,6 +98,15 @@ public class Dasboard extends javax.swing.JPanel {
         btnpasienlama.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnpasienlamaMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnpasienlamaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnpasienlamaMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnpasienlamaMousePressed(evt);
             }
         });
         add(btnpasienlama);
@@ -81,6 +117,15 @@ public class Dasboard extends javax.swing.JPanel {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnrekapharianMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnrekapharianMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnrekapharianMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnrekapharianMousePressed(evt);
+            }
         });
         add(btnrekapharian);
         btnrekapharian.setBounds(930, 610, 380, 90);
@@ -89,6 +134,15 @@ public class Dasboard extends javax.swing.JPanel {
         btnlogout.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnlogoutMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnlogoutMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnlogoutMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnlogoutMousePressed(evt);
             }
         });
         add(btnlogout);
@@ -140,6 +194,78 @@ public class Dasboard extends javax.swing.JPanel {
     this.setVisible(false);
     main.showlogin();
     }//GEN-LAST:event_btnlogoutMouseClicked
+
+    private void btnlogoutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnlogoutMouseEntered
+    btnlogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnlogout2.png")));
+    }//GEN-LAST:event_btnlogoutMouseEntered
+
+    private void btnlogoutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnlogoutMouseExited
+    btnlogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnlogout1.png")));
+    }//GEN-LAST:event_btnlogoutMouseExited
+
+    private void btnlogoutMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnlogoutMousePressed
+    btnlogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnlogout3.png")));
+    }//GEN-LAST:event_btnlogoutMousePressed
+
+    private void btndatamasterMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btndatamasterMouseEntered
+    btndatamaster.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btndatamaster2.png")));
+    }//GEN-LAST:event_btndatamasterMouseEntered
+
+    private void btndatamasterMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btndatamasterMouseExited
+    btndatamaster.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btndatamaster1.png")));
+    }//GEN-LAST:event_btndatamasterMouseExited
+
+    private void btndatamasterMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btndatamasterMousePressed
+    btndatamaster.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btndatamaster3.png")));
+    }//GEN-LAST:event_btndatamasterMousePressed
+
+    private void btndatadokterMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btndatadokterMouseEntered
+    btndatadokter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btndatadokter2.png")));
+    }//GEN-LAST:event_btndatadokterMouseEntered
+
+    private void btndatadokterMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btndatadokterMouseExited
+    btndatadokter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btndatadokter1.png")));
+    }//GEN-LAST:event_btndatadokterMouseExited
+
+    private void btndatadokterMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btndatadokterMousePressed
+    btndatadokter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btndatadokter3.png")));
+    }//GEN-LAST:event_btndatadokterMousePressed
+
+    private void btnrekapharianMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnrekapharianMouseEntered
+    btnrekapharian.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnrekapharian2.png")));
+    }//GEN-LAST:event_btnrekapharianMouseEntered
+
+    private void btnrekapharianMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnrekapharianMouseExited
+    btnrekapharian.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnrekapharian1.png")));
+    }//GEN-LAST:event_btnrekapharianMouseExited
+
+    private void btnrekapharianMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnrekapharianMousePressed
+    btnrekapharian.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnrekapharian3.png")));
+    }//GEN-LAST:event_btnrekapharianMousePressed
+
+    private void btnpasienbaruMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnpasienbaruMouseEntered
+    btnpasienbaru.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnpasienbaru2.png")));
+    }//GEN-LAST:event_btnpasienbaruMouseEntered
+
+    private void btnpasienbaruMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnpasienbaruMouseExited
+    btnpasienbaru.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnpasienbaru1.png")));
+    }//GEN-LAST:event_btnpasienbaruMouseExited
+
+    private void btnpasienbaruMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnpasienbaruMousePressed
+    btnpasienbaru.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnpasienbaru3.png")));
+    }//GEN-LAST:event_btnpasienbaruMousePressed
+
+    private void btnpasienlamaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnpasienlamaMouseEntered
+    btnpasienlama.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnpasienlama2.png")));
+    }//GEN-LAST:event_btnpasienlamaMouseEntered
+
+    private void btnpasienlamaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnpasienlamaMouseExited
+    btnpasienlama.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnpasienlama1.png")));
+    }//GEN-LAST:event_btnpasienlamaMouseExited
+
+    private void btnpasienlamaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnpasienlamaMousePressed
+    btnpasienlama.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnpasienlama3.png")));
+    }//GEN-LAST:event_btnpasienlamaMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

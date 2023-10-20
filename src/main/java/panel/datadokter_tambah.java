@@ -3,8 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package panel;
-
+import java.awt.Color;
 import entity.data_dokter;
+import java.awt.Font;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
@@ -26,6 +27,11 @@ public class datadokter_tambah extends javax.swing.JPanel {
      */
     public datadokter_tambah() {
         initComponents();
+        Font font = new Font("Quicksand", Font.PLAIN, 22);
+        txt_nama.setFont(font);
+        txt_jadwal.setFont(font);
+        txt_no_rm.setFont(font);
+        txt_nohp.setFont(font);
         int id = master.getlastid().getId() + 1 ;
         String idterakhir = String.valueOf(id);
         txt_no_rm.setText(idterakhir );
@@ -44,31 +50,34 @@ public class datadokter_tambah extends javax.swing.JPanel {
         txt_jadwal = new javax.swing.JTextField();
         txt_nama = new javax.swing.JTextField();
         txt_no_rm = new javax.swing.JTextField();
-        cmb_jeniskelamin = new javax.swing.JComboBox<>();
-        cmb_poli = new javax.swing.JComboBox<>();
         btnkembali = new javax.swing.JLabel();
         btnselanjutnya = new javax.swing.JLabel();
+        cmb_poli = new view.swing.Combobox();
+        cmb_jeniskelamin = new view.swing.Combobox();
         bg = new javax.swing.JLabel();
 
         setLayout(null);
 
+        txt_nohp.setBackground(new Color(0,0,0,0));
         txt_nohp.setText("0");
+        txt_nohp.setBorder(null);
         add(txt_nohp);
         txt_nohp.setBounds(530, 390, 500, 40);
+
+        txt_jadwal.setBackground(new Color(0,0,0,0));
+        txt_jadwal.setBorder(null);
         add(txt_jadwal);
         txt_jadwal.setBounds(530, 600, 500, 40);
+
+        txt_nama.setBackground(new Color(0,0,0,0));
+        txt_nama.setBorder(null);
         add(txt_nama);
         txt_nama.setBounds(530, 320, 500, 40);
+
+        txt_no_rm.setBackground(new Color(0,0,0,0));
+        txt_no_rm.setBorder(null);
         add(txt_no_rm);
         txt_no_rm.setBounds(531, 250, 500, 40);
-
-        cmb_jeniskelamin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Laki - Laki", "Perempuan" }));
-        add(cmb_jeniskelamin);
-        cmb_jeniskelamin.setBounds(560, 530, 320, 40);
-
-        cmb_poli.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Poli umum", "Poli gigi", "Poli mata" }));
-        add(cmb_poli);
-        cmb_poli.setBounds(560, 460, 320, 40);
 
         btnkembali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnkembali1.png"))); // NOI18N
         btnkembali.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -87,6 +96,19 @@ public class datadokter_tambah extends javax.swing.JPanel {
         });
         add(btnselanjutnya);
         btnselanjutnya.setBounds(1110, 701, 250, 60);
+
+        cmb_poli.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Poli umum", "Poli gigi", "Poli mata" }));
+        cmb_poli.setLabeText("Pilih Poli");
+        cmb_poli.setLineColor(new java.awt.Color(0, 153, 153));
+        add(cmb_poli);
+        cmb_poli.setBounds(560, 460, 320, 40);
+
+        cmb_jeniskelamin.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Laki - Laki", "Perempuan" }));
+        cmb_jeniskelamin.setLabeText("Pilih Kelamin");
+        cmb_jeniskelamin.setLineColor(new java.awt.Color(0, 153, 153));
+        cmb_jeniskelamin.setName(""); // NOI18N
+        add(cmb_jeniskelamin);
+        cmb_jeniskelamin.setBounds(560, 530, 320, 40);
 
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/bg tambah dokter baru.png"))); // NOI18N
         add(bg);
@@ -141,8 +163,8 @@ if (originalText.length() > 1) {
     private javax.swing.JLabel bg;
     private javax.swing.JLabel btnkembali;
     private javax.swing.JLabel btnselanjutnya;
-    private javax.swing.JComboBox<String> cmb_jeniskelamin;
-    private javax.swing.JComboBox<String> cmb_poli;
+    private view.swing.Combobox cmb_jeniskelamin;
+    private view.swing.Combobox cmb_poli;
     private javax.swing.JTextField txt_jadwal;
     private javax.swing.JTextField txt_nama;
     private javax.swing.JTextField txt_no_rm;

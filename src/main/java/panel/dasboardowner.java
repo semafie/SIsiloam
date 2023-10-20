@@ -40,6 +40,15 @@ public class Dasboardowner extends javax.swing.JPanel {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btndaftarakunMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btndaftarakunMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btndaftarakunMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btndaftarakunMousePressed(evt);
+            }
         });
         add(btndaftarakun);
         btndaftarakun.setBounds(260, 160, 420, 100);
@@ -48,6 +57,15 @@ public class Dasboardowner extends javax.swing.JPanel {
         btnlogout.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnlogoutMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnlogoutMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnlogoutMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnlogoutMousePressed(evt);
             }
         });
         add(btnlogout);
@@ -69,6 +87,30 @@ public class Dasboardowner extends javax.swing.JPanel {
         this.setVisible(false);
         main.showdaftar_akun();
     }//GEN-LAST:event_btndaftarakunMouseClicked
+
+    private void btnlogoutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnlogoutMouseEntered
+    btnlogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnlogout2.png")));
+    }//GEN-LAST:event_btnlogoutMouseEntered
+
+    private void btnlogoutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnlogoutMouseExited
+    btnlogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnlogout1.png")));
+    }//GEN-LAST:event_btnlogoutMouseExited
+
+    private void btnlogoutMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnlogoutMousePressed
+    btnlogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnlogout3.png")));
+    }//GEN-LAST:event_btnlogoutMousePressed
+
+    private void btndaftarakunMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btndaftarakunMouseEntered
+    btndaftarakun.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btn_daftarakun2.png")));
+    }//GEN-LAST:event_btndaftarakunMouseEntered
+
+    private void btndaftarakunMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btndaftarakunMouseExited
+    btndaftarakun.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btn_daftarakun1.png")));
+    }//GEN-LAST:event_btndaftarakunMouseExited
+
+    private void btndaftarakunMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btndaftarakunMousePressed
+    btndaftarakun.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btn_daftarakun3.png")));
+    }//GEN-LAST:event_btndaftarakunMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

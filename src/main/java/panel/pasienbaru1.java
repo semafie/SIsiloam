@@ -3,8 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package panel;
-
+import java.awt.Color;
 import entity.pasienbaru_sementara;
+import java.awt.Font;
 import javax.swing.SwingUtilities;
 import main.main;
 import repository.data_masterRepository;
@@ -51,6 +52,12 @@ public class pasienbaru1 extends javax.swing.JPanel {
     pasienbaru_sementaraRepository bb = new pasienbaru_sementaraRepository();
     public pasienbaru1() {
         initComponents();
+        Font font = new Font("Quicksand", Font.PLAIN, 22);
+        txt_alamat.setFont(font);
+        txt_nama_pasien.setFont(font);
+        txt_nik.setFont(font);
+        txt_no_rm.setFont(font);
+        txt_ttl.setFont(font);
         AutoIDGenerator generator = new AutoIDGenerator();
         String idterakhir = String.valueOf(master.getlastid().getNo_rm());
         String apa = "99-20-30";
@@ -97,41 +104,77 @@ public class pasienbaru1 extends javax.swing.JPanel {
         txt_ttl = new javax.swing.JTextField();
         txt_nama_pasien = new javax.swing.JTextField();
         txt_no_rm = new javax.swing.JTextField();
-        cmd_jnk = new javax.swing.JComboBox<>();
+        cmd_jnk = new view.swing.Combobox();
         bg = new javax.swing.JLabel();
         cacacac = new javax.swing.JTextField();
 
         setLayout(null);
 
-        btn_kembali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnkembali1.png"))); // NOI18N
+        btn_kembali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnbatal1_1.png"))); // NOI18N
         btn_kembali.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_kembaliMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btn_kembaliMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_kembaliMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btn_kembaliMousePressed(evt);
+            }
         });
         add(btn_kembali);
-        btn_kembali.setBounds(10, 701, 190, 60);
+        btn_kembali.setBounds(10, 701, 160, 60);
 
         btn_lanjut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnselanjutnya1.png"))); // NOI18N
         btn_lanjut.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_lanjutMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btn_lanjutMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_lanjutMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btn_lanjutMousePressed(evt);
+            }
         });
         add(btn_lanjut);
         btn_lanjut.setBounds(1110, 701, 250, 60);
+
+        txt_nik.setBackground(new Color(0,0,0,0));
+        txt_nik.setBorder(null);
         add(txt_nik);
         txt_nik.setBounds(550, 390, 490, 40);
+
+        txt_alamat.setBackground(new Color(0,0,0,0));
+        txt_alamat.setBorder(null);
         add(txt_alamat);
         txt_alamat.setBounds(550, 460, 490, 40);
+
+        txt_ttl.setBackground(new Color(0,0,0,0));
+        txt_ttl.setBorder(null);
         add(txt_ttl);
         txt_ttl.setBounds(550, 530, 490, 40);
+
+        txt_nama_pasien.setBackground(new Color(0,0,0,0));
+        txt_nama_pasien.setBorder(null);
         add(txt_nama_pasien);
         txt_nama_pasien.setBounds(550, 320, 490, 40);
+
+        txt_no_rm.setBackground(new Color(0,0,0,0));
+        txt_no_rm.setBorder(null);
         add(txt_no_rm);
         txt_no_rm.setBounds(550, 250, 490, 40);
 
-        cmd_jnk.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Laki - Laki", "Perempuan" }));
+        cmd_jnk.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Laki - Laki", "Perempuan" }));
+        cmd_jnk.setLabeText("Pilih Kelamin");
+        cmd_jnk.setLineColor(new java.awt.Color(0, 153, 153));
+        cmd_jnk.setName(""); // NOI18N
         add(cmd_jnk);
         cmd_jnk.setBounds(570, 600, 280, 40);
 
@@ -171,13 +214,37 @@ public class pasienbaru1 extends javax.swing.JPanel {
         main.showpasienbaru_pilihpoli();
     }//GEN-LAST:event_btn_lanjutMouseClicked
 
+    private void btn_kembaliMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_kembaliMouseEntered
+    btn_kembali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnbatal2_1.png")));
+    }//GEN-LAST:event_btn_kembaliMouseEntered
+
+    private void btn_kembaliMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_kembaliMouseExited
+    btn_kembali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnbatal1_1.png")));
+    }//GEN-LAST:event_btn_kembaliMouseExited
+
+    private void btn_kembaliMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_kembaliMousePressed
+    btn_kembali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnbatal3_1.png")));
+    }//GEN-LAST:event_btn_kembaliMousePressed
+
+    private void btn_lanjutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_lanjutMouseEntered
+    btn_lanjut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnselanjutnya2.png")));
+    }//GEN-LAST:event_btn_lanjutMouseEntered
+
+    private void btn_lanjutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_lanjutMouseExited
+    btn_lanjut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnselanjutnya1.png")));
+    }//GEN-LAST:event_btn_lanjutMouseExited
+
+    private void btn_lanjutMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_lanjutMousePressed
+    btn_lanjut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnselanjutnya3.png")));
+    }//GEN-LAST:event_btn_lanjutMousePressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bg;
     private javax.swing.JLabel btn_kembali;
     private javax.swing.JLabel btn_lanjut;
     private javax.swing.JTextField cacacac;
-    private javax.swing.JComboBox<String> cmd_jnk;
+    private view.swing.Combobox cmd_jnk;
     public static javax.swing.JTextField txt_alamat;
     public static javax.swing.JTextField txt_nama_pasien;
     public static javax.swing.JTextField txt_nik;
