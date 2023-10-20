@@ -9,6 +9,7 @@ import java.awt.Font;
 import javax.swing.SwingUtilities;
 import main.main;
 import repository.userRepository;
+import view.swing.validasiberhasil;
 
 /**
  *
@@ -127,6 +128,8 @@ public class daftarakun_edit extends javax.swing.JPanel {
             main wow = (main)SwingUtilities.getWindowAncestor(this);
             this.setVisible(false);
             wow.showdaftar_akun();
+            validasiberhasil ac = new validasiberhasil(wow, "Data Berhasil Di edit");
+            ac.showPopUp();
         } catch (Exception e) {
         }
 

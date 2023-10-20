@@ -55,6 +55,15 @@ public class pasienbaru_pilihpoli1 extends javax.swing.JPanel {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnlanjutMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnlanjutMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnlanjutMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnlanjutMousePressed(evt);
+            }
         });
         add(btnlanjut);
         btnlanjut.setBounds(1110, 701, 250, 60);
@@ -63,6 +72,15 @@ public class pasienbaru_pilihpoli1 extends javax.swing.JPanel {
         btnbatal.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnbatalMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnbatalMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnbatalMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnbatalMousePressed(evt);
             }
         });
         add(btnbatal);
@@ -99,6 +117,30 @@ public class pasienbaru_pilihpoli1 extends javax.swing.JPanel {
     this.setVisible(false);
     main.showpasienlama();
     }//GEN-LAST:event_btnbatalMouseClicked
+
+    private void btnbatalMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbatalMouseEntered
+    btnbatal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnkembali2.png")));
+    }//GEN-LAST:event_btnbatalMouseEntered
+
+    private void btnbatalMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbatalMouseExited
+    btnbatal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnkembali1.png")));
+    }//GEN-LAST:event_btnbatalMouseExited
+
+    private void btnbatalMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbatalMousePressed
+    btnbatal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnkembali3.png")));
+    }//GEN-LAST:event_btnbatalMousePressed
+
+    private void btnlanjutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnlanjutMouseEntered
+    btnlanjut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnselanjutnya2.png")));
+    }//GEN-LAST:event_btnlanjutMouseEntered
+
+    private void btnlanjutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnlanjutMouseExited
+    btnlanjut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnselanjutnya1.png")));
+    }//GEN-LAST:event_btnlanjutMouseExited
+
+    private void btnlanjutMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnlanjutMousePressed
+    btnlanjut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnselanjutnya3.png")));
+    }//GEN-LAST:event_btnlanjutMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

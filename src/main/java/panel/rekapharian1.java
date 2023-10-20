@@ -7,6 +7,7 @@ package panel;
 import javax.swing.table.DefaultTableModel;
 import repository.rekap_harianRepository;
 import entity.rekap_harian;
+import java.awt.Font;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -37,6 +38,8 @@ public class rekapharian1 extends javax.swing.JPanel {
     public rekapharian1() {
         initComponents();
         load_tabel2();
+        Font font = new Font("Quicksand", Font.PLAIN, 22);
+        tanggal.setFont(font);
     }
     public void load_tabel(){
         
@@ -113,10 +116,13 @@ public class rekapharian1 extends javax.swing.JPanel {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         table = new view.swing.Table();
-        jLabel1 = new javax.swing.JLabel();
+        btnkembali = new javax.swing.JLabel();
+        tanggal = new javax.swing.JLabel();
         bg = new javax.swing.JLabel();
 
         setLayout(null);
+
+        jScrollPane1.setBorder(null);
 
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -132,33 +138,57 @@ public class rekapharian1 extends javax.swing.JPanel {
         jScrollPane1.setViewportView(table);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(100, 200, 1190, 402);
+        jScrollPane1.setBounds(100, 200, 1190, 400);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnbatal1 (1).png"))); // NOI18N
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnkembali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnkembali1.png"))); // NOI18N
+        btnkembali.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
+                btnkembaliMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnkembaliMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnkembaliMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnkembaliMousePressed(evt);
             }
         });
-        add(jLabel1);
-        jLabel1.setBounds(10, 700, 200, 50);
+        add(btnkembali);
+        btnkembali.setBounds(10, 700, 190, 51);
+        add(tanggal);
+        tanggal.setBounds(1100, 70, 170, 30);
 
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/bg rekap harian.png"))); // NOI18N
         add(bg);
-        bg.setBounds(0, 0, 1366, 762);
+        bg.setBounds(0, 0, 1366, 770);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-    main main =(main)SwingUtilities.getWindowAncestor(this);
-    this.setVisible(false);
-    main.showdasboard();
-    }//GEN-LAST:event_jLabel1MouseClicked
+    private void btnkembaliMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnkembaliMouseClicked
+        main main =(main)SwingUtilities.getWindowAncestor(this);
+        this.setVisible(false);
+        main.showdasboard();
+    }//GEN-LAST:event_btnkembaliMouseClicked
+
+    private void btnkembaliMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnkembaliMouseEntered
+        btnkembali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnkembali2.png")));
+    }//GEN-LAST:event_btnkembaliMouseEntered
+
+    private void btnkembaliMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnkembaliMouseExited
+        btnkembali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnkembali1.png")));
+    }//GEN-LAST:event_btnkembaliMouseExited
+
+    private void btnkembaliMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnkembaliMousePressed
+        btnkembali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnkembali3.png")));
+    }//GEN-LAST:event_btnkembaliMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bg;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel btnkembali;
     private javax.swing.JScrollPane jScrollPane1;
     private view.swing.Table table;
+    private javax.swing.JLabel tanggal;
     // End of variables declaration//GEN-END:variables
 }

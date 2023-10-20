@@ -4,10 +4,15 @@
  */
 package panel;
 
+import java.awt.Color;
 import entity.data_master;
+import java.awt.Font;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.EventObject;
+import javax.swing.DefaultCellEditor;
+import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
 import main.main;
@@ -28,7 +33,16 @@ public class pasienlama extends javax.swing.JPanel {
      */
     public pasienlama() {
         initComponents();
+        Font font = new Font("Quicksand", Font.PLAIN, 22);
+        searchlo.setFont(font);
         load_tabel();
+        DefaultCellEditor cellEditor = new DefaultCellEditor(new JTextField()) {
+    @Override
+    public boolean isCellEditable(EventObject e) {
+        return false;
+    }
+};
+        table.setDefaultEditor(Object.class, cellEditor);
     }
     public void load_tabel(){
         DefaultTableModel model = new DefaultTableModel();
@@ -92,9 +106,12 @@ public class pasienlama extends javax.swing.JPanel {
         searchlo = new javax.swing.JTextField();
         btnkembali = new javax.swing.JLabel();
         btnselanjutnya = new javax.swing.JLabel();
+        kembali = new javax.swing.JLabel();
         bg = new javax.swing.JLabel();
 
         setLayout(null);
+
+        jScrollPane1.setBorder(null);
 
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -117,6 +134,8 @@ public class pasienlama extends javax.swing.JPanel {
         add(jScrollPane1);
         jScrollPane1.setBounds(100, 290, 1190, 370);
 
+        searchlo.setBackground(new Color(0,0,0,0));
+        searchlo.setBorder(null);
         searchlo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 searchloKeyReleased(evt);
@@ -132,16 +151,43 @@ public class pasienlama extends javax.swing.JPanel {
             }
         });
         add(btnkembali);
-        btnkembali.setBounds(10, 710, 180, 51);
+        btnkembali.setBounds(10, 710, 180, 0);
 
         btnselanjutnya.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnselanjutnya1.png"))); // NOI18N
         btnselanjutnya.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnselanjutnyaMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnselanjutnyaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnselanjutnyaMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnselanjutnyaMousePressed(evt);
+            }
         });
         add(btnselanjutnya);
         btnselanjutnya.setBounds(1110, 710, 250, 51);
+
+        kembali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnbatal1_1.png"))); // NOI18N
+        kembali.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                kembaliMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                kembaliMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                kembaliMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                kembaliMousePressed(evt);
+            }
+        });
+        add(kembali);
+        kembali.setBounds(10, 710, 150, 51);
 
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/bg pasien lama.png"))); // NOI18N
         add(bg);
@@ -178,12 +224,43 @@ public class pasienlama extends javax.swing.JPanel {
         System.out.println(id);
     }//GEN-LAST:event_tableMouseClicked
 
+    private void kembaliMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kembaliMouseClicked
+        main main =(main)SwingUtilities.getWindowAncestor(this);
+        this.setVisible(false);
+        main.showdasboard();
+    }//GEN-LAST:event_kembaliMouseClicked
+
+    private void kembaliMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kembaliMouseEntered
+        kembali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnbatal2_1.png")));
+    }//GEN-LAST:event_kembaliMouseEntered
+
+    private void kembaliMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kembaliMouseExited
+        kembali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnbatal1_1.png")));
+    }//GEN-LAST:event_kembaliMouseExited
+
+    private void kembaliMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kembaliMousePressed
+        kembali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnbatal3_1.png")));
+    }//GEN-LAST:event_kembaliMousePressed
+
+    private void btnselanjutnyaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnselanjutnyaMouseEntered
+    btnselanjutnya.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnselanjutnya2.png")));
+    }//GEN-LAST:event_btnselanjutnyaMouseEntered
+
+    private void btnselanjutnyaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnselanjutnyaMouseExited
+    btnselanjutnya.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnselanjutnya1.png")));
+    }//GEN-LAST:event_btnselanjutnyaMouseExited
+
+    private void btnselanjutnyaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnselanjutnyaMousePressed
+    btnselanjutnya.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnselanjutnya3.png")));
+    }//GEN-LAST:event_btnselanjutnyaMousePressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bg;
     private javax.swing.JLabel btnkembali;
     private javax.swing.JLabel btnselanjutnya;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel kembali;
     private javax.swing.JTextField searchlo;
     private view.swing.Table table;
     // End of variables declaration//GEN-END:variables

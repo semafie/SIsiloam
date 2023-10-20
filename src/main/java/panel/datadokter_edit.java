@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import main.main;
 import repository.data_dokterRepository;
+import view.swing.validasiberhasil;
 
 /**
  *
@@ -194,6 +195,9 @@ System.out.println(no_hp);
         main main =(main)SwingUtilities.getWindowAncestor(this);
     this.setVisible(false);
     main.showdatadokter();
+    validasiberhasil ac = new validasiberhasil(main, "Data Berhasil Di edit");
+            ac.showPopUp();
+
     }//GEN-LAST:event_btnselanjutnyaMouseClicked
 
     private void btnbatalMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbatalMouseEntered

@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import main.main;
 import repository.data_dokterRepository;
+import view.swing.validasiberhasil;
 
 /**
  *
@@ -156,6 +157,9 @@ if (originalText.length() > 1) {
     main main =(main)SwingUtilities.getWindowAncestor(this);
     this.setVisible(false);
     main.showdatadokter();
+    validasiberhasil ac = new validasiberhasil(main, "Data Berhasil Ditambahkan");
+            ac.showPopUp();
+
     }//GEN-LAST:event_btnselanjutnyaMouseClicked
 
 

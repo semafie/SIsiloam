@@ -8,6 +8,7 @@ import java.awt.Color;
 import entity.data_dokter;
 import entity.data_master;
 import entity.rekap_harian;
+import java.awt.Font;
 import java.sql.Time;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
@@ -21,6 +22,7 @@ import repository.pasienbaru_sementaraRepository;
 import repository.rekap_harianRepository;
 import view.swing.itemdokter_tampilann;
 import view.swing.itempoli_tampilan;
+import view.swing.validasiberhasil;
 
 /**
  *
@@ -76,6 +78,11 @@ public class pasienbaru_tambahdaftar extends javax.swing.JPanel {
     }
     public pasienbaru_tambahdaftar() {
         initComponents();
+        Font font = new Font("Quicksand", Font.PLAIN, 22);
+        txt_id.setFont(font);
+        txt_nama.setFont(font);
+        txt_dokter1.setFont(font);
+        tanggal.setFont(font);
         AutoIDGenerator generator = new AutoIDGenerator();
         String idterakhir = String.valueOf(master.getlastid().getNo_rm());
 //        String apa11 = "99-20-30";
@@ -238,6 +245,9 @@ public class pasienbaru_tambahdaftar extends javax.swing.JPanel {
     main main =(main)SwingUtilities.getWindowAncestor(this);
     this.setVisible(false);
     main.showdasboard();
+    validasiberhasil ac = new validasiberhasil(main, "Data Berhasil Ditambahkan");
+            ac.showPopUp();
+
     }//GEN-LAST:event_btnsimpandancetaknoantrianMouseClicked
 
 

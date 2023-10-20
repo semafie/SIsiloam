@@ -10,6 +10,7 @@ import javax.swing.SwingUtilities;
 import main.main;
 import repository.userRepository;
 import service.Auth;
+import view.swing.validasiberhasil;
 
 /**
  *
@@ -136,6 +137,8 @@ public class daftarakun_tambah extends javax.swing.JPanel {
           main wow = (main)SwingUtilities.getWindowAncestor(this);
         this.setVisible(false);
         wow.showdaftar_akun();
+        validasiberhasil ac = new validasiberhasil(wow, "Data Berhasil Ditambahkan");
+            ac.showPopUp();
       } else {
           System.out.println("pssword dan confirm password harus sama");
       }

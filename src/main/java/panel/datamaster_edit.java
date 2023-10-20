@@ -10,6 +10,7 @@ import java.awt.Font;
 import javax.swing.SwingUtilities;
 import main.main;
 import repository.data_masterRepository;
+import view.swing.validasiberhasil;
 
 /**
  *
@@ -177,6 +178,9 @@ public class datamaster_edit extends javax.swing.JPanel {
         main main =(main)SwingUtilities.getWindowAncestor(this);
         this.setVisible(false);
         main.showdatamaster();
+        validasiberhasil ac = new validasiberhasil(main, "Data Berhasil Di edit");
+            ac.showPopUp();
+
     } else {
         System.out.println("id tidak ditemukan");
     }
