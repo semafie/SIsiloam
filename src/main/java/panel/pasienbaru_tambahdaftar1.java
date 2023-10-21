@@ -7,6 +7,7 @@ package panel;
 import entity.data_dokter;
 import entity.data_master;
 import entity.rekap_harian;
+import java.awt.Font;
 import java.sql.Time;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
@@ -77,6 +78,11 @@ public class pasienbaru_tambahdaftar1 extends javax.swing.JPanel {
     }
     public pasienbaru_tambahdaftar1() {
         initComponents();
+        Font font = new Font("Quicksand", Font.PLAIN, 22);
+        txt_id.setFont(font);
+        txt_nama.setFont(font);
+        txt_dokter1.setFont(font);
+        tanggal.setFont(font);
         AutoIDGenerator generator = new AutoIDGenerator();
         String idterakhir = String.valueOf(master.getlastid().getNo_rm());
 //        String apa11 = "99-20-30";
@@ -150,6 +156,15 @@ public class pasienbaru_tambahdaftar1 extends javax.swing.JPanel {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnsimpandancetaknoantrianMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnsimpandancetaknoantrianMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnsimpandancetaknoantrianMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnsimpandancetaknoantrianMousePressed(evt);
+            }
         });
         add(btnsimpandancetaknoantrian);
         btnsimpandancetaknoantrian.setBounds(780, 700, 544, 50);
@@ -159,6 +174,15 @@ public class pasienbaru_tambahdaftar1 extends javax.swing.JPanel {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnbatalMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnbatalMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnbatalMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnbatalMousePressed(evt);
+            }
         });
         add(btnbatal);
         btnbatal.setBounds(520, 700, 260, 50);
@@ -167,6 +191,15 @@ public class pasienbaru_tambahdaftar1 extends javax.swing.JPanel {
         btnkembali.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnkembaliMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnkembaliMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnkembaliMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnkembaliMousePressed(evt);
             }
         });
         add(btnkembali);
@@ -233,6 +266,42 @@ public class pasienbaru_tambahdaftar1 extends javax.swing.JPanel {
     this.setVisible(false);
     main.showdasboard();
     }//GEN-LAST:event_btnsimpandancetaknoantrianMouseClicked
+
+    private void btnkembaliMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnkembaliMouseEntered
+    btnkembali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnkembali2.png")));
+    }//GEN-LAST:event_btnkembaliMouseEntered
+
+    private void btnkembaliMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnkembaliMouseExited
+    btnkembali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnkembali1.png")));
+    }//GEN-LAST:event_btnkembaliMouseExited
+
+    private void btnkembaliMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnkembaliMousePressed
+    btnkembali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnkembali3.png")));
+    }//GEN-LAST:event_btnkembaliMousePressed
+
+    private void btnbatalMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbatalMouseEntered
+    btnbatal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnbatal2.png")));
+    }//GEN-LAST:event_btnbatalMouseEntered
+
+    private void btnbatalMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbatalMouseExited
+    btnbatal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnbatal3.png")));
+    }//GEN-LAST:event_btnbatalMouseExited
+
+    private void btnbatalMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbatalMousePressed
+    btnbatal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnbatal1.png")));
+    }//GEN-LAST:event_btnbatalMousePressed
+
+    private void btnsimpandancetaknoantrianMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsimpandancetaknoantrianMouseEntered
+    btnsimpandancetaknoantrian.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnsimpandancetaknoantrian2.png")));
+    }//GEN-LAST:event_btnsimpandancetaknoantrianMouseEntered
+
+    private void btnsimpandancetaknoantrianMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsimpandancetaknoantrianMouseExited
+    btnsimpandancetaknoantrian.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnsimpandancetaknoantrian1.png")));
+    }//GEN-LAST:event_btnsimpandancetaknoantrianMouseExited
+
+    private void btnsimpandancetaknoantrianMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsimpandancetaknoantrianMousePressed
+    btnsimpandancetaknoantrian.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnsimpandancetaknoantrian3.png")));
+    }//GEN-LAST:event_btnsimpandancetaknoantrianMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

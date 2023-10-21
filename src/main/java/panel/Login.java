@@ -11,12 +11,14 @@ import main.main;
 import repository.userRepository;
 import service.Auth;
 import view.swing.validasiberhasil;
+import view.swing.validasikonfirmasi;
 
 
 
 public class Login extends javax.swing.JPanel {
     userRepository ret = new userRepository();
     private static boolean isHidden = true;
+    
     /**
      * Creates new form Login
      */
@@ -26,7 +28,9 @@ public class Login extends javax.swing.JPanel {
         inputusername.setFont(font);
         inputpassword.setFont(font);
     }
-
+    public void ganti(){
+        this.setVisible(false);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -44,6 +48,7 @@ public class Login extends javax.swing.JPanel {
         inputusername = new javax.swing.JTextField();
         txtubahpass = new javax.swing.JLabel();
         eye = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
         bg = new javax.swing.JLabel();
 
         password.addActionListener(new java.awt.event.ActionListener() {
@@ -123,6 +128,15 @@ public class Login extends javax.swing.JPanel {
         });
         add(eye);
         eye.setBounds(900, 390, 50, 40);
+
+        jButton2.setText("jButton2");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
+        add(jButton2);
+        jButton2.setBounds(90, 140, 75, 23);
 
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/login form.png"))); // NOI18N
         add(bg);
@@ -212,6 +226,14 @@ public class Login extends javax.swing.JPanel {
     txtubahpass.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagetxt/Lupa password_3.png")));
     }//GEN-LAST:event_txtubahpassMousePressed
 
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+    main wow = (main)SwingUtilities.getWindowAncestor(this);
+    
+        validasikonfirmasi aa = new validasikonfirmasi(wow);
+        aa.showPopUp();
+//ganti();
+    }//GEN-LAST:event_jButton2MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bg;
@@ -220,6 +242,7 @@ public class Login extends javax.swing.JPanel {
     private javax.swing.JPasswordField inputpassword;
     private javax.swing.JTextField inputusername;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JTextField password;
     private javax.swing.JLabel txtubahpass;
     private javax.swing.JTextField username;

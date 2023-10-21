@@ -4,10 +4,15 @@
  */
 package panel;
 
+import java.awt.Color;
 import entity.data_master;
+import java.awt.Font;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.EventObject;
+import javax.swing.DefaultCellEditor;
+import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
 import main.main;
@@ -29,6 +34,15 @@ public class pasienlama extends javax.swing.JPanel {
     public pasienlama() {
         initComponents();
         load_tabel();
+        Font font = new Font("Quicksand", Font.PLAIN, 22);
+        searchlo.setFont(font);
+        DefaultCellEditor cellEditor = new DefaultCellEditor(new JTextField()) {
+    @Override
+    public boolean isCellEditable(EventObject e) {
+        return false;
+    }
+};
+        table.setDefaultEditor(Object.class, cellEditor);
     }
     public void load_tabel(){
         DefaultTableModel model = new DefaultTableModel();
@@ -96,6 +110,8 @@ public class pasienlama extends javax.swing.JPanel {
 
         setLayout(null);
 
+        jScrollPane1.setBorder(null);
+
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -117,6 +133,8 @@ public class pasienlama extends javax.swing.JPanel {
         add(jScrollPane1);
         jScrollPane1.setBounds(100, 290, 1190, 370);
 
+        searchlo.setBackground(new Color(0,0,0,0));
+        searchlo.setBorder(null);
         searchlo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 searchloKeyReleased(evt);
@@ -125,27 +143,45 @@ public class pasienlama extends javax.swing.JPanel {
         add(searchlo);
         searchlo.setBounds(260, 210, 240, 50);
 
-        btnkembali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnbatal1 (1).png"))); // NOI18N
+        btnkembali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnbatal1_1.png"))); // NOI18N
         btnkembali.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnkembaliMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnkembaliMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnkembaliMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnkembaliMousePressed(evt);
+            }
         });
         add(btnkembali);
-        btnkembali.setBounds(10, 710, 180, 51);
+        btnkembali.setBounds(10, 700, 180, 60);
 
         btnselanjutnya.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnselanjutnya1.png"))); // NOI18N
         btnselanjutnya.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnselanjutnyaMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnselanjutnyaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnselanjutnyaMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnselanjutnyaMousePressed(evt);
+            }
         });
         add(btnselanjutnya);
-        btnselanjutnya.setBounds(1110, 710, 250, 51);
+        btnselanjutnya.setBounds(1110, 701, 250, 60);
 
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/bg pasien lama.png"))); // NOI18N
         add(bg);
-        bg.setBounds(0, 0, 1366, 774);
+        bg.setBounds(0, 0, 1366, 770);
     }// </editor-fold>//GEN-END:initComponents
 
     private void searchloKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchloKeyReleased
@@ -177,6 +213,30 @@ public class pasienlama extends javax.swing.JPanel {
         id = datamaster.getbyno_rm(idd).getId();
         System.out.println(id);
     }//GEN-LAST:event_tableMouseClicked
+
+    private void btnkembaliMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnkembaliMouseEntered
+     btnkembali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnbatal2_1.png")));
+    }//GEN-LAST:event_btnkembaliMouseEntered
+
+    private void btnkembaliMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnkembaliMouseExited
+    btnkembali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnbatal1_1.png")));
+    }//GEN-LAST:event_btnkembaliMouseExited
+
+    private void btnkembaliMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnkembaliMousePressed
+    btnkembali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnbatal3_1.png")));
+    }//GEN-LAST:event_btnkembaliMousePressed
+
+    private void btnselanjutnyaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnselanjutnyaMouseEntered
+    btnselanjutnya.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnselanjutnya2.png")));
+    }//GEN-LAST:event_btnselanjutnyaMouseEntered
+
+    private void btnselanjutnyaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnselanjutnyaMouseExited
+    btnselanjutnya.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnselanjutnya1.png")));
+    }//GEN-LAST:event_btnselanjutnyaMouseExited
+
+    private void btnselanjutnyaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnselanjutnyaMousePressed
+    btnselanjutnya.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnselanjutnya3.png")));
+    }//GEN-LAST:event_btnselanjutnyaMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

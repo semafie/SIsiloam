@@ -12,6 +12,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.EventObject;
+import javax.swing.DefaultCellEditor;
+import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 import main.main;
 import repository.data_dokterRepository;
@@ -37,6 +40,13 @@ public class rekapharian1 extends javax.swing.JPanel {
     public rekapharian1() {
         initComponents();
         load_tabel2();
+        DefaultCellEditor cellEditor = new DefaultCellEditor(new JTextField()) {
+    @Override
+    public boolean isCellEditable(EventObject e) {
+        return false;
+    }
+};
+        table.setDefaultEditor(Object.class, cellEditor);
     }
     public void load_tabel(){
         
@@ -113,10 +123,12 @@ public class rekapharian1 extends javax.swing.JPanel {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         table = new view.swing.Table();
-        jLabel1 = new javax.swing.JLabel();
+        btnbatal = new javax.swing.JLabel();
         bg = new javax.swing.JLabel();
 
         setLayout(null);
+
+        jScrollPane1.setBorder(null);
 
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -132,32 +144,53 @@ public class rekapharian1 extends javax.swing.JPanel {
         jScrollPane1.setViewportView(table);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(100, 200, 1190, 402);
+        jScrollPane1.setBounds(100, 200, 1190, 400);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnbatal1 (1).png"))); // NOI18N
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnbatal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnbatal1_1.png"))); // NOI18N
+        btnbatal.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
+                btnbatalMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnbatalMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnbatalMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnbatalMousePressed(evt);
             }
         });
-        add(jLabel1);
-        jLabel1.setBounds(10, 700, 200, 50);
+        add(btnbatal);
+        btnbatal.setBounds(10, 700, 200, 60);
 
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/bg rekap harian.png"))); // NOI18N
         add(bg);
-        bg.setBounds(0, 0, 1366, 762);
+        bg.setBounds(0, 0, 1366, 770);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+    private void btnbatalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbatalMouseClicked
     main main =(main)SwingUtilities.getWindowAncestor(this);
     this.setVisible(false);
     main.showdasboard();
-    }//GEN-LAST:event_jLabel1MouseClicked
+    }//GEN-LAST:event_btnbatalMouseClicked
+
+    private void btnbatalMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbatalMouseEntered
+    btnbatal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnbatal2_1.png")));
+    }//GEN-LAST:event_btnbatalMouseEntered
+
+    private void btnbatalMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbatalMouseExited
+    btnbatal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnbatal1_1.png")));
+    }//GEN-LAST:event_btnbatalMouseExited
+
+    private void btnbatalMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbatalMousePressed
+    btnbatal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnbatal3_1.png")));
+    }//GEN-LAST:event_btnbatalMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bg;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel btnbatal;
     private javax.swing.JScrollPane jScrollPane1;
     private view.swing.Table table;
     // End of variables declaration//GEN-END:variables
