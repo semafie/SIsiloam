@@ -11,12 +11,12 @@ import main.main;
  *
  * @author semafie
  */
-public class Dasboardowner extends javax.swing.JPanel {
+public class dasboardowner extends javax.swing.JPanel {
 
     /**
      * Creates new form dasboardowner
      */
-    public Dasboardowner() {
+    public dasboardowner() {
         initComponents();
     }
 

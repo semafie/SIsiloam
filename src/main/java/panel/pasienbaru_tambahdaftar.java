@@ -22,6 +22,7 @@ import repository.pasienbaru_sementaraRepository;
 import repository.rekap_harianRepository;
 import view.swing.itemdokter_tampilann;
 import view.swing.itempoli_tampilan;
+import view.swing.validasiberhasil;
 
 /**
  *
@@ -271,6 +272,9 @@ public class pasienbaru_tambahdaftar extends javax.swing.JPanel {
     main main =(main)SwingUtilities.getWindowAncestor(this);
     this.setVisible(false);
     main.showdasboard();
+    validasiberhasil ac = new validasiberhasil(main, "Data Berhasil Ditambahkan");
+            ac.showPopUp();
+
     }//GEN-LAST:event_btnsimpandancetaknoantrianMouseClicked
 
     private void btnkembaliMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnkembaliMouseEntered

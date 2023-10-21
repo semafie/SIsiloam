@@ -7,6 +7,7 @@ package panel;
 import javax.swing.table.DefaultTableModel;
 import repository.rekap_harianRepository;
 import entity.rekap_harian;
+import java.awt.Font;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -193,5 +194,6 @@ public class rekapharian1 extends javax.swing.JPanel {
     private javax.swing.JLabel btnbatal;
     private javax.swing.JScrollPane jScrollPane1;
     private view.swing.Table table;
+    private javax.swing.JLabel tanggal;
     // End of variables declaration//GEN-END:variables
 }

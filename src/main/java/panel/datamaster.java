@@ -25,13 +25,21 @@ import util.Conn;
  */
 public class datamaster extends javax.swing.JPanel {
     data_masterRepository datamaster = new data_masterRepository();
-    public static String id;
+    public static String ids;
+    public static int id;
 //    datamaster_edit edit = new datamaster_edit();
     /**
      * Creates new form datamaster
      */
     public datamaster() {
         initComponents();
+        DefaultCellEditor cellEditor = new DefaultCellEditor(new JTextField()) {
+    @Override
+    public boolean isCellEditable(EventObject e) {
+        return false;
+    }
+};
+        table.setDefaultEditor(Object.class, cellEditor);
         load_tabel();
         Font font = new Font("Quicksand", Font.PLAIN, 22);
         search.setFont(font);
@@ -80,7 +88,7 @@ public class datamaster extends javax.swing.JPanel {
         String sql = "SELECT * FROM data_master WHERE no_rm = ? OR nama LIKE ? OR nik LIKE ?";
         Connection koneksi = (Connection)Conn.configDB();
         PreparedStatement pst = koneksi.prepareStatement(sql);
-        pst.setString(1, search);
+        pst.setString(1, "%" + search + "%");
         pst.setString(2, "%" + search + "%");
         pst.setString(3, "%" + search + "%");
 
@@ -89,11 +97,11 @@ public class datamaster extends javax.swing.JPanel {
         while (res.next()) {
             model.addRow(new Object[]{
                 res.getString("no_rm"),
-                res.getString("nama"),
+                res.getString("nama1"),
                 res.getString("nik"),
                 res.getString("alamat"),
                 res.getString("ttl"),
-                res.getString("jenis_kelamin")
+                res.getString("jenis_kelamin1")
             });
         }
 
@@ -239,7 +247,7 @@ public class datamaster extends javax.swing.JPanel {
 //        String jenis_kelamin = table.getValueAt(baris, 4).toString();
 //        System.out.println(id);
         
-        if(!id.equals("")){
+        if(!ids.equals("")){
 //        edit.txt_no_rm.setText(idd);
 //        edit.txt_nama_pasien.setText(nama);
 //        edit.txt_nik.setText(nik);
@@ -261,7 +269,9 @@ public class datamaster extends javax.swing.JPanel {
     private void tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableMouseClicked
     int baris = table.rowAtPoint(evt.getPoint());
         String idd = table.getValueAt(baris, 0).toString();
-        id = idd;
+        ids = idd;
+        id = datamaster.getbyno_rm(ids).getId();
+        
         System.out.println(id);
     }//GEN-LAST:event_tableMouseClicked
 
@@ -269,8 +279,8 @@ public class datamaster extends javax.swing.JPanel {
 //    int baris = table.rowAtPoint(evt.getPoint());
 //        String idd = table.getValueAt(baris, 0).toString();
 //        id = Integer.valueOf(idd);
-    if(id.equals("")){
-        boolean apa = datamaster.deletebyno_rm(id);
+    if(ids.equals("")){
+        boolean apa = datamaster.deletebyno_rm(ids);
         System.out.println("berhasil hapus");
     } else {
         System.out.println("gagal hapus");

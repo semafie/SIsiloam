@@ -18,7 +18,6 @@ panel\datamaster_edit$1.class
 service\GenerateCode.class
 view\swing\itempoli_tampilan$1.class
 panel\pasienbaru_tambahdaftar$2.class
-panel\Dasboardowner.class
 view\swing\Combobox$ComboUI$1.class
 panel\verifikasi$5.class
 panel\pasienlama$2.class
@@ -28,7 +27,6 @@ view\swing\itempoli_tampilan$2.class
 panel\daftarakun.class
 main\main.class
 panel\datadokter_tambah.class
-panel\Dasboardowner$2.class
 panel\pasienbaru$AutoIDGenerator.class
 repository\AutoIDGenerator.class
 panel\kirimkode$2.class
@@ -68,6 +66,7 @@ view\swing\Glass.class
 panel\buatpasswordbaru$2.class
 view\swing\Combobox.class
 panel\daftarakun$6.class
+panel\dasboardowner.class
 panel\verifikasi$poo.class
 panel\datamaster$1.class
 panel\pasienbaru1$AutoIDGenerator.class
@@ -78,6 +77,7 @@ view\swing\itemdokter.class
 view\swing\Combobox$ComboUI$4.class
 panel\pasienbaru_pilihdokter1$2.class
 panel\Dasboard$3.class
+panel\dasboardowner$2.class
 view\swing\dialog_mintakode.class
 util\Conn.class
 repository\data_masterRepository.class
@@ -145,6 +145,7 @@ panel\pasienbaru_pilihpoli1$1.class
 view\swing\ModernScrollBarUI.class
 panel\daftarakun_edit.class
 panel\datamaster_edit$2.class
+panel\pasienlama$6.class
 panel\pasienbaru_tambahdaftar1$2.class
 view\swing\Combobox$ComboUI$5.class
 panel\datamaster_edit.class
