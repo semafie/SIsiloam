@@ -6,6 +6,7 @@ package panel;
 
 import javax.swing.SwingUtilities;
 import main.main;
+import view.swing.itemdokter_tampilann;
 
 /**
  *
@@ -16,10 +17,13 @@ public class pasienbaru_pilihdokter extends javax.swing.JPanel {
     /**
      * Creates new form pilihdokter
      */
-   
+    private int ids;
+   itemdokter_tampilann item = new itemdokter_tampilann();
     public pasienbaru_pilihdokter() {
         initComponents();
         
+        
+        ids = item.id;
        
     }
 
@@ -89,9 +93,14 @@ public class pasienbaru_pilihdokter extends javax.swing.JPanel {
     }//GEN-LAST:event_btnkembaliMouseClicked
 
     private void btnselanjutnyaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnselanjutnyaMouseClicked
-    main main =(main)SwingUtilities.getWindowAncestor(this);
+//    if (ids != 0) {
+        main main =(main)SwingUtilities.getWindowAncestor(this);
     this.setVisible(false);
     main.showpasienbaru_tambahdaftar();
+//    } else {   
+//            System.out.println("pilih dulu");
+//        }
+System.out.println(ids);
     }//GEN-LAST:event_btnselanjutnyaMouseClicked
 
     private void btnkembaliMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnkembaliMouseEntered

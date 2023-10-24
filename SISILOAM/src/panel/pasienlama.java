@@ -107,7 +107,6 @@ public class pasienlama extends javax.swing.JPanel {
         searchlo = new javax.swing.JTextField();
         btnkembali = new javax.swing.JLabel();
         btnselanjutnya = new javax.swing.JLabel();
-        kembali = new javax.swing.JLabel();
         bg = new javax.swing.JLabel();
 
         setLayout(null);
@@ -181,24 +180,6 @@ public class pasienlama extends javax.swing.JPanel {
         add(btnselanjutnya);
         btnselanjutnya.setBounds(1110, 701, 250, 60);
 
-        kembali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnbatal1_1.png"))); // NOI18N
-        kembali.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnkembaliMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnkembaliMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnkembaliMouseExited(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                btnkembaliMousePressed(evt);
-            }
-        });
-        add(kembali);
-        kembali.setBounds(10, 710, 150, 51);
-
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/bg pasien lama.png"))); // NOI18N
         add(bg);
         bg.setBounds(0, 0, 1366, 770);
@@ -264,7 +245,6 @@ public class pasienlama extends javax.swing.JPanel {
     private javax.swing.JLabel btnkembali;
     private javax.swing.JLabel btnselanjutnya;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel kembali;
     private javax.swing.JTextField searchlo;
     private view.swing.Table table;
     // End of variables declaration//GEN-END:variables
