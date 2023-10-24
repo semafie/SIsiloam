@@ -112,7 +112,7 @@ public class data_dokterRepository implements Repository<data_dokter> {
         
     @Override
     public boolean update(data_dokter dokter) {
-    String sql = "update "+tableName+" set nama = ?, no_hp = ?, jenis_poli =?, jadwal = ?, jenis_kelamin = ?, no_antrian = ?, tanggal = ? where id = ?";    
+    String sql = "update "+tableName+" set nama = ?, no_hp = ?, jenis_poli =?, jadwal = ?, jenis_kelamin = ?,tanggal = ? where id = ?";    
         try {
             Connection koneksi = (Connection)Conn.configDB();
             PreparedStatement pst = koneksi.prepareStatement(sql);
@@ -121,9 +121,22 @@ public class data_dokterRepository implements Repository<data_dokter> {
             pst.setString(3, dokter.getJenis_poli());
             pst.setString(4, dokter.getJadwal());
             pst.setString(5, dokter.getJenis_kelamin());
-            pst.setInt(6, dokter.getNo_antrian());
             pst.setDate(7, new Date(dokter.getTanggal().getTime()));
             pst.setInt(8, dokter.getId());
+            pst.execute();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+}
+    public boolean updateno_antrian(data_dokter dokter) {
+    String sql = "update "+tableName+" set no_antrian = ? where id = ?";    
+        try {
+            Connection koneksi = (Connection)Conn.configDB();
+            PreparedStatement pst = koneksi.prepareStatement(sql);
+            pst.setInt(1, dokter.getNo_antrian());
+            pst.setInt(2, dokter.getId());
             pst.execute();
             return true;
         } catch (Exception e) {

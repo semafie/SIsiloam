@@ -33,6 +33,11 @@ public class data_dokter implements Entity{
     public data_dokter(){
         
     }
+    
+    public data_dokter(int id,int no_antrian){
+        this.id = id;
+        this.no_antrian = no_antrian;
+    }
     public data_dokter(int id){
         this.id = id;
     }

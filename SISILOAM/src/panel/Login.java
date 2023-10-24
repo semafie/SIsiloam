@@ -5,11 +5,24 @@
 package panel;
 import java.awt.Color;
 import java.awt.Font;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.HashMap;
 import javax.swing.SwingUtilities;
 import main.main;
+import net.sf.jasperreports.engine.JRResultSetDataSource;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 //import main.main;
 import repository.userRepository;
 import service.Auth;
+import util.Conn;
 import view.swing.validasiberhasil;
 import view.swing.validasikonfirmasi;
 
@@ -228,10 +241,23 @@ public class Login extends javax.swing.JPanel {
     }//GEN-LAST:event_txtubahpassMousePressed
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-    main wow = (main)SwingUtilities.getWindowAncestor(this);
-    
-        validasikonfirmasi aa = new validasikonfirmasi(wow);
-        aa.showPopUp();
+    String query = "SELECT * FROM rekap_harian join data_dokter on rekap_harian.id_dokter = data_dokter.id join data_master on rekap_harian.id_master = data_master.id WHERE rekap_harian.id = 12";
+        String path = "E:/SEMUA FOLDER/imam/kuliah/semester 3/joki/SIsiloam/SIsiloam/SISILOAM/src/jasper_report/no_antrian.jrxml";
+
+        try {
+               Connection koneksi = (Connection) Conn.configDB();
+            Statement pstCek = koneksi.createStatement();
+            ResultSet res = pstCek.executeQuery(query);
+            JasperDesign design = JRXmlLoader.load(path);
+            JasperReport jr = JasperCompileManager.compileReport(design);
+            JRResultSetDataSource rsDataSource = new JRResultSetDataSource(res);
+            JasperPrint jp = JasperFillManager.fillReport(jr, new HashMap<>(), rsDataSource);
+            
+            JasperViewer viewer = new JasperViewer(jp, false); // argumen 'false' mencegah aplikasi keluar
+            viewer.setVisible(true);
+        }catch(Exception ea) {
+            System.out.println(ea.getMessage());
+        }
 //ganti();
     }//GEN-LAST:event_jButton2MouseClicked
 

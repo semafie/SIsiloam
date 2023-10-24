@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="300" pageHeight="842" columnWidth="260" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d4b73a12-d4da-4a79-95a3-852aacf702c0">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="230" pageHeight="350" columnWidth="20" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d4b73a12-d4da-4a79-95a3-852aacf702c0">
 	<property name="ireport.zoom" value="1.6105100000000008"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="304"/>
-	<queryString language="SQL">
+	<property name="ireport.y" value="34"/>
+	<parameter name="kode" class="java.lang.String"/>
+	<queryString>
 		<![CDATA[SELECT * FROM rekap_harian join data_dokter on rekap_harian.id_dokter = data_dokter.id join data_master on rekap_harian.id_master = data_master.id]]>
 	</queryString>
 	<field name="id" class="java.lang.Integer">
@@ -63,65 +64,63 @@
 	<title>
 		<band height="35" splitType="Stretch">
 			<staticText>
-				<reportElement x="43" y="15" width="157" height="20" uuid="20407540-6b87-4ac2-ab25-1714f36d3baa"/>
+				<reportElement x="16" y="15" width="157" height="20" uuid="20407540-6b87-4ac2-ab25-1714f36d3baa"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<text><![CDATA[Rumah Sakit Siloam Kebun Jeruk]]></text>
 			</staticText>
 		</band>
 	</title>
 	<pageHeader>
-		<band height="30" splitType="Stretch">
+		<band height="42" splitType="Stretch">
 			<textField>
-				<reportElement x="68" y="0" width="100" height="20" uuid="933bc387-d03e-4657-b352-846872389d85"/>
+				<reportElement x="43" y="0" width="100" height="20" uuid="933bc387-d03e-4657-b352-846872389d85"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{tanggal}]]></textFieldExpression>
 			</textField>
 		</band>
 	</pageHeader>
 	<columnHeader>
-		<band height="52" splitType="Stretch">
+		<band height="199" splitType="Stretch">
 			<textField>
-				<reportElement x="30" y="0" width="185" height="40" uuid="f7863ad1-012d-42db-a518-79994222a135"/>
+				<reportElement x="0" y="0" width="185" height="40" uuid="f7863ad1-012d-42db-a518-79994222a135"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="30"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{jenis_poli}]]></textFieldExpression>
 			</textField>
-		</band>
-	</columnHeader>
-	<detail>
-		<band height="125" splitType="Stretch">
 			<textField>
-				<reportElement x="43" y="0" width="152" height="108" uuid="4292d685-36a0-4c3a-9a33-9889598c7c39"/>
+				<reportElement x="16" y="53" width="152" height="90" uuid="4292d685-36a0-4c3a-9a33-9889598c7c39"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="60"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{no_antrian}]]></textFieldExpression>
 			</textField>
-		</band>
-	</detail>
-	<columnFooter>
-		<band height="45" splitType="Stretch">
 			<textField>
-				<reportElement x="68" y="0" width="127" height="26" uuid="a6fde06c-1379-4802-a195-3d628ddb8da0"/>
+				<reportElement x="53" y="143" width="102" height="26" uuid="a6fde06c-1379-4802-a195-3d628ddb8da0"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="20"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nama}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="43" y="0" width="25" height="26" uuid="c4d39a6b-cea4-4214-80df-eea236a4449a"/>
+				<reportElement x="28" y="143" width="25" height="26" uuid="c4d39a6b-cea4-4214-80df-eea236a4449a"/>
 				<textElement>
 					<font size="20"/>
 				</textElement>
 				<text><![CDATA[Ke]]></text>
 			</staticText>
 		</band>
+	</columnHeader>
+	<detail>
+		<band height="19" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="17" splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
-		<band height="54" splitType="Stretch"/>
+		<band height="13" splitType="Stretch"/>
 	</pageFooter>
 	<summary>
-		<band height="42" splitType="Stretch"/>
+		<band height="13" splitType="Stretch"/>
 	</summary>
 </jasperReport>

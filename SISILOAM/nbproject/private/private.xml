@@ -3,23 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/RESCOM-1/Documents/NetBeansProjects/SISILOAM/src/jasper_report/no_antrian.jrxml</file>
-            <file>file:/C:/Users/RESCOM-1/Documents/NetBeansProjects/SISILOAM/src/repository/data_dokterRepository.java</file>
-            <file>file:/C:/Users/RESCOM-1/Documents/NetBeansProjects/SISILOAM/src/panel/datamaster.java</file>
-            <file>file:/C:/Users/RESCOM-1/Documents/NetBeansProjects/SISILOAM/src/panel/Login.java</file>
-            <file>file:/C:/Users/RESCOM-1/Documents/NetBeansProjects/SISILOAM/src/view/swing/validasiberhasil.java</file>
-            <file>file:/C:/Users/RESCOM-1/Documents/NetBeansProjects/SISILOAM/src/entity/data_master.java</file>
-            <file>file:/C:/Users/RESCOM-1/Documents/NetBeansProjects/SISILOAM/src/repository/datapasienbarusementara.java</file>
-            <file>file:/C:/Users/RESCOM-1/Documents/NetBeansProjects/SISILOAM/src/panel/pasienbaru_tambahdaftar.java</file>
-            <file>file:/C:/Users/RESCOM-1/Documents/NetBeansProjects/SISILOAM/src/repository/pasienbaru_sementaraRepository.java</file>
-            <file>file:/C:/Users/RESCOM-1/Documents/NetBeansProjects/SISILOAM/src/repository/cek.java</file>
-            <file>file:/C:/Users/RESCOM-1/Documents/NetBeansProjects/SISILOAM/src/panel/pasienbaru.java</file>
-            <file>file:/C:/Users/RESCOM-1/Documents/NetBeansProjects/SISILOAM/src/entity/pasienbaru_sementara.java</file>
-            <file>file:/C:/Users/RESCOM-1/Documents/NetBeansProjects/SISILOAM/src/repository/data_masterRepository.java</file>
-            <file>file:/C:/Users/RESCOM-1/Documents/NetBeansProjects/SISILOAM/src/panel/datamaster_edit.java</file>
-            <file>file:/C:/Users/RESCOM-1/Documents/NetBeansProjects/SISILOAM/src/main/main.java</file>
-            <file>file:/C:/Users/RESCOM-1/Documents/NetBeansProjects/SISILOAM/src/repository/rekap_harianRepository.java</file>
-            <file>file:/C:/Users/RESCOM-1/Documents/NetBeansProjects/SISILOAM/src/panel/pasienbaru_tambahdaftar1.java</file>
+            <file>file:/E:/SEMUA%20FOLDER/imam/kuliah/semester%203/joki/SIsiloam/SIsiloam/SISILOAM/src/panel/datadokter_edit.java</file>
+            <file>file:/E:/SEMUA%20FOLDER/imam/kuliah/semester%203/joki/SIsiloam/SIsiloam/SISILOAM/src/entity/data_dokter.java</file>
+            <file>file:/E:/SEMUA%20FOLDER/imam/kuliah/semester%203/joki/SIsiloam/SIsiloam/SISILOAM/src/repository/cek.java</file>
+            <file>file:/E:/SEMUA%20FOLDER/imam/kuliah/semester%203/joki/SIsiloam/SIsiloam/SISILOAM/src/panel/pasienbaru_tambahdaftar.java</file>
+            <file>file:/E:/SEMUA%20FOLDER/imam/kuliah/semester%203/joki/SIsiloam/SIsiloam/SISILOAM/src/panel/pasienbaru_tambahdaftar1.java</file>
+            <file>file:/E:/SEMUA%20FOLDER/imam/kuliah/semester%203/joki/SIsiloam/SIsiloam/SISILOAM/src/panel/Login.java</file>
+            <file>file:/E:/SEMUA%20FOLDER/imam/kuliah/semester%203/joki/SIsiloam/SIsiloam/SISILOAM/src/repository/data_dokterRepository.java</file>
         </group>
     </open-files>
 </project-private>

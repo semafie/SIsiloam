@@ -76,7 +76,7 @@ public class itemdokter_tampilann extends javax.swing.JPanel {
                 container.setPreferredSize(new Dimension(910, 250 + (212 * baris)));
                 container.setBackground(new Color(227,252,246));
 //                container.setBorder(null);
-                jScrollPane1.setPreferredSize(new Dimension(910, 220 * dimensi));
+                jScrollPane1.setPreferredSize(new Dimension(910, 250 * dimensi));
                 
                 jScrollPane1.setViewportView(container);
                 jScrollPane1.setVerticalScrollBar(scrollBarCustom1);

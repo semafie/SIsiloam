@@ -272,28 +272,34 @@ public class pasienbaru_tambahdaftar extends javax.swing.JPanel {
     }//GEN-LAST:event_btnbatalMouseClicked
 
     private void btnsimpandancetaknoantrianMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsimpandancetaknoantrianMouseClicked
-//        try {
+        try {
+            
+       
+        data_master keren = new data_master(autoID,apa.get(1).getNama(),apa.get(1).getNik(),apa.get(1).getAlamat(),apa.get(1).getTtl(),apa.get(1).getJenis_kelamin());
+    master.add(keren);
+    lastid = master.getlastid().getId();
+    data_master masuk2 = new data_master(lastid);
+    
+    
+        data_dokter masuk1 = new data_dokter(idd);
+//    
+    Time waktu = new Time(System.currentTimeMillis());
+    Timestamp timestamp = new Timestamp(new Date().getTime());
+    int aceh = b.get(idd).getId();
+    int no_antrian = b.get(idd).getNo_antrian() + 1;
+    data_dokter masuknoantrian = new data_dokter(idd,no_antrian);
+    b.updateno_antrian(masuknoantrian);
+    int aceh1 = master.getlastid().getId();
+    rekap_harian keren23 = new rekap_harian(timestamp , date ,masuk1 ,masuk2);
+    gas.add(keren23);
+//    
 //            
-//       
-//        data_master keren = new data_master(autoID,apa.get(1).getNama(),apa.get(1).getNik(),apa.get(1).getAlamat(),apa.get(1).getTtl(),apa.get(1).getJenis_kelamin());
-//    master.add(keren);
-//    lastid = master.getlastid().getId();
-//    data_master masuk2 = new data_master(lastid);
-//    
-//    
-//        data_dokter masuk1 = new data_dokter(idd);
-//    
-//    Time waktu = new Time(System.currentTimeMillis());
-//    Timestamp timestamp = new Timestamp(new Date().getTime());
-//    int aceh = b.get(idd).getId();
-//    int aceh1 = master.getlastid().getId();
-//    rekap_harian keren23 = new rekap_harian(timestamp , date ,masuk1 ,masuk2);
-//    gas.add(keren23);
-//    
-//            
-//            idfinalrekap = gas.getlastid().getId();
+            idfinalrekap = gas.getlastid().getId();
+
+        System.out.println(idfinalrekap);
+
             String query = "SELECT * FROM rekap_harian join data_dokter on rekap_harian.id_dokter = data_dokter.id join data_master on rekap_harian.id_master = data_master.id WHERE rekap_harian.id = "+idfinalrekap;
-        String path = "C:/Users/RESCOM-1/Documents/NetBeansProjects/SISILOAM/src/jasper_report/no_antrian.jrxml";
+        String path = "E:/SEMUA FOLDER/imam/kuliah/semester 3/joki/SIsiloam/SIsiloam/SISILOAM/src/jasper_report/no_antrian.jrxml";
 
         try {
                Connection koneksi = (Connection) Conn.configDB();
@@ -304,19 +310,20 @@ public class pasienbaru_tambahdaftar extends javax.swing.JPanel {
             JRResultSetDataSource rsDataSource = new JRResultSetDataSource(res);
             JasperPrint jp = JasperFillManager.fillReport(jr, new HashMap<>(), rsDataSource);
 
-            JasperViewer.viewReport(jp);
-//            main main =(main)SwingUtilities.getWindowAncestor(this);
-//    this.setVisible(false);
-//    main.showdasboard();
-//    validasiberhasil ac = new validasiberhasil(main, "Data Berhasil Ditambahkan");
-//            ac.showPopUp();
+            JasperViewer viewer = new JasperViewer(jp, false); // argumen 'false' mencegah aplikasi keluar
+            viewer.setVisible(true);
+            main main =(main)SwingUtilities.getWindowAncestor(this);
+    this.setVisible(false);
+    main.showdasboard();
+    validasiberhasil ac = new validasiberhasil(main, "Data Berhasil Ditambahkan");
+            ac.showPopUp();
         } catch(Exception e) { 
             System.out.println(e.getMessage());
             e.printStackTrace(); }
 //        
-// } catch (Exception e) {
-//            System.out.println(e.getMessage());
-//        }
+ } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }//GEN-LAST:event_btnsimpandancetaknoantrianMouseClicked
 
     private void btnkembaliMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnkembaliMouseEntered

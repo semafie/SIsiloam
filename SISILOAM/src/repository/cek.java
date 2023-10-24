@@ -22,7 +22,7 @@ public class cek {
         pasienbaru_sementaraRepository master11Repository = new pasienbaru_sementaraRepository();
         data_dokterRepository dokterRepository = new data_dokterRepository();
         userRepository userRepository = new userRepository();
-        data_dokter aaaa = new data_dokter();
+        data_dokter aaaa = new data_dokter(5,2);
         data_master ass = new data_master("4sdadas", "restuuu",32020392,"jl apayaa","jember, 23/02/2004","Laki - laki");  
         pasienbaru_sementara apo = new pasienbaru_sementara(1, "restuuu",32020392,"jl apayaa","jember, 23/02/2004","Laki - laki");
         Date pp = new Date();
@@ -32,10 +32,11 @@ public class cek {
 //        apa.add(apa1);
         data_dokter ass1S = new data_dokter( "Dr gagah", "432423432", "Poli gigi", "dsadasddsada", "Laki - Laki", 1, pp);
 //        dokterRepository.add(ass1S);
-        masterRepository.add(ass);
+//        masterRepository.add(ass);
 //        rekap_harianRepository a = new rekap_harianRepository();
-        pasienbaru_sementaraRepository aaaa2 = new pasienbaru_sementaraRepository();
-        System.out.println(aaaa2.get(1).getNama());
+//        pasienbaru_sementaraRepository aaaa2 = new pasienbaru_sementaraRepository();
+//        System.out.println(aaaa2.get(1).getNama());
+dokterRepository.updateno_antrian(aaaa);
 //        System.out.println(apa.getlastid().getId());
 //        master11Repository.update(apo);
 
