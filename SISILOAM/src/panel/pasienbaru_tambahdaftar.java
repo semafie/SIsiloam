@@ -288,8 +288,19 @@ public class pasienbaru_tambahdaftar extends javax.swing.JPanel {
     Timestamp timestamp = new Timestamp(new Date().getTime());
     int aceh = b.get(idd).getId();
     int no_antrian = b.get(idd).getNo_antrian() + 1;
-    data_dokter masuknoantrian = new data_dokter(idd,no_antrian);
-    b.updateno_antrian(masuknoantrian);
+    Date tglhariini = new Date();
+    data_dokter masuknoantrian = new data_dokter(idd,tglhariini,no_antrian);
+    data_dokter masuknoantrian1 = new data_dokter(idd,tglhariini,1);
+    Date tgldokter = b.get(idd).getTanggal();
+    SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        String tanggalString = sdf.format(tglhariini);
+        String tangal = sdf.format(tgldokter);
+    if(tangal.equals(tanggalString)){
+      b.updateno_antriantanggal(masuknoantrian);  
+    }else {
+      b.updateno_antriantanggal(masuknoantrian1);  
+    }
+    
     int aceh1 = master.getlastid().getId();
     rekap_harian keren23 = new rekap_harian(timestamp , date ,masuk1 ,masuk2);
     gas.add(keren23);

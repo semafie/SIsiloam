@@ -4,10 +4,23 @@
  */
 package panel;
 
+import com.lowagie.text.Document;
+import com.lowagie.text.DocumentException;
+import com.lowagie.text.Element;
+import com.lowagie.text.PageSize;
+import com.lowagie.text.Font;
+import com.lowagie.text.Phrase;
+import com.lowagie.text.Paragraph;
+import com.lowagie.text.pdf.PdfPCell;
+import com.lowagie.text.pdf.PdfPTable;
+import com.lowagie.text.pdf.PdfWriter;
 import javax.swing.table.DefaultTableModel;
 import repository.rekap_harianRepository;
 import entity.rekap_harian;
-import java.awt.Font;
+import java.awt.Color;
+//import java.awt.Font;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,8 +28,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.EventObject;
 import javax.swing.DefaultCellEditor;
+import javax.swing.JFileChooser;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
 import main.main;
 import repository.data_dokterRepository;
 import repository.data_masterRepository;
@@ -56,7 +73,7 @@ public class rekapharian1 extends javax.swing.JPanel {
         model.addColumn("ID");
         model.addColumn("NO RM");
         model.addColumn("NAMA PASIEN");
-        model.addColumn("JENISKELAMIN");
+        model.addColumn("JENIS KELAMIN");
         model.addColumn("NAMA DOKTER");
         model.addColumn("JENIS POLI");
         model.addColumn("JAM");
@@ -83,7 +100,7 @@ public class rekapharian1 extends javax.swing.JPanel {
         model.addColumn("ID");
         model.addColumn("NO RM");
         model.addColumn("NAMA PASIEN");
-        model.addColumn("JENISKELAMIN");
+        model.addColumn("JENIS KELAMIN");
         model.addColumn("NAMA DOKTER");
         model.addColumn("JENIS POLI");
         model.addColumn("JAM");
@@ -112,6 +129,82 @@ public class rekapharian1 extends javax.swing.JPanel {
         e.printStackTrace();
     }
     }
+    
+    public static void convertJTableToPDF(JTable jTable) {
+    JFileChooser fileChooser = new JFileChooser();
+    fileChooser.setDialogTitle("Simpan sebagai PDF");
+    fileChooser.setFileFilter(new FileNameExtensionFilter("File PDF", "pdf"));
+
+    int userSelection = fileChooser.showSaveDialog(null);
+
+    if (userSelection == JFileChooser.APPROVE_OPTION) {
+        String filePath = fileChooser.getSelectedFile().getAbsolutePath() + ".pdf";
+        Document document = new Document(PageSize.A4.rotate());
+
+        try {
+            PdfWriter.getInstance(document, new FileOutputStream(filePath));
+            document.open();
+            
+            // Tambahkan judul laporan
+                Paragraph title = new Paragraph("LAPORAN REKAP HARIAN RS SILOAM/n", new Font(Font.BOLD, 18, Font.NORMAL));
+                title.setAlignment(Element.ALIGN_CENTER);
+                document.add(title);
+                
+                Paragraph title1 = new Paragraph(" ", new Font(Font.BOLD, 18, Font.NORMAL));
+                title1.setAlignment(Element.ALIGN_CENTER);
+                document.add(title1);
+                
+                
+                
+                
+                // Tambahkan tanggal hari ini
+                SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+                String currentDate = "Tanggal: " + sdf.format(new Date()) + "/n";
+                Paragraph date = new Paragraph(currentDate, new Font(Font.BOLD, 12, Font.NORMAL));
+                date.setAlignment(Element.ALIGN_RIGHT);
+                document.add(date);
+                
+                Paragraph title2 = new Paragraph(" ", new Font(Font.BOLD, 20, Font.NORMAL));
+                title2.setAlignment(Element.ALIGN_CENTER);
+                document.add(title2);
+                
+                date.setSpacingAfter(25);
+            
+            PdfPTable pdfTable = new PdfPTable(jTable.getColumnCount());
+            
+            pdfTable.getDefaultCell().setBorderColor(new Color(219,219,219));
+            
+            pdfTable.setTotalWidth(PageSize.A4.getHeight());
+
+            // Mengisi header tabel PDF dengan nama kolom dari JTable
+            for (int i = 0; i < jTable.getColumnCount(); i++) {
+//                pdfTable.addCell(jTable.getColumnName(i));
+                PdfPCell cell = new PdfPCell(new Phrase(jTable.getColumnName(i)));
+                    cell.setBackgroundColor(new Color(95,193,193)); // Warna latar belakang
+                    cell.setHorizontalAlignment(Element.ALIGN_CENTER); // Pusatkan teks
+                    cell.setPadding(1);
+                    cell.setBorderColor(Color.WHITE);
+                    pdfTable.addCell(cell);
+            }
+//            float[] columnWidths = {1f, 1.5f, 2f, 1.5f}; // Sesuaikan lebar kolom sesuai kebutuhan
+//                pdfTable.setWidths(columnWidths);
+
+
+            // Mengisi data dari JTable ke tabel PDF
+            for (int i = 0; i < jTable.getRowCount(); i++) {
+                for (int j = 0; j < jTable.getColumnCount(); j++) {
+                    pdfTable.addCell(jTable.getValueAt(i, j).toString());
+                }
+            }
+
+            document.add(pdfTable);
+            document.close();
+        } catch (DocumentException | FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -125,6 +218,7 @@ public class rekapharian1 extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         table = new view.swing.Table();
         btnbatal = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         bg = new javax.swing.JLabel();
 
         setLayout(null);
@@ -165,6 +259,15 @@ public class rekapharian1 extends javax.swing.JPanel {
         add(btnbatal);
         btnbatal.setBounds(10, 700, 200, 60);
 
+        jButton1.setText("jButton1");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+        add(jButton1);
+        jButton1.setBounds(690, 90, 75, 23);
+
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/bg rekap harian.png"))); // NOI18N
         add(bg);
         bg.setBounds(0, 0, 1366, 770);
@@ -188,12 +291,16 @@ public class rekapharian1 extends javax.swing.JPanel {
     btnbatal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnbatal3_1.png")));
     }//GEN-LAST:event_btnbatalMousePressed
 
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        convertJTableToPDF(table);
+    }//GEN-LAST:event_jButton1MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bg;
     private javax.swing.JLabel btnbatal;
+    private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
     private view.swing.Table table;
-    private javax.swing.JLabel tanggal;
     // End of variables declaration//GEN-END:variables
 }

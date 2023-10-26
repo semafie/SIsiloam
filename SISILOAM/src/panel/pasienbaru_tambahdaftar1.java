@@ -280,9 +280,18 @@ public class pasienbaru_tambahdaftar1 extends javax.swing.JPanel {
     gas.add(keren23);
     
     int no_antrian = b.get(idd).getNo_antrian() + 1;
-    data_dokter masuknoantrian = new data_dokter(idd,no_antrian);
-    b.updateno_antrian(masuknoantrian);
-    
+    Date tglhariini = new Date();
+    data_dokter masuknoantrian = new data_dokter(idd,tglhariini,no_antrian);
+    data_dokter masuknoantrian1 = new data_dokter(idd,tglhariini,1);
+    Date tgldokter = b.get(idd).getTanggal();
+    SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        String tanggalString = sdf.format(tglhariini);
+        String tangal = sdf.format(tgldokter);
+    if(tangal.equals(tanggalString)){
+      b.updateno_antriantanggal(masuknoantrian);  
+    }else {
+      b.updateno_antriantanggal(masuknoantrian1);  
+    }
     idfinalrekap = gas.getlastid().getId();
     InputStream struk = getClass().getResourceAsStream("/jasper_report/laporan.jrxml");
             String query = "SELECT * FROM rekap_harian join data_dokter on rekap_harian.id_dokter = data_dokter.id join data_master on rekap_harian.id_master = data_master.id WHERE rekap_harian.id = "+idfinalrekap;

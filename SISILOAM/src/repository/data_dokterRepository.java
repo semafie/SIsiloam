@@ -130,13 +130,14 @@ public class data_dokterRepository implements Repository<data_dokter> {
             return false;
         }
 }
-    public boolean updateno_antrian(data_dokter dokter) {
-    String sql = "update "+tableName+" set no_antrian = ? where id = ?";    
+    public boolean updateno_antriantanggal(data_dokter dokter) {
+    String sql = "update "+tableName+" set no_antrian = ?, tanggal = ? where id = ?";    
         try {
             Connection koneksi = (Connection)Conn.configDB();
             PreparedStatement pst = koneksi.prepareStatement(sql);
             pst.setInt(1, dokter.getNo_antrian());
-            pst.setInt(2, dokter.getId());
+            pst.setDate(2, new Date(dokter.getTanggal().getTime()));
+            pst.setInt(3, dokter.getId());
             pst.execute();
             return true;
         } catch (Exception e) {

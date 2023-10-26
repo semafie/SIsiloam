@@ -34,8 +34,9 @@ public class data_dokter implements Entity{
         
     }
     
-    public data_dokter(int id,int no_antrian){
+    public data_dokter(int id,Date tanngal,int no_antrian){
         this.id = id;
+        this.tanggal = tanngal;
         this.no_antrian = no_antrian;
     }
     public data_dokter(int id){

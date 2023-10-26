@@ -31,6 +31,7 @@ public class dasboardowner extends javax.swing.JPanel {
 
         btndaftarakun = new javax.swing.JLabel();
         btnlogout = new javax.swing.JLabel();
+        btnhistory = new javax.swing.JLabel();
         bg = new javax.swing.JLabel();
 
         setLayout(null);
@@ -70,6 +71,24 @@ public class dasboardowner extends javax.swing.JPanel {
         });
         add(btnlogout);
         btnlogout.setBounds(20, 700, 180, 51);
+
+        btnhistory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btn_historydatamaster1.png"))); // NOI18N
+        btnhistory.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnhistoryMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnhistoryMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnhistoryMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnhistoryMousePressed(evt);
+            }
+        });
+        add(btnhistory);
+        btnhistory.setBounds(540, 340, 410, 90);
 
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/bg dasboard.png"))); // NOI18N
         add(bg);
@@ -112,10 +131,29 @@ public class dasboardowner extends javax.swing.JPanel {
     btndaftarakun.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btn_daftarakun3.png")));
     }//GEN-LAST:event_btndaftarakunMousePressed
 
+    private void btnhistoryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnhistoryMouseClicked
+    
+    
+    
+    }//GEN-LAST:event_btnhistoryMouseClicked
+
+    private void btnhistoryMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnhistoryMouseEntered
+    btnhistory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btn_historydatamaster2.png")));
+    }//GEN-LAST:event_btnhistoryMouseEntered
+
+    private void btnhistoryMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnhistoryMouseExited
+    btnhistory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btn_historydatamaster1.png")));
+    }//GEN-LAST:event_btnhistoryMouseExited
+
+    private void btnhistoryMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnhistoryMousePressed
+    btnhistory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btn_historydatamaster3.png")));
+    }//GEN-LAST:event_btnhistoryMousePressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bg;
     private javax.swing.JLabel btndaftarakun;
+    private javax.swing.JLabel btnhistory;
     private javax.swing.JLabel btnlogout;
     // End of variables declaration//GEN-END:variables
 }
