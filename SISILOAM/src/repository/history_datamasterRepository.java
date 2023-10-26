@@ -31,20 +31,63 @@ public class history_datamasterRepository implements Repository<history_datamast
         }
         return master;  
     }
-
+    
+    public history_datamaster getlastid() {
+        String sql = "SELECT * FROM "+tableName+" ORDER BY id DESC LIMIT 1;";
+        history_datamaster master = new history_datamaster();
+        try {
+            Connection koneksi = (Connection)Conn.configDB();
+            PreparedStatement pst = koneksi.prepareStatement(sql);
+            ResultSet res = pst.executeQuery();
+            while (res.next()) {                
+                return mapToEntity(res);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+        }
+        return master;
+    }
     @Override
     public history_datamaster get(Integer id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public boolean add(history_datamaster entity) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public boolean add(history_datamaster master) {
+        String sql = "insert into "+tableName+ " (`status`,`nama_user`) values (?,?)";
+        try {
+            Connection koneksi =(Connection)Conn.configDB();
+            PreparedStatement pst = koneksi.prepareCall(sql);
+            pst.setString(1, master.getStatus());
+            pst.setString(2, master.getNama_user());
+            
+            pst.execute();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+            return false;
+        }
     }
 
     @Override
-    public boolean update(history_datamaster entity) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public boolean update(history_datamaster master) {
+         String sql = "update "+tableName+" set status = ?, nama_user = ?  where id = ?";
+        try {
+            Connection koneksi =(Connection)Conn.configDB();
+            PreparedStatement pst =koneksi.prepareStatement(sql);
+            pst.setString(1, master.getStatus());
+            pst.setString(2, master.getNama_user());
+            pst.setInt(3, master.getId());
+            
+            pst.execute();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+            return false;
+        }
     }
 
     @Override

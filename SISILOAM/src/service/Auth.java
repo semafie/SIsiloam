@@ -14,7 +14,9 @@ import util.Conn;
  */
 public class Auth {
     public static String username ;
-    public static int level; 
+    public static int level;
+    public static int id;
+    
     
     
   public boolean login(String username, String pass){
@@ -25,6 +27,7 @@ public class Auth {
             ResultSet res = pst.executeQuery();
             if(res.next()){
                 level = res.getInt("level");
+                id = res.getInt("id");
                 return true;
             }else{
                   return false;

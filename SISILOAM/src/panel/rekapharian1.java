@@ -29,6 +29,7 @@ import java.util.Date;
 import java.util.EventObject;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
@@ -38,6 +39,7 @@ import main.main;
 import repository.data_dokterRepository;
 import repository.data_masterRepository;
 import util.Conn;
+import view.swing.validasiberhasil;
         
 
 /**
@@ -48,6 +50,7 @@ public class rekapharian1 extends javax.swing.JPanel {
     rekap_harianRepository gege = new rekap_harianRepository();
     data_dokterRepository gege1 = new data_dokterRepository();
     data_masterRepository gege2 = new data_masterRepository();
+    main main =(main)SwingUtilities.getWindowAncestor(this);
     private int id;
     private int id1;
     Date date;
@@ -76,6 +79,7 @@ public class rekapharian1 extends javax.swing.JPanel {
         model.addColumn("JENIS KELAMIN");
         model.addColumn("NAMA DOKTER");
         model.addColumn("JENIS POLI");
+        model.addColumn("TANGGAL");
         model.addColumn("JAM");
         try {
             for(rekap_harian apa:gege.get()){
@@ -86,6 +90,7 @@ public class rekapharian1 extends javax.swing.JPanel {
                     apa.getData_master().getJenis_kelamin(),
                     apa.getData_dokter().getNama(),
                     apa.getData_dokter().getJenis_poli(),
+                    apa.getTanggal(),
                     timeFormat.format(new Date(apa.getJam().getTime()))
                 });
             }
@@ -103,10 +108,15 @@ public class rekapharian1 extends javax.swing.JPanel {
         model.addColumn("JENIS KELAMIN");
         model.addColumn("NAMA DOKTER");
         model.addColumn("JENIS POLI");
+        model.addColumn("TANGGAL");
+        
         model.addColumn("JAM");
         
         try {
-        String sql = "SELECT * FROM rekap_harian join data_dokter on rekap_harian.id_dokter = data_dokter.id join data_master on rekap_harian.id_master = data_master.id";
+        String sql = "SELECT * FROM rekap_harian "
+                + "join data_dokter on rekap_harian.id_dokter = data_dokter.id "
+                + "join data_master on rekap_harian.id_master = data_master.id "
+                + "ORDER BY rekap_harian.id";
         Connection koneksi = (Connection)Conn.configDB();
         PreparedStatement pst = koneksi.prepareStatement(sql);
 
@@ -120,6 +130,7 @@ public class rekapharian1 extends javax.swing.JPanel {
                 res.getString("jenis_kelamin1"),
                 res.getString("nama"),
                 res.getString("jenis_poli"),
+                res.getDate("tanggal"),
                 res.getTime("jam")
             });
         }
@@ -146,7 +157,7 @@ public class rekapharian1 extends javax.swing.JPanel {
             document.open();
             
             // Tambahkan judul laporan
-                Paragraph title = new Paragraph("LAPORAN REKAP HARIAN RS SILOAM/n", new Font(Font.BOLD, 18, Font.NORMAL));
+                Paragraph title = new Paragraph("LAPORAN REKAP HARIAN RS SILOAM", new Font(Font.BOLD, 18, Font.NORMAL));
                 title.setAlignment(Element.ALIGN_CENTER);
                 document.add(title);
                 
@@ -159,7 +170,7 @@ public class rekapharian1 extends javax.swing.JPanel {
                 
                 // Tambahkan tanggal hari ini
                 SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-                String currentDate = "Tanggal: " + sdf.format(new Date()) + "/n";
+                String currentDate = "Tanggal: " + sdf.format(new Date()) ;
                 Paragraph date = new Paragraph(currentDate, new Font(Font.BOLD, 12, Font.NORMAL));
                 date.setAlignment(Element.ALIGN_RIGHT);
                 document.add(date);
@@ -199,9 +210,59 @@ public class rekapharian1 extends javax.swing.JPanel {
 
             document.add(pdfTable);
             document.close();
+            JOptionPane.showMessageDialog(null, "Berhasil menyimpan PDF", "Sukses", JOptionPane.INFORMATION_MESSAGE);
+            
         } catch (DocumentException | FileNotFoundException e) {
             e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Gagal menyimpan PDF", "Error", JOptionPane.ERROR_MESSAGE);
+
+        }   
+    }
+}
+    public void load_search(String search) {
+    DefaultTableModel model = new DefaultTableModel();
+    
+        model.addColumn("ID");
+        model.addColumn("NO RM");
+        model.addColumn("NAMA PASIEN");
+        model.addColumn("JENIS KELAMIN");
+        model.addColumn("NAMA DOKTER");
+        model.addColumn("JENIS POLI");
+        model.addColumn("TANGGAL");
+        
+        model.addColumn("JAM");
+    
+    try {
+        String sql = "SELECT * FROM rekap_harian "
+                + "join data_dokter on rekap_harian.id_dokter = data_dokter.id "
+                + "join data_master on rekap_harian.id_master = data_master.id "
+                + "where rekap_harian.id = ? OR data_master.no_rm LIKE ? "
+                + "OR data_master.nama1 LIKE ? OR rekap_harian.tanggal LIKE ?";
+        Connection koneksi = (Connection)Conn.configDB();
+        PreparedStatement pst = koneksi.prepareStatement(sql);
+        pst.setString(1, "%" + search + "%");
+        pst.setString(2, "%" + search + "%");
+        pst.setString(3, "%" + search + "%");
+        pst.setString(4, "%" + search + "%");
+
+        ResultSet res = pst.executeQuery();
+
+        while (res.next()) {
+            model.addRow(new Object[]{
+                res.getInt("id"),
+                res.getString("no_rm"),
+                res.getString("nama1"),
+                res.getString("jenis_kelamin1"),
+                res.getString("nama"),
+                res.getString("jenis_poli"),
+                res.getDate("tanggal"),
+                res.getTime("jam")
+            });
         }
+
+        table.setModel(model);
+    } catch (Exception e) {
+        e.printStackTrace();
     }
 }
 
@@ -218,7 +279,9 @@ public class rekapharian1 extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         table = new view.swing.Table();
         btnbatal = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btncetak = new javax.swing.JLabel();
+        text_search = new javax.swing.JTextField();
+        ffff = new javax.swing.JLabel();
         bg = new javax.swing.JLabel();
 
         setLayout(null);
@@ -259,14 +322,29 @@ public class rekapharian1 extends javax.swing.JPanel {
         add(btnbatal);
         btnbatal.setBounds(10, 700, 200, 60);
 
-        jButton1.setText("jButton1");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        btncetak.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btncetak1.png"))); // NOI18N
+        btncetak.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                btncetakMouseClicked(evt);
             }
         });
-        add(jButton1);
-        jButton1.setBounds(690, 90, 75, 23);
+        add(btncetak);
+        btncetak.setBounds(1160, 700, 200, 60);
+
+        text_search.setBackground(new Color(0,0,0,0));
+        text_search.setFont(new java.awt.Font("Microsoft Tai Le", 1, 18)); // NOI18N
+        text_search.setBorder(null);
+        text_search.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                text_searchKeyReleased(evt);
+            }
+        });
+        add(text_search);
+        text_search.setBounds(970, 150, 300, 40);
+
+        ffff.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/bg search.png"))); // NOI18N
+        add(ffff);
+        ffff.setBounds(960, 140, 330, 55);
 
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/bg rekap harian.png"))); // NOI18N
         add(bg);
@@ -291,16 +369,22 @@ public class rekapharian1 extends javax.swing.JPanel {
     btnbatal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnbatal3_1.png")));
     }//GEN-LAST:event_btnbatalMousePressed
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    private void btncetakMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btncetakMouseClicked
         convertJTableToPDF(table);
-    }//GEN-LAST:event_jButton1MouseClicked
+    }//GEN-LAST:event_btncetakMouseClicked
+
+    private void text_searchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text_searchKeyReleased
+        load_search(text_search.getText());
+    }//GEN-LAST:event_text_searchKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bg;
     private javax.swing.JLabel btnbatal;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel btncetak;
+    private javax.swing.JLabel ffff;
     private javax.swing.JScrollPane jScrollPane1;
     private view.swing.Table table;
+    private javax.swing.JTextField text_search;
     // End of variables declaration//GEN-END:variables
 }

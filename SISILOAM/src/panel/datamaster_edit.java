@@ -11,6 +11,7 @@ import javax.swing.SwingUtilities;
 import main.main;
 import repository.data_masterRepository;
 import view.swing.validasiberhasil;
+import view.swing.validasiberhasil1;
 
 /**
  *
@@ -174,14 +175,14 @@ public class datamaster_edit extends javax.swing.JPanel {
         System.out.println(selectedItem);
 
         if( !se.equals("")){
-        data_master apa = new data_master(nama, nik, alamat, ttl, jnkk);
+        data_master apa = new data_master(txt_no_rm.getText(),nama, nik, alamat, ttl, jnkk);
         master.updatebynorm(apa);
         main main =(main)SwingUtilities.getWindowAncestor(this);
         this.setVisible(false);
         main.showdatamaster();
-        validasiberhasil ac = new validasiberhasil(main, "Data Berhasil Di edit");
+        validasiberhasil1 ac = new validasiberhasil1(main);
             ac.showPopUp();
-
+            
     } else {
         System.out.println("id tidak ditemukan");
     }

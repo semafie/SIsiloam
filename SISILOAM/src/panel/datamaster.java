@@ -19,6 +19,9 @@ import main.main;
 import panel.datamaster_edit;
 import repository.data_masterRepository;
 import util.Conn;
+import view.swing.validasiberhasil1;
+import view.swing.validasiberhasil2;
+import view.swing.validasigagal;
 
 /**
  *
@@ -81,7 +84,7 @@ public class datamaster extends javax.swing.JPanel {
     model.addColumn("JENIS_KELAMIN");
     
     try {
-        String sql = "SELECT * FROM data_master WHERE no_rm = ? OR nama LIKE ? OR nik LIKE ?";
+        String sql = "SELECT * FROM data_master WHERE no_rm = ? OR nama1 LIKE ? OR nik LIKE ?";
         Connection koneksi = (Connection)Conn.configDB();
         PreparedStatement pst = koneksi.prepareStatement(sql);
         pst.setString(1, "%" + search + "%");
@@ -275,8 +278,21 @@ public class datamaster extends javax.swing.JPanel {
 //    int baris = table.rowAtPoint(evt.getPoint());
 //        String idd = table.getValueAt(baris, 0).toString();
 //        id = Integer.valueOf(idd);
-    if(ids.equals("")){
-        boolean apa = datamaster.deletebyno_rm(ids);
+    if(!ids.equals("")){
+        
+            try {
+            boolean apa = datamaster.delete(id);
+            main main =(main)SwingUtilities.getWindowAncestor(this);
+        validasiberhasil2 ac = new validasiberhasil2(main);
+            ac.showPopUp();
+        } catch (Exception e) {
+            main main =(main)SwingUtilities.getWindowAncestor(this);
+                validasigagal ac = new validasigagal(main, "Data ini tidak akan bisa dihapus karena terhubung dengan rekap harian"
+                        + "pilih data lain");
+            ac.showPopUp();
+            return;
+        }
+        
         System.out.println("berhasil hapus");
     } else {
         System.out.println("gagal hapus");

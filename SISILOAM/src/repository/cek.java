@@ -38,8 +38,10 @@ public class cek {
 //        pasienbaru_sementaraRepository aaaa2 = new pasienbaru_sementaraRepository();
 //        System.out.println(aaaa2.get(1).getNama());
 //dokterRepository.updateno_antriantanggal(aaaa);
-        System.out.println(dokterRepository.get(5).getTanggal());
-        System.out.println(pp.getTime());
+//        System.out.println(dokterRepository.get(5).getTanggal());
+//        System.out.println(pp.getTime());
+history_datamasterRepository aaa = new history_datamasterRepository();
+        System.out.println(aaa.getlastid().getId());
 //        System.out.println(apa.getlastid().getId());
 //        master11Repository.update(apo);
 

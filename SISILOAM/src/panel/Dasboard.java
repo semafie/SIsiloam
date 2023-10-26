@@ -6,6 +6,7 @@ package panel;
 
 import javax.swing.SwingUtilities;
 import main.main;
+import service.Auth;
 
 /**
  *
@@ -18,6 +19,10 @@ public class Dasboard extends javax.swing.JPanel {
      */
     public Dasboard() {
         initComponents();
+        Auth z = new Auth();
+        System.out.println(z.id);
+        System.out.println(z.level);
+        
     }
 
     /**

@@ -14,6 +14,12 @@ public class history_datamaster implements Entity{
         this.id = id;
     }
     
+    public history_datamaster(int id,String status,String nama_user){
+        this.id = id;
+        this.status = status;
+        this.nama_user = nama_user;
+    }
+    
     public history_datamaster(String nama, int nik, String alamat, String ttl, String jenis_kelamin, String status, String nama_user){
         
         this.nama = nama;
