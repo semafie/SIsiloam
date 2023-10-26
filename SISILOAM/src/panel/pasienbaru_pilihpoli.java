@@ -7,6 +7,8 @@ package panel;
 import javax.swing.SwingUtilities;
 import main.main;
 import repository.datapasienbarusementara;
+import view.swing.itemdokter_tampilann;
+import view.swing.itempoli_tampilan;
 //import static panel.pasienbaru.jnk;
 //import static panel.pasienbaru.txt_alamat;
 //import static panel.pasienbaru.txt_nama_pasien;
@@ -25,12 +27,12 @@ public class pasienbaru_pilihpoli extends javax.swing.JPanel {
     /**
      * Creates new form pasienbaru_pilihpoli
      */
-    
+    private String poli;
     
     public pasienbaru_pilihpoli() {
         initComponents();
-        datapasienbarusementara a = new datapasienbarusementara();
-        System.out.println(a.getNama());
+        itempoli_tampilan apa =  new itempoli_tampilan();
+        poli = apa.jeje;
         
     }
 
@@ -94,9 +96,17 @@ public class pasienbaru_pilihpoli extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnlanjutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnlanjutMouseClicked
-    main main =(main)SwingUtilities.getWindowAncestor(this);
+//        if (!poli.equals("")) {
+             main main =(main)SwingUtilities.getWindowAncestor(this);
     this.setVisible(false);
     main.showpasienbaru_pilihdokter();
+//        } else {
+//            System.out.println("pilih dulu bang");
+//        }
+        System.out.println(poli);
+           
+        
+        
     }//GEN-LAST:event_btnlanjutMouseClicked
 
     private void btnbatalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbatalMouseClicked

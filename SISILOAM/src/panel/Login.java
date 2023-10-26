@@ -5,10 +5,12 @@
 package panel;
 import java.awt.Color;
 import java.awt.Font;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.HashMap;
+import java.util.Scanner;
 import javax.swing.SwingUtilities;
 import main.main;
 import net.sf.jasperreports.engine.JRResultSetDataSource;
@@ -242,13 +244,15 @@ public class Login extends javax.swing.JPanel {
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
     String query = "SELECT * FROM rekap_harian join data_dokter on rekap_harian.id_dokter = data_dokter.id join data_master on rekap_harian.id_master = data_master.id WHERE rekap_harian.id = 12";
-        String path = "E:/SEMUA FOLDER/imam/kuliah/semester 3/joki/SIsiloam/SIsiloam/SISILOAM/src/jasper_report/no_antrian.jrxml";
-
+        InputStream struk = getClass().getResourceAsStream("/jasper_report/no_antrian.jrxml");
+//        Scanner scanner = new Scanner(struk).useDelimiter("\\A");
+//        String strukString = scanner.hasNext() ? scanner.next() : "";
+//        System.out.println(strukString);
         try {
                Connection koneksi = (Connection) Conn.configDB();
             Statement pstCek = koneksi.createStatement();
             ResultSet res = pstCek.executeQuery(query);
-            JasperDesign design = JRXmlLoader.load(path);
+            JasperDesign design = JRXmlLoader.load(struk);
             JasperReport jr = JasperCompileManager.compileReport(design);
             JRResultSetDataSource rsDataSource = new JRResultSetDataSource(res);
             JasperPrint jp = JasperFillManager.fillReport(jr, new HashMap<>(), rsDataSource);

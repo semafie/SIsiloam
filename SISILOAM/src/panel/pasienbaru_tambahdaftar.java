@@ -8,6 +8,7 @@ import entity.data_dokter;
 import entity.data_master;
 import entity.rekap_harian;
 import java.awt.Font;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -297,15 +298,15 @@ public class pasienbaru_tambahdaftar extends javax.swing.JPanel {
             idfinalrekap = gas.getlastid().getId();
 
         System.out.println(idfinalrekap);
-
+            InputStream struk = getClass().getResourceAsStream("/jasper_report/no_antrian.jrxml");
             String query = "SELECT * FROM rekap_harian join data_dokter on rekap_harian.id_dokter = data_dokter.id join data_master on rekap_harian.id_master = data_master.id WHERE rekap_harian.id = "+idfinalrekap;
-        String path = "E:/SEMUA FOLDER/imam/kuliah/semester 3/joki/SIsiloam/SIsiloam/SISILOAM/src/jasper_report/no_antrian.jrxml";
+//        String path = "E:/SEMUA FOLDER/imam/kuliah/semester 3/joki/SIsiloam/SIsiloam/SISILOAM/src/jasper_report/no_antrian.jrxml";
 
         try {
                Connection koneksi = (Connection) Conn.configDB();
             Statement pstCek = koneksi.createStatement();
             ResultSet res = pstCek.executeQuery(query);
-            JasperDesign design = JRXmlLoader.load(path);
+            JasperDesign design = JRXmlLoader.load(struk);
             JasperReport jr = JasperCompileManager.compileReport(design);
             JRResultSetDataSource rsDataSource = new JRResultSetDataSource(res);
             JasperPrint jp = JasperFillManager.fillReport(jr, new HashMap<>(), rsDataSource);

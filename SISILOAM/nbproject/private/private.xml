@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/E:/SEMUA%20FOLDER/imam/kuliah/semester%203/joki/SIsiloam/SIsiloam/SISILOAM/src/panel/datadokter_edit.java</file>
             <file>file:/E:/SEMUA%20FOLDER/imam/kuliah/semester%203/joki/SIsiloam/SIsiloam/SISILOAM/src/jasper_report/no_antrian.jrxml</file>
             <file>file:/E:/SEMUA%20FOLDER/imam/kuliah/semester%203/joki/SIsiloam/SIsiloam/SISILOAM/src/entity/data_dokter.java</file>
@@ -12,6 +13,17 @@
             <file>file:/E:/SEMUA%20FOLDER/imam/kuliah/semester%203/joki/SIsiloam/SIsiloam/SISILOAM/src/panel/pasienbaru_tambahdaftar1.java</file>
             <file>file:/E:/SEMUA%20FOLDER/imam/kuliah/semester%203/joki/SIsiloam/SIsiloam/SISILOAM/src/panel/Login.java</file>
             <file>file:/E:/SEMUA%20FOLDER/imam/kuliah/semester%203/joki/SIsiloam/SIsiloam/SISILOAM/src/repository/data_dokterRepository.java</file>
+=======
+            <file>file:/D:/imam/Kerja%20Joki/siloam/SIRSsiloam/SISILOAM/src/view/swing/itempoli.java</file>
+            <file>file:/D:/imam/Kerja%20Joki/siloam/SIRSsiloam/SISILOAM/src/panel/pasienlama.java</file>
+            <file>file:/D:/imam/Kerja%20Joki/siloam/SIRSsiloam/SISILOAM/src/view/swing/itemdokter_tampilann.java</file>
+            <file>file:/D:/imam/Kerja%20Joki/siloam/SIRSsiloam/SISILOAM/src/panel/pasienbaru_tambahdaftar1.java</file>
+            <file>file:/D:/imam/Kerja%20Joki/siloam/SIRSsiloam/SISILOAM/src/panel/Login.java</file>
+            <file>file:/D:/imam/Kerja%20Joki/siloam/SIRSsiloam/SISILOAM/src/panel/pasienbaru_pilihpoli.java</file>
+            <file>file:/D:/imam/Kerja%20Joki/siloam/SIRSsiloam/SISILOAM/src/view/swing/itempoli_tampilan.java</file>
+            <file>file:/D:/imam/Kerja%20Joki/siloam/SIRSsiloam/SISILOAM/src/panel/pasienbaru_tambahdaftar.java</file>
+            <file>file:/D:/imam/Kerja%20Joki/siloam/SIRSsiloam/SISILOAM/src/panel/pasienbaru_pilihdokter.java</file>
+>>>>>>> 900bd290fab41c869ca7619737a94b67d87d4ccb
         </group>
     </open-files>
 </project-private>

@@ -8,17 +8,31 @@ import entity.data_dokter;
 import entity.data_master;
 import entity.rekap_harian;
 import java.awt.Font;
+import java.io.InputStream;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.sql.Time;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import javax.swing.SwingUtilities;
 import main.main;
+import net.sf.jasperreports.engine.JRResultSetDataSource;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 import repository.data_dokterRepository;
 import repository.data_masterRepository;
 import repository.datapasienbarusementara;
 import repository.pasienbaru_sementaraRepository;
 import repository.rekap_harianRepository;
+import util.Conn;
 import view.swing.itemdokter_tampilann;
 import view.swing.itempoli_tampilan;
 import view.swing.validasiberhasil;
@@ -44,6 +58,7 @@ public class pasienbaru_tambahdaftar1 extends javax.swing.JPanel {
     private String autoID;
     private String nik;
     private int idd;
+    private int idfinalrekap;
     /**
      * Creates new form tambahdaftar
      */
@@ -263,11 +278,36 @@ public class pasienbaru_tambahdaftar1 extends javax.swing.JPanel {
    
     rekap_harian keren23 = new rekap_harian(timestamp , date ,masuk1 ,masuk2);
     gas.add(keren23);
-    main main =(main)SwingUtilities.getWindowAncestor(this);
+    
+    int no_antrian = b.get(idd).getNo_antrian() + 1;
+    data_dokter masuknoantrian = new data_dokter(idd,no_antrian);
+    b.updateno_antrian(masuknoantrian);
+    
+    idfinalrekap = gas.getlastid().getId();
+    InputStream struk = getClass().getResourceAsStream("/jasper_report/laporan.jrxml");
+            String query = "SELECT * FROM rekap_harian join data_dokter on rekap_harian.id_dokter = data_dokter.id join data_master on rekap_harian.id_master = data_master.id WHERE rekap_harian.id = "+idfinalrekap;
+//        String path = "E:/SEMUA FOLDER/imam/kuliah/semester 3/joki/SIsiloam/SIsiloam/SISILOAM/src/jasper_report/no_antrian.jrxml";
+
+        try {
+               Connection koneksi = (Connection) Conn.configDB();
+            Statement pstCek = koneksi.createStatement();
+            ResultSet res = pstCek.executeQuery(query);
+            JasperDesign design = JRXmlLoader.load(struk);
+            JasperReport jr = JasperCompileManager.compileReport(design);
+            JRResultSetDataSource rsDataSource = new JRResultSetDataSource(res);
+            JasperPrint jp = JasperFillManager.fillReport(jr, new HashMap<>(), rsDataSource);
+
+            JasperViewer viewer = new JasperViewer(jp, false); // argumen 'false' mencegah aplikasi keluar
+            viewer.setVisible(true);
+            main main =(main)SwingUtilities.getWindowAncestor(this);
     this.setVisible(false);
     main.showdasboard();
     validasiberhasil ac = new validasiberhasil(main, "Data Berhasil Ditambahkan");
             ac.showPopUp();
+        } catch(Exception e) { 
+            System.out.println(e.getMessage());
+            e.printStackTrace(); }
+    
 
     }//GEN-LAST:event_btnsimpandancetaknoantrianMouseClicked
 
