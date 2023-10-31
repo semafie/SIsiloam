@@ -63,7 +63,7 @@ public class Login extends javax.swing.JPanel {
         inputusername = new javax.swing.JTextField();
         txtubahpass = new javax.swing.JLabel();
         eye = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        btnlogout = new javax.swing.JLabel();
         bg = new javax.swing.JLabel();
 
         password.addActionListener(new java.awt.event.ActionListener() {
@@ -144,14 +144,23 @@ public class Login extends javax.swing.JPanel {
         add(eye);
         eye.setBounds(900, 390, 50, 40);
 
-        jButton2.setText("jButton2");
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnlogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnlogout1.png"))); // NOI18N
+        btnlogout.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
+                btnlogoutMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnlogoutMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnlogoutMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnlogoutMousePressed(evt);
             }
         });
-        add(jButton2);
-        jButton2.setBounds(90, 140, 75, 23);
+        add(btnlogout);
+        btnlogout.setBounds(20, 700, 180, 51);
 
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/login form.png"))); // NOI18N
         add(bg);
@@ -242,38 +251,32 @@ public class Login extends javax.swing.JPanel {
     txtubahpass.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagetxt/Lupa password_3.png")));
     }//GEN-LAST:event_txtubahpassMousePressed
 
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-    String query = "SELECT * FROM rekap_harian join data_dokter on rekap_harian.id_dokter = data_dokter.id join data_master on rekap_harian.id_master = data_master.id WHERE rekap_harian.id = 12";
-        InputStream struk = getClass().getResourceAsStream("/jasper_report/no_antrian.jrxml");
-//        Scanner scanner = new Scanner(struk).useDelimiter("\\A");
-//        String strukString = scanner.hasNext() ? scanner.next() : "";
-//        System.out.println(strukString);
-        try {
-               Connection koneksi = (Connection) Conn.configDB();
-            Statement pstCek = koneksi.createStatement();
-            ResultSet res = pstCek.executeQuery(query);
-            JasperDesign design = JRXmlLoader.load(struk);
-            JasperReport jr = JasperCompileManager.compileReport(design);
-            JRResultSetDataSource rsDataSource = new JRResultSetDataSource(res);
-            JasperPrint jp = JasperFillManager.fillReport(jr, new HashMap<>(), rsDataSource);
-            
-            JasperViewer viewer = new JasperViewer(jp, false); // argumen 'false' mencegah aplikasi keluar
-            viewer.setVisible(true);
-        }catch(Exception ea) {
-            System.out.println(ea.getMessage());
-        }
-//ganti();
-    }//GEN-LAST:event_jButton2MouseClicked
+    private void btnlogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnlogoutMouseClicked
+        main main =(main)SwingUtilities.getWindowAncestor(this);
+        main.dispose();
+    }//GEN-LAST:event_btnlogoutMouseClicked
+
+    private void btnlogoutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnlogoutMouseEntered
+        btnlogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnlogout2.png")));
+    }//GEN-LAST:event_btnlogoutMouseEntered
+
+    private void btnlogoutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnlogoutMouseExited
+        btnlogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnlogout1.png")));
+    }//GEN-LAST:event_btnlogoutMouseExited
+
+    private void btnlogoutMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnlogoutMousePressed
+        btnlogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnlogout3.png")));
+    }//GEN-LAST:event_btnlogoutMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bg;
     private javax.swing.JLabel btnlogin;
+    private javax.swing.JLabel btnlogout;
     private javax.swing.JLabel eye;
     private javax.swing.JPasswordField inputpassword;
     private javax.swing.JTextField inputusername;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JTextField password;
     private javax.swing.JLabel txtubahpass;
     private javax.swing.JTextField username;

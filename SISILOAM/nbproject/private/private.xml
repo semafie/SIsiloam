@@ -5,6 +5,7 @@
         <group>
             <file>file:/D:/imam/Kerja%20Joki/siloam/SIsiloam/SISILOAM/src/panel/datadokter_edit.java</file>
             <file>file:/D:/imam/Kerja%20Joki/siloam/SIsiloam/SISILOAM/src/view/imagebg/bg%20search.png</file>
+            <file>file:/D:/imam/Kerja%20Joki/siloam/SIsiloam/SISILOAM/src/entity/data_dokter.java</file>
             <file>file:/D:/imam/Kerja%20Joki/siloam/SIsiloam/SISILOAM/src/panel/pasienlama.java</file>
             <file>file:/D:/imam/Kerja%20Joki/siloam/SIsiloam/SISILOAM/src/repository/rekap_harianRepository.java</file>
             <file>file:/D:/imam/Kerja%20Joki/siloam/SIsiloam/SISILOAM/src/entity/history_datamaster.java</file>
@@ -12,6 +13,7 @@
             <file>file:/D:/imam/Kerja%20Joki/siloam/SIsiloam/SISILOAM/src/service/Auth.java</file>
             <file>file:/D:/imam/Kerja%20Joki/siloam/SIsiloam/SISILOAM/src/view/swing/validasigagal.java</file>
             <file>file:/D:/imam/Kerja%20Joki/siloam/SIsiloam/SISILOAM/src/repository/cek.java</file>
+            <file>file:/D:/imam/Kerja%20Joki/siloam/SIsiloam/SISILOAM/src/entity/user.java</file>
             <file>file:/D:/imam/Kerja%20Joki/siloam/SIsiloam/SISILOAM/src/panel/daftarakun_edit.java</file>
             <file>file:/D:/imam/Kerja%20Joki/siloam/SIsiloam/SISILOAM/src/repository/pasienbaru_sementaraRepository.java</file>
             <file>file:/D:/imam/Kerja%20Joki/siloam/SIsiloam/SISILOAM/src/panel/Login.java</file>
@@ -24,8 +26,8 @@
             <file>file:/D:/imam/Kerja%20Joki/siloam/SIsiloam/SISILOAM/src/repository/userRepository.java</file>
             <file>file:/D:/imam/Kerja%20Joki/siloam/SIsiloam/SISILOAM/src/view/swing/validasiberhasil1.java</file>
             <file>file:/D:/imam/Kerja%20Joki/siloam/SIsiloam/SISILOAM/src/repository/data_dokterRepository.java</file>
-            <file>file:/D:/imam/Kerja%20Joki/siloam/SIsiloam/SISILOAM/src/jasper_report/no_antrian.jrxml</file>
             <file>file:/D:/imam/Kerja%20Joki/siloam/SIsiloam/SISILOAM/src/repository/datapasienbarusementara.java</file>
+            <file>file:/D:/imam/Kerja%20Joki/siloam/SIsiloam/SISILOAM/src/entity/rekap_harian.java</file>
             <file>file:/D:/imam/Kerja%20Joki/siloam/SIsiloam/SISILOAM/src/panel/datamaster_edit.java</file>
             <file>file:/D:/imam/Kerja%20Joki/siloam/SIsiloam/SISILOAM/src/panel/datadokter.java</file>
             <file>file:/D:/imam/Kerja%20Joki/siloam/SIsiloam/SISILOAM/src/view/swing/validasiberhasil2.java</file>
