@@ -132,7 +132,15 @@ public class dasboardowner extends javax.swing.JPanel {
     }//GEN-LAST:event_btndaftarakunMousePressed
 
     private void btnhistoryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnhistoryMouseClicked
-    
+     
+        try {
+            main main =(main)SwingUtilities.getWindowAncestor(this);
+        this.setVisible(false);
+        main.showhistory();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
     
     
     }//GEN-LAST:event_btnhistoryMouseClicked

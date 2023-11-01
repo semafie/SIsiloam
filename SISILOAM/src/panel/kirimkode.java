@@ -36,7 +36,7 @@ public class kirimkode extends javax.swing.JPanel {
     Auth a = new Auth();
     public static String username;
     private String email;
-        class poo{
+    class poo{
     private String text;
 //    private String email;
     public poo() {
@@ -252,14 +252,6 @@ public void kirim()throws AddressException, MessagingException {
             Auth wew = new Auth();
             String sql = "SELECT * FROM user WHERE username = ?";
             System.out.println(getapa());
-//        try {
-//                        kirim();
-//                        System.out.println(getapa());
-//                         } catch (MessagingException ex) {
-//                        
-//                        System.out.println(ex.getMessage());
-//                    }
-            
                 try {
                         Connection koneksi = (Connection)Conn.configDB();
                                 PreparedStatement pst = koneksi.prepareStatement(sql);
@@ -275,12 +267,9 @@ public void kirim()throws AddressException, MessagingException {
                                 wew.kirimTokenDB(inputusername.getText(), token);
                                 System.out.println(token);
                                     try {
-//                                        verifikasi apa = new verifikasi();
-//                                 this.setVisible(false);
-//                                 apa.setVisible(true);
+
                                 main main =(main)SwingUtilities.getWindowAncestor(this);
-//                                dialog_mintakode a = new dialog_mintakode(main);
-//                                a.showPopUp();
+
                                 this.setVisible(false);
                                 main.showver();
                                 validasiberhasil aa = new validasiberhasil(main,"kode telah dikirim");
@@ -288,9 +277,7 @@ public void kirim()throws AddressException, MessagingException {
                                     } catch (Exception e) {
                                         System.out.println(e.getMessage());
                                     }
-                                 
-//                               jPanel1.setVisible(false);
-//                               jPanel2.setVisible(true);
+
                             }
                     } catch (Exception e) {
                         System.out.println(e.getMessage().toString());

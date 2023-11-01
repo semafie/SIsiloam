@@ -108,7 +108,7 @@ public class pasienbaru_tambahdaftar1 extends javax.swing.JPanel {
         generator.right = Integer.parseInt(parts[0]);
 
         autoID = generator.generateAutoID();
-        txt_id.setText(autoID);
+        txt_id.setText(idterakhir);
         
         idd = c.id;
         

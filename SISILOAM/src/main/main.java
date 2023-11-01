@@ -4,6 +4,8 @@
  */
 package main;
 
+import com.sun.mail.imap.ACL;
+import entity.history_datamaster;
 import entity.rekap_harian;
 import java.awt.event.WindowStateListener;
 import javax.swing.LookAndFeel;
@@ -22,6 +24,7 @@ import panel.datadokter_edit;
 import panel.datadokter_tambah;
 import panel.datamaster;
 import panel.datamaster_edit;
+import panel.history_datamaster1;
 import panel.kirimkode;
 import panel.pasienbaru;
 import panel.pasienbaru1;
@@ -213,6 +216,13 @@ public void showlogin(){
     }
     public void showdaftar_akunedit(){
         daftarakun_edit apa = new daftarakun_edit();
+        apa.setSize(1366,768);
+        this.add(apa);
+        this.revalidate();
+        this.repaint();
+    }
+    public void showhistory(){
+        history_datamaster1 apa = new history_datamaster1();
         apa.setSize(1366,768);
         this.add(apa);
         this.revalidate();

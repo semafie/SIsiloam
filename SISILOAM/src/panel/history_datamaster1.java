@@ -11,6 +11,7 @@ public class history_datamaster1 extends javax.swing.JPanel {
     history_datamaster aaa= new history_datamaster();
     public history_datamaster1() {
         initComponents();
+        load_tabel();
     }
     public void load_tabel(){
         DefaultTableModel model = new DefaultTableModel();

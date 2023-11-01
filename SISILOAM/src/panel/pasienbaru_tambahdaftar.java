@@ -105,12 +105,17 @@ public class pasienbaru_tambahdaftar extends javax.swing.JPanel {
         String idterakhir = String.valueOf(master.getlastid().getNo_rm());
 //        String apa11 = "99-20-30";
         String[] parts = idterakhir.split("-");
+        
+
+        autoID = generator.generateAutoID();
+        if(!idterakhir.equals("")){
         generator.left = Integer.parseInt(parts[2]);
         generator.middle = Integer.parseInt(parts[1]);
         generator.right = Integer.parseInt(parts[0]);
-
-        autoID = generator.generateAutoID();
         txt_id.setText(autoID);
+        } else {
+            txt_id.setText("01-00-00");
+        }
         
         idd = c.id;
         

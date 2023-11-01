@@ -87,7 +87,7 @@ public class validasiberhasil1 extends Dialog {
         int id = apa.getlastid().getId();
         
         
-        history_datamaster cie = new history_datamaster(iduser,"Di Edit",nama);
+        history_datamaster cie = new history_datamaster(id,"Di Edit",nama);
         apa.update(cie);
     closeMessage();
     
