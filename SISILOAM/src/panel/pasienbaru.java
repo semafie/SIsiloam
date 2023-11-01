@@ -21,6 +21,7 @@ public class pasienbaru extends javax.swing.JPanel {
     
     datapasienbarusementara a =new datapasienbarusementara();
     data_masterRepository master = new data_masterRepository();
+    AutoIDGenerator generator = new AutoIDGenerator();
 //    pasienbaru_pilihpoli c = new pasienbaru_pilihpoli();
 //        pasienbaru_pilihdokter c = new pasienbaru_pilihdokter();
     class AutoIDGenerator {
@@ -63,18 +64,20 @@ public class pasienbaru extends javax.swing.JPanel {
         txt_nik.setFont(font);
         txt_ttl.setFont(font);
         txt_no_rm.setFont(font);
-        AutoIDGenerator generator = new AutoIDGenerator();
+        
         String idterakhir = String.valueOf(master.getlastid().getNo_rm());
         String apa = "99-20-30";
         String[] parts = idterakhir.split("-");
         
 
-        String autoID = generator.generateAutoID();
-        if(!idterakhir.equals("")){
+        
+        if(!idterakhir.equals( "null")){
         generator.left = Integer.parseInt(parts[2]);
         generator.middle = Integer.parseInt(parts[1]);
         generator.right = Integer.parseInt(parts[0]);
+        String autoID = generator.generateAutoID();
         txt_no_rm.setText(autoID);
+System.out.println(idterakhir);
         } else {
             txt_no_rm.setText("01-00-00");
         }

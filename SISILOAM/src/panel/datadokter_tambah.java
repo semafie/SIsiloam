@@ -85,6 +85,15 @@ public class datadokter_tambah extends javax.swing.JPanel {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnkembaliMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnkembaliMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnkembaliMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnkembaliMousePressed(evt);
+            }
         });
         add(btnkembali);
         btnkembali.setBounds(10, 701, 190, 60);
@@ -93,6 +102,15 @@ public class datadokter_tambah extends javax.swing.JPanel {
         btnselanjutnya.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnselanjutnyaMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnselanjutnyaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnselanjutnyaMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnselanjutnyaMousePressed(evt);
             }
         });
         add(btnselanjutnya);
@@ -161,6 +179,30 @@ if (originalText.length() > 1) {
             ac.showPopUp();
 
     }//GEN-LAST:event_btnselanjutnyaMouseClicked
+
+    private void btnkembaliMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnkembaliMouseEntered
+    btnkembali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnkembali2.png")));
+    }//GEN-LAST:event_btnkembaliMouseEntered
+
+    private void btnkembaliMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnkembaliMouseExited
+    btnkembali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnkembali1.png")));
+    }//GEN-LAST:event_btnkembaliMouseExited
+
+    private void btnkembaliMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnkembaliMousePressed
+    btnkembali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnkembali3.png")));
+    }//GEN-LAST:event_btnkembaliMousePressed
+
+    private void btnselanjutnyaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnselanjutnyaMouseEntered
+    btnselanjutnya.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnselanjutnya2.png")));
+    }//GEN-LAST:event_btnselanjutnyaMouseEntered
+
+    private void btnselanjutnyaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnselanjutnyaMouseExited
+    btnselanjutnya.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnselanjutnya1.png")));
+    }//GEN-LAST:event_btnselanjutnyaMouseExited
+
+    private void btnselanjutnyaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnselanjutnyaMousePressed
+    btnselanjutnya.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnselanjutnya3.png")));
+    }//GEN-LAST:event_btnselanjutnyaMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

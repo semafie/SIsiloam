@@ -102,12 +102,7 @@ public class pasienbaru_tambahdaftar1 extends javax.swing.JPanel {
         AutoIDGenerator generator = new AutoIDGenerator();
         String idterakhir = String.valueOf(master.getlastid().getNo_rm());
 //        String apa11 = "99-20-30";
-        String[] parts = idterakhir.split("-");
-        generator.left = Integer.parseInt(parts[2]);
-        generator.middle = Integer.parseInt(parts[1]);
-        generator.right = Integer.parseInt(parts[0]);
-
-        autoID = generator.generateAutoID();
+       
         txt_id.setText(idterakhir);
         
         idd = c.id;
@@ -265,8 +260,8 @@ public class pasienbaru_tambahdaftar1 extends javax.swing.JPanel {
     }//GEN-LAST:event_btnbatalMouseClicked
 
     private void btnsimpandancetaknoantrianMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsimpandancetaknoantrianMouseClicked
-    data_master keren = new data_master(autoID,master.get(idf).getNama(),master.get(idf).getNik(),master.get(idf).getAlamat(),master.get(idf).getTtl(),master.get(idf).getJenis_kelamin());
-    master.add(keren);
+//    data_master keren = new data_master(txt_id.getText(),master.get(idf).getNama(),master.get(idf).getNik(),master.get(idf).getAlamat(),master.get(idf).getTtl(),master.get(idf).getJenis_kelamin());
+//    master.add(keren);
     lastid = master.getlastid().getId();
     data_master masuk2 = new data_master(lastid);
     
@@ -293,7 +288,9 @@ public class pasienbaru_tambahdaftar1 extends javax.swing.JPanel {
       b.updateno_antriantanggal(masuknoantrian1);  
     }
     idfinalrekap = gas.getlastid().getId();
-    InputStream struk = getClass().getResourceAsStream("/jasper_report/laporan.jrxml");
+
+        System.out.println(idfinalrekap);
+            InputStream struk = getClass().getResourceAsStream("/jasper_report/no_antrian.jrxml");
             String query = "SELECT * FROM rekap_harian join data_dokter on rekap_harian.id_dokter = data_dokter.id join data_master on rekap_harian.id_master = data_master.id WHERE rekap_harian.id = "+idfinalrekap;
 //        String path = "E:/SEMUA FOLDER/imam/kuliah/semester 3/joki/SIsiloam/SIsiloam/SISILOAM/src/jasper_report/no_antrian.jrxml";
 

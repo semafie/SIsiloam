@@ -327,6 +327,15 @@ public class rekapharian1 extends javax.swing.JPanel {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btncetakMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btncetakMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btncetakMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btncetakMousePressed(evt);
+            }
         });
         add(btncetak);
         btncetak.setBounds(1160, 700, 200, 60);
@@ -376,6 +385,18 @@ public class rekapharian1 extends javax.swing.JPanel {
     private void text_searchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text_searchKeyReleased
         load_search(text_search.getText());
     }//GEN-LAST:event_text_searchKeyReleased
+
+    private void btncetakMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btncetakMouseEntered
+    btncetak.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btncetak2.png")));
+    }//GEN-LAST:event_btncetakMouseEntered
+
+    private void btncetakMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btncetakMouseExited
+    btncetak.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btncetak1.png")));
+    }//GEN-LAST:event_btncetakMouseExited
+
+    private void btncetakMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btncetakMousePressed
+    btncetak.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btncetak3.png")));
+    }//GEN-LAST:event_btncetakMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

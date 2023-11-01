@@ -62,12 +62,19 @@ public class pasienbaru1 extends javax.swing.JPanel {
         String idterakhir = String.valueOf(master.getlastid().getNo_rm());
         String apa = "99-20-30";
         String[] parts = idterakhir.split("-");
+
+
+
+        if(!idterakhir.equals( "null")){
         generator.left = Integer.parseInt(parts[2]);
         generator.middle = Integer.parseInt(parts[1]);
         generator.right = Integer.parseInt(parts[0]);
-
         String autoID = generator.generateAutoID();
         txt_no_rm.setText(autoID);
+System.out.println(idterakhir);
+        } else {
+            txt_no_rm.setText("01-00-00");
+        }
         
         
         txt_nama_pasien.setText(bb.get(1).getNama());

@@ -52,6 +52,7 @@ public class pasienbaru_tambahdaftar extends javax.swing.JPanel {
     Date date = new Date();
     SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
     rekap_harianRepository gas = new rekap_harianRepository();
+    AutoIDGenerator generator = new AutoIDGenerator();
     private int lastid;
     private String ambilpoli = poli.jeje;
     private String autoID;
@@ -101,18 +102,20 @@ public class pasienbaru_tambahdaftar extends javax.swing.JPanel {
         txt_nama.setFont(font);
         txt_dokter1.setFont(font);
         tanggal.setFont(font);
-        AutoIDGenerator generator = new AutoIDGenerator();
+        
         String idterakhir = String.valueOf(master.getlastid().getNo_rm());
 //        String apa11 = "99-20-30";
         String[] parts = idterakhir.split("-");
         
 
-        autoID = generator.generateAutoID();
-        if(!idterakhir.equals("")){
+        
+        if(!idterakhir.equals("null")){
         generator.left = Integer.parseInt(parts[2]);
         generator.middle = Integer.parseInt(parts[1]);
         generator.right = Integer.parseInt(parts[0]);
+        autoID = generator.generateAutoID();
         txt_id.setText(autoID);
+System.out.println(idterakhir);
         } else {
             txt_id.setText("01-00-00");
         }
