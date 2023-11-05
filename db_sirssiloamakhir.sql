@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 01 Nov 2023 pada 10.28
--- Versi server: 10.4.28-MariaDB
--- Versi PHP: 8.2.4
+-- Generation Time: Nov 05, 2023 at 08:49 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `data_dokter`
+-- Table structure for table `data_dokter`
 --
 
 CREATE TABLE `data_dokter` (
@@ -38,10 +38,17 @@ CREATE TABLE `data_dokter` (
   `tanggal` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `data_dokter`
+--
+
+INSERT INTO `data_dokter` (`id`, `nama`, `no_hp`, `jenis_poli`, `jadwal`, `jenis_kelamin`, `no_antrian`, `tanggal`) VALUES
+(8, 'siapanih', '003424234234', 'Poli umum', 'swdasdasda', 'Laki - Laki', 0, '2023-10-31');
+
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `data_master`
+-- Table structure for table `data_master`
 --
 
 CREATE TABLE `data_master` (
@@ -51,11 +58,19 @@ CREATE TABLE `data_master` (
   `nik` int(16) NOT NULL,
   `alamat` varchar(25) NOT NULL,
   `ttl` varchar(30) NOT NULL,
-  `jenis_kelamin1` varchar(15) NOT NULL
+  `jenis_kelamin1` varchar(15) NOT NULL,
+  `status_pembayaran` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Trigger `data_master`
+-- Dumping data for table `data_master`
+--
+
+INSERT INTO `data_master` (`id`, `no_rm`, `nama1`, `nik`, `alamat`, `ttl`, `jenis_kelamin1`, `status_pembayaran`) VALUES
+(26, '01-00-00', 'siaphayo', 342342, 'jl apaa', '23 jasau sa', 'Perempuan', 'Asuransi , hay guys');
+
+--
+-- Triggers `data_master`
 --
 DELIMITER $$
 CREATE TRIGGER `triggerdelete` AFTER DELETE ON `data_master` FOR EACH ROW BEGIN
@@ -75,7 +90,7 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `history_datamaster`
+-- Table structure for table `history_datamaster`
 --
 
 CREATE TABLE `history_datamaster` (
@@ -91,18 +106,23 @@ CREATE TABLE `history_datamaster` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `history_datamaster`
+-- Dumping data for table `history_datamaster`
 --
 
 INSERT INTO `history_datamaster` (`id`, `no_rm`, `nama`, `nik`, `alamat`, `ttl`, `jenis_kelamin`, `status`, `nama_user`) VALUES
-(30, '01-00-00', 'siapaa yaa', 2342432, 'Jl Manggar 23', '25 Desember 2004', 'Perempuan', '', ''),
-(31, '02-00-00', 'desaaa', 434535, 'Jl poliii', 'dfd34354', 'Laki - Laki', '', ''),
-(32, '03-00-00', 'hilman', 312312, 'jl krakatau', '21 juni 2003', 'Perempuan', '', '');
+(27, '01-00-00', 'siaphayo', 342342, 'jl apaa', '23 jasau sa', 'Laki - Laki', '', ''),
+(28, '01-00-00', 'siaphayo1', 342342, 'jl apaa', '23 jasau sa', 'Perempuan', '', ''),
+(29, '01-00-00', 'siaphayo12', 342342, 'jl apaa', '23 jasau sa', 'Perempuan', '', ''),
+(30, '01-00-00', 'siaphayo', 342342, 'jl apaa', '23 jasau sa', 'Perempuan', '', ''),
+(31, '01-00-00', 'siaphayo', 342342, 'jl apaa', '23 jasau sa', 'Perempuan', '', ''),
+(32, '01-00-00', 'siaphayo', 342342, 'jl apaa', '23 jasau sa', 'Perempuan', 'Di Edit', 'halooo'),
+(33, '01-00-00', 'siaphayo', 342342, 'jl apaa', '23 jasau sa', 'Perempuan', 'Di Edit', 'halooo'),
+(34, '01-00-00', 'siaphayo', 342342, 'jl apaa', '23 jasau sa', 'Perempuan', 'Di Edit', 'halooo');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `id_level`
+-- Table structure for table `id_level`
 --
 
 CREATE TABLE `id_level` (
@@ -111,7 +131,7 @@ CREATE TABLE `id_level` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `id_level`
+-- Dumping data for table `id_level`
 --
 
 INSERT INTO `id_level` (`id`, `role`) VALUES
@@ -121,29 +141,30 @@ INSERT INTO `id_level` (`id`, `role`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pasienbaru_sementara`
+-- Table structure for table `pasienbaru_sementara`
 --
 
 CREATE TABLE `pasienbaru_sementara` (
   `id` int(6) NOT NULL,
   `nama` varchar(50) NOT NULL,
-  `nik` int(16) NOT NULL,
+  `nik` varchar(16) NOT NULL,
   `alamat` varchar(50) NOT NULL,
   `ttl` varchar(50) NOT NULL,
-  `jenis_kelamin` varchar(20) NOT NULL
+  `jenis_kelamin` varchar(20) NOT NULL,
+  `status_pembayaran` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `pasienbaru_sementara`
+-- Dumping data for table `pasienbaru_sementara`
 --
 
-INSERT INTO `pasienbaru_sementara` (`id`, `nama`, `nik`, `alamat`, `ttl`, `jenis_kelamin`) VALUES
-(1, 'hilman', 312312, 'jl krakatau', '21 juni 2003', 'Perempuan');
+INSERT INTO `pasienbaru_sementara` (`id`, `nama`, `nik`, `alamat`, `ttl`, `jenis_kelamin`, `status_pembayaran`) VALUES
+(1, 'siapa yaaa', '1234567898', 'asdsadas', 'asdsadas', 'Laki - Laki', '');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `rekap_harian`
+-- Table structure for table `rekap_harian`
 --
 
 CREATE TABLE `rekap_harian` (
@@ -157,7 +178,7 @@ CREATE TABLE `rekap_harian` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -170,42 +191,44 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id`, `username`, `password`, `email`, `level`, `token`) VALUES
-(1, 'restuuu', 'admin123', 'admin@gmail.com', 1, '');
+(1, 'restuuu', 'admin123', 'admin@gmail.com', 1, ''),
+(2, 'halooo', 'halo123', 'halooooooo', 2, ''),
+(3, 'iye', 'iye123', 'asaasasas', 2, '');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `data_dokter`
+-- Indexes for table `data_dokter`
 --
 ALTER TABLE `data_dokter`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `data_master`
+-- Indexes for table `data_master`
 --
 ALTER TABLE `data_master`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `history_datamaster`
+-- Indexes for table `history_datamaster`
 --
 ALTER TABLE `history_datamaster`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `id_level`
+-- Indexes for table `id_level`
 --
 ALTER TABLE `id_level`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `rekap_harian`
+-- Indexes for table `rekap_harian`
 --
 ALTER TABLE `rekap_harian`
   ADD PRIMARY KEY (`id`),
@@ -213,59 +236,59 @@ ALTER TABLE `rekap_harian`
   ADD KEY `soso1` (`id_dokter`);
 
 --
--- Indeks untuk tabel `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`),
   ADD KEY `saasa` (`level`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `data_dokter`
+-- AUTO_INCREMENT for table `data_dokter`
 --
 ALTER TABLE `data_dokter`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT untuk tabel `data_master`
+-- AUTO_INCREMENT for table `data_master`
 --
 ALTER TABLE `data_master`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
--- AUTO_INCREMENT untuk tabel `history_datamaster`
+-- AUTO_INCREMENT for table `history_datamaster`
 --
 ALTER TABLE `history_datamaster`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
--- AUTO_INCREMENT untuk tabel `rekap_harian`
+-- AUTO_INCREMENT for table `rekap_harian`
 --
 ALTER TABLE `rekap_harian`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
--- AUTO_INCREMENT untuk tabel `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `rekap_harian`
+-- Constraints for table `rekap_harian`
 --
 ALTER TABLE `rekap_harian`
   ADD CONSTRAINT `soso` FOREIGN KEY (`id_master`) REFERENCES `data_master` (`id`),
   ADD CONSTRAINT `soso1` FOREIGN KEY (`id_dokter`) REFERENCES `data_dokter` (`id`);
 
 --
--- Ketidakleluasaan untuk tabel `user`
+-- Constraints for table `user`
 --
 ALTER TABLE `user`
   ADD CONSTRAINT `saasa` FOREIGN KEY (`level`) REFERENCES `id_level` (`id`);
