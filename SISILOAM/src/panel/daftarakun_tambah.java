@@ -131,7 +131,7 @@ public class daftarakun_tambah extends javax.swing.JPanel {
         
         if(txt_password.getText().equals(txt_password2.getText())){
           String password = txt_password.getText();
-          user apa = new user(txt_username.getText(), password, txt_email.getText(), 2,0);
+          user apa = new user(Integer.valueOf(txt_id.getText()),txt_username.getText(), password, txt_email.getText(), 2,0);
           a.add(apa);
           appa.hapusToken(txt_username.getText());
           main wow = (main)SwingUtilities.getWindowAncestor(this);

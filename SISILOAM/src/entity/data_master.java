@@ -3,8 +3,9 @@ package entity;
 
 public class data_master implements Entity{
     public static String tableName = "data_master";
-    private int id, nik;
-    private String no_rm, nama, alamat, ttl, jenis_kelamin;
+    private int id;
+    
+    private String no_rm, nama, alamat, ttl, jenis_kelamin, nik, status_pembayaran;
 
     public data_master(){
         
@@ -14,21 +15,31 @@ public class data_master implements Entity{
         this.id = id;
     }
     
-    public data_master(String nama, int nik, String alamat, String ttl, String jenis_kelamin){
+    public data_master(String nama, String nik, String alamat, String ttl, String jenis_kelamin, String status_pembayaran){
         this.nama = nama;
         this.nik = nik;
         this.alamat = alamat;
         this.ttl = ttl;
         this.jenis_kelamin = jenis_kelamin;
+        this.status_pembayaran =status_pembayaran;
     }
     
-    public data_master(String no_rm, String nama, int nik, String alamat, String ttl, String jenis_kelamin){
+    public data_master(String no_rm, String nama, String nik, String alamat, String ttl, String jenis_kelamin,  String status_pembayaran){
         this.no_rm = no_rm;
         this.nama = nama;
         this.nik = nik;
         this.alamat = alamat;
         this.ttl = ttl;
         this.jenis_kelamin = jenis_kelamin;
+        this.status_pembayaran =status_pembayaran;
+    }
+
+    public void setStatus_pembayaran(String status_pembayaran) {
+        this.status_pembayaran = status_pembayaran;
+    }
+
+    public String getStatus_pembayaran() {
+        return status_pembayaran;
     }
     
     public void setAlamat(String alamat) {
@@ -73,11 +84,11 @@ public class data_master implements Entity{
         return nama;
     }
 
-    public void setNik(int nik) {
+    public void setNik(String nik) {
         this.nik = nik;
     }
 
-    public int getNik() {
+    public String getNik() {
         return nik;
     }
 

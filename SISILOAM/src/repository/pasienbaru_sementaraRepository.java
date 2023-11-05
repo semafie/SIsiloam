@@ -56,16 +56,17 @@ public class pasienbaru_sementaraRepository implements Repository<pasienbaru_sem
 
     @Override
     public boolean add(pasienbaru_sementara master) {
-    String sql = "insert into "+tableName+ " values (?,?,?,?,?,?)";
+    String sql = "insert into "+tableName+ " values (?,?,?,?,?,?,?)";
         try {
             Connection koneksi =(Connection)Conn.configDB();
             PreparedStatement pst = koneksi.prepareCall(sql);
             pst.setInt(1, master.getId());
             pst.setString(2, master.getNama());
-            pst.setInt(3, master.getNik());
+            pst.setString(3, master.getNik());
             pst.setString(4, master.getAlamat());
             pst.setString(5, master.getTtl());
             pst.setString(6, master.getJenis_kelamin());
+            pst.setString(7, master.getStatus_pembayaran());
             pst.execute();
             return true;
         } catch (Exception e) {
@@ -77,16 +78,17 @@ public class pasienbaru_sementaraRepository implements Repository<pasienbaru_sem
 
     @Override
     public boolean update(pasienbaru_sementara master) {
-        String sql = "update "+tableName+" set nama = ?, nik = ?, alamat = ?, ttl = ?, jenis_kelamin = ? where id = ?";
+        String sql = "update "+tableName+" set nama = ?, nik = ?, alamat = ?, ttl = ?, jenis_kelamin = ?, status_Pembayaran = ? where id = ?";
         try {
             Connection koneksi =(Connection)Conn.configDB();
             PreparedStatement pst =koneksi.prepareStatement(sql);
             pst.setString(1, master.getNama());
-            pst.setInt(2, master.getNik());
+            pst.setString(2, master.getNik());
             pst.setString(3, master.getAlamat());
             pst.setString(4, master.getTtl());
             pst.setString(5, master.getJenis_kelamin());
-            pst.setInt(6, master.getId());
+            pst.setString(6, master.getStatus_pembayaran());
+            pst.setInt(7, master.getId());
             pst.execute();
             return true;
         } catch (Exception e) {
@@ -115,10 +117,11 @@ public class pasienbaru_sementaraRepository implements Repository<pasienbaru_sem
     private pasienbaru_sementara mapToEntity(ResultSet res)throws SQLException {
         pasienbaru_sementara master = new pasienbaru_sementara(
             res.getString("nama"),
-            res.getInt("nik"),
+            res.getString("nik"),
             res.getString("alamat"),
             res.getString("ttl"),
-            res.getString("jenis_kelamin")
+            res.getString("jenis_kelamin"),
+            res.getString("status_pembayaran")
         );
         master.setId(res.getInt("id"));
         return master;

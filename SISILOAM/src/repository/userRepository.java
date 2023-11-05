@@ -69,16 +69,17 @@ public class userRepository implements Repository<user>{
 
     @Override
     public boolean add(user us)  {
-        String sql = "Insert into "+tableName+" (`username`, `password`, `email`, `level`,`token` ) values (?,?,?,?,?)";
+        String sql = "Insert into "+tableName+" (`id`,`username`, `password`, `email`, `level`,`token` ) values (?,?,?,?,?,?)";
         try {
             Connection koneksi = (Connection)Conn.configDB();
             PreparedStatement pst = koneksi.prepareStatement(sql);
             
-            pst.setString(1, us.getUsername());
-            pst.setString(2, us.getPassword());
-            pst.setString(3, us.getEmail());
-            pst.setInt(4, us.getLevel());
-            pst.setInt(5, us.getToken());
+            pst.setInt(1, us.getId());
+            pst.setString(2, us.getUsername());
+            pst.setString(3, us.getPassword());
+            pst.setString(4, us.getEmail());
+            pst.setInt(5, us.getLevel());
+            pst.setInt(6, us.getToken());
             pst.execute();
             return  true;
         } catch (Exception e) {

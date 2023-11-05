@@ -58,6 +58,7 @@ public class datamaster extends javax.swing.JPanel {
         model.addColumn("ALAMAT");
         model.addColumn("TTL");
         model.addColumn("JENIS_KELAMIN");
+        model.addColumn("STATUS_BAYAR");
         try {
             for(data_master apa:datamaster.get()){
                 model.addRow(new Object[]{
@@ -66,7 +67,8 @@ public class datamaster extends javax.swing.JPanel {
                     apa.getNik(),
                     apa.getAlamat(),
                     apa.getTtl(),
-                    apa.getJenis_kelamin()
+                    apa.getJenis_kelamin(),
+                    apa.getStatus_pembayaran()
                 });
             }
             table.setModel(model);
@@ -82,6 +84,7 @@ public class datamaster extends javax.swing.JPanel {
     model.addColumn("ALAMAT");
     model.addColumn("TTL");
     model.addColumn("JENIS_KELAMIN");
+    model.addColumn("STATUS_BAYAR");
     
     try {
         String sql = "SELECT * FROM data_master WHERE no_rm = ? OR nama1 LIKE ? OR nik LIKE ?";
@@ -100,7 +103,8 @@ public class datamaster extends javax.swing.JPanel {
                 res.getString("nik"),
                 res.getString("alamat"),
                 res.getString("ttl"),
-                res.getString("jenis_kelamin1")
+                res.getString("jenis_kelamin1"),
+                res.getString("status_pembayaran")
             });
         }
 

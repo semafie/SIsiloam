@@ -22,6 +22,7 @@ public class datadokter_tambah extends javax.swing.JPanel {
     private String jeniskelamin;
     private int id;
     private String nohp;
+    
     data_dokterRepository master = new data_dokterRepository();
     /**
      * Creates new form datadokter_tambah
@@ -47,6 +48,7 @@ public class datadokter_tambah extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        txt_nohp1 = new javax.swing.JTextField();
         txt_nohp = new javax.swing.JTextField();
         txt_jadwal = new javax.swing.JTextField();
         txt_nama = new javax.swing.JTextField();
@@ -59,11 +61,16 @@ public class datadokter_tambah extends javax.swing.JPanel {
 
         setLayout(null);
 
+        txt_nohp1.setBackground(new Color(0,0,0,0));
+        txt_nohp1.setText("0");
+        txt_nohp1.setBorder(null);
+        add(txt_nohp1);
+        txt_nohp1.setBounds(530, 390, 10, 40);
+
         txt_nohp.setBackground(new Color(0,0,0,0));
-        txt_nohp.setText("0");
         txt_nohp.setBorder(null);
         add(txt_nohp);
-        txt_nohp.setBounds(530, 390, 500, 40);
+        txt_nohp.setBounds(540, 390, 490, 40);
 
         txt_jadwal.setBackground(new Color(0,0,0,0));
         txt_jadwal.setBorder(null);
@@ -148,19 +155,17 @@ public class datadokter_tambah extends javax.swing.JPanel {
 //    } else {
 //    JOptionPane.showMessageDialog(null, "Nomor RM harus berupa angka integer.");
 //    }
-    String nohp2 = txt_nohp.getText();
-    String originalText = nohp2;
-if (originalText.length() > 1) {
-    String textWithoutFirstCharacter = originalText.substring(1);
-    System.out.println(textWithoutFirstCharacter);
+  try {
+    Long cek = Long.valueOf(txt_nohp.getText());
+    Long apaya = Long.valueOf(txt_nohp.getText());
 
-    if (textWithoutFirstCharacter.matches("\\d+")) {
-    nohp = "0"+nohp2;
+    if (apaya.equals(cek)) {
+        nohp = txt_nohp.getText();
     } else {
-    JOptionPane.showMessageDialog(null, "Nomor hp harus berupa angka integer.");
+        System.out.println("Data harus angka");
     }
-    } else {
-    System.out.println("Teks terlalu pendek untuk dihapus karakter pertama.");
+} catch (NumberFormatException e) {
+    System.out.println("Data harus angka");
 }
     String nama = txt_nama.getText();
     Object selectedItem = cmb_poli.getSelectedItem();
@@ -215,5 +220,6 @@ if (originalText.length() > 1) {
     private javax.swing.JTextField txt_nama;
     private javax.swing.JTextField txt_no_rm;
     private javax.swing.JTextField txt_nohp;
+    private javax.swing.JTextField txt_nohp1;
     // End of variables declaration//GEN-END:variables
 }

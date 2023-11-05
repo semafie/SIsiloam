@@ -5,12 +5,15 @@
 package panel;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.HashMap;
 import java.util.Scanner;
+import javax.swing.JRootPane;
 import javax.swing.SwingUtilities;
 import main.main;
 import net.sf.jasperreports.engine.JRResultSetDataSource;
@@ -39,6 +42,19 @@ public class Login extends javax.swing.JPanel {
      */
     public Login() {
         initComponents();
+//        JRootPane rootPane = SwingUtilities.getRootPane(btnlogin);
+//        rootPane.setDefaultButton(btnlogin);
+btnlogin.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    // Tindakan yang akan dijalankan ketika tombol "Enter" ditekan pada JLabel
+                    System.out.println("Tombol Enter ditekan pada JLabel");
+                    btnloginMouseClicked(null);
+                }
+            }
+        });
+
         Font font = new Font("Quicksand", Font.PLAIN, 22);
         inputusername.setFont(font);
         inputpassword.setFont(font);

@@ -90,16 +90,17 @@ public class data_masterRepository implements Repository<data_master> {
 
     @Override
     public boolean add(data_master master) {
-    String sql = "insert into "+tableName+ " (`no_rm`,`nama1`,`nik`,`alamat`,`ttl`,`jenis_kelamin1`) values (?,?,?,?,?,?)";
+    String sql = "insert into "+tableName+ " (`no_rm`,`nama1`,`nik`,`alamat`,`ttl`,`jenis_kelamin1`, `status_Pembayaran`) values (?,?,?,?,?,?,?)";
         try {
             Connection koneksi =(Connection)Conn.configDB();
             PreparedStatement pst = koneksi.prepareCall(sql);
             pst.setString(1, master.getNo_rm());
             pst.setString(2, master.getNama());
-            pst.setInt(3, master.getNik());
+            pst.setString(3, master.getNik());
             pst.setString(4, master.getAlamat());
             pst.setString(5, master.getTtl());
             pst.setString(6, master.getJenis_kelamin());
+            pst.setString(7, master.getStatus_pembayaran());
             pst.execute();
             return true;
         } catch (Exception e) {
@@ -111,16 +112,17 @@ public class data_masterRepository implements Repository<data_master> {
 
     @Override
     public boolean update(data_master master) {
-        String sql = "update "+tableName+" set nama1 = ?, nik = ?, alamat = ?, ttl = ?, jenis_kelamin1 = ? where id = ?";
+        String sql = "update "+tableName+" set nama1 = ?, nik = ?, alamat = ?, ttl = ?, jenis_kelamin1 = ?, status_Pembayaran = ? where id = ?";
         try {
             Connection koneksi =(Connection)Conn.configDB();
             PreparedStatement pst =koneksi.prepareStatement(sql);
             pst.setString(1, master.getNama());
-            pst.setInt(2, master.getNik());
+            pst.setString(2, master.getNik());
             pst.setString(3, master.getAlamat());
             pst.setString(4, master.getTtl());
             pst.setString(5, master.getJenis_kelamin());
-            pst.setInt(6, master.getId());
+            pst.setString(6, master.getStatus_pembayaran());
+            pst.setInt(7, master.getId());
             pst.execute();
             return true;
         } catch (Exception e) {
@@ -131,16 +133,17 @@ public class data_masterRepository implements Repository<data_master> {
     }
     
     public boolean updatebynorm(data_master master) {
-        String sql = "update "+tableName+" set nama1 = ?, nik = ?, alamat = ?, ttl = ?, jenis_kelamin1 = ? where no_rm = ?";
+        String sql = "update "+tableName+" set nama1 = ?, nik = ?, alamat = ?, ttl = ?, jenis_kelamin1 = ?, status_Pembayaran = ? where no_rm = ?";
         try {
             Connection koneksi =(Connection)Conn.configDB();
             PreparedStatement pst =koneksi.prepareStatement(sql);
             pst.setString(1, master.getNama());
-            pst.setInt(2, master.getNik());
+            pst.setString(2, master.getNik());
             pst.setString(3, master.getAlamat());
             pst.setString(4, master.getTtl());
             pst.setString(5, master.getJenis_kelamin());
-            pst.setString(6, master.getNo_rm());
+            pst.setString(6, master.getStatus_pembayaran());
+            pst.setString(7, master.getNo_rm());
             pst.execute();
             return true;
         } catch (Exception e) {
@@ -185,10 +188,11 @@ public class data_masterRepository implements Repository<data_master> {
         data_master master = new data_master(
                 res.getString("no_rm"),
             res.getString("nama1"),
-            res.getInt("nik"),
+            res.getString("nik"),
             res.getString("alamat"),
             res.getString("ttl"),
-            res.getString("jenis_kelamin1")
+            res.getString("jenis_kelamin1"),
+            res.getString("status_pembayaran")
         );
         master.setId(res.getInt("id"));
         return master;

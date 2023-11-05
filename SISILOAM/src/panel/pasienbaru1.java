@@ -8,6 +8,7 @@ import entity.pasienbaru_sementara;
 import java.awt.Font;
 import javax.swing.SwingUtilities;
 import main.main;
+import static panel.pasienbaru.txt_nik;
 import repository.data_masterRepository;
 
 import repository.datapasienbarusementara;
@@ -18,6 +19,8 @@ import repository.pasienbaru_sementaraRepository;
  * @author semafie
  */
 public class pasienbaru1 extends javax.swing.JPanel {
+    private String nik;
+    private String statusakhir;
     data_masterRepository master = new data_masterRepository();
     class AutoIDGenerator {
     int left = 0;
@@ -52,6 +55,7 @@ public class pasienbaru1 extends javax.swing.JPanel {
     pasienbaru_sementaraRepository bb = new pasienbaru_sementaraRepository();
     public pasienbaru1() {
         initComponents();
+        jPanel1.setVisible(false);
         Font font = new Font("Quicksand", Font.PLAIN, 22);
         txt_alamat.setFont(font);
         txt_nama_pasien.setFont(font);
@@ -112,6 +116,10 @@ System.out.println(idterakhir);
         txt_nama_pasien = new javax.swing.JTextField();
         txt_no_rm = new javax.swing.JTextField();
         cmd_jnk = new view.swing.Combobox();
+        jPanel1 = new javax.swing.JPanel();
+        txt_keterangan = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        cmb_status = new view.swing.Combobox();
         bg = new javax.swing.JLabel();
         cacacac = new javax.swing.JTextField();
 
@@ -156,36 +164,73 @@ System.out.println(idterakhir);
         txt_nik.setBackground(new Color(0,0,0,0));
         txt_nik.setBorder(null);
         add(txt_nik);
-        txt_nik.setBounds(550, 390, 490, 40);
+        txt_nik.setBounds(550, 370, 490, 40);
 
         txt_alamat.setBackground(new Color(0,0,0,0));
         txt_alamat.setBorder(null);
         add(txt_alamat);
-        txt_alamat.setBounds(550, 460, 490, 40);
+        txt_alamat.setBounds(550, 440, 490, 40);
 
         txt_ttl.setBackground(new Color(0,0,0,0));
         txt_ttl.setBorder(null);
         add(txt_ttl);
-        txt_ttl.setBounds(550, 530, 490, 40);
+        txt_ttl.setBounds(550, 510, 490, 40);
 
         txt_nama_pasien.setBackground(new Color(0,0,0,0));
         txt_nama_pasien.setBorder(null);
         add(txt_nama_pasien);
-        txt_nama_pasien.setBounds(550, 320, 490, 40);
+        txt_nama_pasien.setBounds(550, 300, 490, 40);
 
         txt_no_rm.setBackground(new Color(0,0,0,0));
         txt_no_rm.setBorder(null);
         add(txt_no_rm);
-        txt_no_rm.setBounds(550, 250, 490, 40);
+        txt_no_rm.setBounds(550, 230, 490, 40);
 
         cmd_jnk.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Laki - Laki", "Perempuan" }));
         cmd_jnk.setLabeText("Pilih Kelamin");
         cmd_jnk.setLineColor(new java.awt.Color(0, 153, 153));
         cmd_jnk.setName(""); // NOI18N
         add(cmd_jnk);
-        cmd_jnk.setBounds(570, 600, 280, 40);
+        cmd_jnk.setBounds(560, 580, 200, 40);
 
-        bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/Pasien Baru.png"))); // NOI18N
+        jPanel1.setBackground(new Color(0,0,0,0));
+        jPanel1.setLayout(null);
+
+        txt_keterangan.setBackground(new Color(0,0,0,0));
+        txt_keterangan.setBorder(null);
+        jPanel1.add(txt_keterangan);
+        txt_keterangan.setBounds(20, 20, 330, 40);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/bg keterangan.png"))); // NOI18N
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(10, 10, 360, 60);
+
+        add(jPanel1);
+        jPanel1.setBounds(780, 636, 370, 70);
+
+        cmb_status.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Umum", "BPJS", "Asuransi" }));
+        cmb_status.setLabeText("Pilih Status Pembayaran");
+        cmb_status.setLineColor(new java.awt.Color(0, 153, 153));
+        cmb_status.setName(""); // NOI18N
+        cmb_status.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cmb_statusMouseClicked(evt);
+            }
+        });
+        cmb_status.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmb_statusActionPerformed(evt);
+            }
+        });
+        add(cmb_status);
+        cmb_status.setBounds(560, 650, 200, 40);
+
+        bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/bg Pasien Baru.png"))); // NOI18N
         add(bg);
         bg.setBounds(0, 0, 1366, 768);
 
@@ -203,13 +248,36 @@ System.out.println(idterakhir);
     private void btn_lanjutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_lanjutMouseClicked
 //int no = Integer.valueOf(txt_no_rm.getText());
         String nama = txt_nama_pasien.getText();
-        int nik = Integer.valueOf(txt_nik.getText());
+        String nikk = txt_nik.getText();
+        if(nikk.length() > 16) {
+          try {
+    Long cek = Long.valueOf(txt_nik.getText());
+    Long apaya = Long.valueOf(txt_nik.getText());
+
+    if (apaya.equals(cek)) {
+        nik = txt_nik.getText();
+    } else {
+        System.out.println("Data harus angka");
+    }
+} catch (NumberFormatException e) {
+    System.out.println("Data harus angka");
+}}else{
+            System.out.println("Maksimal input 16 angka");    
+        }
         String ttl = txt_ttl.getText();
         String alamat = txt_alamat.getText();
         Object selectedItem = cmd_jnk.getSelectedItem();   
         String jnk = selectedItem.toString();
+        Object selectedItem1 = cmb_status.getSelectedItem();
+        String status = selectedItem1.toString();
+        if (status.equals("Asuransi")){
+            statusakhir = status + " , " + txt_keterangan.getText();
+        } else {
+            statusakhir = status ;
+        }
+        
         System.out.println(jnk);
-        pasienbaru_sementara aa = new pasienbaru_sementara(1, nama, nik, alamat, ttl, jnk);
+        pasienbaru_sementara aa = new pasienbaru_sementara(1, nama, nik, alamat, ttl, jnk, statusakhir);
         bb.update(aa);
 //        if (txt_no_rm.getText().equals("") || txt_nik.getText().equals("") || txt_alamat.getText().equals("") || txt_nama_pasien.getText().equals("") || txt_ttl.getText().equals("")) {
 //            System.out.println("isi data sek muas");
@@ -245,14 +313,33 @@ System.out.println(idterakhir);
     btn_lanjut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnselanjutnya3.png")));
     }//GEN-LAST:event_btn_lanjutMousePressed
 
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel1MouseClicked
+
+    private void cmb_statusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmb_statusActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmb_statusActionPerformed
+
+    private void cmb_statusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmb_statusMouseClicked
+    if (cmb_status.getSelectedIndex() == 2) { // Pilihan ke-3
+                    
+        jPanel1.setVisible(true);
+                }
+    }//GEN-LAST:event_cmb_statusMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bg;
     private javax.swing.JLabel btn_kembali;
     private javax.swing.JLabel btn_lanjut;
     private javax.swing.JTextField cacacac;
+    private view.swing.Combobox cmb_status;
     private view.swing.Combobox cmd_jnk;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     public static javax.swing.JTextField txt_alamat;
+    public javax.swing.JTextField txt_keterangan;
     public static javax.swing.JTextField txt_nama_pasien;
     public static javax.swing.JTextField txt_nik;
     public static javax.swing.JTextField txt_no_rm;

@@ -24,8 +24,8 @@ public class cek {
         Date pp = new Date();
         userRepository userRepository = new userRepository();
         data_dokter aaaa = new data_dokter(5,pp,2);
-        data_master ass = new data_master("4sdadas", "restuuu",32020392,"jl apayaa","jember, 23/02/2004","Laki - laki");  
-        pasienbaru_sementara apo = new pasienbaru_sementara(1, "restuuu",32020392,"jl apayaa","jember, 23/02/2004","Laki - laki");
+        data_master ass = new data_master("4sdadas", "restuuu","32020392","jl apayaa","jember, 23/02/2004","Laki - laki");  
+        pasienbaru_sementara apo = new pasienbaru_sementara(1, "restuuu","32020392","jl apayaa","jember, 23/02/2004","Laki - laki");
         
         Timestamp timestamp = new Timestamp(new Date().getTime());
         rekap_harianRepository apa = new rekap_harianRepository();

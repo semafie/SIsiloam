@@ -23,11 +23,15 @@ public class datamaster_edit extends javax.swing.JPanel {
     private int ids = a.id;
     private String se = a.ids;
     private String jnkk;
+    private String keterangan;
+    private String statusakhir;
+    private String tujuhhuruf;
     /**
      * Creates new form datamaster_edit
      */
     public datamaster_edit() {
         initComponents();
+        jPanel1.setVisible(false);
         Font font = new Font("Quicksand", Font.PLAIN, 22);
         txt_alamat.setFont(font);
         txt_nama_pasien.setFont(font);
@@ -45,6 +49,16 @@ public class datamaster_edit extends javax.swing.JPanel {
         String nik = String.valueOf(master.get(ids).getNik());
         String ttl = master.get(ids).getTtl();
         String jnk = master.get(ids).getJenis_kelamin();
+        String status = master.get(ids).getStatus_pembayaran();
+        String empathuruf = status.substring(0, 4);
+        if(status.length() > 4){
+               tujuhhuruf = status.substring(0, 7); 
+            }
+        
+        
+        
+        System.out.println(empathuruf + "  " + tujuhhuruf);
+        
 //System.out.println(ids);
 //System.out.println(nama);
 //System.out.println(alamat);
@@ -61,6 +75,17 @@ public class datamaster_edit extends javax.swing.JPanel {
         } else {
             cmb_jeniskelamin.setSelectedIndex(1);
         }
+        if(empathuruf.equals("Umum")){
+            cmb_status.setSelectedIndex(0);
+        }else if(empathuruf.equals("BPJS")){
+            cmb_status.setSelectedIndex(1);
+        }else{
+            cmb_status.setSelectedIndex(2);
+            keterangan = status.substring(11);
+            txt_keterangan.setText(keterangan);
+            
+            
+        }
     }
 
     /**
@@ -75,11 +100,15 @@ public class datamaster_edit extends javax.swing.JPanel {
         txt_nik = new javax.swing.JTextField();
         txt_no_rm = new javax.swing.JTextField();
         txt_alamat = new javax.swing.JTextField();
+        cmb_status = new view.swing.Combobox();
         cmb_jeniskelamin = new view.swing.Combobox();
         txt_ttl = new javax.swing.JTextField();
         txt_nama_pasien = new javax.swing.JTextField();
         kembali = new javax.swing.JLabel();
         btnselanjutnya = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        txt_keterangan = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
         bg = new javax.swing.JLabel();
 
         setLayout(null);
@@ -87,35 +116,57 @@ public class datamaster_edit extends javax.swing.JPanel {
         txt_nik.setBackground(new Color(0,0,0,0));
         txt_nik.setBorder(null);
         add(txt_nik);
-        txt_nik.setBounds(530, 390, 580, 40);
+        txt_nik.setBounds(530, 370, 580, 40);
 
         txt_no_rm.setBackground(new Color(0,0,0,0)
         );
         txt_no_rm.setBorder(null);
         add(txt_no_rm);
-        txt_no_rm.setBounds(530, 250, 580, 40);
+        txt_no_rm.setBounds(530, 230, 580, 40);
 
         txt_alamat.setBackground(new Color(0,0,0,0));
         txt_alamat.setBorder(null);
         add(txt_alamat);
-        txt_alamat.setBounds(530, 460, 580, 40);
+        txt_alamat.setBounds(530, 440, 580, 40);
+
+        cmb_status.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Umum", "BPJS", "Asuransi" }));
+        cmb_status.setLabeText("Pilih Status Pembayaran");
+        cmb_status.setLineColor(new java.awt.Color(0, 153, 153));
+        cmb_status.setName(""); // NOI18N
+        cmb_status.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cmb_statusMouseClicked(evt);
+            }
+        });
+        cmb_status.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmb_statusActionPerformed(evt);
+            }
+        });
+        cmb_status.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                cmb_statusKeyReleased(evt);
+            }
+        });
+        add(cmb_status);
+        cmb_status.setBounds(560, 650, 200, 40);
 
         cmb_jeniskelamin.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Laki - Laki", "Perempuan" }));
         cmb_jeniskelamin.setLabeText("Pilih Kelamin");
         cmb_jeniskelamin.setLineColor(new java.awt.Color(0, 153, 153));
         cmb_jeniskelamin.setName(""); // NOI18N
         add(cmb_jeniskelamin);
-        cmb_jeniskelamin.setBounds(560, 600, 290, 40);
+        cmb_jeniskelamin.setBounds(560, 580, 200, 40);
 
         txt_ttl.setBackground(new Color(0,0,0,0));
         txt_ttl.setBorder(null);
         add(txt_ttl);
-        txt_ttl.setBounds(530, 530, 580, 40);
+        txt_ttl.setBounds(530, 510, 580, 40);
 
         txt_nama_pasien.setBackground(new Color(0,0,0,0));
         txt_nama_pasien.setBorder(null);
         add(txt_nama_pasien);
-        txt_nama_pasien.setBounds(530, 320, 580, 40);
+        txt_nama_pasien.setBounds(530, 300, 580, 40);
 
         kembali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnbatal1_1.png"))); // NOI18N
         kembali.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -153,7 +204,27 @@ public class datamaster_edit extends javax.swing.JPanel {
         add(btnselanjutnya);
         btnselanjutnya.setBounds(1110, 710, 250, 51);
 
-        bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/Edit Pasien Baru.png"))); // NOI18N
+        jPanel1.setBackground(new Color(0,0,0,0));
+        jPanel1.setLayout(null);
+
+        txt_keterangan.setBackground(new Color(0,0,0,0));
+        txt_keterangan.setBorder(null);
+        jPanel1.add(txt_keterangan);
+        txt_keterangan.setBounds(20, 20, 330, 40);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/bg keterangan.png"))); // NOI18N
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(10, 10, 360, 60);
+
+        add(jPanel1);
+        jPanel1.setBounds(780, 636, 370, 70);
+
+        bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/bg edit pasien.png"))); // NOI18N
         add(bg);
         bg.setBounds(0, 0, 1366, 768);
     }// </editor-fold>//GEN-END:initComponents
@@ -161,21 +232,22 @@ public class datamaster_edit extends javax.swing.JPanel {
     private void btnselanjutnyaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnselanjutnyaMouseClicked
     String nama = txt_nama_pasien.getText();
         String alamat = txt_alamat.getText();
-        int nik = Integer.valueOf(txt_nik.getText());
+        String nik = txt_nik.getText();
         String ttl = txt_ttl.getText();
 //        jnkk = cmb_jeniskelamin.getItemAt(0).toString();
         Object selectedItem = cmb_jeniskelamin.getSelectedItem();
         
     jnkk = selectedItem.toString();
-        System.out.println(ids);
-        System.out.println(nama);
-        System.out.println(alamat);
-        System.out.println(nik);
-        System.out.println(ttl);
-        System.out.println(selectedItem);
+        Object selectedItem1 = cmb_status.getSelectedItem();
+        String status = selectedItem1.toString();
+        if (status.equals("Asuransi")){
+            statusakhir = status + " , " + txt_keterangan.getText();
+        } else {
+            statusakhir = status ;
+        }
 
         if( !se.equals("")){
-        data_master apa = new data_master(txt_no_rm.getText(),nama, nik, alamat, ttl, jnkk);
+        data_master apa = new data_master(txt_no_rm.getText(),nama, nik, alamat, ttl, jnkk,statusakhir);
         master.updatebynorm(apa);
         main main =(main)SwingUtilities.getWindowAncestor(this);
         this.setVisible(false);
@@ -218,13 +290,38 @@ public class datamaster_edit extends javax.swing.JPanel {
     btnselanjutnya.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnselanjutnya3.png")));
     }//GEN-LAST:event_btnselanjutnyaMousePressed
 
+    private void cmb_statusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmb_statusActionPerformed
+    if (cmb_status.getSelectedIndex() == 2) { // Pilihan ke-3
+                    
+        jPanel1.setVisible(true);
+                } else {
+        jPanel1.setVisible(false);
+    }
+    }//GEN-LAST:event_cmb_statusActionPerformed
+
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel1MouseClicked
+
+    private void cmb_statusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmb_statusMouseClicked
+    
+    }//GEN-LAST:event_cmb_statusMouseClicked
+
+    private void cmb_statusKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cmb_statusKeyReleased
+    
+    }//GEN-LAST:event_cmb_statusKeyReleased
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bg;
     private javax.swing.JLabel btnselanjutnya;
     private view.swing.Combobox cmb_jeniskelamin;
+    private view.swing.Combobox cmb_status;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel kembali;
     public javax.swing.JTextField txt_alamat;
+    public javax.swing.JTextField txt_keterangan;
     public javax.swing.JTextField txt_nama_pasien;
     public javax.swing.JTextField txt_nik;
     public javax.swing.JTextField txt_no_rm;

@@ -10,7 +10,16 @@ public class user implements Entity{
         
     }
     
-    public user( String username, String password, String email, int level,int token){
+    public user( int id,String username, String password, String email, int level,int token){
+        this.id = id;
+        this.token = token;
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.level = level;
+    }
+    public user(String username, String password, String email, int level,int token){
+        
         this.token = token;
         this.username = username;
         this.password = password;
