@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 05, 2023 at 08:49 PM
+-- Generation Time: Nov 05, 2023 at 08:51 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -38,13 +38,6 @@ CREATE TABLE `data_dokter` (
   `tanggal` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `data_dokter`
---
-
-INSERT INTO `data_dokter` (`id`, `nama`, `no_hp`, `jenis_poli`, `jadwal`, `jenis_kelamin`, `no_antrian`, `tanggal`) VALUES
-(8, 'siapanih', '003424234234', 'Poli umum', 'swdasdasda', 'Laki - Laki', 0, '2023-10-31');
-
 -- --------------------------------------------------------
 
 --
@@ -61,13 +54,6 @@ CREATE TABLE `data_master` (
   `jenis_kelamin1` varchar(15) NOT NULL,
   `status_pembayaran` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `data_master`
---
-
-INSERT INTO `data_master` (`id`, `no_rm`, `nama1`, `nik`, `alamat`, `ttl`, `jenis_kelamin1`, `status_pembayaran`) VALUES
-(26, '01-00-00', 'siaphayo', 342342, 'jl apaa', '23 jasau sa', 'Perempuan', 'Asuransi , hay guys');
 
 --
 -- Triggers `data_master`
@@ -104,20 +90,6 @@ CREATE TABLE `history_datamaster` (
   `status` varchar(20) NOT NULL,
   `nama_user` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `history_datamaster`
---
-
-INSERT INTO `history_datamaster` (`id`, `no_rm`, `nama`, `nik`, `alamat`, `ttl`, `jenis_kelamin`, `status`, `nama_user`) VALUES
-(27, '01-00-00', 'siaphayo', 342342, 'jl apaa', '23 jasau sa', 'Laki - Laki', '', ''),
-(28, '01-00-00', 'siaphayo1', 342342, 'jl apaa', '23 jasau sa', 'Perempuan', '', ''),
-(29, '01-00-00', 'siaphayo12', 342342, 'jl apaa', '23 jasau sa', 'Perempuan', '', ''),
-(30, '01-00-00', 'siaphayo', 342342, 'jl apaa', '23 jasau sa', 'Perempuan', '', ''),
-(31, '01-00-00', 'siaphayo', 342342, 'jl apaa', '23 jasau sa', 'Perempuan', '', ''),
-(32, '01-00-00', 'siaphayo', 342342, 'jl apaa', '23 jasau sa', 'Perempuan', 'Di Edit', 'halooo'),
-(33, '01-00-00', 'siaphayo', 342342, 'jl apaa', '23 jasau sa', 'Perempuan', 'Di Edit', 'halooo'),
-(34, '01-00-00', 'siaphayo', 342342, 'jl apaa', '23 jasau sa', 'Perempuan', 'Di Edit', 'halooo');
 
 -- --------------------------------------------------------
 
@@ -195,9 +167,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `password`, `email`, `level`, `token`) VALUES
-(1, 'restuuu', 'admin123', 'admin@gmail.com', 1, ''),
-(2, 'halooo', 'halo123', 'halooooooo', 2, ''),
-(3, 'iye', 'iye123', 'asaasasas', 2, '');
+(1, 'restuuu', 'admin123', 'admin@gmail.com', 1, '');
 
 --
 -- Indexes for dumped tables
@@ -262,7 +232,7 @@ ALTER TABLE `data_master`
 -- AUTO_INCREMENT for table `history_datamaster`
 --
 ALTER TABLE `history_datamaster`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `rekap_harian`
