@@ -18,6 +18,7 @@ import javax.swing.table.DefaultTableModel;
 import main.main;
 import panel.datamaster_edit;
 import repository.data_masterRepository;
+import repository.rekap_harianRepository;
 import util.Conn;
 import view.swing.validasiberhasil1;
 import view.swing.validasiberhasil2;
@@ -28,6 +29,7 @@ import view.swing.validasigagal;
  * @author RESCOM-1
  */
 public class datamaster extends javax.swing.JPanel {
+    rekap_harianRepository datarekap = new rekap_harianRepository();
     data_masterRepository datamaster = new data_masterRepository();
     public static String ids;
     public static int id;
@@ -285,14 +287,14 @@ public class datamaster extends javax.swing.JPanel {
     if(!ids.equals("")){
         
             try {
-            boolean apa = datamaster.delete(id);
+            datarekap.deletebyid_master(id);
+            datamaster.delete(id);
             main main =(main)SwingUtilities.getWindowAncestor(this);
         validasiberhasil2 ac = new validasiberhasil2(main);
             ac.showPopUp();
         } catch (Exception e) {
             main main =(main)SwingUtilities.getWindowAncestor(this);
-                validasigagal ac = new validasigagal(main, "Data ini tidak akan bisa dihapus karena terhubung dengan rekap harian"
-                        + "pilih data lain");
+                validasigagal ac = new validasigagal(main, "Gagal Delete data");
             ac.showPopUp();
             return;
         }

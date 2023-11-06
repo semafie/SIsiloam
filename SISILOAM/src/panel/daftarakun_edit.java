@@ -92,6 +92,7 @@ public class daftarakun_edit extends javax.swing.JPanel {
 
         txt_id.setBackground(new Color(0,0,0,0));
         txt_id.setBorder(null);
+        txt_id.setFocusable(false);
         add(txt_id);
         txt_id.setBounds(490, 300, 480, 40);
 

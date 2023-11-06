@@ -16,6 +16,7 @@ import util.Conn;
 
 public class rekap_harianRepository implements Repository<rekap_harian>{
     private static String tableName = rekap_harian.tableName;
+    private String apa = "hallo", dangi = "eyeee";
     @Override
     public List<rekap_harian> get() {
         String sql = "select * from "+tableName+ " Join data_dokter ON rekap_harian.id = data_dokter.id JOIN data_master ON rekap_harian.id = data_master.id";
@@ -108,6 +109,19 @@ public class rekap_harianRepository implements Repository<rekap_harian>{
     @Override
     public boolean delete(int id) {
     String sql = " delete from "+tableName+ " where id = ?";
+        try {
+            Connection koneksi = (Connection)Conn.configDB();
+            PreparedStatement pst = koneksi.prepareStatement(sql);
+            pst.setInt(1, id);
+            pst.execute();
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+    
+    public boolean deletebyid_master(int id) {
+    String sql = " delete from "+tableName+ " where  = ?";
         try {
             Connection koneksi = (Connection)Conn.configDB();
             PreparedStatement pst = koneksi.prepareStatement(sql);

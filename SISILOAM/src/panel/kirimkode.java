@@ -80,8 +80,8 @@ private String apa1;
 public void kirim()throws AddressException, MessagingException {
            String host = "smtp.gmail.com";
     int port = 587;
-    String username = "travelrahmatan@gmail.com";
-    String password = "adifmmdndqeehmwq";
+    String username = "kodeotpnew@gmail.com";
+    String password = "jlnpqbwnnepoaeos";
     
     Properties props = new Properties();
     props.put("mail.smtp.auth","true");
@@ -95,7 +95,7 @@ public void kirim()throws AddressException, MessagingException {
                 return new PasswordAuthentication(username, password);
             }
             });
-    String from    = "travelrahmatan@gmail.com";
+    String from    = "kodeotpnew@gmail.com";
     String to      = email ;
     String subject = "Kode Verifikasi Ganti Password Rahmatan App";
     String body = randomNumber();
@@ -160,7 +160,7 @@ public void kirim()throws AddressException, MessagingException {
 "                            </tr>\n" +
 "                            <tr>\n" +
 "                                <td align=\"center\" style=\"font-size:0px;padding:10px 25px;word-break:break-word;\">\n" +
-"                                    <div style=\"font-family:'Helvetica Neue',Arial,sans-serif;font-size:14px;line-height:22px;text-align:center;color:#555;\">Rahmatan Transaction System<br> <a href=\"mailto:info@example.com\" style=\"color:#2F67F6\">travelrahmatan@gmail.com</a>\n" +
+"                                    <div style=\"font-family:'Helvetica Neue',Arial,sans-serif;font-size:14px;line-height:22px;text-align:center;color:#555;\">Siloam Transaction System<br> <a href=\"mailto:info@example.com\" style=\"color:#2F67F6\">Siloamnihboss@gmail.com</a>\n" +
 "                                    </div>\n" +
 "                                </td>\n" +
 "                            </tr>\n" +

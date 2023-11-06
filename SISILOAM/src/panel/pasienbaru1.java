@@ -21,6 +21,8 @@ import repository.pasienbaru_sementaraRepository;
 public class pasienbaru1 extends javax.swing.JPanel {
     private String nik;
     private String statusakhir;
+    private String tujuhhuruf;
+    private String keterangan;
     data_masterRepository master = new data_masterRepository();
     class AutoIDGenerator {
     int left = 0;
@@ -85,20 +87,32 @@ System.out.println(idterakhir);
         txt_alamat.setText(bb.get(1).getAlamat());
         txt_nik.setText(String.valueOf(bb.get(1).getNik()));
         txt_ttl.setText(bb.get(1).getTtl());
+        String status = bb.get(1).getStatus_pembayaran();
         if (bb.get(1).getJenis_kelamin().equals("Laki - Laki")) {
             cmd_jnk.setSelectedIndex(0);
         } else {
             cmd_jnk.setSelectedIndex(1);
         }
+        String empathuruf = status.substring(0, 4);
+        if(status.length() > 4){
+               tujuhhuruf = status.substring(0, 7); 
+            }
+        if(empathuruf.equals("Umum")){
+            cmb_status.setSelectedIndex(0);
+        }else if(empathuruf.equals("BPJS")){
+            cmb_status.setSelectedIndex(1);
+        }else{
+            cmb_status.setSelectedIndex(2);
+            keterangan = status.substring(11);
+            txt_keterangan.setText(keterangan);
 //        Object selectedItem = cmd_jnk.getSelectedItem();   
 //        String jnk = selectedItem.toString();
 //        System.out.println(jnk);
         
     }
-    
-    public void apek(){
-
     }
+    
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -183,6 +197,7 @@ System.out.println(idterakhir);
 
         txt_no_rm.setBackground(new Color(0,0,0,0));
         txt_no_rm.setBorder(null);
+        txt_no_rm.setFocusable(false);
         add(txt_no_rm);
         txt_no_rm.setBounds(550, 230, 490, 40);
 
@@ -318,14 +333,16 @@ System.out.println(idterakhir);
     }//GEN-LAST:event_jLabel1MouseClicked
 
     private void cmb_statusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmb_statusActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmb_statusActionPerformed
-
-    private void cmb_statusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmb_statusMouseClicked
     if (cmb_status.getSelectedIndex() == 2) { // Pilihan ke-3
                     
         jPanel1.setVisible(true);
-                }
+                } else {
+        jPanel1.setVisible(false);
+    }
+    }//GEN-LAST:event_cmb_statusActionPerformed
+
+    private void cmb_statusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmb_statusMouseClicked
+    
     }//GEN-LAST:event_cmb_statusMouseClicked
 
 

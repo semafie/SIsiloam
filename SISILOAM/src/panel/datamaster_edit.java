@@ -121,6 +121,7 @@ public class datamaster_edit extends javax.swing.JPanel {
         txt_no_rm.setBackground(new Color(0,0,0,0)
         );
         txt_no_rm.setBorder(null);
+        txt_no_rm.setFocusable(false);
         add(txt_no_rm);
         txt_no_rm.setBounds(530, 230, 580, 40);
 

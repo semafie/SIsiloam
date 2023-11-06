@@ -12,6 +12,7 @@ import javax.swing.SwingUtilities;
 import main.main;
 import repository.data_dokterRepository;
 import view.swing.validasiberhasil;
+import view.swing.validasigagal;
 
 /**
  *
@@ -38,6 +39,7 @@ public class datadokter_edit extends javax.swing.JPanel {
         txt_jadwal.setFont(font);
         txt_nama.setFont(font);
         txt_nohp.setFont(font);
+        txt_nohp1.setFont(font);
 //        int id = master.get(ids).getId();
         String nama = dokter.get(ids).getNama();
         String no_hp = dokter.get(ids).getNo_hp();
@@ -52,7 +54,9 @@ System.out.println(jnk);
 System.out.println(no_hp);
         txt_id.setText(Integer.toString(ids));
         txt_nama.setText(nama);
-        txt_nohp.setText(no_hp);
+        String hp = no_hp.substring(1);
+        System.out.println(hp);
+        txt_nohp.setText(hp);
         txt_jadwal.setText(jadwal);
         if (jenispoli.equals("Poli umum")) {
             cmb_poli.setSelectedIndex(0);
@@ -85,6 +89,7 @@ System.out.println(no_hp);
         btnselanjutnya = new javax.swing.JLabel();
         cmb_poli = new view.swing.Combobox();
         cmb_jeniskelamin = new view.swing.Combobox();
+        txt_nohp1 = new javax.swing.JTextField();
         bg = new javax.swing.JLabel();
 
         setLayout(null);
@@ -92,7 +97,7 @@ System.out.println(no_hp);
         txt_nohp.setBackground(new Color(0,0,0,0));
         txt_nohp.setBorder(null);
         add(txt_nohp);
-        txt_nohp.setBounds(530, 390, 530, 50);
+        txt_nohp.setBounds(545, 390, 520, 40);
 
         txt_jadwal.setBackground(new Color(0,0,0,0));
         txt_jadwal.setBorder(null);
@@ -158,6 +163,13 @@ System.out.println(no_hp);
         add(cmb_jeniskelamin);
         cmb_jeniskelamin.setBounds(560, 530, 320, 50);
 
+        txt_nohp1.setBackground(new Color(0,0,0,0));
+        txt_nohp1.setText("0");
+        txt_nohp1.setBorder(null);
+        txt_nohp1.setFocusable(false);
+        add(txt_nohp1);
+        txt_nohp1.setBounds(528, 390, 18, 40);
+
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/bg edit dokter baru.png"))); // NOI18N
         add(bg);
         bg.setBounds(0, 0, 1366, 768);
@@ -170,18 +182,15 @@ System.out.println(no_hp);
     }//GEN-LAST:event_btnbatalMouseClicked
 
     private void btnselanjutnyaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnselanjutnyaMouseClicked
-    String input = txt_id.getText();
-    if (input.matches("\\d+")) {
-    ids = Integer.parseInt(input);
-    } else {
-    JOptionPane.showMessageDialog(null, "Nomor RM harus berupa angka integer.");
-    }
-    String nohp2 = txt_nohp.getText();
-    if (nohp2.matches("\\d+")) {
-    nohp = nohp2;
-    } else {
-    JOptionPane.showMessageDialog(null, "Nomor hp harus berupa angka integer.");
-    }
+        int yes = txt_nohp.getText().length();
+        try {
+            try {
+            
+        Long cek = Long.valueOf(txt_nohp.getText());
+    Long apaya = Long.valueOf(txt_nohp.getText());
+    if (yes >= 10 && yes <=12 ){
+    if (apaya.equals(cek)) {
+        nohp ="0" + txt_nohp.getText() ;
     String nama = txt_nama.getText();
     Object selectedItem = cmb_poli.getSelectedItem();
     Object selectedItem1 = cmb_jeniskelamin.getSelectedItem();
@@ -197,7 +206,33 @@ System.out.println(no_hp);
     main.showdatadokter();
     validasiberhasil ac = new validasiberhasil(main, "Data Berhasil Di edit");
             ac.showPopUp();
-
+            } else {
+        main main =(main)SwingUtilities.getWindowAncestor(this);
+            validasigagal ac = new validasigagal(main, "Data harus angka");
+            ac.showPopUp();
+//        System.out.println("Data harus angka");
+    }
+    }else if(txt_nohp.getText().length() < 11 ) {
+        main main =(main)SwingUtilities.getWindowAncestor(this);
+            validasigagal ac = new validasigagal(main, "No hp terlalu sedikit");
+            ac.showPopUp();
+    } else{
+            main main =(main)SwingUtilities.getWindowAncestor(this);
+            validasigagal ac = new validasigagal(main, "No hp terlalu banyak");
+            ac.showPopUp();
+            System.out.println(cek);
+            }
+            } catch (NumberFormatException e) {
+    main main =(main)SwingUtilities.getWindowAncestor(this);
+            validasigagal ac = new validasigagal(main, "Data harus angka");
+            ac.showPopUp();
+    System.out.println("Data harus angka");
+}
+            } catch (Exception e) {
+                main main =(main)SwingUtilities.getWindowAncestor(this);
+            validasigagal ac = new validasigagal(main, "Data gagal Ditambahkan");
+            ac.showPopUp();
+        }
     }//GEN-LAST:event_btnselanjutnyaMouseClicked
 
     private void btnbatalMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbatalMouseEntered
@@ -235,5 +270,6 @@ System.out.println(no_hp);
     private javax.swing.JTextField txt_jadwal;
     private javax.swing.JTextField txt_nama;
     private javax.swing.JTextField txt_nohp;
+    private javax.swing.JTextField txt_nohp1;
     // End of variables declaration//GEN-END:variables
 }

@@ -17,6 +17,7 @@ public class pasienbaru_sementara implements Entity{
         this.alamat = alamat;
         this.ttl = ttl;
         this.jenis_kelamin = jenis_kelamin;
+        this.status_pembayaran = status_pembayaran;
     }
     
     public pasienbaru_sementara(int id,String nama, String nik, String alamat, String ttl, String jenis_kelamin, String status_pembayaran){
@@ -26,6 +27,7 @@ public class pasienbaru_sementara implements Entity{
         this.alamat = alamat;
         this.ttl = ttl;
         this.jenis_kelamin = jenis_kelamin;
+        this.status_pembayaran = status_pembayaran;
     }
 
     public void setStatus_pembayaran(String status_pembayaran) {

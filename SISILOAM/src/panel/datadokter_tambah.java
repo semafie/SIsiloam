@@ -12,6 +12,7 @@ import javax.swing.SwingUtilities;
 import main.main;
 import repository.data_dokterRepository;
 import view.swing.validasiberhasil;
+import view.swing.validasigagal;
 
 /**
  *
@@ -34,6 +35,7 @@ public class datadokter_tambah extends javax.swing.JPanel {
         txt_jadwal.setFont(font);
         txt_no_rm.setFont(font);
         txt_nohp.setFont(font);
+        txt_nohp1.setFont(font);
         int id = master.getlastid().getId() + 1 ;
         String idterakhir = String.valueOf(id);
         txt_no_rm.setText(idterakhir );
@@ -64,8 +66,9 @@ public class datadokter_tambah extends javax.swing.JPanel {
         txt_nohp1.setBackground(new Color(0,0,0,0));
         txt_nohp1.setText("0");
         txt_nohp1.setBorder(null);
+        txt_nohp1.setFocusable(false);
         add(txt_nohp1);
-        txt_nohp1.setBounds(530, 390, 10, 40);
+        txt_nohp1.setBounds(528, 390, 18, 40);
 
         txt_nohp.setBackground(new Color(0,0,0,0));
         txt_nohp.setBorder(null);
@@ -84,6 +87,7 @@ public class datadokter_tambah extends javax.swing.JPanel {
 
         txt_no_rm.setBackground(new Color(0,0,0,0));
         txt_no_rm.setBorder(null);
+        txt_no_rm.setFocusable(false);
         add(txt_no_rm);
         txt_no_rm.setBounds(531, 250, 500, 40);
 
@@ -155,19 +159,16 @@ public class datadokter_tambah extends javax.swing.JPanel {
 //    } else {
 //    JOptionPane.showMessageDialog(null, "Nomor RM harus berupa angka integer.");
 //    }
-  try {
+int yes = txt_nohp.getText().length();
+try {
+    
+            try {
     Long cek = Long.valueOf(txt_nohp.getText());
     Long apaya = Long.valueOf(txt_nohp.getText());
-
+    if (yes >= 10 && yes <=12 ){
     if (apaya.equals(cek)) {
-        nohp = txt_nohp.getText();
-    } else {
-        System.out.println("Data harus angka");
-    }
-} catch (NumberFormatException e) {
-    System.out.println("Data harus angka");
-}
-    String nama = txt_nama.getText();
+        nohp ="0" + txt_nohp.getText() ;
+         String nama = txt_nama.getText();
     Object selectedItem = cmb_poli.getSelectedItem();
     Object selectedItem1 = cmb_jeniskelamin.getSelectedItem();
     jenispoli = selectedItem.toString();
@@ -182,6 +183,35 @@ public class datadokter_tambah extends javax.swing.JPanel {
     main.showdatadokter();
     validasiberhasil ac = new validasiberhasil(main, "Data Berhasil Ditambahkan");
             ac.showPopUp();
+    } else {
+        main main =(main)SwingUtilities.getWindowAncestor(this);
+            validasigagal ac = new validasigagal(main, "Data harus angka");
+            ac.showPopUp();
+//        System.out.println("Data harus angka");
+    }
+    }else if(txt_nohp.getText().length() < 11 ) {
+        main main =(main)SwingUtilities.getWindowAncestor(this);
+            validasigagal ac = new validasigagal(main, "No hp terlalu sedikit");
+            ac.showPopUp();
+    } else{
+            main main =(main)SwingUtilities.getWindowAncestor(this);
+            validasigagal ac = new validasigagal(main, "No hp terlalu banyak");
+            ac.showPopUp();
+            System.out.println(cek);
+            }
+} catch (NumberFormatException e) {
+    main main =(main)SwingUtilities.getWindowAncestor(this);
+            validasigagal ac = new validasigagal(main, "Data harus angka");
+            ac.showPopUp();
+    System.out.println("Data harus angka");
+}
+   
+        } catch (Exception e) {
+            main main =(main)SwingUtilities.getWindowAncestor(this);
+            validasigagal ac = new validasigagal(main, "Data gagal Ditambahkan");
+            ac.showPopUp();
+        }
+  
 
     }//GEN-LAST:event_btnselanjutnyaMouseClicked
 

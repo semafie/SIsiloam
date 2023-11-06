@@ -166,6 +166,7 @@ System.out.println(idterakhir);
         txt_no_rm.setBackground(new Color(0,0,0,0)
         );
         txt_no_rm.setBorder(null);
+        txt_no_rm.setFocusable(false);
         add(txt_no_rm);
         txt_no_rm.setBounds(550, 230, 490, 40);
 
@@ -244,13 +245,29 @@ System.out.println(idterakhir);
 //        int no = Integer.valueOf(txt_no_rm.getText());
         String nama = txt_nama_pasien.getText();
         String nikk = txt_nik.getText();
-        if(nikk.length() > 16) {
-        try {
+        if(!(nikk.length() > 16)) {
+        try {                                                                    
     Long cek = Long.valueOf(txt_nik.getText());
     Long apaya = Long.valueOf(txt_nik.getText());
 
     if (apaya.equals(cek)) {
         nik = txt_nik.getText();
+        String ttl = txt_ttl.getText();
+        String alamat = txt_alamat.getText();
+        Object selectedItem = cmd_jnk.getSelectedItem();
+        String jnk = selectedItem.toString();
+        Object selectedItem1 = cmb_status.getSelectedItem();
+        String status = selectedItem1.toString();
+        if (status.equals("Asuransi")){
+            statusakhir = status + " , " + txt_keterangan.getText();
+            System.out.println(statusakhir);
+        } else {
+            
+            statusakhir = status ;
+        System.out.println(statusakhir);
+        }
+        pasienbaru_sementara aa = new pasienbaru_sementara(1, nama, nik, alamat, ttl, jnk,statusakhir);
+        bb.update(aa);
     } else {
         System.out.println("Data harus angka");
     }
@@ -261,21 +278,11 @@ System.out.println(idterakhir);
             System.out.println("Maksimal input 16 angka");
         }
 
-        String ttl = txt_ttl.getText();
-        String alamat = txt_alamat.getText();
-        Object selectedItem = cmd_jnk.getSelectedItem();
-        String jnk = selectedItem.toString();
-        Object selectedItem1 = cmb_status.getSelectedItem();
-        String status = selectedItem1.toString();
-        if (status.equals("Asuransi")){
-            statusakhir = status + " , " + txt_keterangan.getText();
-        } else {
-            statusakhir = status ;
-        }
+        
+        
         
          
-        pasienbaru_sementara aa = new pasienbaru_sementara(1, nama, nik, alamat, ttl, jnk,statusakhir);
-        bb.update(aa);
+        
 //        if (txt_no_rm.getText().equals("") || txt_nik.getText().equals("") || txt_alamat.getText().equals("") || txt_nama_pasien.getText().equals("") || txt_ttl.getText().equals("")) {
 //            System.out.println("isi data sek muas");
 //        } else {
@@ -321,14 +328,16 @@ System.out.println(idterakhir);
     }//GEN-LAST:event_jLabel1MouseClicked
 
     private void cmb_statusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmb_statusActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmb_statusActionPerformed
-
-    private void cmb_statusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmb_statusMouseClicked
     if (cmb_status.getSelectedIndex() == 2) { // Pilihan ke-3
 
         jPanel1.setVisible(true);
-                }
+                }else {
+        jPanel1.setVisible(false);
+    }
+    }//GEN-LAST:event_cmb_statusActionPerformed
+
+    private void cmb_statusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmb_statusMouseClicked
+    
     }//GEN-LAST:event_cmb_statusMouseClicked
 
 

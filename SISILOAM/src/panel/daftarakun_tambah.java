@@ -74,6 +74,7 @@ public class daftarakun_tambah extends javax.swing.JPanel {
 
         txt_id.setBackground(new Color(0,0,0,0));
         txt_id.setBorder(null);
+        txt_id.setFocusable(false);
         add(txt_id);
         txt_id.setBounds(630, 300, 480, 40);
 

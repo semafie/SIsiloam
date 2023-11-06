@@ -24,7 +24,7 @@ public class validasigagal extends Dialog {
     public validasigagal(JFrame fram, String pindahnyakemana) {
         super(fram);
         initComponents();
-        Font font = new Font("Quicksand", Font.BOLD, 30);
+        Font font = new Font("Quicksand", Font.BOLD, 25);
         txt_peringatan.setFont(font);
         txt_peringatan.setHorizontalAlignment(SwingConstants.CENTER);
         txt_peringatan.setText(pindahnyakemana);
@@ -47,7 +47,7 @@ public class validasigagal extends Dialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(txt_peringatan, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 500, 50));
+        getContentPane().add(txt_peringatan, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 500, 70));
 
         button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnoke1.png"))); // NOI18N
         button.addMouseListener(new java.awt.event.MouseAdapter() {
