@@ -77,6 +77,7 @@ private String apa1;
         initComponents();
         Font font = new Font("Quicksand", Font.PLAIN, 25);
         inputusername.setFont(font);
+        inputusername.setForeground(Color.GRAY);
     }
 public void kirim()throws AddressException, MessagingException {
            String host = "smtp.gmail.com";
@@ -218,7 +219,16 @@ public void kirim()throws AddressException, MessagingException {
         btnkir.setBounds(460, 530, 426, 70);
 
         inputusername.setBackground(new Color(0,0,0,0));
+        inputusername.setText("Input Username");
         inputusername.setBorder(null);
+        inputusername.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                inputusernameFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                inputusernameFocusLost(evt);
+            }
+        });
         jPanel1.add(inputusername);
         inputusername.setBounds(492, 354, 386, 61);
 
@@ -308,6 +318,20 @@ public void kirim()throws AddressException, MessagingException {
     private void btnkirMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnkirMousePressed
     btnkir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnkirimkode3.png")));
     }//GEN-LAST:event_btnkirMousePressed
+
+    private void inputusernameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_inputusernameFocusGained
+    if (inputusername.getText().equals("Input Username")) {
+                    inputusername.setText("");
+                    inputusername.setForeground(Color.BLACK);
+                }
+    }//GEN-LAST:event_inputusernameFocusGained
+
+    private void inputusernameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_inputusernameFocusLost
+    if (inputusername.getText().isEmpty()) {
+                    inputusername.setText("Input Username");
+                    inputusername.setForeground(Color.GRAY);
+                }
+    }//GEN-LAST:event_inputusernameFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

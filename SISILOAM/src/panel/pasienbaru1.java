@@ -66,6 +66,8 @@ public class pasienbaru1 extends javax.swing.JPanel {
         txt_nik.setFont(font);
         txt_no_rm.setFont(font);
         txt_ttl.setFont(font);
+        txt_keterangan.setForeground(Color.GRAY);
+        txt_keterangan.setFont(font);
         AutoIDGenerator generator = new AutoIDGenerator();
         String idterakhir = String.valueOf(master.getlastid().getNo_rm());
         String apa = "99-20-30";
@@ -214,7 +216,16 @@ System.out.println(idterakhir);
         jPanel1.setLayout(null);
 
         txt_keterangan.setBackground(new Color(0,0,0,0));
+        txt_keterangan.setText("Input keterangan");
         txt_keterangan.setBorder(null);
+        txt_keterangan.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_keteranganFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txt_keteranganFocusLost(evt);
+            }
+        });
         jPanel1.add(txt_keterangan);
         txt_keterangan.setBounds(20, 20, 330, 40);
 
@@ -357,6 +368,20 @@ System.out.println(idterakhir);
     private void cmb_statusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmb_statusMouseClicked
     
     }//GEN-LAST:event_cmb_statusMouseClicked
+
+    private void txt_keteranganFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_keteranganFocusGained
+    if (txt_keterangan.getText().equals("Input keterangan")) {
+                    txt_keterangan.setText("");
+                    txt_keterangan.setForeground(Color.BLACK);
+                }
+    }//GEN-LAST:event_txt_keteranganFocusGained
+
+    private void txt_keteranganFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_keteranganFocusLost
+    if (txt_keterangan.getText().isEmpty()) {
+                    txt_keterangan.setText("Input keterangan");
+                    txt_keterangan.setForeground(Color.GRAY);
+                }
+    }//GEN-LAST:event_txt_keteranganFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

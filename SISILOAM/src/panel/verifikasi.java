@@ -238,6 +238,15 @@ private String apa1;
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnverifMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnverifMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnverifMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnverifMousePressed(evt);
+            }
         });
         add(btnverif);
         btnverif.setBounds(470, 530, 426, 80);
@@ -398,6 +407,18 @@ private String apa1;
     private void resendcodeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resendcodeMousePressed
     resendcode.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagetxt/Resend Code-3.png")));
     }//GEN-LAST:event_resendcodeMousePressed
+
+    private void btnverifMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnverifMouseEntered
+    btnverif.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnverifikasi2.png")));
+    }//GEN-LAST:event_btnverifMouseEntered
+
+    private void btnverifMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnverifMouseExited
+    btnverif.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnverifikasi1.png")));
+    }//GEN-LAST:event_btnverifMouseExited
+
+    private void btnverifMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnverifMousePressed
+    btnverif.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnverifikasi3.png")));
+    }//GEN-LAST:event_btnverifMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
