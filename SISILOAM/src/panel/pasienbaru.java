@@ -13,6 +13,7 @@ import main.main;
 import repository.data_masterRepository;
 import repository.datapasienbarusementara;
 import repository.pasienbaru_sementaraRepository;
+import view.swing.validasigagal;
 
 /**
  *
@@ -256,6 +257,7 @@ System.out.println(idterakhir);
         String alamat = txt_alamat.getText();
         Object selectedItem = cmd_jnk.getSelectedItem();
         String jnk = selectedItem.toString();
+        System.out.println(jnk);
         Object selectedItem1 = cmb_status.getSelectedItem();
         String status = selectedItem1.toString();
         if (status.equals("Asuransi")){
@@ -268,14 +270,26 @@ System.out.println(idterakhir);
         }
         pasienbaru_sementara aa = new pasienbaru_sementara(1, nama, nik, alamat, ttl, jnk,statusakhir);
         bb.update(aa);
+        main main =(main)SwingUtilities.getWindowAncestor(this);
+        this.setVisible(false);
+        main.showpasienbaru_pilihpoli();
     } else {
-        System.out.println("Data harus angka");
+        main main =(main)SwingUtilities.getWindowAncestor(this);
+            validasigagal ac = new validasigagal(main, "Data NIK harus angka");
+            ac.showPopUp();
+        
     }
 } catch (NumberFormatException e) {
-    System.out.println("Data harus angka");
+    main main =(main)SwingUtilities.getWindowAncestor(this);
+            validasigagal ac = new validasigagal(main, "Data NIK harus angka");
+            ac.showPopUp();
+    
 }
         }else{
-            System.out.println("Maksimal input 16 angka");
+            main main =(main)SwingUtilities.getWindowAncestor(this);
+            validasigagal ac = new validasigagal(main, "Maksimal input NIK 16 angka");
+            ac.showPopUp();
+            
         }
 
         
@@ -288,9 +302,7 @@ System.out.println(idterakhir);
 //        } else {
 //
 //        }
-        main main =(main)SwingUtilities.getWindowAncestor(this);
-        this.setVisible(false);
-        main.showpasienbaru_pilihpoli();
+        
     }//GEN-LAST:event_btn_lanjutMouseClicked
 
     private void kembaliMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kembaliMouseClicked

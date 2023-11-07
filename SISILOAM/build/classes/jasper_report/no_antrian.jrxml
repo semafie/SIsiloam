@@ -2,10 +2,10 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="230" pageHeight="350" columnWidth="10" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d4b73a12-d4da-4a79-95a3-852aacf702c0">
 	<property name="ireport.zoom" value="1.6105100000000008"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="34"/>
+	<property name="ireport.y" value="144"/>
 	<parameter name="kode" class="java.lang.String"/>
 	<queryString>
-		<![CDATA[SELECT * FROM rekap_harian join data_dokter on rekap_harian.id_dokter = data_dokter.id join data_master on rekap_harian.id_master = data_master.id where rekap_harian.id = $P{kode}]]>
+		<![CDATA[SELECT * FROM rekap_harian join data_dokter on rekap_harian.id_dokter = data_dokter.id join data_master on rekap_harian.id_master = data_master.id]]>
 	</queryString>
 	<field name="id" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
@@ -58,6 +58,7 @@
 	<field name="jenis_kelamin1" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
+	<filterExpression><![CDATA[$F{nik}.toString()]]></filterExpression>
 	<background>
 		<band splitType="Stretch"/>
 	</background>

@@ -121,7 +121,7 @@ public class rekap_harianRepository implements Repository<rekap_harian>{
     }
     
     public boolean deletebyid_master(int id) {
-    String sql = " delete from "+tableName+ " where  = ?";
+    String sql = " delete from "+tableName+ " where id_master = ?";
         try {
             Connection koneksi = (Connection)Conn.configDB();
             PreparedStatement pst = koneksi.prepareStatement(sql);

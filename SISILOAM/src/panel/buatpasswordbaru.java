@@ -5,10 +5,15 @@
 package panel;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
+import javax.swing.JPasswordField;
 import javax.swing.SwingUtilities;
 import main.main;
+import static panel.Login.setHintText;
 import service.Auth;
 import view.swing.validasiberhasil;
+import view.swing.validasigagal;
 /**
  *
  * @author RESCOM-1
@@ -25,9 +30,37 @@ public class buatpasswordbaru extends javax.swing.JPanel {
     private String username = a.username;
     public buatpasswordbaru() {
         initComponents();
-        Font font = new Font("Quicksand", Font.PLAIN, 22);
+        Font font = new Font("Quicksand", Font.PLAIN, 18);
+        setHintText(inputpassword1, "Input Password");
+        setHintText(inputpassword2, "Input Password");
         inputpassword1.setFont(font);
         inputpassword2.setFont(font);
+    }
+    public static void setHintText(JPasswordField passwordField, String hintText) {
+        passwordField.setText(hintText);
+        passwordField.setEchoChar((char) 0);
+        passwordField.setForeground(Color.GRAY);// Set echo character to '*'
+        
+        passwordField.addFocusListener(new FocusAdapter() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                if (String.valueOf(passwordField.getPassword()).equals(hintText)) {
+                    passwordField.setEchoChar('*'); // Show '*' for hint text
+                    passwordField.setText("");
+                    passwordField.setForeground(Color.BLACK);
+                }
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                if (String.valueOf(passwordField.getPassword()).equals("")) {
+                    passwordField.setEchoChar((char) 0); // Show actual characters for input
+                    passwordField.setText(hintText);
+                    passwordField.setForeground(Color.GRAY);
+                    
+                }
+            }
+        });
     }
 
     /**
@@ -115,9 +148,15 @@ public class buatpasswordbaru extends javax.swing.JPanel {
             validasiberhasil aa = new validasiberhasil(main1,"Anda Berhasil Merubah password");
             aa.showPopUp();    
         }else{
+            main wow = (main)SwingUtilities.getWindowAncestor(this);
+                    validasigagal aa = new validasigagal(wow,"gagal merubah password");
+                        aa.showPopUp();
             System.out.println("gagal");
         }
         }else{
+            main wow = (main)SwingUtilities.getWindowAncestor(this);
+                    validasigagal aa = new validasigagal(wow,"password dan confirm tidak sama");
+                        aa.showPopUp();
             System.out.println("Tidak sama");
         }
     }//GEN-LAST:event_btnubahpasswordMouseClicked

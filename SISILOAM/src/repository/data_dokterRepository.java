@@ -121,8 +121,8 @@ public class data_dokterRepository implements Repository<data_dokter> {
             pst.setString(3, dokter.getJenis_poli());
             pst.setString(4, dokter.getJadwal());
             pst.setString(5, dokter.getJenis_kelamin());
-            pst.setDate(7, new Date(dokter.getTanggal().getTime()));
-            pst.setInt(8, dokter.getId());
+            pst.setDate(6, new Date(dokter.getTanggal().getTime()));
+            pst.setInt(7, dokter.getId());
             pst.execute();
             return true;
         } catch (Exception e) {

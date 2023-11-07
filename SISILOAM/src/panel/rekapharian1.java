@@ -236,7 +236,7 @@ public class rekapharian1 extends javax.swing.JPanel {
         String sql = "SELECT * FROM rekap_harian "
                 + "join data_dokter on rekap_harian.id_dokter = data_dokter.id "
                 + "join data_master on rekap_harian.id_master = data_master.id "
-                + "where rekap_harian.id = ? OR data_master.no_rm LIKE ? "
+                + "where rekap_harian.id LIKE ? OR data_master.no_rm LIKE ? "
                 + "OR data_master.nama1 LIKE ? OR rekap_harian.tanggal LIKE ?";
         Connection koneksi = (Connection)Conn.configDB();
         PreparedStatement pst = koneksi.prepareStatement(sql);

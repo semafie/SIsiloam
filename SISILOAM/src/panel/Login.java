@@ -5,6 +5,8 @@
 package panel;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.io.InputStream;
@@ -13,6 +15,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.HashMap;
 import java.util.Scanner;
+import javax.swing.JPasswordField;
 import javax.swing.JRootPane;
 import javax.swing.SwingUtilities;
 import main.main;
@@ -29,6 +32,7 @@ import repository.userRepository;
 import service.Auth;
 import util.Conn;
 import view.swing.validasiberhasil;
+import view.swing.validasigagal;
 import view.swing.validasikonfirmasi;
 
 
@@ -55,12 +59,41 @@ btnlogin.addKeyListener(new KeyAdapter() {
             }
         });
 
-        Font font = new Font("Quicksand", Font.PLAIN, 22);
+        Font font = new Font("Quicksand", Font.PLAIN, 18);
+        setHintText(inputpassword, "Input Password");
         inputusername.setFont(font);
         inputpassword.setFont(font);
+        inputusername.setForeground(Color.GRAY);
+        
     }
     public void ganti(){
         this.setVisible(false);
+    }
+    public static void setHintText(JPasswordField passwordField, String hintText) {
+        passwordField.setText(hintText);
+        passwordField.setEchoChar((char) 0);
+        passwordField.setForeground(Color.GRAY);// Set echo character to '*'
+        
+        passwordField.addFocusListener(new FocusAdapter() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                if (String.valueOf(passwordField.getPassword()).equals(hintText)) {
+                    passwordField.setEchoChar('*'); // Show '*' for hint text
+                    passwordField.setText("");
+                    passwordField.setForeground(Color.BLACK);
+                }
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                if (String.valueOf(passwordField.getPassword()).equals("")) {
+                    passwordField.setEchoChar((char) 0); // Show actual characters for input
+                    passwordField.setText(hintText);
+                    passwordField.setForeground(Color.GRAY);
+                    
+                }
+            }
+        });
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -81,6 +114,7 @@ btnlogin.addKeyListener(new KeyAdapter() {
         eye = new javax.swing.JLabel();
         btnlogout = new javax.swing.JLabel();
         bg = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
 
         password.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,12 +158,37 @@ btnlogin.addKeyListener(new KeyAdapter() {
 
         inputpassword.setBackground(new Color(0,0,0,0)
         );
+        inputpassword.setText("Input Password");
         inputpassword.setBorder(null);
+        inputpassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputpasswordActionPerformed(evt);
+            }
+        });
         add(inputpassword);
         inputpassword.setBounds(490, 390, 390, 40);
 
         inputusername.setBackground(new Color(0,0,0,0));
+        inputusername.setText("Input Username");
         inputusername.setBorder(null);
+        inputusername.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                inputusernameFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                inputusernameFocusLost(evt);
+            }
+        });
+        inputusername.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                inputusernameMouseClicked(evt);
+            }
+        });
+        inputusername.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputusernameActionPerformed(evt);
+            }
+        });
         add(inputusername);
         inputusername.setBounds(490, 310, 390, 40);
 
@@ -181,6 +240,10 @@ btnlogin.addKeyListener(new KeyAdapter() {
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/login form.png"))); // NOI18N
         add(bg);
         bg.setBounds(0, 0, 1370, 770);
+
+        jTextField1.setText("jTextField1");
+        add(jTextField1);
+        jTextField1.setBounds(390, 260, 71, 22);
     }// </editor-fold>//GEN-END:initComponents
 
     private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
@@ -219,7 +282,10 @@ btnlogin.addKeyListener(new KeyAdapter() {
         }
         
     }else{
-        System.out.println("gagal login");
+        main wow = (main)SwingUtilities.getWindowAncestor(this);
+            validasigagal aa = new validasigagal(wow,"Usename atau password salah");
+            aa.showPopUp(); 
+        
     }
     }//GEN-LAST:event_btnloginMouseClicked
 
@@ -284,6 +350,32 @@ btnlogin.addKeyListener(new KeyAdapter() {
         btnlogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebtn/btnlogout3.png")));
     }//GEN-LAST:event_btnlogoutMousePressed
 
+    private void inputusernameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_inputusernameFocusGained
+    if (inputusername.getText().equals("Input Username")) {
+                    inputusername.setText("");
+                    inputusername.setForeground(Color.BLACK);
+                }
+    }//GEN-LAST:event_inputusernameFocusGained
+
+    private void inputusernameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_inputusernameFocusLost
+    if (inputusername.getText().isEmpty()) {
+                    inputusername.setText("Input Username");
+                    inputusername.setForeground(Color.GRAY);
+                }
+    }//GEN-LAST:event_inputusernameFocusLost
+
+    private void inputpasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputpasswordActionPerformed
+        
+    }//GEN-LAST:event_inputpasswordActionPerformed
+
+    private void inputusernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputusernameActionPerformed
+        
+    }//GEN-LAST:event_inputusernameActionPerformed
+
+    private void inputusernameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inputusernameMouseClicked
+        
+    }//GEN-LAST:event_inputusernameMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bg;
@@ -293,6 +385,7 @@ btnlogin.addKeyListener(new KeyAdapter() {
     private javax.swing.JPasswordField inputpassword;
     private javax.swing.JTextField inputusername;
     private javax.swing.JButton jButton1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField password;
     private javax.swing.JLabel txtubahpass;
     private javax.swing.JTextField username;

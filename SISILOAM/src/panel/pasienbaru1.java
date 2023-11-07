@@ -13,6 +13,8 @@ import repository.data_masterRepository;
 
 import repository.datapasienbarusementara;
 import repository.pasienbaru_sementaraRepository;
+import view.swing.validasiberhasil;
+import view.swing.validasigagal;
 
 /**
  *
@@ -264,21 +266,13 @@ System.out.println(idterakhir);
 //int no = Integer.valueOf(txt_no_rm.getText());
         String nama = txt_nama_pasien.getText();
         String nikk = txt_nik.getText();
-        if(nikk.length() > 16) {
+        if(!(nikk.length() > 16)) {
           try {
     Long cek = Long.valueOf(txt_nik.getText());
     Long apaya = Long.valueOf(txt_nik.getText());
 
     if (apaya.equals(cek)) {
         nik = txt_nik.getText();
-    } else {
-        System.out.println("Data harus angka");
-    }
-} catch (NumberFormatException e) {
-    System.out.println("Data harus angka");
-}}else{
-            System.out.println("Maksimal input 16 angka");    
-        }
         String ttl = txt_ttl.getText();
         String alamat = txt_alamat.getText();
         Object selectedItem = cmd_jnk.getSelectedItem();   
@@ -294,14 +288,33 @@ System.out.println(idterakhir);
         System.out.println(jnk);
         pasienbaru_sementara aa = new pasienbaru_sementara(1, nama, nik, alamat, ttl, jnk, statusakhir);
         bb.update(aa);
+        main main =(main)SwingUtilities.getWindowAncestor(this);
+        this.setVisible(false);
+        main.showpasienbaru_pilihpoli();
+    } else {
+        main main =(main)SwingUtilities.getWindowAncestor(this);
+            validasigagal ac = new validasigagal(main, "Data NIK harus angka");
+            ac.showPopUp();
+        
+    }
+} catch (NumberFormatException e) {
+    main main =(main)SwingUtilities.getWindowAncestor(this);
+            validasigagal ac = new validasigagal(main, "Data NIK harus angka");
+            ac.showPopUp();
+    
+}}else{
+            main main =(main)SwingUtilities.getWindowAncestor(this);
+            validasigagal ac = new validasigagal(main, "Maksimal input NIK 16 angka");
+            ac.showPopUp();
+               
+        }
+        
 //        if (txt_no_rm.getText().equals("") || txt_nik.getText().equals("") || txt_alamat.getText().equals("") || txt_nama_pasien.getText().equals("") || txt_ttl.getText().equals("")) {
 //            System.out.println("isi data sek muas");
 //        } else {
 //            
 //        }
-        main main =(main)SwingUtilities.getWindowAncestor(this);
-        this.setVisible(false);
-        main.showpasienbaru_pilihpoli();
+        
     }//GEN-LAST:event_btn_lanjutMouseClicked
 
     private void btn_kembaliMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_kembaliMouseEntered

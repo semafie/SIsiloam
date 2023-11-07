@@ -102,6 +102,8 @@ public class pasienbaru_tambahdaftar extends javax.swing.JPanel {
         txt_nama.setFont(font);
         txt_dokter1.setFont(font);
         tanggal.setFont(font);
+        txt_jam.setFont(font);
+        txt_jenispoli.setFont(font);
         
         String idterakhir = String.valueOf(master.getlastid().getNo_rm());
 //        String apa11 = "99-20-30";
@@ -129,7 +131,7 @@ System.out.println(idterakhir);
 //        txt_id.setText(String.valueOf(apa.get(1).get));
         txt_nama.setText(apa.get(1).getNama());
         txt_alamat.setText(apa.get(1).getAlamat());
-        txt_nik.setText(String.valueOf(apa.get(1).getNik()));
+        txt_nik.setText(apa.get(1).getNik());
         nik = String.valueOf(apa.get(1).getNik());
         txt_ttl.setText(apa.get(1).getTtl());
         txt_jnk.setText(apa.get(1).getJenis_kelamin());
@@ -259,13 +261,13 @@ System.out.println(idterakhir);
         add(cmb_poli);
         cmb_poli.setBounds(570, 490, 290, 50);
         add(txt_nik);
-        txt_nik.setBounds(150, 360, 0, 0);
+        txt_nik.setBounds(150, 320, 60, 40);
         add(txt_alamat);
-        txt_alamat.setBounds(150, 360, 0, 0);
+        txt_alamat.setBounds(150, 320, 50, 40);
         add(txt_ttl);
-        txt_ttl.setBounds(150, 360, 0, 0);
+        txt_ttl.setBounds(150, 330, 40, 30);
         add(txt_jnk);
-        txt_jnk.setBounds(150, 360, 0, 0);
+        txt_jnk.setBounds(150, 310, 70, 50);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnkembaliMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnkembaliMouseClicked
@@ -284,7 +286,7 @@ System.out.println(idterakhir);
         try {
             
        
-        data_master keren = new data_master(autoID,apa.get(1).getNama(),apa.get(1).getNik(),apa.get(1).getAlamat(),apa.get(1).getTtl(),apa.get(1).getJenis_kelamin());
+        data_master keren = new data_master(txt_id.getText(),apa.get(1).getNama(),apa.get(1).getNik(),apa.get(1).getAlamat(),apa.get(1).getTtl(),apa.get(1).getJenis_kelamin(),apa.get(1).getStatus_pembayaran());
     master.add(keren);
     lastid = master.getlastid().getId();
     data_master masuk2 = new data_master(lastid);
@@ -317,7 +319,7 @@ System.out.println(idterakhir);
             idfinalrekap = gas.getlastid().getId();
 
         System.out.println(idfinalrekap);
-            InputStream struk = getClass().getResourceAsStream("/jasper_report/no_antrian.jrxml");
+            InputStream struk = getClass().getResourceAsStream("/jasper_report/no_antrian1.jrxml");
             String query = "SELECT * FROM rekap_harian join data_dokter on rekap_harian.id_dokter = data_dokter.id join data_master on rekap_harian.id_master = data_master.id WHERE rekap_harian.id = "+idfinalrekap;
 //        String path = "E:/SEMUA FOLDER/imam/kuliah/semester 3/joki/SIsiloam/SIsiloam/SISILOAM/src/jasper_report/no_antrian.jrxml";
 

@@ -26,6 +26,7 @@ import service.Auth;
 import util.Conn;
 import view.swing.dialog_mintakode;
 import view.swing.validasiberhasil;
+import view.swing.validasigagal;
 
 /**
  *
@@ -281,6 +282,9 @@ public void kirim()throws AddressException, MessagingException {
                             }
                     } catch (Exception e) {
                         System.out.println(e.getMessage().toString());
+                        main wow = (main)SwingUtilities.getWindowAncestor(this);
+                    validasigagal aa = new validasigagal(wow,"username tidak di temukan");
+                        aa.showPopUp(); 
                         System.out.println("gagall");
                     }
         
