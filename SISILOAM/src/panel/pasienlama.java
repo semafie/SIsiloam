@@ -107,11 +107,13 @@ public class pasienlama extends javax.swing.JPanel {
         searchlo = new javax.swing.JTextField();
         btnkembali = new javax.swing.JLabel();
         btnselanjutnya = new javax.swing.JLabel();
+        scrollBarCustom1 = new view.swing.ScrollBarCustom();
         bg = new javax.swing.JLabel();
 
         setLayout(null);
 
         jScrollPane1.setBorder(null);
+        jScrollPane1.setVerticalScrollBar(scrollBarCustom1);
 
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -180,6 +182,10 @@ public class pasienlama extends javax.swing.JPanel {
         add(btnselanjutnya);
         btnselanjutnya.setBounds(1110, 701, 250, 60);
 
+        scrollBarCustom1.setForeground(new java.awt.Color(0, 102, 102));
+        add(scrollBarCustom1);
+        scrollBarCustom1.setBounds(1290, 290, 8, 370);
+
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/bg pasien lama.png"))); // NOI18N
         add(bg);
         bg.setBounds(0, 0, 1366, 770);
@@ -245,6 +251,7 @@ public class pasienlama extends javax.swing.JPanel {
     private javax.swing.JLabel btnkembali;
     private javax.swing.JLabel btnselanjutnya;
     private javax.swing.JScrollPane jScrollPane1;
+    private view.swing.ScrollBarCustom scrollBarCustom1;
     private javax.swing.JTextField searchlo;
     private view.swing.Table table;
     // End of variables declaration//GEN-END:variables

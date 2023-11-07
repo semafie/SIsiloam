@@ -282,11 +282,13 @@ public class rekapharian1 extends javax.swing.JPanel {
         btncetak = new javax.swing.JLabel();
         text_search = new javax.swing.JTextField();
         ffff = new javax.swing.JLabel();
+        scrollBarCustom1 = new view.swing.ScrollBarCustom();
         bg = new javax.swing.JLabel();
 
         setLayout(null);
 
         jScrollPane1.setBorder(null);
+        jScrollPane1.setVerticalScrollBar(scrollBarCustom1);
 
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -355,6 +357,10 @@ public class rekapharian1 extends javax.swing.JPanel {
         add(ffff);
         ffff.setBounds(960, 140, 330, 55);
 
+        scrollBarCustom1.setForeground(new java.awt.Color(0, 102, 102));
+        add(scrollBarCustom1);
+        scrollBarCustom1.setBounds(1290, 200, 8, 400);
+
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/bg rekap harian.png"))); // NOI18N
         add(bg);
         bg.setBounds(0, 0, 1366, 770);
@@ -405,6 +411,7 @@ public class rekapharian1 extends javax.swing.JPanel {
     private javax.swing.JLabel btncetak;
     private javax.swing.JLabel ffff;
     private javax.swing.JScrollPane jScrollPane1;
+    private view.swing.ScrollBarCustom scrollBarCustom1;
     private view.swing.Table table;
     private javax.swing.JTextField text_search;
     // End of variables declaration//GEN-END:variables

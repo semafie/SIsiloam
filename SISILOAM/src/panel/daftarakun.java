@@ -72,12 +72,14 @@ public class daftarakun extends javax.swing.JPanel {
         btntambah = new javax.swing.JLabel();
         btnedit = new javax.swing.JLabel();
         btnhapus = new javax.swing.JLabel();
+        scrollBarCustom1 = new view.swing.ScrollBarCustom();
         bg = new javax.swing.JLabel();
 
         setLayout(null);
 
         jScrollPane1.setBackground(new java.awt.Color(255, 0, 204));
         jScrollPane1.setBorder(null);
+        jScrollPane1.setVerticalScrollBar(scrollBarCustom1);
 
         table.setBackground(new java.awt.Color(255, 204, 51));
         table.setModel(new javax.swing.table.DefaultTableModel(
@@ -181,6 +183,10 @@ public class daftarakun extends javax.swing.JPanel {
         add(btnhapus);
         btnhapus.setBounds(480, 150, 200, 70);
 
+        scrollBarCustom1.setForeground(new java.awt.Color(0, 102, 102));
+        add(scrollBarCustom1);
+        scrollBarCustom1.setBounds(1300, 270, 8, 370);
+
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/bg datamaster.png"))); // NOI18N
         add(bg);
         bg.setBounds(1, 2, 1370, 770);
@@ -282,6 +288,7 @@ public class daftarakun extends javax.swing.JPanel {
     private javax.swing.JLabel btnkeluar;
     private javax.swing.JLabel btntambah;
     private javax.swing.JScrollPane jScrollPane1;
+    private view.swing.ScrollBarCustom scrollBarCustom1;
     private view.swing.Table table;
     // End of variables declaration//GEN-END:variables
 }

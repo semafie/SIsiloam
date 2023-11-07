@@ -55,10 +55,12 @@ public class history_datamaster1 extends javax.swing.JPanel {
         table = new view.swing.Table();
         btnbatal = new javax.swing.JLabel();
         bg = new javax.swing.JLabel();
+        scrollBarCustom1 = new view.swing.ScrollBarCustom();
 
         setLayout(null);
 
         jScrollPane1.setBorder(null);
+        jScrollPane1.setVerticalScrollBar(scrollBarCustom1);
 
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -97,6 +99,10 @@ public class history_datamaster1 extends javax.swing.JPanel {
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/bg history_datamaster.png"))); // NOI18N
         add(bg);
         bg.setBounds(0, 0, 1366, 768);
+
+        scrollBarCustom1.setForeground(new java.awt.Color(0, 102, 102));
+        add(scrollBarCustom1);
+        scrollBarCustom1.setBounds(1290, 180, 8, 480);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnbatalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbatalMouseClicked
@@ -122,6 +128,7 @@ public class history_datamaster1 extends javax.swing.JPanel {
     private javax.swing.JLabel bg;
     private javax.swing.JLabel btnbatal;
     private javax.swing.JScrollPane jScrollPane1;
+    private view.swing.ScrollBarCustom scrollBarCustom1;
     private view.swing.Table table;
     // End of variables declaration//GEN-END:variables
 }

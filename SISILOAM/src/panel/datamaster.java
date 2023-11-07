@@ -132,6 +132,7 @@ public class datamaster extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         btnedit = new javax.swing.JLabel();
         btnhapus = new javax.swing.JLabel();
+        scrollBarCustom1 = new view.swing.ScrollBarCustom();
         bg = new javax.swing.JLabel();
 
         setLayout(null);
@@ -156,6 +157,7 @@ public class datamaster extends javax.swing.JPanel {
 
         jScrollPane2.setBackground(new java.awt.Color(227, 252, 246));
         jScrollPane2.setBorder(null);
+        jScrollPane2.setVerticalScrollBar(scrollBarCustom1);
 
         table.setBackground(new java.awt.Color(227, 252, 246));
         table.setModel(new javax.swing.table.DefaultTableModel(
@@ -229,6 +231,10 @@ public class datamaster extends javax.swing.JPanel {
         });
         add(btnhapus);
         btnhapus.setBounds(600, 145, 200, 60);
+
+        scrollBarCustom1.setForeground(new java.awt.Color(0, 102, 102));
+        add(scrollBarCustom1);
+        scrollBarCustom1.setBounds(1303, 260, 8, 380);
 
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/bg datamaster.png"))); // NOI18N
         add(bg);
@@ -354,6 +360,7 @@ public class datamaster extends javax.swing.JPanel {
     private javax.swing.JLabel btnkembali;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane2;
+    private view.swing.ScrollBarCustom scrollBarCustom1;
     private javax.swing.JTextField search;
     private view.swing.Table table;
     // End of variables declaration//GEN-END:variables

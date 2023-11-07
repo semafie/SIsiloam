@@ -74,11 +74,13 @@ public class datadokter extends javax.swing.JPanel {
         btntambah = new javax.swing.JLabel();
         btnedit = new javax.swing.JLabel();
         btnhapus = new javax.swing.JLabel();
+        scrollBarCustom1 = new view.swing.ScrollBarCustom();
         bg = new javax.swing.JLabel();
 
         setLayout(null);
 
         jScrollPane1.setBorder(null);
+        jScrollPane1.setVerticalScrollBar(scrollBarCustom1);
 
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -172,6 +174,10 @@ public class datadokter extends javax.swing.JPanel {
         });
         add(btnhapus);
         btnhapus.setBounds(480, 130, 200, 70);
+
+        scrollBarCustom1.setForeground(new java.awt.Color(0, 102, 102));
+        add(scrollBarCustom1);
+        scrollBarCustom1.setBounds(1310, 250, 10, 390);
 
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagebg/bg datamaster.png"))); // NOI18N
         add(bg);
@@ -274,6 +280,7 @@ public class datadokter extends javax.swing.JPanel {
     private javax.swing.JLabel btnkembali;
     private javax.swing.JLabel btntambah;
     private javax.swing.JScrollPane jScrollPane1;
+    private view.swing.ScrollBarCustom scrollBarCustom1;
     private view.swing.Table table;
     // End of variables declaration//GEN-END:variables
 }
