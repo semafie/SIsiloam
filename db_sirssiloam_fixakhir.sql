@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 07 Nov 2023 pada 04.14
+-- Waktu pembuatan: 13 Nov 2023 pada 08.51
 -- Versi server: 10.4.28-MariaDB
 -- Versi PHP: 8.2.4
 
@@ -126,6 +126,13 @@ CREATE TABLE `pasienbaru_sementara` (
   `status_pembayaran` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data untuk tabel `pasienbaru_sementara`
+--
+
+INSERT INTO `pasienbaru_sementara` (`id`, `nama`, `nik`, `alamat`, `ttl`, `jenis_kelamin`, `status_pembayaran`) VALUES
+(1, 'Debby Az Zahra', '3509214908040001', 'Srwirijiaya 45', 'Jember 9 ', 'perempuan', 'umum');
+
 -- --------------------------------------------------------
 
 --
@@ -219,7 +226,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `data_dokter`
 --
 ALTER TABLE `data_dokter`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT untuk tabel `data_master`
